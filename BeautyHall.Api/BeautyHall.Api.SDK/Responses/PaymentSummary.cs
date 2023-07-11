@@ -14,6 +14,7 @@ public class PaymentSummary
     public decimal? TotalCash { get; set; }
 
     public decimal? TotalPOS { get; set; }
+    public decimal? DiscountedPrice { get; set; }
 
     public DateTime? PaymentDate { get; set; }
 

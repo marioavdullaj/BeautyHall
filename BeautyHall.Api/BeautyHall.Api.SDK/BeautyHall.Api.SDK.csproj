@@ -8,9 +8,9 @@
     <Title>BeautyHall.API SDK</Title>
     <Description>A SDK for interfacing to the APIs of the BeautyHall app</Description>
     <PackageOutputPath>nuget\</PackageOutputPath>
-    <AssemblyVersion>1.0.10</AssemblyVersion>
-    <FileVersion>1.0.10</FileVersion>
-    <Version>1.0.10</Version>
+    <AssemblyVersion>1.0.11</AssemblyVersion>
+    <FileVersion>1.0.11</FileVersion>
+    <Version>1.0.11</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 

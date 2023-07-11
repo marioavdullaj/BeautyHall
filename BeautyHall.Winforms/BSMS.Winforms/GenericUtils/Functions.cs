@@ -14,7 +14,7 @@ namespace BSMS.Winforms.GenericUtils
         /// </summary>
         /// <param name="obj">oggetto da convertire</param>
         /// <returns></returns>
-        public static string NullToString(this object obj)
+        public static string NullToString(this object? obj)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace BSMS.Winforms.GenericUtils
         /// </summary>
         /// <param name="obj">oggetto da convertire</param>
         /// <returns></returns>
-        public static bool NullToBool(this object obj)
+        public static bool NullToBool(this object? obj)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace BSMS.Winforms.GenericUtils
         /// </summary>
         /// <param name="obj">oggetto da convertire</param>
         /// <returns></returns>
-        public static double NullToDouble(this object obj)
+        public static double NullToDouble(this object? obj)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace BSMS.Winforms.GenericUtils
         /// </summary>
         /// <param name="obj">oggetto da convertire</param>
         /// <returns></returns>
-        public static Int32 NullToInt(this object obj)
+        public static Int32 NullToInt(this object? obj)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace BSMS.Winforms.GenericUtils
         /// </summary>
         /// <param name="obj">oggetto da convertire</param>
         /// <returns></returns>
-        public static decimal NullToDecimal(this object obj)
+        public static decimal NullToDecimal(this object? obj)
         {
             try
             {

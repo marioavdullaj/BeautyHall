@@ -210,7 +210,12 @@ namespace BSMS.Winforms.Forms
             {
                 if (await SaveOrder(alertSaved: false))
                 {
-
+                    PaymentSummaryForm paymentSummaryForm = new(CurrentOrder);
+                    if(paymentSummaryForm.ShowDialog() == DialogResult.OK)
+                    {
+                        paymentButton.Enabled = false;
+                        paymentButton.ButtonStyle = BarButtonStyle.Check;
+                    }
                 }
             }
             catch (Exception ex)
