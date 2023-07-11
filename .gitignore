@@ -5,3 +5,12 @@ bin
 obj
 packages
 .vs
+/BeautyHall.Winforms/BSMS.Winforms/obj/BSMS.Winforms.csproj.nuget.dgspec.json
+/BeautyHall.Winforms/BSMS.Winforms/obj/BSMS.Winforms.csproj.nuget.g.props
+/BeautyHall.Winforms/BSMS.Winforms/obj/BSMS.Winforms.csproj.nuget.g.targets
+/BeautyHall.Winforms/BSMS.Winforms/obj/project.assets.json
+/BeautyHall.Winforms/BSMS.Winforms/obj/project.nuget.cache
+/BeautyHall.Winforms/BSMS.Winforms/obj/Debug/net6.0-windows/BSMS.Winforms.assets.cache
+/BeautyHall.Winforms/BSMS.Winforms/obj/Debug/net6.0-windows/BSMS.Winforms.csproj.AssemblyReference.cache
+/BeautyHall.Api/BeautyHall.Database/BeautyHall.Database.dbmdl
+/BeautyHall.Api/BeautyHall.Database/BeautyHall.Database.jfm
