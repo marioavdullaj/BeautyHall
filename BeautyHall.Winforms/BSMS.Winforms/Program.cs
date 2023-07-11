@@ -2,27 +2,35 @@ using BeautyHall.Api.SDK;
 using BeautyHall.Api.SDK.Interfaces;
 using BeautyHall.Api.SDK.Configuration;
 using DevExpress.LookAndFeel;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+
 namespace Demo
 {
     public static class Program
     {
-        public static IBeautyHallApiSDK ApiSdk = new BeautyHallApiSDK(new BeautyHallApiSDKConfiguration
-        {
-            BaseUrl = "http://localhost:5000/",
-            Timeout = 10000,
-            MaxRetry = 5
-        });
-        public static Login login;
+        public static IBeautyHallApiSDK ApiSdk = null!;
+        public static Login login = new();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main(string[] args)
         {
             ApplicationConfiguration.Initialize();
-            UserLookAndFeel.Default.SetSkinStyle("The Bezier", "Office Dark");
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: false).Build();
+            var baseUrl = config.GetValue<string>("Api:BaseUrl");
+            var dxSkinPalette = config.GetValue<string>("DXSkin:SkinPalette");
+            var dxPaletteName = config.GetValue<string>("DXSkin:PaletteName");
 
-            login = new Login();
+            UserLookAndFeel.Default.SetSkinStyle(dxSkinPalette, dxPaletteName);
+
+            ApiSdk = new BeautyHallApiSDK(new BeautyHallApiSDKConfiguration
+            {
+                 BaseUrl = baseUrl
+            });
+
             Application.Run(login);
         }
     }
