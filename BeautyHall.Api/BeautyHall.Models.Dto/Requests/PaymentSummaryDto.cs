@@ -17,6 +17,7 @@ namespace BeautyHall.Models.Dto.Requests
         [Required]
         public decimal TotalPrice { get; set; }
 
+        public decimal? DiscountedPrice { get; set; } = 0;
         public decimal? TotalCash { get; set; } = 0;
 
         public decimal? TotalPOS { get; set; } = 0;

@@ -38,7 +38,7 @@ namespace Demo.UserControls
             lookUpEdit1.Properties.DataSource = selectedService?.Employees;
 
             List<decimal?> priceRange = new();
-            for (decimal? i = selectedService?.ServiceMaximumPrice; i <= selectedService?.ServiceMaximumPrice; i++)
+            for (decimal? i = selectedService?.ServiceMinimumPrice; i <= selectedService?.ServiceMaximumPrice; i++)
                 priceRange.Add(i);
             lookUpEdit3.Properties.DataSource = priceRange;
             lookUpEdit3.EditValue = priceRange.FirstOrDefault();
@@ -46,7 +46,7 @@ namespace Demo.UserControls
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if(lookUpEdit2.EditValue is null)
+            if (lookUpEdit2.EditValue is null)
             {
                 XtraMessageBox.Show("Select a service", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -61,8 +61,10 @@ namespace Demo.UserControls
             ServiceAdded?.Invoke(this, new ServiceAddedArgs
             {
                 Service = selectedService
-                ,Employee = selectedEmployee
-                ,Price = Functions.NullToDecimal(lookUpEdit3.EditValue)
+                ,
+                Employee = selectedEmployee
+                ,
+                Price = Functions.NullToDecimal(lookUpEdit3.EditValue)
             });
 
             lookUpEdit1.EditValue = null;
@@ -72,8 +74,8 @@ namespace Demo.UserControls
     }
     public class ServiceAddedArgs : EventArgs
     {
-        public Service? Service { get;set; }
-        public Employee? Employee { get;set; }
+        public Service? Service { get; set; }
+        public Employee? Employee { get; set; }
         public decimal? Price { get; set; }
     }
 }

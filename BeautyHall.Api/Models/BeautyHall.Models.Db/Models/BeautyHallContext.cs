@@ -158,6 +158,7 @@ public partial class BeautyHallContext : DbContext
             entity.Property(e => e.PaymentDate).HasColumnType("datetime");
             entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.TotalCash).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.DiscountedPrice).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.TotalPOS)
                 .HasColumnType("decimal(18, 2)")
                 .HasColumnName("TotalPOS");

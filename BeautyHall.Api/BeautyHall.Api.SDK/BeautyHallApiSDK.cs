@@ -23,6 +23,7 @@ namespace BeautyHall.Api.SDK
                     BaseAddress = new Uri(Cfg.BaseUrl),
                     Timeout = TimeSpan.FromMilliseconds(Cfg.Timeout)
                 };
+                Client.DefaultRequestHeaders.Add("Accept", "*/*");
             }
         }
         private string GetEnumDescription(Enum enumType)
@@ -62,7 +63,13 @@ namespace BeautyHall.Api.SDK
                     }
                     else if (method == HttpMethod.Delete)
                     {
-                        response = await Client.DeleteAsync(uri);
+                        var request = new HttpRequestMessage
+                        {
+                            Method = HttpMethod.Delete,
+                            RequestUri = uri,
+                            Content = stringContent
+                        };
+                        response = await Client.SendAsync(request);
                     }
                     else if (method == HttpMethod.Get)
                     {
@@ -92,7 +99,8 @@ namespace BeautyHall.Api.SDK
         {
             try
             {
-                var stringContent = method == HttpMethod.Get ? null : new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+                var json = JsonConvert.SerializeObject(request);
+                var stringContent = method == HttpMethod.Get ? null : new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await SendAsync(method, uri, stringContent);
                 if (response == null || response.Content == null || !response.IsSuccessStatusCode)
                     return default;

@@ -11,6 +11,7 @@ public partial class PaymentSummary
 
     public decimal TotalPrice { get; set; }
 
+    public decimal? DiscountedPrice { get; set; }
     public decimal? TotalCash { get; set; }
 
     public decimal? TotalPOS { get; set; }

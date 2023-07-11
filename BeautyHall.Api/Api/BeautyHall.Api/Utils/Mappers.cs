@@ -136,6 +136,7 @@ namespace BeautyHall.Api.DB.Utils
                 PaymentId = item.PaymentId,
                 OrderId = item.OrderId,
                 TotalCash = item.TotalCash,
+                DiscountedPrice = item.DiscountedPrice,
                 TotalPOS = item.TotalPOS,
                 TotalPrice = item.TotalPrice,
                 PaymentDate = item.PaymentDate

@@ -6,22 +6,84 @@ using Demo.UserControls;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
 using BSMS.Winforms.UserControls;
+using System.Data;
+using BSMS.Winforms.Models;
 
 namespace BSMS.Winforms.Forms
 {
     public partial class OrderForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private IEnumerable<Category>? categories;
-        private OrderDto CurrentOrder;
-        private List<OrderService> ServiceToAdd = new();
+        private IEnumerable<Subject>? subjects;
+        private Order? CurrentOrder;
         public OrderForm()
         {
             InitializeComponent();
         }
 
+        protected override void WndProc(ref Message message)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int SC_MOVE = 0xF010;
+            const int SC_MAXIMIZE = 0xF030;
+            const int SC_MINIMIZE = 0xF020;
+
+            switch (message.Msg)
+            {
+                case WM_SYSCOMMAND:
+                    int command = message.WParam.ToInt32() & 0xfff0;
+                    if (command == SC_MOVE || command == SC_MAXIMIZE || command == SC_MINIMIZE)
+                        return;
+                    break;
+            }
+
+            base.WndProc(ref message);
+        }
+
+        private void EnableOrderButtons(bool enable)
+        {
+            OrderHeaderPanel.Enabled = enable;
+            saveOrderButton.Enabled = enable;
+            cancelOrderButton.Enabled = enable;
+            printButton.Enabled = enable;
+            paymentButton.Enabled = enable;
+        }
+
         private async void OrderForm_Load(object sender, EventArgs e)
         {
-            categories = await Program.ApiSdk.GetCategories();
+            EnableOrderButtons(false);
+            try
+            {
+                categories = await Program.ApiSdk.GetCategories();
+                subjects = await Program.ApiSdk.GetSubjects();
+
+                if (subjects != null)
+                {
+                    var clients = subjects.Where(x => x.SubjectType == 0).Select(x => new Customer
+                    {
+                        Id = x.SubjectId,
+                        FullName = $"{x.SubjectName} {x.SubjectLastName}",
+                        PhoneNumber = x.PhoneNumber,
+                        Email = x.Email
+                    });
+
+                    lookUpEdit1.Properties.DisplayMember = "FullName";
+                    lookUpEdit1.Properties.ValueMember = "Id";
+                    lookUpEdit1.Properties.DataSource = clients;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            var selectedCustomer = subjects?.Where(x => x.SubjectId == Convert.ToInt32(lookUpEdit1.EditValue)).FirstOrDefault();
+            Text = $"{selectedCustomer?.SubjectName} {selectedCustomer?.SubjectLastName} "
+                + (selectedCustomer != null ? "|" : "") 
+                + $" {dateEdit1.DateTime:dd/MM/yyyy}";
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -41,11 +103,8 @@ namespace BSMS.Winforms.Forms
                     return;
                 }
 
-                CurrentOrder = new()
-                {
-                    OrderId = order.OrderId,
-                    OrderDate = order.OrderDate
-                };
+                CurrentOrder = order;
+                CurrentOrder.OrderServices = new List<OrderService>();
                 UpdateControls();
 
                 // Add all services addable into the order
@@ -54,8 +113,9 @@ namespace BSMS.Winforms.Forms
                 {
                     var categoryControl = new CategoryControl(category);
                     categoryControl.ServiceAdded += ServiceAdded_Handler;
-                    ServicesFlowLayout.AddControl(categoryControl);
+                    ServicesFlowPanel.AddControl(categoryControl);
                 }
+                EnableOrderButtons(true);
             }
             catch (Exception ex)
             {
@@ -69,18 +129,20 @@ namespace BSMS.Winforms.Forms
             {
                 var added = new OrderService
                 {
-                    OrderId = CurrentOrder.OrderId,
+                    OrderId = CurrentOrder?.OrderId??0,
                     Service = args.Service,
+                    ServiceId = args.Service?.ServiceId ?? 0,
                     Employee = args.Employee,
+                    EmployeeId = args.Employee?.EmployeeId ?? 0,
                     ServicePrice = args.Price ?? 0
                 };
 
-                ServiceToAdd.Add(added);
-                var addedServiceControl = new AddedServiceControl(added);
+                ((List<OrderService>)CurrentOrder.OrderServices).Add(added);
+                var addedServiceControl = new OrderServiceControl(added, deletable: true);
                 addedServiceControl.ServiceRemoved += ServiceRemoved_Handler;
                 AddedServicesFlowLayout.AddControl(addedServiceControl);
 
-                servicesInOrderLabel.Text = $"Services in Order. Total: {ServiceToAdd.Sum(x => x.ServicePrice)} €";
+                servicesInOrderLabel.Text = $"Services in Order. Total: {CurrentOrder.OrderServices.Sum(x => x.ServicePrice)} €";
             }
             catch (Exception ex)
             {
@@ -93,14 +155,20 @@ namespace BSMS.Winforms.Forms
             try
             {
                 if (e == null || e.OrderService == null) return;
-                var toRemove = AddedServicesFlowLayout.Controls.Cast<AddedServiceControl>().Where(x => x.OrderService == e.OrderService).FirstOrDefault();
+                var toRemove = AddedServicesFlowLayout.Controls.Cast<OrderServiceControl>().Where(x => x.OrderService == e.OrderService).FirstOrDefault();
                 if (toRemove != null)
                 {
                     AddedServicesFlowLayout.Controls.Remove(toRemove);
-                    ServiceToAdd.Remove(e.OrderService);
+                    var orderServices = CurrentOrder?.OrderServices.ToList();
+                    var serviceToRemove = orderServices?.Where(x => x.ServiceId == e.OrderService.ServiceId).FirstOrDefault();
+                    if (serviceToRemove != null)
+                        orderServices?.Remove(serviceToRemove);
+
+                    if(CurrentOrder != null)
+                        CurrentOrder.OrderServices = orderServices;
                 }
 
-                servicesInOrderLabel.Text = $"Services in Order. Total: {ServiceToAdd.Sum(x => x.ServicePrice)} €";
+                servicesInOrderLabel.Text = $"Services in Order. Total: {CurrentOrder?.OrderServices?.Sum(x => x.ServicePrice)} €";
             }
             catch (Exception ex)
             {
@@ -114,6 +182,7 @@ namespace BSMS.Winforms.Forms
             {
                 textEdit1.Text = $"ORDER_{CurrentOrder.OrderId}";
                 dateEdit1.EditValue = CurrentOrder.OrderDate;
+                memoEdit1.EditValue = CurrentOrder.Notes;
             }
         }
 
@@ -134,5 +203,71 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private async void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (await SaveOrder(alertSaved: false))
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task<bool> SaveOrder(bool alertSaved = true)
+        {
+            try
+            {
+                var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lookUpEdit1.EditValue)).FirstOrDefault();
+                if (selectedCustomer == null)
+                {
+                    XtraMessageBox.Show("Select customer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                var updateOrder = new OrderDto
+                {
+                    OrderId = CurrentOrder?.OrderId??0,
+                    CustomerId = selectedCustomer.SubjectId,
+                    Notes = memoEdit1.Text,
+                    OrderDate = dateEdit1.DateTime,
+                    Services = CurrentOrder?.OrderServices?.Select(x => new OrderServiceDto
+                    {
+                        EmployeeId = x.EmployeeId,
+                        ServiceId = x.ServiceId,
+                        ServicePrice = x.ServicePrice,
+                        OrderId = CurrentOrder.OrderId
+                    })
+                };
+
+                var savedOrder = await Program.ApiSdk.UpsertOrder(updateOrder);
+                if (savedOrder == null)
+                {
+                    XtraMessageBox.Show("Error during the update of the order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else
+                {
+                    if (alertSaved)
+                        XtraMessageBox.Show("Order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                CurrentOrder = savedOrder;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return true;
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
+
+        private async void saveOrderButton_ItemClick(object sender, ItemClickEventArgs e) => await SaveOrder();
     }
 }

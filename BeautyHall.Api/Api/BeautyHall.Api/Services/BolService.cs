@@ -125,24 +125,38 @@ namespace BeautyHall.Api.DB.Services
 
         public Order? UpSertOrder(OrderDto data)
         {
-            Order order = null;
-            var preparationOrder = Mappers.Map(data);
+            Order order = Mappers.Map(data);
 
             using (var scope = new TransactionScope())
             {
                 try
                 {
-                    if (DbService.UpSert(preparationOrder))
+                    if (DbService.UpSert(order))
                     {
-                        if (data.Services != null && data.Services.Any())
+                        if (data.Services != null)
                         {
                             var orderServices = data.Services.Select(x => new OrderService
                             {
                                 ServiceId = x.ServiceId,
                                 EmployeeId = x.EmployeeId,
-                                OrderId = preparationOrder.OrderId,
+                                OrderId = order.OrderId,
                                 ServicePrice = x.ServicePrice
                             });
+
+                            // get current order's services
+                            var searchOrders = DbService.Search<Order>(new List<FilterSetting>
+                            {
+                                new FilterSetting{ Comparisation = ECompareType.Equal, Key = "OrderId", Value = data.OrderId }
+                            });
+                            if(searchOrders != null && searchOrders.Count() == 1)
+                            {
+                                order = (searchOrders as IEnumerable<Order>).First();
+                                var currentOrderServices = order.OrderServices.ToList();
+                                var servicesToRemove = currentOrderServices.Where(x => !orderServices.Any(y => y.ServiceId == x.ServiceId));
+                                if (servicesToRemove != null)
+                                    foreach (var service in servicesToRemove)
+                                        DbService.Delete<OrderService>(service);
+                            }
 
                             foreach (var os in orderServices)
                             {
@@ -160,7 +174,7 @@ namespace BeautyHall.Api.DB.Services
                 }
             }
 
-            return preparationOrder;
+            return order;
         }
 
         public bool DeleteOrder(int orderId)
@@ -276,7 +290,7 @@ namespace BeautyHall.Api.DB.Services
 
                 var totalCash = payments.Sum(x => x.TotalCash);
                 var totalCashNet = totalCash - dailyCosts;
-                var totalGross = payments.Sum(x => x.TotalPrice);
+                var totalGross = payments.Sum(x => x.DiscountedPrice > 0 ? x.DiscountedPrice??0 : x.TotalPrice);
                 var totalNet = totalGross - dailyCosts;
                 var totalPos = payments.Sum(x => x.TotalPOS);
 

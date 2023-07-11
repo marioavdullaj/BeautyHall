@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nqqnbZvGFjRzcy4bNvPXuwvYyPaDXKaP1I2qHPkI/HP8kgNvTqKjrwEJjtxYRBdgWygHkWrg5uOlMnBRNPtjHw==",
+  "dgSpecHash": "YVydHIcGXjXEqaEpJLTcRUvplIhn8TIXp7AdcQMTLrjRwIljtUchysJNI/OguTMRFGKzHjcdqoQyB10q/xB80w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MarioAvdullaj\\Desktop\\PersonalProject\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj",
+  "projectFilePath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

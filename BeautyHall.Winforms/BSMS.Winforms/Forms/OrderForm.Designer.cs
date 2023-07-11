@@ -30,52 +30,42 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            Print = new DevExpress.XtraBars.BarButtonItem();
+            addOrderButton = new DevExpress.XtraBars.BarButtonItem();
+            cancelOrderButton = new DevExpress.XtraBars.BarButtonItem();
+            paymentButton = new DevExpress.XtraBars.BarButtonItem();
+            printButton = new DevExpress.XtraBars.BarButtonItem();
+            closeButton = new DevExpress.XtraBars.BarButtonItem();
+            saveOrderButton = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            OrderHeaderPanel = new DevExpress.XtraEditors.PanelControl();
+            labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            labelControl4 = new DevExpress.XtraEditors.LabelControl();
             memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            ServicesFlowLayout = new FlowLayoutPanel();
+            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            labelControl2 = new DevExpress.XtraEditors.LabelControl();
             AddedServicesFlowLayout = new FlowLayoutPanel();
             panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            ServicesFlowPanel = new FlowLayoutPanel();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             panelControl5 = new DevExpress.XtraEditors.PanelControl();
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
             servicesInOrderLabel = new DevExpress.XtraEditors.LabelControl();
+            xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
-            panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
-            layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).BeginInit();
+            OrderHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)buttonEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)emptySpaceItem2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl4).BeginInit();
             panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
@@ -84,242 +74,243 @@
             panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
             panelControl3.SuspendLayout();
+            xtraScrollableControl1.SuspendLayout();
             SuspendLayout();
             // 
             // ribbon
             // 
+            ribbon.EmptyAreaImageOptions.ImagePadding = new Padding(26, 24, 26, 24);
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, barButtonItem3, Print });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, addOrderButton, cancelOrderButton, paymentButton, printButton, closeButton, saveOrderButton });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 5;
+            ribbon.Margin = new Padding(3, 2, 3, 2);
+            ribbon.MaxItemId = 8;
             ribbon.Name = "ribbon";
+            ribbon.OptionsMenuMinWidth = 283;
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
-            ribbon.Size = new Size(1278, 193);
-            ribbon.StatusBar = ribbonStatusBar;
+            ribbon.Size = new Size(1095, 158);
             // 
-            // barButtonItem1
+            // addOrderButton
             // 
-            barButtonItem1.Caption = "Add Order";
-            barButtonItem1.Id = 1;
-            barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
-            barButtonItem1.Name = "barButtonItem1";
-            barButtonItem1.ItemClick += barButtonItem1_ItemClick;
+            addOrderButton.Caption = "Add Order";
+            addOrderButton.Id = 1;
+            addOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("addOrderButton.ImageOptions.SvgImage");
+            addOrderButton.Name = "addOrderButton";
+            addOrderButton.ItemClick += barButtonItem1_ItemClick;
             // 
-            // barButtonItem2
+            // cancelOrderButton
             // 
-            barButtonItem2.Caption = "Cancel Order";
-            barButtonItem2.Id = 2;
-            barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
-            barButtonItem2.Name = "barButtonItem2";
-            barButtonItem2.ItemClick += barButtonItem2_ItemClick;
+            cancelOrderButton.Caption = "Cancel Order";
+            cancelOrderButton.Id = 2;
+            cancelOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("cancelOrderButton.ImageOptions.SvgImage");
+            cancelOrderButton.Name = "cancelOrderButton";
+            cancelOrderButton.ItemClick += barButtonItem2_ItemClick;
             // 
-            // barButtonItem3
+            // paymentButton
             // 
-            barButtonItem3.Caption = "Payment";
-            barButtonItem3.Id = 3;
-            barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
-            barButtonItem3.Name = "barButtonItem3";
+            paymentButton.Caption = "Payment";
+            paymentButton.Id = 3;
+            paymentButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("paymentButton.ImageOptions.SvgImage");
+            paymentButton.Name = "paymentButton";
+            paymentButton.ItemClick += barButtonItem3_ItemClick;
             // 
-            // Print
+            // printButton
             // 
-            Print.Caption = "Save as file";
-            Print.Id = 4;
-            Print.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("Print.ImageOptions.SvgImage");
-            Print.Name = "Print";
+            printButton.Caption = "Save as file";
+            printButton.Id = 4;
+            printButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("printButton.ImageOptions.SvgImage");
+            printButton.Name = "printButton";
+            // 
+            // closeButton
+            // 
+            closeButton.Caption = "Close";
+            closeButton.Id = 5;
+            closeButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("closeButton.ImageOptions.SvgImage");
+            closeButton.Name = "closeButton";
+            closeButton.ItemClick += barButtonItem4_ItemClick;
+            // 
+            // saveOrderButton
+            // 
+            saveOrderButton.Caption = "Save Order";
+            saveOrderButton.Id = 6;
+            saveOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("saveOrderButton.ImageOptions.SvgImage");
+            saveOrderButton.Name = "saveOrderButton";
+            saveOrderButton.ItemClick += saveOrderButton_ItemClick;
             // 
             // ribbonPage1
             // 
-            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2 });
+            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2, ribbonPageGroup3 });
             ribbonPage1.Name = "ribbonPage1";
             ribbonPage1.Text = "Order";
             // 
             // ribbonPageGroup1
             // 
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem2);
+            ribbonPageGroup1.ItemLinks.Add(addOrderButton);
+            ribbonPageGroup1.ItemLinks.Add(saveOrderButton);
+            ribbonPageGroup1.ItemLinks.Add(cancelOrderButton);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPageGroup2
             // 
-            ribbonPageGroup2.ItemLinks.Add(barButtonItem3);
-            ribbonPageGroup2.ItemLinks.Add(Print);
+            ribbonPageGroup2.ItemLinks.Add(paymentButton);
+            ribbonPageGroup2.ItemLinks.Add(printButton);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
-            // ribbonStatusBar
+            // ribbonPageGroup3
             // 
-            ribbonStatusBar.Location = new Point(0, 616);
-            ribbonStatusBar.Name = "ribbonStatusBar";
-            ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new Size(1278, 33);
+            ribbonPageGroup3.ItemLinks.Add(closeButton);
+            ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
-            // panelControl1
+            // OrderHeaderPanel
             // 
-            panelControl1.Controls.Add(layoutControl1);
-            panelControl1.Dock = DockStyle.Top;
-            panelControl1.Location = new Point(0, 193);
-            panelControl1.Name = "panelControl1";
-            panelControl1.Size = new Size(1278, 116);
-            panelControl1.TabIndex = 2;
+            OrderHeaderPanel.Controls.Add(labelControl5);
+            OrderHeaderPanel.Controls.Add(labelControl4);
+            OrderHeaderPanel.Controls.Add(memoEdit1);
+            OrderHeaderPanel.Controls.Add(dateEdit1);
+            OrderHeaderPanel.Controls.Add(lookUpEdit1);
+            OrderHeaderPanel.Controls.Add(labelControl3);
+            OrderHeaderPanel.Controls.Add(textEdit1);
+            OrderHeaderPanel.Controls.Add(labelControl2);
+            OrderHeaderPanel.Dock = DockStyle.Top;
+            OrderHeaderPanel.Location = new Point(0, 158);
+            OrderHeaderPanel.Margin = new Padding(3, 2, 3, 2);
+            OrderHeaderPanel.Name = "OrderHeaderPanel";
+            OrderHeaderPanel.Size = new Size(1095, 94);
+            OrderHeaderPanel.TabIndex = 2;
             // 
-            // layoutControl1
+            // labelControl5
             // 
-            layoutControl1.Controls.Add(textEdit1);
-            layoutControl1.Controls.Add(dateEdit1);
-            layoutControl1.Controls.Add(buttonEdit1);
-            layoutControl1.Controls.Add(memoEdit1);
-            layoutControl1.Dock = DockStyle.Fill;
-            layoutControl1.Location = new Point(2, 2);
-            layoutControl1.Name = "layoutControl1";
-            layoutControl1.Root = Root;
-            layoutControl1.Size = new Size(1274, 112);
-            layoutControl1.TabIndex = 0;
-            layoutControl1.Text = "layoutControl1";
+            labelControl5.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl5.Appearance.Options.UseFont = true;
+            labelControl5.Location = new Point(553, 14);
+            labelControl5.Name = "labelControl5";
+            labelControl5.Size = new Size(32, 16);
+            labelControl5.TabIndex = 7;
+            labelControl5.Text = "Notes";
             // 
-            // textEdit1
+            // labelControl4
             // 
-            textEdit1.Location = new Point(119, 12);
-            textEdit1.MenuManager = ribbon;
-            textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(474, 22);
-            textEdit1.StyleController = layoutControl1;
-            textEdit1.TabIndex = 0;
+            labelControl4.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl4.Appearance.Options.UseFont = true;
+            labelControl4.Location = new Point(237, 51);
+            labelControl4.Name = "labelControl4";
+            labelControl4.Size = new Size(63, 16);
+            labelControl4.TabIndex = 6;
+            labelControl4.Text = "Order Date";
+            // 
+            // memoEdit1
+            // 
+            memoEdit1.Location = new Point(607, 11);
+            memoEdit1.MenuManager = ribbon;
+            memoEdit1.Name = "memoEdit1";
+            memoEdit1.Size = new Size(200, 58);
+            memoEdit1.TabIndex = 5;
             // 
             // dateEdit1
             // 
             dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(119, 38);
+            dateEdit1.Location = new Point(318, 50);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
             dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new Size(474, 22);
-            dateEdit1.StyleController = layoutControl1;
-            dateEdit1.TabIndex = 1;
+            dateEdit1.Size = new Size(187, 20);
+            dateEdit1.TabIndex = 4;
             // 
-            // buttonEdit1
+            // lookUpEdit1
             // 
-            buttonEdit1.Location = new Point(119, 64);
-            buttonEdit1.MenuManager = ribbon;
-            buttonEdit1.Name = "buttonEdit1";
-            buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
-            buttonEdit1.Size = new Size(474, 22);
-            buttonEdit1.StyleController = layoutControl1;
-            buttonEdit1.TabIndex = 4;
+            lookUpEdit1.Location = new Point(318, 12);
+            lookUpEdit1.MenuManager = ribbon;
+            lookUpEdit1.Name = "lookUpEdit1";
+            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEdit1.Properties.NullText = "Select Customer";
+            lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
+            lookUpEdit1.Size = new Size(187, 20);
+            lookUpEdit1.TabIndex = 3;
+            lookUpEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
+            dateEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
             // 
-            // memoEdit1
+            // labelControl3
             // 
-            memoEdit1.Location = new Point(761, 12);
-            memoEdit1.MenuManager = ribbon;
-            memoEdit1.Name = "memoEdit1";
-            memoEdit1.Size = new Size(501, 56);
-            memoEdit1.StyleController = layoutControl1;
-            memoEdit1.TabIndex = 2;
+            labelControl3.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl3.Appearance.Options.UseFont = true;
+            labelControl3.Location = new Point(237, 14);
+            labelControl3.Name = "labelControl3";
+            labelControl3.Size = new Size(55, 16);
+            labelControl3.TabIndex = 2;
+            labelControl3.Text = "Customer";
             // 
-            // Root
+            // textEdit1
             // 
-            Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem3, emptySpaceItem1, layoutControlItem4, emptySpaceItem2 });
-            Root.Name = "Root";
-            Root.Size = new Size(1274, 112);
-            Root.TextVisible = false;
+            textEdit1.Enabled = false;
+            textEdit1.Location = new Point(84, 13);
+            textEdit1.MenuManager = ribbon;
+            textEdit1.Name = "textEdit1";
+            textEdit1.Size = new Size(109, 20);
+            textEdit1.TabIndex = 1;
             // 
-            // layoutControlItem1
+            // labelControl2
             // 
-            layoutControlItem1.Control = textEdit1;
-            layoutControlItem1.Enabled = false;
-            layoutControlItem1.Location = new Point(0, 0);
-            layoutControlItem1.Name = "layoutControlItem1";
-            layoutControlItem1.Size = new Size(585, 26);
-            layoutControlItem1.Text = "Document ID";
-            layoutControlItem1.TextSize = new Size(95, 16);
-            // 
-            // layoutControlItem2
-            // 
-            layoutControlItem2.Control = dateEdit1;
-            layoutControlItem2.Location = new Point(0, 26);
-            layoutControlItem2.Name = "layoutControlItem2";
-            layoutControlItem2.Size = new Size(585, 26);
-            layoutControlItem2.Text = "Order Date";
-            layoutControlItem2.TextSize = new Size(95, 16);
-            // 
-            // layoutControlItem3
-            // 
-            layoutControlItem3.Control = buttonEdit1;
-            layoutControlItem3.Location = new Point(0, 52);
-            layoutControlItem3.Name = "layoutControlItem3";
-            layoutControlItem3.Size = new Size(585, 40);
-            layoutControlItem3.Text = "Customer          ";
-            layoutControlItem3.TextSize = new Size(95, 16);
-            // 
-            // emptySpaceItem1
-            // 
-            emptySpaceItem1.AllowHotTrack = false;
-            emptySpaceItem1.Location = new Point(642, 60);
-            emptySpaceItem1.Name = "emptySpaceItem1";
-            emptySpaceItem1.Size = new Size(612, 32);
-            emptySpaceItem1.TextSize = new Size(0, 0);
-            // 
-            // layoutControlItem4
-            // 
-            layoutControlItem4.Control = memoEdit1;
-            layoutControlItem4.Location = new Point(642, 0);
-            layoutControlItem4.Name = "layoutControlItem4";
-            layoutControlItem4.Size = new Size(612, 60);
-            layoutControlItem4.Text = "Notes";
-            layoutControlItem4.TextSize = new Size(95, 16);
-            // 
-            // emptySpaceItem2
-            // 
-            emptySpaceItem2.AllowHotTrack = false;
-            emptySpaceItem2.Location = new Point(585, 0);
-            emptySpaceItem2.Name = "emptySpaceItem2";
-            emptySpaceItem2.Size = new Size(57, 92);
-            emptySpaceItem2.TextSize = new Size(0, 0);
-            // 
-            // ServicesFlowLayout
-            // 
-            ServicesFlowLayout.Dock = DockStyle.Fill;
-            ServicesFlowLayout.Location = new Point(2, 57);
-            ServicesFlowLayout.Name = "ServicesFlowLayout";
-            ServicesFlowLayout.Size = new Size(753, 248);
-            ServicesFlowLayout.TabIndex = 0;
+            labelControl2.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl2.Appearance.Options.UseFont = true;
+            labelControl2.Location = new Point(21, 14);
+            labelControl2.Name = "labelControl2";
+            labelControl2.Size = new Size(45, 16);
+            labelControl2.TabIndex = 0;
+            labelControl2.Text = "OrderID";
             // 
             // AddedServicesFlowLayout
             // 
+            AddedServicesFlowLayout.AutoScroll = true;
             AddedServicesFlowLayout.Dock = DockStyle.Fill;
             AddedServicesFlowLayout.FlowDirection = FlowDirection.TopDown;
-            AddedServicesFlowLayout.Location = new Point(2, 57);
+            AddedServicesFlowLayout.Location = new Point(2, 47);
+            AddedServicesFlowLayout.Margin = new Padding(3, 2, 3, 2);
             AddedServicesFlowLayout.Name = "AddedServicesFlowLayout";
-            AddedServicesFlowLayout.Size = new Size(517, 248);
+            AddedServicesFlowLayout.Padding = new Padding(5);
+            AddedServicesFlowLayout.Size = new Size(373, 226);
             AddedServicesFlowLayout.TabIndex = 0;
             // 
             // panelControl4
             // 
-            panelControl4.Controls.Add(ServicesFlowLayout);
+            panelControl4.Controls.Add(ServicesFlowPanel);
             panelControl4.Controls.Add(panelControl2);
-            panelControl4.Dock = DockStyle.Left;
-            panelControl4.Location = new Point(0, 309);
+            panelControl4.Dock = DockStyle.Fill;
+            panelControl4.Location = new Point(0, 0);
+            panelControl4.Margin = new Padding(3, 2, 3, 2);
             panelControl4.Name = "panelControl4";
-            panelControl4.Size = new Size(757, 307);
+            panelControl4.Size = new Size(718, 275);
             panelControl4.TabIndex = 6;
+            // 
+            // ServicesFlowPanel
+            // 
+            ServicesFlowPanel.AutoScroll = true;
+            ServicesFlowPanel.Dock = DockStyle.Fill;
+            ServicesFlowPanel.Location = new Point(2, 47);
+            ServicesFlowPanel.Name = "ServicesFlowPanel";
+            ServicesFlowPanel.Padding = new Padding(10);
+            ServicesFlowPanel.Size = new Size(714, 226);
+            ServicesFlowPanel.TabIndex = 3;
             // 
             // panelControl2
             // 
             panelControl2.Controls.Add(labelControl1);
             panelControl2.Dock = DockStyle.Top;
             panelControl2.Location = new Point(2, 2);
+            panelControl2.Margin = new Padding(3, 2, 3, 2);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(753, 55);
+            panelControl2.Size = new Size(714, 45);
             panelControl2.TabIndex = 2;
             // 
             // labelControl1
             // 
             labelControl1.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new Point(12, 15);
+            labelControl1.Location = new Point(10, 12);
+            labelControl1.Margin = new Padding(3, 2, 3, 2);
             labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(178, 28);
+            labelControl1.Size = new Size(138, 22);
             labelControl1.TabIndex = 0;
             labelControl1.Text = "Available Services";
             // 
@@ -327,10 +318,11 @@
             // 
             panelControl5.Controls.Add(AddedServicesFlowLayout);
             panelControl5.Controls.Add(panelControl3);
-            panelControl5.Dock = DockStyle.Fill;
-            panelControl5.Location = new Point(757, 309);
+            panelControl5.Dock = DockStyle.Right;
+            panelControl5.Location = new Point(718, 0);
+            panelControl5.Margin = new Padding(3, 2, 3, 2);
             panelControl5.Name = "panelControl5";
-            panelControl5.Size = new Size(521, 307);
+            panelControl5.Size = new Size(377, 275);
             panelControl5.TabIndex = 7;
             // 
             // panelControl3
@@ -338,52 +330,54 @@
             panelControl3.Controls.Add(servicesInOrderLabel);
             panelControl3.Dock = DockStyle.Top;
             panelControl3.Location = new Point(2, 2);
+            panelControl3.Margin = new Padding(3, 2, 3, 2);
             panelControl3.Name = "panelControl3";
-            panelControl3.Size = new Size(517, 55);
+            panelControl3.Size = new Size(373, 45);
             panelControl3.TabIndex = 2;
             // 
             // servicesInOrderLabel
             // 
             servicesInOrderLabel.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             servicesInOrderLabel.Appearance.Options.UseFont = true;
-            servicesInOrderLabel.Location = new Point(15, 15);
+            servicesInOrderLabel.Location = new Point(13, 12);
+            servicesInOrderLabel.Margin = new Padding(3, 2, 3, 2);
             servicesInOrderLabel.Name = "servicesInOrderLabel";
-            servicesInOrderLabel.Size = new Size(171, 28);
+            servicesInOrderLabel.Size = new Size(133, 22);
             servicesInOrderLabel.TabIndex = 1;
             servicesInOrderLabel.Text = "Services in Order";
             // 
+            // xtraScrollableControl1
+            // 
+            xtraScrollableControl1.Controls.Add(panelControl4);
+            xtraScrollableControl1.Controls.Add(panelControl5);
+            xtraScrollableControl1.Dock = DockStyle.Fill;
+            xtraScrollableControl1.Location = new Point(0, 252);
+            xtraScrollableControl1.Name = "xtraScrollableControl1";
+            xtraScrollableControl1.Size = new Size(1095, 275);
+            xtraScrollableControl1.TabIndex = 9;
+            // 
             // OrderForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1278, 649);
-            Controls.Add(panelControl5);
-            Controls.Add(panelControl4);
-            Controls.Add(panelControl1);
-            Controls.Add(ribbonStatusBar);
+            ClientSize = new Size(1095, 527);
+            Controls.Add(xtraScrollableControl1);
+            Controls.Add(OrderHeaderPanel);
             Controls.Add(ribbon);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "OrderForm";
             Ribbon = ribbon;
-            StatusBar = ribbonStatusBar;
             Load += OrderForm_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
-            panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)layoutControl1).EndInit();
-            layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).EndInit();
+            OrderHeaderPanel.ResumeLayout(false);
+            OrderHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)buttonEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Root).EndInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)emptySpaceItem2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl4).EndInit();
             panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
@@ -394,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
             panelControl3.ResumeLayout(false);
             panelControl3.PerformLayout();
+            xtraScrollableControl1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -403,32 +398,31 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem Print;
+        private DevExpress.XtraBars.BarButtonItem addOrderButton;
+        private DevExpress.XtraBars.BarButtonItem cancelOrderButton;
+        private DevExpress.XtraBars.BarButtonItem paymentButton;
+        private DevExpress.XtraBars.BarButtonItem printButton;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private FlowLayoutPanel ServicesFlowLayout;
+        private DevExpress.XtraEditors.PanelControl OrderHeaderPanel;
         private FlowLayoutPanel AddedServicesFlowLayout;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.LabelControl servicesInOrderLabel;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraBars.BarButtonItem closeButton;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem saveOrderButton;
+        private FlowLayoutPanel ServicesFlowPanel;
+        private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
     }
 }
