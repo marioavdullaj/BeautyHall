@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj": {}
+    "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj": {
+    "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj",
+        "projectUniqueName": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj",
         "projectName": "BeautyHall.DAL.DB",
-        "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj",
-        "packagesPath": "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\obj\\",
+        "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\BeautyHall.DAL.DB.csproj",
+        "packagesPath": "C:\\Users\\offset\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.DAL.DB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MarioAvdullaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\offset\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -29,20 +32,20 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Stesi_TFS\\CarrierInterface\\Nugets": {},
-          "C:\\Users\\MarioAvdullaj\\Desktop\\PersonalProject\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall.Api-main\\BeautyHall.Api.SDK\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj": {
-                "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj"
+              "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj": {
+                "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj"
               },
-              "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
-                "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj"
+              "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
+                "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj"
               }
             }
           }
@@ -83,45 +86,34 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj": {
+    "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
+        "projectUniqueName": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
         "projectName": "BeautyHall.Models.Common",
-        "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
-        "packagesPath": "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\obj\\",
+        "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
+        "packagesPath": "C:\\Users\\offset\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MarioAvdullaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\offset\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -131,20 +123,20 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Stesi_TFS\\CarrierInterface\\Nugets": {},
-          "C:\\Users\\MarioAvdullaj\\Desktop\\PersonalProject\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall.Api-main\\BeautyHall.Api.SDK\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj": {
-                "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj"
+              "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj": {
+                "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj"
               },
-              "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
-                "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj"
+              "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
+                "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj"
               }
             }
           }
@@ -169,45 +161,34 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj": {
+    "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj",
+        "projectUniqueName": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj",
         "projectName": "BeautyHall.Models.Dto",
-        "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj",
-        "packagesPath": "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\obj\\",
+        "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj",
+        "packagesPath": "C:\\Users\\offset\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MarioAvdullaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\offset\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -217,9 +198,9 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Stesi_TFS\\CarrierInterface\\Nugets": {},
-          "C:\\Users\\MarioAvdullaj\\Desktop\\PersonalProject\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall.Api-main\\BeautyHall.Api.SDK\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -254,45 +235,34 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
+    "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj",
+        "projectUniqueName": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj",
         "projectName": "BeautyHall.Models.Db",
-        "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj",
-        "packagesPath": "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\obj\\",
+        "projectPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj",
+        "packagesPath": "C:\\Users\\offset\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MarioAvdullaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\offset\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -302,9 +272,9 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Stesi_TFS\\CarrierInterface\\Nugets": {},
-          "C:\\Users\\MarioAvdullaj\\Desktop\\PersonalProject\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+          "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall.Api-main\\BeautyHall.Api.SDK\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -355,26 +325,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

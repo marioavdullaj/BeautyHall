@@ -8,6 +8,7 @@ using DevExpress.XtraEditors;
 using BSMS.Winforms.UserControls;
 using System.Data;
 using BSMS.Winforms.Models;
+using System.Xml.Linq;
 
 namespace BSMS.Winforms.Forms
 {
@@ -67,9 +68,9 @@ namespace BSMS.Winforms.Forms
                         Email = x.Email
                     });
 
-                    lookUpEdit1.Properties.DisplayMember = "FullName";
-                    lookUpEdit1.Properties.ValueMember = "Id";
-                    lookUpEdit1.Properties.DataSource = clients;
+                    lueSurname.Properties.DisplayMember = "FullName";
+                    lueSurname.Properties.ValueMember = "Id";
+                    lueSurname.Properties.DataSource = clients;
                 }
             }
             catch (Exception ex)
@@ -80,9 +81,9 @@ namespace BSMS.Winforms.Forms
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            var selectedCustomer = subjects?.Where(x => x.SubjectId == Convert.ToInt32(lookUpEdit1.EditValue)).FirstOrDefault();
+            var selectedCustomer = subjects?.Where(x => x.SubjectId == Convert.ToInt32(lueSurname.EditValue)).FirstOrDefault();
             Text = $"{selectedCustomer?.SubjectName} {selectedCustomer?.SubjectLastName} "
-                + (selectedCustomer != null ? "|" : "") 
+                + (selectedCustomer != null ? "|" : "")
                 + $" {dateEdit1.DateTime:dd/MM/yyyy}";
         }
 
@@ -129,7 +130,7 @@ namespace BSMS.Winforms.Forms
             {
                 var added = new OrderService
                 {
-                    OrderId = CurrentOrder?.OrderId??0,
+                    OrderId = CurrentOrder?.OrderId ?? 0,
                     Service = args.Service,
                     ServiceId = args.Service?.ServiceId ?? 0,
                     Employee = args.Employee,
@@ -164,7 +165,7 @@ namespace BSMS.Winforms.Forms
                     if (serviceToRemove != null)
                         orderServices?.Remove(serviceToRemove);
 
-                    if(CurrentOrder != null)
+                    if (CurrentOrder != null)
                         CurrentOrder.OrderServices = orderServices;
                 }
 
@@ -211,7 +212,7 @@ namespace BSMS.Winforms.Forms
                 if (await SaveOrder(alertSaved: false))
                 {
                     PaymentSummaryForm paymentSummaryForm = new(CurrentOrder);
-                    if(paymentSummaryForm.ShowDialog() == DialogResult.OK)
+                    if (paymentSummaryForm.ShowDialog() == DialogResult.OK)
                     {
                         paymentButton.Enabled = false;
                         paymentButton.ButtonStyle = BarButtonStyle.Check;
@@ -228,7 +229,7 @@ namespace BSMS.Winforms.Forms
         {
             try
             {
-                var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lookUpEdit1.EditValue)).FirstOrDefault();
+                var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lueSurname.EditValue)).FirstOrDefault();
                 if (selectedCustomer == null)
                 {
                     XtraMessageBox.Show("Select customer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -237,7 +238,7 @@ namespace BSMS.Winforms.Forms
 
                 var updateOrder = new OrderDto
                 {
-                    OrderId = CurrentOrder?.OrderId??0,
+                    OrderId = CurrentOrder?.OrderId ?? 0,
                     CustomerId = selectedCustomer.SubjectId,
                     Notes = memoEdit1.Text,
                     OrderDate = dateEdit1.DateTime,
@@ -274,5 +275,16 @@ namespace BSMS.Winforms.Forms
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
         private async void saveOrderButton_ItemClick(object sender, ItemClickEventArgs e) => await SaveOrder();
+
+        private void lueSurname_TextChanged(object sender, EventArgs e)
+        {
+            txteName.Text = String.Empty;
+            txtePhone.Text = String.Empty;
+            Subject selectedclient = (Subject)lueSurname.GetSelectedDataRow();
+            if (selectedclient != null)
+                txteName.Text = selectedclient.SubjectName;
+            txtePhone.Text = selectedclient.PhoneNumber;
+            txteEmail.Text = selectedclient.Email;
+        }
     }
 }

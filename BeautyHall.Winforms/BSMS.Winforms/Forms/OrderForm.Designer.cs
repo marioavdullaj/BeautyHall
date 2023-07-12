@@ -41,11 +41,17 @@
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             OrderHeaderPanel = new DevExpress.XtraEditors.PanelControl();
+            txteEmail = new DevExpress.XtraEditors.TextEdit();
+            labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            txtePhone = new DevExpress.XtraEditors.TextEdit();
+            txteName = new DevExpress.XtraEditors.TextEdit();
+            labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            labelControl6 = new DevExpress.XtraEditors.LabelControl();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            lueSurname = new DevExpress.XtraEditors.LookUpEdit();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textEdit1 = new DevExpress.XtraEditors.TextEdit();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -61,10 +67,13 @@
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).BeginInit();
             OrderHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txteEmail.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtePhone.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txteName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lueSurname.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl4).BeginInit();
             panelControl4.SuspendLayout();
@@ -163,11 +172,17 @@
             // 
             // OrderHeaderPanel
             // 
+            OrderHeaderPanel.Controls.Add(txteEmail);
+            OrderHeaderPanel.Controls.Add(labelControl8);
+            OrderHeaderPanel.Controls.Add(txtePhone);
+            OrderHeaderPanel.Controls.Add(txteName);
+            OrderHeaderPanel.Controls.Add(labelControl7);
+            OrderHeaderPanel.Controls.Add(labelControl6);
             OrderHeaderPanel.Controls.Add(labelControl5);
             OrderHeaderPanel.Controls.Add(labelControl4);
             OrderHeaderPanel.Controls.Add(memoEdit1);
             OrderHeaderPanel.Controls.Add(dateEdit1);
-            OrderHeaderPanel.Controls.Add(lookUpEdit1);
+            OrderHeaderPanel.Controls.Add(lueSurname);
             OrderHeaderPanel.Controls.Add(labelControl3);
             OrderHeaderPanel.Controls.Add(textEdit1);
             OrderHeaderPanel.Controls.Add(labelControl2);
@@ -178,58 +193,116 @@
             OrderHeaderPanel.Size = new Size(1095, 94);
             OrderHeaderPanel.TabIndex = 2;
             // 
+            // txteEmail
+            // 
+            txteEmail.Enabled = false;
+            txteEmail.Location = new Point(612, 62);
+            txteEmail.MenuManager = ribbon;
+            txteEmail.Name = "txteEmail";
+            txteEmail.Size = new Size(166, 20);
+            txteEmail.TabIndex = 13;
+            // 
+            // labelControl8
+            // 
+            labelControl8.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl8.Appearance.Options.UseFont = true;
+            labelControl8.Location = new Point(534, 63);
+            labelControl8.Name = "labelControl8";
+            labelControl8.Size = new Size(40, 16);
+            labelControl8.TabIndex = 12;
+            labelControl8.Text = "EMAIL:";
+            // 
+            // txtePhone
+            // 
+            txtePhone.Enabled = false;
+            txtePhone.Location = new Point(612, 13);
+            txtePhone.MenuManager = ribbon;
+            txtePhone.Name = "txtePhone";
+            txtePhone.Size = new Size(166, 20);
+            txtePhone.TabIndex = 11;
+            // 
+            // txteName
+            // 
+            txteName.Enabled = false;
+            txteName.Location = new Point(318, 59);
+            txteName.MenuManager = ribbon;
+            txteName.Name = "txteName";
+            txteName.Size = new Size(187, 20);
+            txteName.TabIndex = 10;
+            // 
+            // labelControl7
+            // 
+            labelControl7.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl7.Appearance.Options.UseFont = true;
+            labelControl7.Location = new Point(534, 14);
+            labelControl7.Name = "labelControl7";
+            labelControl7.Size = new Size(72, 16);
+            labelControl7.TabIndex = 9;
+            labelControl7.Text = "ΤΗΛΕΦΩΝΟ:";
+            // 
+            // labelControl6
+            // 
+            labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl6.Appearance.Options.UseFont = true;
+            labelControl6.Location = new Point(237, 63);
+            labelControl6.Name = "labelControl6";
+            labelControl6.Size = new Size(49, 16);
+            labelControl6.TabIndex = 8;
+            labelControl6.Text = "ΟΝΟΜΑ:";
+            // 
             // labelControl5
             // 
             labelControl5.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(553, 14);
+            labelControl5.Location = new Point(817, 5);
             labelControl5.Name = "labelControl5";
-            labelControl5.Size = new Size(32, 16);
+            labelControl5.Size = new Size(67, 16);
             labelControl5.TabIndex = 7;
-            labelControl5.Text = "Notes";
+            labelControl5.Text = "Σημειώσεις:";
             // 
             // labelControl4
             // 
             labelControl4.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(237, 51);
+            labelControl4.Location = new Point(21, 63);
             labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(63, 16);
+            labelControl4.Size = new Size(48, 16);
             labelControl4.TabIndex = 6;
-            labelControl4.Text = "Order Date";
+            labelControl4.Text = "ΗΜ/ΝΙΑ:";
             // 
             // memoEdit1
             // 
-            memoEdit1.Location = new Point(607, 11);
+            memoEdit1.Location = new Point(890, 5);
             memoEdit1.MenuManager = ribbon;
             memoEdit1.Name = "memoEdit1";
-            memoEdit1.Size = new Size(200, 58);
+            memoEdit1.Size = new Size(200, 77);
             memoEdit1.TabIndex = 5;
             // 
             // dateEdit1
             // 
             dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(318, 50);
+            dateEdit1.Location = new Point(95, 62);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
             dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new Size(187, 20);
+            dateEdit1.Size = new Size(109, 20);
             dateEdit1.TabIndex = 4;
-            // 
-            // lookUpEdit1
-            // 
-            lookUpEdit1.Location = new Point(318, 12);
-            lookUpEdit1.MenuManager = ribbon;
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.NullText = "Select Customer";
-            lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
-            lookUpEdit1.Size = new Size(187, 20);
-            lookUpEdit1.TabIndex = 3;
-            lookUpEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
             dateEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
+            // 
+            // lueSurname
+            // 
+            lueSurname.Location = new Point(318, 12);
+            lueSurname.MenuManager = ribbon;
+            lueSurname.Name = "lueSurname";
+            lueSurname.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lueSurname.Properties.NullText = "Select [Πελάτες]";
+            lueSurname.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            lueSurname.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
+            lueSurname.Size = new Size(187, 20);
+            lueSurname.TabIndex = 3;
+            lueSurname.EditValueChanged += lookUpEdit1_EditValueChanged;
+            lueSurname.TextChanged += lueSurname_TextChanged;
             // 
             // labelControl3
             // 
@@ -237,14 +310,14 @@
             labelControl3.Appearance.Options.UseFont = true;
             labelControl3.Location = new Point(237, 14);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(55, 16);
+            labelControl3.Size = new Size(63, 16);
             labelControl3.TabIndex = 2;
-            labelControl3.Text = "Customer";
+            labelControl3.Text = "ΕΠΩΝΥΜΟ:";
             // 
             // textEdit1
             // 
             textEdit1.Enabled = false;
-            textEdit1.Location = new Point(84, 13);
+            textEdit1.Location = new Point(95, 12);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
             textEdit1.Size = new Size(109, 20);
@@ -256,9 +329,9 @@
             labelControl2.Appearance.Options.UseFont = true;
             labelControl2.Location = new Point(21, 14);
             labelControl2.Name = "labelControl2";
-            labelControl2.Size = new Size(45, 16);
+            labelControl2.Size = new Size(50, 16);
             labelControl2.TabIndex = 0;
-            labelControl2.Text = "OrderID";
+            labelControl2.Text = "OrderID:";
             // 
             // AddedServicesFlowLayout
             // 
@@ -269,7 +342,7 @@
             AddedServicesFlowLayout.Margin = new Padding(3, 2, 3, 2);
             AddedServicesFlowLayout.Name = "AddedServicesFlowLayout";
             AddedServicesFlowLayout.Padding = new Padding(5);
-            AddedServicesFlowLayout.Size = new Size(373, 226);
+            AddedServicesFlowLayout.Size = new Size(373, 581);
             AddedServicesFlowLayout.TabIndex = 0;
             // 
             // panelControl4
@@ -280,7 +353,7 @@
             panelControl4.Location = new Point(0, 0);
             panelControl4.Margin = new Padding(3, 2, 3, 2);
             panelControl4.Name = "panelControl4";
-            panelControl4.Size = new Size(718, 275);
+            panelControl4.Size = new Size(718, 630);
             panelControl4.TabIndex = 6;
             // 
             // ServicesFlowPanel
@@ -290,7 +363,7 @@
             ServicesFlowPanel.Location = new Point(2, 47);
             ServicesFlowPanel.Name = "ServicesFlowPanel";
             ServicesFlowPanel.Padding = new Padding(10);
-            ServicesFlowPanel.Size = new Size(714, 226);
+            ServicesFlowPanel.Size = new Size(714, 581);
             ServicesFlowPanel.TabIndex = 3;
             // 
             // panelControl2
@@ -322,7 +395,7 @@
             panelControl5.Location = new Point(718, 0);
             panelControl5.Margin = new Padding(3, 2, 3, 2);
             panelControl5.Name = "panelControl5";
-            panelControl5.Size = new Size(377, 275);
+            panelControl5.Size = new Size(377, 630);
             panelControl5.TabIndex = 7;
             // 
             // panelControl3
@@ -353,14 +426,14 @@
             xtraScrollableControl1.Dock = DockStyle.Fill;
             xtraScrollableControl1.Location = new Point(0, 252);
             xtraScrollableControl1.Name = "xtraScrollableControl1";
-            xtraScrollableControl1.Size = new Size(1095, 275);
+            xtraScrollableControl1.Size = new Size(1095, 630);
             xtraScrollableControl1.TabIndex = 9;
             // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1095, 527);
+            ClientSize = new Size(1095, 882);
             Controls.Add(xtraScrollableControl1);
             Controls.Add(OrderHeaderPanel);
             Controls.Add(ribbon);
@@ -373,10 +446,13 @@
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).EndInit();
             OrderHeaderPanel.ResumeLayout(false);
             OrderHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txteEmail.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtePhone.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txteName.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lueSurname.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl4).EndInit();
             panelControl4.ResumeLayout(false);
@@ -417,12 +493,18 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lueSurname;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraBars.BarButtonItem closeButton;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem saveOrderButton;
         private FlowLayoutPanel ServicesFlowPanel;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
+        private DevExpress.XtraEditors.TextEdit txtePhone;
+        private DevExpress.XtraEditors.TextEdit txteName;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit txteEmail;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }
