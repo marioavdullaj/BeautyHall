@@ -3304,27 +3304,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\": {},
+    "C:\\Users\\PX\\.nuget\\packages\\": {},
     "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
+      "projectUniqueName": "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
       "projectName": "BeautyHall.Models.Common",
-      "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
-      "packagesPath": "C:\\Users\\MarioAvdullaj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\obj\\",
+      "projectPath": "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\BeautyHall.Models.Common.csproj",
+      "packagesPath": "C:\\Users\\PX\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\MarioAvdullaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PX\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3333,20 +3332,18 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Stesi_TFS\\CarrierInterface\\Nugets": {},
-        "C:\\Users\\MarioAvdullaj\\Desktop\\PersonalProject\\BeautyHall\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
+        "C:\\Users\\PX\\Desktop\\BeautyHall-main\\BeautyHall.Api\\BeautyHall.Api.SDK\\nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj": {
-              "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj"
+            "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj": {
+              "projectPath": "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj"
             },
-            "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
-              "projectPath": "C:\\Users\\MarioAvdullaj\\Desktop\\MyProjects\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj"
+            "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj": {
+              "projectPath": "C:\\Users\\PX\\Desktop\\BeautyHall\\BeautyHall.Api\\Models\\BeautyHall.Models.Db\\BeautyHall.Models.Db.csproj"
             }
           }
         }

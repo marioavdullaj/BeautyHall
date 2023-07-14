@@ -82,7 +82,7 @@ namespace BSMS.Winforms.Forms
         {
             var selectedCustomer = subjects?.Where(x => x.SubjectId == Convert.ToInt32(lookUpEdit1.EditValue)).FirstOrDefault();
             Text = $"{selectedCustomer?.SubjectName} {selectedCustomer?.SubjectLastName} "
-                + (selectedCustomer != null ? "|" : "") 
+                + (selectedCustomer != null ? "|" : "")
                 + $" {dateEdit1.DateTime:dd/MM/yyyy}";
         }
 
@@ -129,7 +129,7 @@ namespace BSMS.Winforms.Forms
             {
                 var added = new OrderService
                 {
-                    OrderId = CurrentOrder?.OrderId??0,
+                    OrderId = CurrentOrder?.OrderId ?? 0,
                     Service = args.Service,
                     ServiceId = args.Service?.ServiceId ?? 0,
                     Employee = args.Employee,
@@ -164,7 +164,7 @@ namespace BSMS.Winforms.Forms
                     if (serviceToRemove != null)
                         orderServices?.Remove(serviceToRemove);
 
-                    if(CurrentOrder != null)
+                    if (CurrentOrder != null)
                         CurrentOrder.OrderServices = orderServices;
                 }
 
@@ -211,7 +211,7 @@ namespace BSMS.Winforms.Forms
                 if (await SaveOrder(alertSaved: false))
                 {
                     PaymentSummaryForm paymentSummaryForm = new(CurrentOrder);
-                    if(paymentSummaryForm.ShowDialog() == DialogResult.OK)
+                    if (paymentSummaryForm.ShowDialog() == DialogResult.OK)
                     {
                         paymentButton.Enabled = false;
                         paymentButton.ButtonStyle = BarButtonStyle.Check;
@@ -237,7 +237,7 @@ namespace BSMS.Winforms.Forms
 
                 var updateOrder = new OrderDto
                 {
-                    OrderId = CurrentOrder?.OrderId??0,
+                    OrderId = CurrentOrder?.OrderId ?? 0,
                     CustomerId = selectedCustomer.SubjectId,
                     Notes = memoEdit1.Text,
                     OrderDate = dateEdit1.DateTime,
