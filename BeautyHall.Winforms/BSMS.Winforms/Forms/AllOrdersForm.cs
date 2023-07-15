@@ -1,5 +1,4 @@
-﻿using BSMS.Winforms.GenericUtils;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class InsertClient : FixedRibbonForm
+    public partial class AllOrdersForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public InsertClient()
+        public AllOrdersForm()
         {
             InitializeComponent();
         }

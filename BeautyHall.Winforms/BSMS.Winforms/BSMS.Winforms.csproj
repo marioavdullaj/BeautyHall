@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BeautyHall.Api.SDK" Version="1.0.12" />
+		<PackageReference Include="BeautyHall.Api.SDK" Version="1.0.13" />
 		<PackageReference Include="DevExpress.Win.Design" Version="22.1.9" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />

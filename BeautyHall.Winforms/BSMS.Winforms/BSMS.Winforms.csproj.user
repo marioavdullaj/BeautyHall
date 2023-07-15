@@ -5,6 +5,12 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\AllOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InsertClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,7 +20,7 @@
     <Compile Update="Forms\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\InsertClient.cs">
+    <Compile Update="GenericUtils\FixedRibbonForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LoadingScreen.cs">

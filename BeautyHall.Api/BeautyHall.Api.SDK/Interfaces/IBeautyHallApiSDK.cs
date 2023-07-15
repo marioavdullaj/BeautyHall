@@ -111,6 +111,13 @@ using BeautyHall.Api.SDK.Requests;using BeautyHall.Api.SDK.Responses;namespac
         Task<IEnumerable<Order>?> GetCustomerOrders(int customerId);
 
         /// <summary>
+        /// Get a specific order. The function accepts a orderId as input and retrieves an Order object.
+        /// </summary>
+        /// <param name="orderId">The ID of the order</param>
+        /// <returns>A Task representing the asynchronous operation. It returns an Order objects if successful, otherwise null.</returns>
+        Task<Order?> GetOrder(int orderId);
+
+        /// <summary>
         /// Delete services from an order. The function accepts a list of OrderServiceDto objects containing the services to be deleted
         /// from an order. It removes the specified services from the order and returns a boolean indicating if the deletion was successful.
         /// </summary>
