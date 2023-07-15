@@ -236,7 +236,6 @@ namespace BSMS.Winforms.Forms
                 };
 
                 var savedOrder = await Program.ApiSdk.UpsertOrder(updateOrder);
-                CurrentOrder = (await Program.ApiSdk.GetCustomerOrders(selectedCustomer?.SubjectId ?? 0))?.Where(x => x.OrderId == CurrentOrder?.OrderId).FirstOrDefault();
                 if (savedOrder == null)
                 {
                     XtraMessageBox.Show("Error during the update of the order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -244,6 +243,7 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
+                    CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId ?? 0);
                     if (alertSaved)
                         XtraMessageBox.Show("Order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

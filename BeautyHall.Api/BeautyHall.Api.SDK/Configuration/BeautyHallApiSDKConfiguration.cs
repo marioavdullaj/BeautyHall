@@ -47,6 +47,8 @@ namespace BeautyHall.Api.SDK.Configuration
         ENDPOINT_GET_ORDERS,
         [Description("BeautyHall/Orders/Customer/{0}")]
         ENDPOINT_GET_CUSTOMER_ORDER,
+        [Description("BeautyHall/Orders/{0}/{1}")]
+        ENDPOINT_GET_ORDERS_DATES,
         [Description("BeautyHall/Order/{0}")]
         ENDPOINT_GET_ORDER_ID,
         [Description("BeautyHall/Orders/Services")]

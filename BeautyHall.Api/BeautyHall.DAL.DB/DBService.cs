@@ -156,6 +156,11 @@ namespace BeautyHall.DAL.DB
                     }
 
                     var parameterName = $"@{filter.Key}";
+                    var count = parameters.Where(x => x.ParameterName == parameterName).Count();
+                    if(count > 0)
+                    {
+                        parameterName = $"{parameterName}_{count}";
+                    }
                     if (filter.Comparisation == ECompareType.Contains || filter.Comparisation == ECompareType.NotContains)
                     {
 
@@ -506,13 +511,98 @@ namespace BeautyHall.DAL.DB
                     .Include(x => x.OrderServices)
                     .ThenInclude(x => x.Service)
                     .Include(x => x.Customer)
-                    .Include(x => x.PaymentSummaries);
+                    .Include(x => x.PaymentSummaries)
+                    .Select(c => new Order { 
+                        OrderId = c.OrderId,
+                        CustomerId = c.CustomerId,
+                        OrderDate = c.OrderDate,
+                        Notes = c.Notes,
+                        OrderServices = c.OrderServices.Select(os => new OrderService
+                        {
+                            OrderId=os.OrderId,
+                            ServiceId=os.ServiceId,
+                            ServicePrice=os.ServicePrice,
+                            EmployeeId=os.EmployeeId,
+                            Employee = os.Employee == null ? null : new Employee
+                            {
+                                EmployeeId = os.Employee.EmployeeId,
+                                EmployeeName = os.Employee.EmployeeName,
+                                EmployeeLastName = os.Employee.EmployeeLastName,
+                                EmployeePhone = os.Employee.EmployeePhone,
+                                EmployeeRole = os.Employee.EmployeeRole
+                            },
+                            Service = new Service
+                            {
+                                ServiceId = os.Service.ServiceId,
+                                ServiceCode = os.Service.ServiceCode,
+                                ServiceDescription = os.Service.ServiceDescription,
+                                ServiceNotes = os.Service.ServiceNotes,
+                                ServiceMinimumPrice = os.Service.ServiceMinimumPrice,
+                                ServiceMaximumPrice = os.Service.ServiceMaximumPrice,
+                                CategoryId = os.Service.CategoryId,
+                                Category = os.Service.Category
+                            }
+                        }).ToList(),
+                        Customer = c.Customer == null ? null : new Subject
+                        {
+                            SubjectId = c.Customer.SubjectId,
+                            SubjectName = c.Customer.SubjectName,
+                            SubjectLastName = c.Customer.SubjectLastName,
+                            PhoneNumber = c.Customer.PhoneNumber,
+                            SubjectType = c.Customer.SubjectType,
+                            Email = c.Customer.Email,
+                            RegistrationDate = c.Customer.RegistrationDate
+                        }
+                    });
             else
                 ret = Context.Orders.FromSqlRaw($"SELECT * FROM [Order] {clause}", parameters.ToArray())
                     .Include(x => x.OrderServices)
                     .ThenInclude(x => x.Service)
                     .Include(x => x.Customer)
-                    .Include(x => x.PaymentSummaries);
+                    .Include(x => x.PaymentSummaries)
+                    .Select(c => new Order
+                    {
+                        OrderId = c.OrderId,
+                        CustomerId = c.CustomerId,
+                        OrderDate = c.OrderDate,
+                        Notes = c.Notes,
+                        OrderServices = c.OrderServices.Select(os => new OrderService
+                        {
+                            OrderId = os.OrderId,
+                            ServiceId = os.ServiceId,
+                            ServicePrice = os.ServicePrice,
+                            EmployeeId = os.EmployeeId,
+                            Employee = os.Employee == null ? null : new Employee
+                            {
+                                EmployeeId = os.Employee.EmployeeId,
+                                EmployeeName = os.Employee.EmployeeName,
+                                EmployeeLastName = os.Employee.EmployeeLastName,
+                                EmployeePhone = os.Employee.EmployeePhone,
+                                EmployeeRole = os.Employee.EmployeeRole
+                            },
+                            Service = new Service
+                            {
+                                ServiceId = os.Service.ServiceId,
+                                ServiceCode = os.Service.ServiceCode,
+                                ServiceDescription = os.Service.ServiceDescription,
+                                ServiceNotes = os.Service.ServiceNotes,
+                                ServiceMinimumPrice = os.Service.ServiceMinimumPrice,
+                                ServiceMaximumPrice = os.Service.ServiceMaximumPrice,
+                                CategoryId = os.Service.CategoryId,
+                                Category = os.Service.Category
+                            }
+                        }).ToList(),
+                        Customer = c.Customer == null ? null : new Subject
+                        {
+                            SubjectId = c.Customer.SubjectId,
+                            SubjectName = c.Customer.SubjectName,
+                            SubjectLastName = c.Customer.SubjectLastName,
+                            PhoneNumber = c.Customer.PhoneNumber,
+                            SubjectType = c.Customer.SubjectType,
+                            Email = c.Customer.Email,
+                            RegistrationDate = c.Customer.RegistrationDate
+                        }
+                    });
 
             return ret;
         }

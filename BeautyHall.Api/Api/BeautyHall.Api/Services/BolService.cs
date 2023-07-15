@@ -122,13 +122,22 @@ namespace BeautyHall.Api.DB.Services
             });
             return (res as IEnumerable<Order>);
         }
+        public IEnumerable<Order> GetOrders(DateTime from, DateTime to)
+        {
+            var res = DbService.Search<Order>(new List<FilterSetting>
+            {
+                new FilterSetting { Comparisation = ECompareType.GreaterThanOrEqual, Key = "OrderDate", Value = from },
+                new FilterSetting { Comparisation = ECompareType.LessThanOrEqual, Key = "OrderDate", Value = to }
+            });
+            return (res as IEnumerable<Order>);
+        }
         public Order? GetOrder(int orderId)
         {
             var res = DbService.Search<Order>(new List<FilterSetting>
             {
                 new FilterSetting { Comparisation = ECompareType.Equal, Key = "OrderId", Value = orderId }
             });
-            return (res as Order);
+            return (res as IEnumerable<Order>).FirstOrDefault();
         }
 
         public Order? UpSertOrder(OrderDto data)

@@ -113,5 +113,10 @@ namespace Demo
         {
             ShowForm(new InsertClient());
         }
+
+        private void accordionControlElement3_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AllOrdersForm());
+        }
     }
 }

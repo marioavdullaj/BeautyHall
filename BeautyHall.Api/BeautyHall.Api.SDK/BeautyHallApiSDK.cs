@@ -202,6 +202,13 @@ namespace BeautyHall.Api.SDK
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_CUSTOMER_ORDER, customerId));
             return await GetFromApi<object, IEnumerable<Order>>(uri, HttpMethod.Get);
         }
+        public async Task<IEnumerable<Order>?> GetOrders(DateTime from, DateTime to)
+        {
+            var fromDate = from.ToString("yyyy-MM-dd");
+            var toDate = to.ToString("yyyy-MM-dd");
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_ORDERS_DATES, fromDate, toDate));
+            return await GetFromApi<object, IEnumerable<Order>>(uri, HttpMethod.Get);
+        }
         public async Task<Order?> GetOrder(int orderId)
         {
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_ORDER_ID, orderId));

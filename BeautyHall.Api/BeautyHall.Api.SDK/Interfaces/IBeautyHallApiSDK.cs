@@ -118,6 +118,17 @@ using BeautyHall.Api.SDK.Requests;using BeautyHall.Api.SDK.Responses;namespac
         Task<Order?> GetOrder(int orderId);
 
         /// <summary>
+        /// Get all orders. The function retrieves a list of Order objects from the database.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation. It returns a list of Order objects if successful, otherwise null.</returns>
+        Task<IEnumerable<Order>?> GetOrders();
+        /// <summary>
+        /// Get all orders. The function retrieves a list of Order objects from the database.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation. It returns a list of Order objects if successful, otherwise null.</returns>
+        Task<IEnumerable<Order>?> GetOrders(DateTime from, DateTime to);
+
+        /// <summary>
         /// Delete services from an order. The function accepts a list of OrderServiceDto objects containing the services to be deleted
         /// from an order. It removes the specified services from the order and returns a boolean indicating if the deletion was successful.
         /// </summary>

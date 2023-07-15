@@ -161,6 +161,15 @@ namespace BeautyHall.Api.DB.Controllers
             return NoContent();
         }
         [HttpGet]
+        [Route("Orders/{from}/{to}")]
+        public IActionResult GetOrders(DateTime from, DateTime to)
+        {
+            var res = BolService.GetOrders(from, to);
+            if (res != null && res.Any())
+                return Ok(res);
+            return NoContent();
+        }
+        [HttpGet]
         [Route("Order/{orderId}")]
         public IActionResult GetOrder(int orderId)
         {
