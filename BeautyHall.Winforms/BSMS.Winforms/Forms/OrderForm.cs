@@ -195,7 +195,7 @@ namespace BSMS.Winforms.Forms
                     if (await Program.ApiSdk.DeleteOrder(CurrentOrder.OrderId))
                         this.Close();
                     else
-                        XtraMessageBox.Show("Error during the cancellation of the Order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("The order cannot be deleted anymore.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

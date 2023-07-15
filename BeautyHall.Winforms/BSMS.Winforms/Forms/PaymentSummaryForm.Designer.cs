@@ -47,6 +47,7 @@
             labelControl11 = new DevExpress.XtraEditors.LabelControl();
             spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
@@ -151,23 +152,23 @@
             // 
             // labelControl7
             // 
-            labelControl7.Appearance.Font = new Font("Tahoma", 15.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl7.Appearance.Font = new Font("Tahoma", 18.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl7.Appearance.Options.UseFont = true;
-            labelControl7.Location = new Point(226, 250);
+            labelControl7.Location = new Point(216, 243);
             labelControl7.Name = "labelControl7";
-            labelControl7.Size = new Size(9, 31);
+            labelControl7.Size = new Size(11, 37);
             labelControl7.TabIndex = 12;
             labelControl7.Text = "-";
             // 
             // comboBoxEdit1
             // 
-            comboBoxEdit1.Location = new Point(241, 240);
+            comboBoxEdit1.Location = new Point(235, 240);
             comboBoxEdit1.Name = "comboBoxEdit1";
             comboBoxEdit1.Properties.Appearance.Font = new Font("Tahoma", 20F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
             comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             comboBoxEdit1.Properties.DisplayFormat.FormatString = "p0";
-            comboBoxEdit1.Size = new Size(156, 46);
+            comboBoxEdit1.Size = new Size(127, 46);
             comboBoxEdit1.TabIndex = 13;
             comboBoxEdit1.SelectedIndexChanged += comboBoxEdit1_SelectedIndexChanged;
             // 
@@ -182,7 +183,6 @@
             spinEdit1.Size = new Size(167, 46);
             spinEdit1.TabIndex = 14;
             spinEdit1.EditValueChanged += spinEdit1_EditValueChanged;
-            spinEdit1.EditValueChanging += spinEdit1_EditValueChanging;
             // 
             // labelControl8
             // 
@@ -235,7 +235,6 @@
             spinEdit2.Size = new Size(167, 46);
             spinEdit2.TabIndex = 17;
             spinEdit2.EditValueChanged += spinEdit2_EditValueChanged;
-            spinEdit2.EditValueChanging += spinEdit2_EditValueChanging;
             // 
             // simpleButton1
             // 
@@ -249,11 +248,22 @@
             simpleButton1.Text = "PAY";
             simpleButton1.Click += simpleButton1_Click;
             // 
+            // labelControl12
+            // 
+            labelControl12.Appearance.Font = new Font("Tahoma", 15.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl12.Appearance.Options.UseFont = true;
+            labelControl12.Location = new Point(365, 250);
+            labelControl12.Name = "labelControl12";
+            labelControl12.Size = new Size(25, 31);
+            labelControl12.TabIndex = 21;
+            labelControl12.Text = "%";
+            // 
             // PaymentSummaryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(684, 556);
+            Controls.Add(labelControl12);
             Controls.Add(simpleButton1);
             Controls.Add(labelControl10);
             Controls.Add(labelControl11);
@@ -305,5 +315,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.SpinEdit spinEdit2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
     }
 }
