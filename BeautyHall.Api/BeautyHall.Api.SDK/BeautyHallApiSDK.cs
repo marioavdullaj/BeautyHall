@@ -278,12 +278,12 @@ namespace BeautyHall.Api.SDK
         public async Task<bool> UpsertPayment(PaymentSummaryDto paymentSummary)
         {
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_UPDATE_PAYMENT));
-            return await GetFromApi<PaymentSummaryDto, bool>(uri, HttpMethod.Post);
+            return await GetFromApi<PaymentSummaryDto, bool>(uri, HttpMethod.Post, paymentSummary);
         }
 
         public async Task<bool> DeletePayment(int paymentId)
         {
-            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_PAYMENT));
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_PAYMENT, paymentId));
             return await GetFromApi<object, bool>(uri, HttpMethod.Delete);
         }
 
