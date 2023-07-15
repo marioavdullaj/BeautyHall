@@ -41,8 +41,8 @@ namespace BSMS.Winforms.Forms
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedPercentage = GenericUtils.Functions.NullToInt(comboBoxEdit1.EditValue);
-            var discountedPrice = PaymentSummary.TotalPrice * (1 - (decimal)selectedPercentage / 100);
+            var selectedPercentage = GenericUtils.Functions.NullToDecimal(comboBoxEdit1.EditValue);
+            var discountedPrice = PaymentSummary.TotalPrice * (1 - (decimal)selectedPercentage);
 
             textEdit3.EditValueChanged -= textEdit3_EditValueChanged;
             textEdit3.EditValue = discountedPrice;
@@ -54,7 +54,7 @@ namespace BSMS.Winforms.Forms
         {
             var discountedPrice = GenericUtils.Functions.NullToDecimal(textEdit3.EditValue);
             var calculatedPercentage = discountedPrice / PaymentSummary.TotalPrice;
-            comboBoxEdit1.EditValue = (int)((1 - calculatedPercentage) * 100);
+            comboBoxEdit1.EditValue = (double)(1 - calculatedPercentage);
             UpdateCashPos(scaleFromCashFirst: true);
         }
         private async void simpleButton1_Click(object sender, EventArgs e)
@@ -182,6 +182,20 @@ namespace BSMS.Winforms.Forms
 
             if (!UpdateCashPos(scaleFromCashFirst: true, currentPos: GenericUtils.Functions.NullToDecimal(e.NewValue)))
                 e.Cancel = true;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            comboBoxEdit1.SelectedIndex = 0; comboBoxEdit1.SelectedItem = 0;
+            spinEdit1.Value = PaymentSummary.TotalPrice;
+            spinEdit2.Value = 0;
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            var a = spinEdit1.Value;
+            spinEdit1.Value = spinEdit2.Value;
+            spinEdit2.Value = a;
         }
     }
 }

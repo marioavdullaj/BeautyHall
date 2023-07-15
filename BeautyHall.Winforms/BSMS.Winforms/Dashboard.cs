@@ -108,5 +108,10 @@ namespace Demo
         {
             ShowForm(new WelcomeForm(User));
         }
+
+        private void accordionControlElement5_Click(object sender, EventArgs e)
+        {
+            ShowForm(new InsertClient());
+        }
     }
 }

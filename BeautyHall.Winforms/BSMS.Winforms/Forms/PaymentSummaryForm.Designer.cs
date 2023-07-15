@@ -43,6 +43,8 @@
             labelControl10 = new DevExpress.XtraEditors.LabelControl();
             spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
@@ -155,9 +157,9 @@
             comboBoxEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             comboBoxEdit1.Properties.EditFormat.FormatString = "p0";
             comboBoxEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            comboBoxEdit1.Properties.NullText = "0";
             comboBoxEdit1.Properties.PopupDisplayFormat.FormatString = "p0";
             comboBoxEdit1.Properties.PopupDisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            comboBoxEdit1.Properties.NullText = "0";
             comboBoxEdit1.Size = new Size(127, 46);
             comboBoxEdit1.TabIndex = 13;
             comboBoxEdit1.EditValueChanged += comboBoxEdit1_SelectedIndexChanged;
@@ -219,16 +221,36 @@
             simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
             simpleButton1.Location = new Point(32, 463);
             simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(545, 71);
+            simpleButton1.Size = new Size(491, 71);
             simpleButton1.TabIndex = 20;
             simpleButton1.Text = "PAY";
             simpleButton1.Click += simpleButton1_Click;
+            // 
+            // simpleButton2
+            // 
+            simpleButton2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton2.ImageOptions.SvgImage");
+            simpleButton2.Location = new Point(532, 463);
+            simpleButton2.Name = "simpleButton2";
+            simpleButton2.Size = new Size(45, 71);
+            simpleButton2.TabIndex = 21;
+            simpleButton2.Click += simpleButton2_Click;
+            // 
+            // simpleButton3
+            // 
+            simpleButton3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton3.ImageOptions.SvgImage");
+            simpleButton3.Location = new Point(232, 327);
+            simpleButton3.Name = "simpleButton3";
+            simpleButton3.Size = new Size(44, 103);
+            simpleButton3.TabIndex = 22;
+            simpleButton3.Click += simpleButton3_Click;
             // 
             // PaymentSummaryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(613, 556);
+            Controls.Add(simpleButton3);
+            Controls.Add(simpleButton2);
             Controls.Add(simpleButton1);
             Controls.Add(labelControl10);
             Controls.Add(spinEdit2);
@@ -273,5 +295,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.SpinEdit spinEdit2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }
