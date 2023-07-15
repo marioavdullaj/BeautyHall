@@ -62,12 +62,11 @@ namespace BSMS.Winforms.Forms
                     var clients = subjects.Where(x => x.SubjectType == 0).Select(x => new Customer
                     {
                         Id = x.SubjectId,
-                        FullName = $"{x.SubjectName} {x.SubjectLastName}",
-                        PhoneNumber = x.PhoneNumber,
-                        Email = x.Email
+                        Surname = x.SubjectLastName,
+                        Name = x.SubjectName
                     });
 
-                    lookUpEdit1.Properties.DisplayMember = "FullName";
+                    lookUpEdit1.Properties.DisplayMember = "Surname";
                     lookUpEdit1.Properties.ValueMember = "Id";
                     lookUpEdit1.Properties.DataSource = clients;
                 }
@@ -84,6 +83,10 @@ namespace BSMS.Winforms.Forms
             Text = $"{selectedCustomer?.SubjectName} {selectedCustomer?.SubjectLastName} "
                 + (selectedCustomer != null ? "|" : "")
                 + $" {dateEdit1.DateTime:dd/MM/yyyy}";
+
+            textEdit2.Text = $"{selectedCustomer?.SubjectName}";
+            textEdit3.Text = $"{selectedCustomer?.PhoneNumber}";
+            textEdit4.Text = $"{selectedCustomer?.Email}";
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
