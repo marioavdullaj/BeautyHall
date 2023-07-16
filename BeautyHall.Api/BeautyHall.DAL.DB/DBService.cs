@@ -552,7 +552,8 @@ namespace BeautyHall.DAL.DB
                             SubjectType = c.Customer.SubjectType,
                             Email = c.Customer.Email,
                             RegistrationDate = c.Customer.RegistrationDate
-                        }
+                        },
+                        PaymentSummaries = c.PaymentSummaries
                     });
             else
                 ret = Context.Orders.FromSqlRaw($"SELECT * FROM [Order] {clause}", parameters.ToArray())
@@ -601,7 +602,8 @@ namespace BeautyHall.DAL.DB
                             SubjectType = c.Customer.SubjectType,
                             Email = c.Customer.Email,
                             RegistrationDate = c.Customer.RegistrationDate
-                        }
+                        },
+                        PaymentSummaries = c.PaymentSummaries
                     });
 
             return ret;

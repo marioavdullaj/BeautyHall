@@ -33,9 +33,4 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="Properties\DataSources\" />
-	</ItemGroup>
-
 </Project>

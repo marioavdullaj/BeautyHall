@@ -33,26 +33,37 @@
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            customerBindingSource = new BindingSource(components);
-            grOrders = new DevExpress.XtraGrid.GridControl();
-            grvOrders = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             dateFrom = new DevExpress.XtraBars.BarEditItem();
             dateFromRepo = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             dateTo = new DevExpress.XtraBars.BarEditItem();
             dateToRepo = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            grOrders = new DevExpress.XtraGrid.GridControl();
+            orderSummaryBindingSource = new BindingSource(components);
+            grvOrders = new DevExpress.XtraGrid.Views.Grid.GridView();
+            colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            colCustomerFullName = new DevExpress.XtraGrid.Columns.GridColumn();
+            colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            colNotes = new DevExpress.XtraGrid.Columns.GridColumn();
+            colTotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            colPayed = new DevExpress.XtraGrid.Columns.GridColumn();
+            repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            colDiscountedPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
+            colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)grOrders).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)grvOrders).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)grOrders).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)grvOrders).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemCheckEdit1).BeginInit();
             SuspendLayout();
             // 
             // ribbon
@@ -82,57 +93,6 @@
             barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
             barButtonItem2.Name = "barButtonItem2";
             barButtonItem2.ItemClick += barButtonItem2_ItemClick;
-            // 
-            // ribbonPage1
-            // 
-            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2 });
-            ribbonPage1.Name = "ribbonPage1";
-            ribbonPage1.Text = "All orders";
-            // 
-            // ribbonPageGroup1
-            // 
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
-            ribbonPageGroup1.Name = "ribbonPageGroup1";
-            // 
-            // ribbonPageGroup2
-            // 
-            ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
-            ribbonPageGroup2.Name = "ribbonPageGroup2";
-            // 
-            // ribbonStatusBar
-            // 
-            ribbonStatusBar.Location = new Point(0, 492);
-            ribbonStatusBar.Name = "ribbonStatusBar";
-            ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new Size(1097, 30);
-            // 
-            // customerBindingSource
-            // 
-            customerBindingSource.DataSource = typeof(Models.Customer);
-            // 
-            // grOrders
-            // 
-            grOrders.Dock = DockStyle.Fill;
-            grOrders.Location = new Point(0, 193);
-            grOrders.MainView = grvOrders;
-            grOrders.MenuManager = ribbon;
-            grOrders.Name = "grOrders";
-            grOrders.Size = new Size(1097, 299);
-            grOrders.TabIndex = 2;
-            grOrders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { grvOrders });
-            grOrders.Load += grOrders_Load;
-            // 
-            // grvOrders
-            // 
-            grvOrders.GridControl = grOrders;
-            grvOrders.Name = "grvOrders";
-            grvOrders.OptionsView.ShowGroupPanel = false;
-            // 
-            // ribbonPageGroup3
-            // 
-            ribbonPageGroup3.ItemLinks.Add(dateFrom);
-            ribbonPageGroup3.ItemLinks.Add(dateTo);
-            ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
             // dateFrom
             // 
@@ -168,6 +128,170 @@
             dateToRepo.Name = "dateToRepo";
             dateToRepo.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             // 
+            // ribbonPage1
+            // 
+            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2 });
+            ribbonPage1.Name = "ribbonPage1";
+            ribbonPage1.Text = "All orders";
+            // 
+            // ribbonPageGroup1
+            // 
+            ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
+            ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // ribbonPageGroup3
+            // 
+            ribbonPageGroup3.ItemLinks.Add(dateFrom);
+            ribbonPageGroup3.ItemLinks.Add(dateTo);
+            ribbonPageGroup3.Name = "ribbonPageGroup3";
+            // 
+            // ribbonPageGroup2
+            // 
+            ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
+            ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // ribbonStatusBar
+            // 
+            ribbonStatusBar.Location = new Point(0, 492);
+            ribbonStatusBar.Name = "ribbonStatusBar";
+            ribbonStatusBar.Ribbon = ribbon;
+            ribbonStatusBar.Size = new Size(1097, 30);
+            // 
+            // grOrders
+            // 
+            grOrders.DataSource = orderSummaryBindingSource;
+            grOrders.Dock = DockStyle.Fill;
+            grOrders.Location = new Point(0, 193);
+            grOrders.MainView = grvOrders;
+            grOrders.MenuManager = ribbon;
+            grOrders.Name = "grOrders";
+            grOrders.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemCheckEdit1 });
+            grOrders.Size = new Size(1097, 299);
+            grOrders.TabIndex = 2;
+            grOrders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { grvOrders });
+            grOrders.Load += grOrders_Load;
+            // 
+            // orderSummaryBindingSource
+            // 
+            orderSummaryBindingSource.DataSource = typeof(Models.OrderSummary);
+            // 
+            // grvOrders
+            // 
+            grvOrders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colCustomerFullName, colDate, colNotes, colTotalPrice, colPayed, colDiscountedPrice, colTotalCash, colTotalPOS });
+            grvOrders.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            grvOrders.GridControl = grOrders;
+            grvOrders.Name = "grvOrders";
+            grvOrders.OptionsBehavior.Editable = false;
+            grvOrders.OptionsView.ShowAutoFilterRow = true;
+            grvOrders.OptionsView.ShowFooter = true;
+            grvOrders.OptionsView.ShowGroupPanel = false;
+            grvOrders.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.True;
+            grvOrders.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // colId
+            // 
+            colId.FieldName = "Id";
+            colId.MinWidth = 25;
+            colId.Name = "colId";
+            colId.Visible = true;
+            colId.VisibleIndex = 0;
+            colId.Width = 94;
+            // 
+            // colCustomerFullName
+            // 
+            colCustomerFullName.FieldName = "CustomerFullName";
+            colCustomerFullName.MinWidth = 25;
+            colCustomerFullName.Name = "colCustomerFullName";
+            colCustomerFullName.Visible = true;
+            colCustomerFullName.VisibleIndex = 1;
+            colCustomerFullName.Width = 94;
+            // 
+            // colDate
+            // 
+            colDate.FieldName = "Date";
+            colDate.MinWidth = 25;
+            colDate.Name = "colDate";
+            colDate.Visible = true;
+            colDate.VisibleIndex = 2;
+            colDate.Width = 94;
+            // 
+            // colNotes
+            // 
+            colNotes.FieldName = "Notes";
+            colNotes.MinWidth = 25;
+            colNotes.Name = "colNotes";
+            colNotes.Visible = true;
+            colNotes.VisibleIndex = 3;
+            colNotes.Width = 94;
+            // 
+            // colTotalPrice
+            // 
+            colTotalPrice.DisplayFormat.FormatString = "c";
+            colTotalPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colTotalPrice.FieldName = "TotalPrice";
+            colTotalPrice.GroupFormat.FormatString = "c";
+            colTotalPrice.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colTotalPrice.MinWidth = 25;
+            colTotalPrice.Name = "colTotalPrice";
+            colTotalPrice.Visible = true;
+            colTotalPrice.VisibleIndex = 4;
+            colTotalPrice.Width = 94;
+            // 
+            // colPayed
+            // 
+            colPayed.Caption = "Order Payed";
+            colPayed.ColumnEdit = repositoryItemCheckEdit1;
+            colPayed.FieldName = "Payed";
+            colPayed.MinWidth = 25;
+            colPayed.Name = "colPayed";
+            colPayed.Visible = true;
+            colPayed.VisibleIndex = 5;
+            colPayed.Width = 94;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            repositoryItemCheckEdit1.AutoHeight = false;
+            repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // colDiscountedPrice
+            // 
+            colDiscountedPrice.DisplayFormat.FormatString = "c";
+            colDiscountedPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colDiscountedPrice.FieldName = "DiscountedPrice";
+            colDiscountedPrice.GroupFormat.FormatString = "c";
+            colDiscountedPrice.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colDiscountedPrice.MinWidth = 25;
+            colDiscountedPrice.Name = "colDiscountedPrice";
+            colDiscountedPrice.Visible = true;
+            colDiscountedPrice.VisibleIndex = 6;
+            colDiscountedPrice.Width = 94;
+            // 
+            // colTotalCash
+            // 
+            colTotalCash.DisplayFormat.FormatString = "c";
+            colTotalCash.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colTotalCash.FieldName = "TotalCash";
+            colTotalCash.GroupFormat.FormatString = "c";
+            colTotalCash.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colTotalCash.MinWidth = 25;
+            colTotalCash.Name = "colTotalCash";
+            colTotalCash.Visible = true;
+            colTotalCash.VisibleIndex = 7;
+            colTotalCash.Width = 94;
+            // 
+            // colTotalPOS
+            // 
+            colTotalPOS.DisplayFormat.FormatString = "c";
+            colTotalPOS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colTotalPOS.FieldName = "TotalPOS";
+            colTotalPOS.GroupFormat.FormatString = "c";
+            colTotalPOS.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            colTotalPOS.MinWidth = 25;
+            colTotalPOS.Name = "colTotalPOS";
+            colTotalPOS.Visible = true;
+            colTotalPOS.VisibleIndex = 8;
+            colTotalPOS.Width = 94;
+            // 
             // AllOrdersForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -180,13 +304,14 @@
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)grOrders).EndInit();
-            ((System.ComponentModel.ISupportInitialize)grvOrders).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)grOrders).EndInit();
+            ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)grvOrders).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemCheckEdit1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,7 +325,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private BindingSource customerBindingSource;
         private DevExpress.XtraGrid.GridControl grOrders;
         private DevExpress.XtraGrid.Views.Grid.GridView grvOrders;
         private DevExpress.XtraBars.BarEditItem dateFrom;
@@ -208,5 +332,16 @@
         private DevExpress.XtraBars.BarEditItem dateTo;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit dateToRepo;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private BindingSource orderSummaryBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colCustomerFullName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colNotes;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colDiscountedPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalCash;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalPOS;
+        private DevExpress.XtraGrid.Columns.GridColumn colPayed;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }

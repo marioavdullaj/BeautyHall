@@ -307,13 +307,16 @@ namespace BeautyHall.Api.SDK
 
         public async Task<IEnumerable<DailySummary>?> GetDailySummaries(DateTime from, DateTime to)
         {
-            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_FILTERED_DAILYSUMMARIES, from, to));
+            var dateFrom = from.ToString("yyyy-MM-dd");
+            var dateTo = to.ToString("yyyy-MM-dd");
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_FILTERED_DAILYSUMMARIES, dateFrom, dateTo));
             return await GetFromApi<object, IEnumerable<DailySummary>>(uri, HttpMethod.Get);
         }
 
         public async Task<DailySummary?> CalculateDailySummary(DateTime date, decimal dailyCosts)
         {
-            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_CALCULATE_DAILYSUMMARY, date, dailyCosts));
+            var dateString = date.ToString("yyyy-MM-dd");
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_CALCULATE_DAILYSUMMARY, dateString, dailyCosts));
             return await GetFromApi<object, DailySummary>(uri, HttpMethod.Get);
         }
 
