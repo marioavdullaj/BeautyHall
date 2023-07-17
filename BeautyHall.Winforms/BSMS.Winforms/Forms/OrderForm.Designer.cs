@@ -259,7 +259,7 @@
             // 
             // lookUpEdit1
             // 
-            lookUpEdit1.Location = new Point(318, 12);
+            lookUpEdit1.Location = new Point(318, 11);
             lookUpEdit1.MenuManager = ribbon;
             lookUpEdit1.Name = "lookUpEdit1";
             lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -324,7 +324,7 @@
             // textEdit4
             // 
             textEdit4.Enabled = false;
-            textEdit4.Location = new Point(389, 56);
+            textEdit4.Location = new Point(389, 59);
             textEdit4.Margin = new Padding(3, 2, 3, 2);
             textEdit4.MenuManager = ribbon;
             textEdit4.Name = "textEdit4";
@@ -336,7 +336,7 @@
             // textEdit3
             // 
             textEdit3.Enabled = false;
-            textEdit3.Location = new Point(389, 7);
+            textEdit3.Location = new Point(389, 11);
             textEdit3.Margin = new Padding(3, 2, 3, 2);
             textEdit3.MenuManager = ribbon;
             textEdit3.Name = "textEdit3";
@@ -348,7 +348,7 @@
             // textEdit2
             // 
             textEdit2.Enabled = false;
-            textEdit2.Location = new Point(129, 59);
+            textEdit2.Location = new Point(129, 61);
             textEdit2.Margin = new Padding(3, 2, 3, 2);
             textEdit2.MenuManager = ribbon;
             textEdit2.Name = "textEdit2";
