@@ -8,11 +8,11 @@ using DevExpress.XtraEditors;
 using BSMS.Winforms.UserControls;
 using System.Data;
 using BSMS.Winforms.Models;
-using System.Xml.Linq;
+using BSMS.Winforms.GenericUtils;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class OrderForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class OrderForm : FixedRibbonForm
     {
         private IEnumerable<Category>? categories;
         private IEnumerable<Subject>? subjects;
@@ -20,25 +20,6 @@ namespace BSMS.Winforms.Forms
         public OrderForm()
         {
             InitializeComponent();
-        }
-
-        protected override void WndProc(ref Message message)
-        {
-            const int WM_SYSCOMMAND = 0x0112;
-            const int SC_MOVE = 0xF010;
-            const int SC_MAXIMIZE = 0xF030;
-            const int SC_MINIMIZE = 0xF020;
-
-            switch (message.Msg)
-            {
-                case WM_SYSCOMMAND:
-                    int command = message.WParam.ToInt32() & 0xfff0;
-                    if (command == SC_MOVE || command == SC_MAXIMIZE || command == SC_MINIMIZE)
-                        return;
-                    break;
-            }
-
-            base.WndProc(ref message);
         }
 
         private void EnableOrderButtons(bool enable)
@@ -63,14 +44,13 @@ namespace BSMS.Winforms.Forms
                     var clients = subjects.Where(x => x.SubjectType == 0).Select(x => new Customer
                     {
                         Id = x.SubjectId,
-                        FullName = $"{x.SubjectName} {x.SubjectLastName}",
-                        PhoneNumber = x.PhoneNumber,
-                        Email = x.Email
+                        Surname = x.SubjectLastName,
+                        Name = x.SubjectName
                     });
 
-                    lueSurname.Properties.DisplayMember = "FullName";
-                    lueSurname.Properties.ValueMember = "Id";
-                    lueSurname.Properties.DataSource = clients;
+                    lookUpEdit1.Properties.DisplayMember = "Surname";
+                    lookUpEdit1.Properties.ValueMember = "Id";
+                    lookUpEdit1.Properties.DataSource = clients;
                 }
             }
             catch (Exception ex)
@@ -81,10 +61,14 @@ namespace BSMS.Winforms.Forms
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            var selectedCustomer = subjects?.Where(x => x.SubjectId == Convert.ToInt32(lueSurname.EditValue)).FirstOrDefault();
+            var selectedCustomer = subjects?.Where(x => x.SubjectId == Convert.ToInt32(lookUpEdit1.EditValue)).FirstOrDefault();
             Text = $"{selectedCustomer?.SubjectName} {selectedCustomer?.SubjectLastName} "
                 + (selectedCustomer != null ? "|" : "")
                 + $" {dateEdit1.DateTime:dd/MM/yyyy}";
+
+            textEdit2.Text = $"{selectedCustomer?.SubjectName}";
+            textEdit3.Text = $"{selectedCustomer?.PhoneNumber}";
+            textEdit4.Text = $"{selectedCustomer?.Email}";
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -196,7 +180,7 @@ namespace BSMS.Winforms.Forms
                     if (await Program.ApiSdk.DeleteOrder(CurrentOrder.OrderId))
                         this.Close();
                     else
-                        XtraMessageBox.Show("Error during the cancellation of the Order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("The order cannot be deleted anymore.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -229,7 +213,7 @@ namespace BSMS.Winforms.Forms
         {
             try
             {
-                var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lueSurname.EditValue)).FirstOrDefault();
+                var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lookUpEdit1.EditValue)).FirstOrDefault();
                 if (selectedCustomer == null)
                 {
                     XtraMessageBox.Show("Select customer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -259,11 +243,10 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
+                    CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId ?? 0);
                     if (alertSaved)
                         XtraMessageBox.Show("Order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                CurrentOrder = savedOrder;
             }
             catch (Exception ex)
             {
@@ -275,16 +258,5 @@ namespace BSMS.Winforms.Forms
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
         private async void saveOrderButton_ItemClick(object sender, ItemClickEventArgs e) => await SaveOrder();
-
-        private void lueSurname_TextChanged(object sender, EventArgs e)
-        {
-            txteName.Text = String.Empty;
-            txtePhone.Text = String.Empty;
-            Subject selectedclient = (Subject)lueSurname.GetSelectedDataRow();
-            if (selectedclient != null)
-                txteName.Text = selectedclient.SubjectName;
-            txtePhone.Text = selectedclient.PhoneNumber;
-            txteEmail.Text = selectedclient.Email;
-        }
     }
 }
