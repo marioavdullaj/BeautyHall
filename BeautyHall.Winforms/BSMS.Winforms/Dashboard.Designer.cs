@@ -61,9 +61,10 @@
             // 
             fluentDesignFormContainer1.Controls.Add(DisplayControl);
             fluentDesignFormContainer1.Dock = DockStyle.Fill;
-            fluentDesignFormContainer1.Location = new Point(260, 31);
+            fluentDesignFormContainer1.Location = new Point(303, 39);
+            fluentDesignFormContainer1.Margin = new Padding(4);
             fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            fluentDesignFormContainer1.Size = new Size(893, 465);
+            fluentDesignFormContainer1.Size = new Size(1042, 571);
             fluentDesignFormContainer1.TabIndex = 0;
             // 
             // DisplayControl
@@ -73,7 +74,7 @@
             DisplayControl.Location = new Point(0, 0);
             DisplayControl.Margin = new Padding(0);
             DisplayControl.Name = "DisplayControl";
-            DisplayControl.Size = new Size(893, 465);
+            DisplayControl.Size = new Size(1042, 571);
             DisplayControl.TabIndex = 0;
             // 
             // fluentFormDefaultManager1
@@ -84,11 +85,12 @@
             // 
             accordionControl1.Dock = DockStyle.Left;
             accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { usernameInfoElement, accordionControlElement4, accordionControlElement2, accordionControlElement8 });
-            accordionControl1.Location = new Point(0, 31);
+            accordionControl1.Location = new Point(0, 39);
+            accordionControl1.Margin = new Padding(4);
             accordionControl1.Name = "accordionControl1";
             accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
-            accordionControl1.Size = new Size(260, 465);
+            accordionControl1.Size = new Size(303, 571);
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             accordionControl1.StateChanged += accordionControl1_StateChanged;
@@ -116,6 +118,7 @@
             accordionControlElement5.Name = "accordionControlElement5";
             accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             accordionControlElement5.Text = "ΠΕΛΑΤΕΣ";
+            accordionControlElement5.Click += accordionControlElement5_Click;
             // 
             // ΩΜΜΟΤΕΣΚ
             // 
@@ -150,6 +153,7 @@
             accordionControlElement3.Name = "accordionControlElement3";
             accordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             accordionControlElement3.Text = "Manage Orders";
+            accordionControlElement3.Click += accordionControlElement3_Click;
             // 
             // accordionControlElement8
             // 
@@ -175,21 +179,23 @@
             fluentDesignFormControl1.FluentDesignForm = this;
             fluentDesignFormControl1.Location = new Point(0, 0);
             fluentDesignFormControl1.Manager = fluentFormDefaultManager1;
+            fluentDesignFormControl1.Margin = new Padding(4);
             fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            fluentDesignFormControl1.Size = new Size(1153, 31);
+            fluentDesignFormControl1.Size = new Size(1345, 39);
             fluentDesignFormControl1.TabIndex = 2;
             fluentDesignFormControl1.TabStop = false;
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1153, 496);
+            ClientSize = new Size(1345, 610);
             ControlContainer = fluentDesignFormContainer1;
             Controls.Add(fluentDesignFormContainer1);
             Controls.Add(accordionControl1);
             Controls.Add(fluentDesignFormControl1);
             FluentDesignFormControl = fluentDesignFormControl1;
+            Margin = new Padding(4);
             Name = "Dashboard";
             NavigationControl = accordionControl1;
             Text = "Dashboard";

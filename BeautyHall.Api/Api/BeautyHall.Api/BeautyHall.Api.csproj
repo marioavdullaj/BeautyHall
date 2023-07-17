@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.19" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>

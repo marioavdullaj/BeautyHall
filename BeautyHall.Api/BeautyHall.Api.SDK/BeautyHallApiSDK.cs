@@ -202,6 +202,18 @@ namespace BeautyHall.Api.SDK
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_CUSTOMER_ORDER, customerId));
             return await GetFromApi<object, IEnumerable<Order>>(uri, HttpMethod.Get);
         }
+        public async Task<IEnumerable<Order>?> GetOrders(DateTime from, DateTime to)
+        {
+            var fromDate = from.ToString("yyyy-MM-dd");
+            var toDate = to.ToString("yyyy-MM-dd");
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_ORDERS_DATES, fromDate, toDate));
+            return await GetFromApi<object, IEnumerable<Order>>(uri, HttpMethod.Get);
+        }
+        public async Task<Order?> GetOrder(int orderId)
+        {
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_ORDER_ID, orderId));
+            return await GetFromApi<object, Order?>(uri, HttpMethod.Get);
+        }
 
         public async Task<bool> DeleteOrderServices(IEnumerable<OrderServiceDto> orderServices)
         {
@@ -278,12 +290,12 @@ namespace BeautyHall.Api.SDK
         public async Task<bool> UpsertPayment(PaymentSummaryDto paymentSummary)
         {
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_UPDATE_PAYMENT));
-            return await GetFromApi<PaymentSummaryDto, bool>(uri, HttpMethod.Post);
+            return await GetFromApi<PaymentSummaryDto, bool>(uri, HttpMethod.Post, paymentSummary);
         }
 
         public async Task<bool> DeletePayment(int paymentId)
         {
-            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_PAYMENT));
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_PAYMENT, paymentId));
             return await GetFromApi<object, bool>(uri, HttpMethod.Delete);
         }
 
@@ -295,13 +307,16 @@ namespace BeautyHall.Api.SDK
 
         public async Task<IEnumerable<DailySummary>?> GetDailySummaries(DateTime from, DateTime to)
         {
-            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_FILTERED_DAILYSUMMARIES, from, to));
+            var dateFrom = from.ToString("yyyy-MM-dd");
+            var dateTo = to.ToString("yyyy-MM-dd");
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_FILTERED_DAILYSUMMARIES, dateFrom, dateTo));
             return await GetFromApi<object, IEnumerable<DailySummary>>(uri, HttpMethod.Get);
         }
 
         public async Task<DailySummary?> CalculateDailySummary(DateTime date, decimal dailyCosts)
         {
-            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_CALCULATE_DAILYSUMMARY, date, dailyCosts));
+            var dateString = date.ToString("yyyy-MM-dd");
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_CALCULATE_DAILYSUMMARY, dateString, dailyCosts));
             return await GetFromApi<object, DailySummary>(uri, HttpMethod.Get);
         }
 

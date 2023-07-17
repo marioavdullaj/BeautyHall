@@ -18,9 +18,9 @@ public partial class Service
     public decimal? ServiceMaximumPrice { get; set; }
     public int? CategoryId { get; set; }
 
-    public virtual ICollection<OrderService> OrderServices { get; set; } = new List<OrderService>();
+    public virtual ICollection<OrderService> OrderServices { get; set; } = null!;
 
-    public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
-    public virtual ICollection<Discount> Discounts { get; set; } = new List<Discount>();
+    public virtual ICollection<Employee> Employees { get; set; } = null!;
+    public virtual ICollection<Discount> Discounts { get; set; } = null!;
     public virtual Category? Category { get; set; }
 }

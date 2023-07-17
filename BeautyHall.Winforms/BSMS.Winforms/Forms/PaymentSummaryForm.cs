@@ -2,21 +2,13 @@
 using BeautyHall.Api.SDK.Responses;
 using Demo;
 using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class PaymentSummaryForm : DevExpress.XtraEditors.XtraForm
+    public partial class PaymentSummaryForm : XtraForm
     {
-        private List<decimal> discountPercentages;
+        private readonly double MAXPERCENTAGE = 0.5; // 50%
+        private List<double> discountPercentages;
         private PaymentSummary PaymentSummary { get; set; }
         public PaymentSummaryForm(Order? order)
         {
@@ -31,8 +23,9 @@ namespace BSMS.Winforms.Forms
 
         private void PaymentSummaryForm_Load(object sender, EventArgs e)
         {
-            for (decimal i = 0; i <= (decimal)0.55; i += (decimal)0.05)
+            for (double i = 0; i <= MAXPERCENTAGE; i += 0.05)
                 discountPercentages.Add(i);
+
             comboBoxEdit1.Properties.Items.AddRange(discountPercentages);
 
             PaymentSummary.TotalPrice = GenericUtils.Functions.NullToDecimal(PaymentSummary.Order?.OrderServices?.Sum(x => x.ServicePrice));
@@ -42,40 +35,27 @@ namespace BSMS.Winforms.Forms
             textEdit1.Text = $"{PaymentSummary.Order?.Customer?.SubjectName} {PaymentSummary.Order?.Customer?.SubjectLastName}";
 
             comboBoxEdit1.EditValue = 0;
+            textEdit3.EditValue = textEdit2.EditValue;
+            spinEdit1.Value = PaymentSummary.TotalPrice;
         }
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedPercentage = GenericUtils.Functions.NullToDecimal(comboBoxEdit1.EditValue);
-            var discountedPrice = PaymentSummary.TotalPrice * (1 - selectedPercentage);
+            var discountedPrice = PaymentSummary.TotalPrice * (1 - (decimal)selectedPercentage);
 
             textEdit3.EditValueChanged -= textEdit3_EditValueChanged;
             textEdit3.EditValue = discountedPrice;
             textEdit3.EditValueChanged += textEdit3_EditValueChanged;
+            UpdateCashPos(scaleFromCashFirst: true);
         }
 
         private void textEdit3_EditValueChanged(object sender, EventArgs e)
         {
             var discountedPrice = GenericUtils.Functions.NullToDecimal(textEdit3.EditValue);
             var calculatedPercentage = discountedPrice / PaymentSummary.TotalPrice;
-            comboBoxEdit1.EditValue = 1 - calculatedPercentage;
-
-            var currentCash = spinEdit1.Value;
-            var currentPos = spinEdit2.Value;
-
-            var delta = discountedPrice - (currentCash + currentPos);
-
-            currentCash += delta;
-            if (currentCash < 0)
-            {
-                currentPos += currentCash;
-                currentCash = 0;
-            }
-            if (currentPos < 0)
-                currentPos = 0;
-
-            spinEdit1.Value = currentCash;
-            spinEdit2.Value = currentPos;
+            comboBoxEdit1.EditValue = (double)(1 - calculatedPercentage);
+            UpdateCashPos(scaleFromCashFirst: true);
         }
         private async void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -96,6 +76,10 @@ namespace BSMS.Winforms.Forms
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                else
+                {
+                    XtraMessageBox.Show("An error occured during the saving of the payment. Please contact the administration", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -115,56 +99,103 @@ namespace BSMS.Winforms.Forms
             }
         }
 
-        private void spinEdit2_EditValueChanged(object sender, EventArgs e)
+        private bool UpdateCashPos(bool scaleFromCashFirst, decimal currentCash = -1, decimal currentPos = -1)
         {
-            var currentPos = spinEdit2.Value;
-            var currentCash = spinEdit1.Value;
+            var declaredCurrentCash = currentCash;
+            var declaredCurrentPos = currentPos;
+
             var discountedPrice = GenericUtils.Functions.NullToDecimal(textEdit3.EditValue);
+            if (currentCash < 0) currentCash = spinEdit1.Value;
+            if (currentPos < 0) currentPos = spinEdit2.Value;
+
+            var delta = discountedPrice - (currentCash + currentPos);
+
+            if (scaleFromCashFirst)
+            {
+                currentCash += delta;
+                if (currentCash < 0)
+                {
+                    currentPos += currentCash;
+                    currentCash = 0;
+                }
+                if (currentPos < 0)
+                    currentPos = 0;
+            }
+            else
+            {
+                currentPos += delta;
+                if (currentPos < 0)
+                {
+                    currentCash += currentPos;
+                    currentPos = 0;
+                }
+                if (currentCash < 0)
+                    currentCash = 0;
+            }
 
             if (discountedPrice < currentCash + currentPos)
             {
-                if (currentCash > discountedPrice)
-                    currentCash = discountedPrice;
-                currentPos = discountedPrice - currentCash;
+                if (!scaleFromCashFirst)
+                {
+                    if (currentPos > discountedPrice)
+                        currentPos = discountedPrice;
+                    currentCash = discountedPrice - currentPos;
+                }
+                else
+                {
+                    if (currentCash > discountedPrice)
+                        currentCash = discountedPrice;
+                    currentPos = discountedPrice - currentCash;
+                }
             }
 
-            spinEdit1.EditValueChanged -= spinEdit1_EditValueChanged;
-            spinEdit2.EditValueChanged -= spinEdit2_EditValueChanged;
+            spinEdit1.EditValueChanging -= spinEdit1_EditValueChanging;
+            spinEdit2.EditValueChanging -= spinEdit2_EditValueChanging;
             spinEdit1.Value = currentCash;
             spinEdit2.Value = currentPos;
-            spinEdit1.EditValueChanged += spinEdit1_EditValueChanged;
-            spinEdit2.EditValueChanged += spinEdit2_EditValueChanged;
-        }
+            spinEdit1.EditValueChanging += spinEdit1_EditValueChanging;
+            spinEdit2.EditValueChanging += spinEdit2_EditValueChanging;
 
-        private void spinEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-            var currentPos = spinEdit2.Value;
-            var currentCash = spinEdit1.Value;
-            var discountedPrice = GenericUtils.Functions.NullToDecimal(textEdit3.EditValue);
-
-            if (discountedPrice < currentCash + currentPos)
-            {
-                if (currentPos > discountedPrice)
-                    currentPos = discountedPrice;
-                currentCash = discountedPrice - currentPos;
-            }
-
-            spinEdit1.EditValueChanged -= spinEdit1_EditValueChanged;
-            spinEdit2.EditValueChanged -= spinEdit2_EditValueChanged;
-            spinEdit1.Value = currentCash;
-            spinEdit2.Value = currentPos;
-            spinEdit1.EditValueChanged += spinEdit1_EditValueChanged;
-            spinEdit2.EditValueChanged += spinEdit2_EditValueChanged;
+            return (declaredCurrentCash < 0 || declaredCurrentCash == currentCash) && (declaredCurrentPos < 0 || declaredCurrentPos == currentPos);
         }
 
         private void spinEdit1_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
+            if (GenericUtils.Functions.NullToDecimal(e.NewValue) < 0)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            if (!UpdateCashPos(scaleFromCashFirst: false, currentCash: GenericUtils.Functions.NullToDecimal(e.NewValue)))
+                e.Cancel = true;
 
         }
 
         private void spinEdit2_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
+            if (GenericUtils.Functions.NullToDecimal(e.NewValue) < 0)
+            {
+                e.Cancel = true;
+                return;
+            }
 
+            if (!UpdateCashPos(scaleFromCashFirst: true, currentPos: GenericUtils.Functions.NullToDecimal(e.NewValue)))
+                e.Cancel = true;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            comboBoxEdit1.SelectedIndex = 0; comboBoxEdit1.SelectedItem = 0;
+            spinEdit1.Value = PaymentSummary.TotalPrice;
+            spinEdit2.Value = 0;
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            var a = spinEdit1.Value;
+            spinEdit1.Value = spinEdit2.Value;
+            spinEdit2.Value = a;
         }
     }
 }
