@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertClient));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            SaveClientButton = new DevExpress.XtraBars.BarButtonItem();
+            CancelClientButton = new DevExpress.XtraBars.BarButtonItem();
+            EditClientButton = new DevExpress.XtraBars.BarButtonItem();
             Εγγραφη = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            ClientHeaderPanel = new DevExpress.XtraEditors.PanelControl();
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
@@ -55,8 +55,8 @@
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
-            panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
+            ClientHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
@@ -71,7 +71,7 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, barButtonItem3, barButtonItem4 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton });
             ribbon.Location = new Point(0, 0);
             ribbon.MaxItemId = 5;
             ribbon.Name = "ribbon";
@@ -86,30 +86,32 @@
             barButtonItem1.ImageOptions.Image = (Image)resources.GetObject("barButtonItem1.ImageOptions.Image");
             barButtonItem1.ImageOptions.LargeImage = (Image)resources.GetObject("barButtonItem1.ImageOptions.LargeImage");
             barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.ItemClick += barButtonItem1_ItemClick;
             // 
-            // barButtonItem2
+            // SaveClientButton
             // 
-            barButtonItem2.Caption = "Καταχώρηση";
-            barButtonItem2.Id = 2;
-            barButtonItem2.ImageOptions.Image = (Image)resources.GetObject("barButtonItem2.ImageOptions.Image");
-            barButtonItem2.ImageOptions.LargeImage = (Image)resources.GetObject("barButtonItem2.ImageOptions.LargeImage");
-            barButtonItem2.Name = "barButtonItem2";
+            SaveClientButton.Caption = "Καταχώρηση";
+            SaveClientButton.Id = 2;
+            SaveClientButton.ImageOptions.Image = (Image)resources.GetObject("SaveClientButton.ImageOptions.Image");
+            SaveClientButton.ImageOptions.LargeImage = (Image)resources.GetObject("SaveClientButton.ImageOptions.LargeImage");
+            SaveClientButton.Name = "SaveClientButton";
+            SaveClientButton.ItemClick += SaveClientButton_ItemClick;
             // 
-            // barButtonItem3
+            // CancelClientButton
             // 
-            barButtonItem3.Caption = "Ακύρωση";
-            barButtonItem3.Id = 3;
-            barButtonItem3.ImageOptions.Image = (Image)resources.GetObject("barButtonItem3.ImageOptions.Image");
-            barButtonItem3.ImageOptions.LargeImage = (Image)resources.GetObject("barButtonItem3.ImageOptions.LargeImage");
-            barButtonItem3.Name = "barButtonItem3";
+            CancelClientButton.Caption = "Ακύρωση";
+            CancelClientButton.Id = 3;
+            CancelClientButton.ImageOptions.Image = (Image)resources.GetObject("CancelClientButton.ImageOptions.Image");
+            CancelClientButton.ImageOptions.LargeImage = (Image)resources.GetObject("CancelClientButton.ImageOptions.LargeImage");
+            CancelClientButton.Name = "CancelClientButton";
             // 
-            // barButtonItem4
+            // EditClientButton
             // 
-            barButtonItem4.Caption = "Επεξεργασία";
-            barButtonItem4.Id = 4;
-            barButtonItem4.ImageOptions.Image = (Image)resources.GetObject("barButtonItem4.ImageOptions.Image");
-            barButtonItem4.ImageOptions.LargeImage = (Image)resources.GetObject("barButtonItem4.ImageOptions.LargeImage");
-            barButtonItem4.Name = "barButtonItem4";
+            EditClientButton.Caption = "Επεξεργασία";
+            EditClientButton.Id = 4;
+            EditClientButton.ImageOptions.Image = (Image)resources.GetObject("EditClientButton.ImageOptions.Image");
+            EditClientButton.ImageOptions.LargeImage = (Image)resources.GetObject("EditClientButton.ImageOptions.LargeImage");
+            EditClientButton.Name = "EditClientButton";
             // 
             // Εγγραφη
             // 
@@ -120,9 +122,9 @@
             // ribbonPageGroup1
             // 
             ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem2);
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem3);
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem4);
+            ribbonPageGroup1.ItemLinks.Add(SaveClientButton);
+            ribbonPageGroup1.ItemLinks.Add(CancelClientButton);
+            ribbonPageGroup1.ItemLinks.Add(EditClientButton);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonStatusBar
@@ -132,26 +134,26 @@
             ribbonStatusBar.Ribbon = ribbon;
             ribbonStatusBar.Size = new Size(1361, 30);
             // 
-            // panelControl1
+            // ClientHeaderPanel
             // 
-            panelControl1.Controls.Add(textEdit2);
-            panelControl1.Controls.Add(labelControl6);
-            panelControl1.Controls.Add(dateEdit1);
-            panelControl1.Controls.Add(labelControl5);
-            panelControl1.Controls.Add(textBox3);
-            panelControl1.Controls.Add(textBox2);
-            panelControl1.Controls.Add(textBox1);
-            panelControl1.Controls.Add(labelControl4);
-            panelControl1.Controls.Add(labelControl3);
-            panelControl1.Controls.Add(labelControl2);
-            panelControl1.Controls.Add(labelControl1);
-            panelControl1.Controls.Add(panelControl2);
-            panelControl1.Controls.Add(panelControl3);
-            panelControl1.Dock = DockStyle.Top;
-            panelControl1.Location = new Point(0, 193);
-            panelControl1.Name = "panelControl1";
-            panelControl1.Size = new Size(1361, 132);
-            panelControl1.TabIndex = 2;
+            ClientHeaderPanel.Controls.Add(textEdit2);
+            ClientHeaderPanel.Controls.Add(labelControl6);
+            ClientHeaderPanel.Controls.Add(dateEdit1);
+            ClientHeaderPanel.Controls.Add(labelControl5);
+            ClientHeaderPanel.Controls.Add(textBox3);
+            ClientHeaderPanel.Controls.Add(textBox2);
+            ClientHeaderPanel.Controls.Add(textBox1);
+            ClientHeaderPanel.Controls.Add(labelControl4);
+            ClientHeaderPanel.Controls.Add(labelControl3);
+            ClientHeaderPanel.Controls.Add(labelControl2);
+            ClientHeaderPanel.Controls.Add(labelControl1);
+            ClientHeaderPanel.Controls.Add(panelControl2);
+            ClientHeaderPanel.Controls.Add(panelControl3);
+            ClientHeaderPanel.Dock = DockStyle.Top;
+            ClientHeaderPanel.Location = new Point(0, 193);
+            ClientHeaderPanel.Name = "ClientHeaderPanel";
+            ClientHeaderPanel.Size = new Size(1361, 132);
+            ClientHeaderPanel.TabIndex = 2;
             // 
             // textEdit2
             // 
@@ -279,6 +281,8 @@
             lookUpEdit1.Properties.Appearance.Options.UseFont = true;
             lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             lookUpEdit1.Properties.NullText = "";
+            lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
             lookUpEdit1.Size = new Size(282, 28);
             lookUpEdit1.TabIndex = 0;
             // 
@@ -311,17 +315,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1361, 796);
             Controls.Add(gridControl1);
-            Controls.Add(panelControl1);
+            Controls.Add(ClientHeaderPanel);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
             Name = "InsertClient";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             Text = "InsertClient";
+            Load += InsertClient_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
-            panelControl1.ResumeLayout(false);
-            panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).EndInit();
+            ClientHeaderPanel.ResumeLayout(false);
+            ClientHeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
@@ -342,10 +347,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraBars.BarButtonItem SaveClientButton;
+        private DevExpress.XtraBars.BarButtonItem CancelClientButton;
+        private DevExpress.XtraBars.BarButtonItem EditClientButton;
+        private DevExpress.XtraEditors.PanelControl ClientHeaderPanel;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private TextBox textBox3;
         private TextBox textBox2;
