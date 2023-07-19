@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertClient));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -42,18 +43,24 @@
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            textEdit1 = new DevExpress.XtraEditors.TextEdit();
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
+            customerBindingSource = new BindingSource(components);
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
+            colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            colTel = new DevExpress.XtraGrid.Columns.GridColumn();
+            colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
@@ -62,9 +69,13 @@
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
             panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
             // 
@@ -140,9 +151,6 @@
             ClientHeaderPanel.Controls.Add(labelControl6);
             ClientHeaderPanel.Controls.Add(dateEdit1);
             ClientHeaderPanel.Controls.Add(labelControl5);
-            ClientHeaderPanel.Controls.Add(textBox3);
-            ClientHeaderPanel.Controls.Add(textBox2);
-            ClientHeaderPanel.Controls.Add(textBox1);
             ClientHeaderPanel.Controls.Add(labelControl4);
             ClientHeaderPanel.Controls.Add(labelControl3);
             ClientHeaderPanel.Controls.Add(labelControl2);
@@ -157,6 +165,8 @@
             // 
             // textEdit2
             // 
+            textEdit2.EditValue = "0";
+            textEdit2.Enabled = false;
             textEdit2.Location = new Point(105, 22);
             textEdit2.MenuManager = ribbon;
             textEdit2.Name = "textEdit2";
@@ -200,30 +210,6 @@
             labelControl5.TabIndex = 8;
             labelControl5.Text = "ClientId:";
             // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(779, 92);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(282, 28);
-            textBox3.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(779, 21);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(282, 28);
-            textBox2.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(424, 92);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(282, 28);
-            textBox1.TabIndex = 5;
-            // 
             // labelControl4
             // 
             labelControl4.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -266,25 +252,46 @@
             // 
             // panelControl2
             // 
-            panelControl2.Controls.Add(lookUpEdit1);
+            panelControl2.Controls.Add(textEdit5);
+            panelControl2.Controls.Add(textEdit4);
+            panelControl2.Controls.Add(textEdit3);
+            panelControl2.Controls.Add(textEdit1);
             panelControl2.Location = new Point(322, 2);
             panelControl2.Name = "panelControl2";
             panelControl2.Size = new Size(774, 125);
             panelControl2.TabIndex = 12;
             // 
-            // lookUpEdit1
+            // textEdit5
             // 
-            lookUpEdit1.Location = new Point(102, 19);
-            lookUpEdit1.MenuManager = ribbon;
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.NullText = "";
-            lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
-            lookUpEdit1.Size = new Size(282, 28);
-            lookUpEdit1.TabIndex = 0;
+            textEdit5.Location = new Point(514, 89);
+            textEdit5.MenuManager = ribbon;
+            textEdit5.Name = "textEdit5";
+            textEdit5.Size = new Size(156, 22);
+            textEdit5.TabIndex = 3;
+            // 
+            // textEdit4
+            // 
+            textEdit4.Location = new Point(514, 24);
+            textEdit4.MenuManager = ribbon;
+            textEdit4.Name = "textEdit4";
+            textEdit4.Size = new Size(156, 22);
+            textEdit4.TabIndex = 2;
+            // 
+            // textEdit3
+            // 
+            textEdit3.Location = new Point(151, 89);
+            textEdit3.MenuManager = ribbon;
+            textEdit3.Name = "textEdit3";
+            textEdit3.Size = new Size(156, 22);
+            textEdit3.TabIndex = 1;
+            // 
+            // textEdit1
+            // 
+            textEdit1.Location = new Point(151, 19);
+            textEdit1.MenuManager = ribbon;
+            textEdit1.Name = "textEdit1";
+            textEdit1.Size = new Size(156, 22);
+            textEdit1.TabIndex = 0;
             // 
             // panelControl3
             // 
@@ -295,6 +302,7 @@
             // 
             // gridControl1
             // 
+            gridControl1.DataSource = customerBindingSource;
             gridControl1.Dock = DockStyle.Fill;
             gridControl1.Location = new Point(0, 325);
             gridControl1.MainView = gridView1;
@@ -304,10 +312,65 @@
             gridControl1.TabIndex = 5;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Models.Customer);
+            // 
             // gridView1
             // 
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colSurname, colName, colTel, colEmail });
+            gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
+            gridView1.OptionsBehavior.Editable = false;
+            gridView1.OptionsView.ShowAutoFilterRow = true;
+            gridView1.OptionsView.ShowGroupPanel = false;
+            gridView1.RowClick += gridView1_RowClick;
+            // 
+            // colId
+            // 
+            colId.FieldName = "Id";
+            colId.MinWidth = 25;
+            colId.Name = "colId";
+            colId.Visible = true;
+            colId.VisibleIndex = 0;
+            colId.Width = 77;
+            // 
+            // colSurname
+            // 
+            colSurname.FieldName = "Surname";
+            colSurname.MinWidth = 25;
+            colSurname.Name = "colSurname";
+            colSurname.Visible = true;
+            colSurname.VisibleIndex = 1;
+            colSurname.Width = 180;
+            // 
+            // colName
+            // 
+            colName.FieldName = "Name";
+            colName.MinWidth = 25;
+            colName.Name = "colName";
+            colName.Visible = true;
+            colName.VisibleIndex = 2;
+            colName.Width = 180;
+            // 
+            // colTel
+            // 
+            colTel.FieldName = "Tel";
+            colTel.MinWidth = 25;
+            colTel.Name = "colTel";
+            colTel.Visible = true;
+            colTel.VisibleIndex = 3;
+            colTel.Width = 180;
+            // 
+            // colEmail
+            // 
+            colEmail.FieldName = "Email";
+            colEmail.MinWidth = 25;
+            colEmail.Name = "colEmail";
+            colEmail.Visible = true;
+            colEmail.VisibleIndex = 4;
+            colEmail.Width = 185;
             // 
             // InsertClient
             // 
@@ -332,9 +395,13 @@
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
             panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -352,20 +419,26 @@
         private DevExpress.XtraBars.BarButtonItem EditClientButton;
         private DevExpress.XtraEditors.PanelControl ClientHeaderPanel;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private BindingSource customerBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colSurname;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colTel;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
     }
 }
