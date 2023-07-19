@@ -39,6 +39,7 @@
             Νεος = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             Κωμμοτέ = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             productAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            ΥπηΥ = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             newOrderAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -106,7 +107,7 @@
             // 
             // accordionControlElement4
             // 
-            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { Νεος, Κωμμοτέ, productAccordionItem });
+            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { Νεος, Κωμμοτέ, productAccordionItem, ΥπηΥ });
             accordionControlElement4.Expanded = true;
             accordionControlElement4.Name = "accordionControlElement4";
             accordionControlElement4.Text = "ΕΓΓΡΑΦΕΣ";
@@ -129,8 +130,14 @@
             // 
             productAccordionItem.Name = "productAccordionItem";
             productAccordionItem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            productAccordionItem.Text = "Προιόντα";
+            productAccordionItem.Text = "Προιόντα - Α-Ύλες - Αναλώσιμα";
             productAccordionItem.Click += productAccordionItem_Click;
+            // 
+            // ΥπηΥ
+            // 
+            ΥπηΥ.Name = "ΥπηΥ";
+            ΥπηΥ.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            ΥπηΥ.Text = "Υπηρεσίες - Τιμές";
             // 
             // accordionControlElement2
             // 
@@ -164,7 +171,7 @@
             // 
             accordionControlElement10.Name = "accordionControlElement10";
             accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement10.Text = "Υπολογισμός ημερήσιας";
+            accordionControlElement10.Text = "Ημερήσιος Υπολογισμός Υπηρεσιών";
             // 
             // accordionControlElement9
             // 
@@ -224,5 +231,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
         private DevExpress.XtraEditors.PanelControl DisplayControl;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ΥπηΥ;
     }
 }
