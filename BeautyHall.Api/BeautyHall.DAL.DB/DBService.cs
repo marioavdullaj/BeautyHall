@@ -747,6 +747,8 @@ namespace BeautyHall.DAL.DB
                 item.EmployeeRole = input.EmployeeRole;
                 item.EmployeePhone = input.EmployeePhone;
                 item.IsActive = input.IsActive;
+                item.EmployeeRegistrationDate = input.EmployeeRegistrationDate;
+                item.EmployeeEmail = input.EmployeeEmail;
                 Context.Employees.Update(item);
             }
 

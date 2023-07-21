@@ -6,7 +6,7 @@ using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-namespace Demo
+namespace BSMS
 {
     public static class Program
     {

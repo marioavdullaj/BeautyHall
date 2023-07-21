@@ -1,8 +1,8 @@
 ﻿using BeautyHall.Api.SDK.Responses;
-using Demo;
+using BSMS;
 using DevExpress.XtraBars;
 using DevExpress.Utils.Extensions;
-using Demo.UserControls;
+using BSMS.UserControls;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
 using BSMS.Winforms.UserControls;

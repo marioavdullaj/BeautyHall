@@ -1,21 +1,8 @@
 ﻿using DevExpress.XtraBars;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BSMS.Winforms.GenericUtils;
-using BeautyHall.Api.SDK.Responses;
-using Demo;
-using BSMS.Winforms.Models;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Native;
-
 
 namespace BSMS.Winforms.Forms
 {
@@ -34,6 +21,7 @@ namespace BSMS.Winforms.Forms
             EmployeeHeaderPanel.Enabled = enable;
             SaveEmployeeButton.Enabled = enable;
             CancelEmployeeButton.Enabled = enable;
+            barButtonItem4.Enabled = enable;
             //EditEmployeeButton.Enabled = enable;
         }
 
@@ -54,13 +42,14 @@ namespace BSMS.Winforms.Forms
                 employees = await Program.ApiSdk.GetEmployees();
                 if (employees != null)
                 {
-                    var employee = employees.Where(x => x.EmployeeId == 0).Select(x => new Customer
+                    var employee = employees.Select(x => new Models.Employee
                     {
                         Id = x.EmployeeId,
                         Surname = x.EmployeeLastName,
                         Name = x.EmployeeName,
                         Tel = x.EmployeePhone,
-                        //Email = x.EmployeeEmail
+                        Email = x.EmployeeEmail,
+                        RegistrationDate = x.EmployeeRegistrationDate
                     });
 
                     gridControl1.DataSource = employee;
@@ -99,8 +88,8 @@ namespace BSMS.Winforms.Forms
                         EmployeeLastName = textEdit1.Text,
                         EmployeeName = textEdit3.Text,
                         EmployeePhone = textEdit4.Text,
-                        //EmployeeEmail= textEdit5.Text,
-                        //EmployeeRegistrationDate = dateEdit1.DateTime
+                        EmployeeEmail= textEdit5.Text,
+                        EmployeeRegistrationDate = dateEdit1.DateTime
                     }
                 };
                 bool result = await Program.ApiSdk.UpsertEmployees(input);
@@ -120,27 +109,6 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
-        }
-
-        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            // here when we select a row we autocompile the data in the above panel
-            var selected = gridView1.GetSelectedRows();
-            if (selected != null && selected.Any())
-            {
-                var selectedEmployees = employees?.ElementAt(selected[0]);
-                if (selectedEmployees != null)
-                {
-                    textEdit2.EditValue = selectedEmployees.EmployeeId;
-                    textEdit1.EditValue = selectedEmployees.EmployeeLastName;
-                    textEdit3.EditValue = selectedEmployees.EmployeeName;
-                    textEdit4.EditValue = selectedEmployees.EmployeePhone;
-                    //textEdit5.EditValue = selectedEmployees.EmployeeEmail;
-                    //dateEdit1.DateTime = selectedEmployees.EmployeeRegistrationDate ?? DateTime.MinValue;
-
-                    EnableClientButtons(true);
-                }
-            }
         }
 
         private void CancelEmployeeButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -208,5 +176,28 @@ namespace BSMS.Winforms.Forms
             Clear();
             EnableClientButtons(true);
         }
+
+        private void gridView1_RowClick_1(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            // here when we select a row we autocompile the data in the above panel
+            var selected = gridView1.GetSelectedRows();
+            if (selected != null && selected.Any())
+            {
+                var selectedEmployees = employees?.ElementAt(selected[0]);
+                if (selectedEmployees != null)
+                {
+                    textEdit2.EditValue = selectedEmployees.EmployeeId;
+                    textEdit1.EditValue = selectedEmployees.EmployeeLastName;
+                    textEdit3.EditValue = selectedEmployees.EmployeeName;
+                    textEdit4.EditValue = selectedEmployees.EmployeePhone;
+                    textEdit5.EditValue = selectedEmployees.EmployeeEmail;
+                    dateEdit1.DateTime = selectedEmployees.EmployeeRegistrationDate ?? DateTime.MinValue;
+
+                    EnableClientButtons(true);
+                }
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
     }
 }

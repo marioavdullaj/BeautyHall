@@ -37,13 +37,12 @@
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            panelControl3 = new DevExpress.XtraEditors.PanelControl();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            panelControl2 = new DevExpress.XtraEditors.PanelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textEdit5 = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -53,6 +52,7 @@
             textEdit1 = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
+            employeeBindingSource = new BindingSource(components);
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             colId = new DevExpress.XtraGrid.Columns.GridColumn();
             colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,32 +60,28 @@
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             EmployeeHeaderPanel = new DevExpress.XtraEditors.PanelControl();
-            employeeBindingSource = new BindingSource(components);
+            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
-            panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
-            panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeHeaderPanel).BeginInit();
             EmployeeHeaderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             SuspendLayout();
             // 
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveEmployeeButton, CancelEmployeeButton, barButtonItem4 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveEmployeeButton, CancelEmployeeButton, barButtonItem4, barButtonItem2 });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 5;
+            ribbon.MaxItemId = 6;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbon.Size = new Size(1346, 193);
@@ -125,7 +121,7 @@
             // 
             // ribbonPage1
             // 
-            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
+            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2 });
             ribbonPage1.Name = "ribbonPage1";
             ribbonPage1.Text = "Εγγραφή Κομμωτή - Υπάλληλο";
             // 
@@ -137,6 +133,12 @@
             ribbonPageGroup1.ItemLinks.Add(barButtonItem4);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
+            // ribbonPageGroup2
+            // 
+            ribbonPageGroup2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("ribbonPageGroup2.ImageOptions.SvgImage");
+            ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
+            ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
             // ribbonStatusBar
             // 
             ribbonStatusBar.Location = new Point(0, 770);
@@ -144,23 +146,11 @@
             ribbonStatusBar.Ribbon = ribbon;
             ribbonStatusBar.Size = new Size(1346, 30);
             // 
-            // panelControl3
-            // 
-            panelControl3.Controls.Add(labelControl5);
-            panelControl3.Controls.Add(textEdit2);
-            panelControl3.Controls.Add(dateEdit1);
-            panelControl3.Controls.Add(labelControl6);
-            panelControl3.Location = new Point(6, 198);
-            panelControl3.Margin = new Padding(4, 2, 4, 2);
-            panelControl3.Name = "panelControl3";
-            panelControl3.Size = new Size(297, 116);
-            panelControl3.TabIndex = 14;
-            // 
             // labelControl5
             // 
             labelControl5.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(6, 21);
+            labelControl5.Location = new Point(11, 17);
             labelControl5.Margin = new Padding(4, 2, 4, 2);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(63, 21);
@@ -171,7 +161,7 @@
             // 
             textEdit2.EditValue = "0";
             textEdit2.Enabled = false;
-            textEdit2.Location = new Point(105, 18);
+            textEdit2.Location = new Point(109, 14);
             textEdit2.Margin = new Padding(4, 2, 4, 2);
             textEdit2.MenuManager = ribbon;
             textEdit2.Name = "textEdit2";
@@ -183,7 +173,7 @@
             // dateEdit1
             // 
             dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(105, 82);
+            dateEdit1.Location = new Point(109, 69);
             dateEdit1.Margin = new Padding(4);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
@@ -198,34 +188,18 @@
             // 
             labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(6, 90);
+            labelControl6.Location = new Point(11, 72);
             labelControl6.Margin = new Padding(4);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new Size(91, 21);
             labelControl6.TabIndex = 10;
             labelControl6.Text = "Insert Date:";
             // 
-            // panelControl2
-            // 
-            panelControl2.Controls.Add(labelControl3);
-            panelControl2.Controls.Add(textEdit5);
-            panelControl2.Controls.Add(labelControl4);
-            panelControl2.Controls.Add(textEdit4);
-            panelControl2.Controls.Add(textEdit3);
-            panelControl2.Controls.Add(labelControl2);
-            panelControl2.Controls.Add(textEdit1);
-            panelControl2.Controls.Add(labelControl1);
-            panelControl2.Location = new Point(309, 5);
-            panelControl2.Margin = new Padding(4, 2, 4, 2);
-            panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(774, 116);
-            panelControl2.TabIndex = 15;
-            // 
             // labelControl3
             // 
             labelControl3.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(404, 25);
+            labelControl3.Location = new Point(698, 16);
             labelControl3.Margin = new Padding(4, 2, 4, 2);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(38, 21);
@@ -234,18 +208,20 @@
             // 
             // textEdit5
             // 
-            textEdit5.Location = new Point(514, 82);
+            textEdit5.Location = new Point(811, 66);
             textEdit5.Margin = new Padding(4, 2, 4, 2);
             textEdit5.MenuManager = ribbon;
             textEdit5.Name = "textEdit5";
-            textEdit5.Size = new Size(156, 22);
+            textEdit5.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit5.Properties.Appearance.Options.UseFont = true;
+            textEdit5.Size = new Size(156, 28);
             textEdit5.TabIndex = 3;
             // 
             // labelControl4
             // 
             labelControl4.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(404, 82);
+            labelControl4.Location = new Point(698, 72);
             labelControl4.Margin = new Padding(4, 2, 4, 2);
             labelControl4.Name = "labelControl4";
             labelControl4.Size = new Size(47, 21);
@@ -254,27 +230,31 @@
             // 
             // textEdit4
             // 
-            textEdit4.Location = new Point(514, 22);
+            textEdit4.Location = new Point(811, 13);
             textEdit4.Margin = new Padding(4, 2, 4, 2);
             textEdit4.MenuManager = ribbon;
             textEdit4.Name = "textEdit4";
-            textEdit4.Size = new Size(156, 22);
+            textEdit4.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit4.Properties.Appearance.Options.UseFont = true;
+            textEdit4.Size = new Size(156, 28);
             textEdit4.TabIndex = 2;
             // 
             // textEdit3
             // 
-            textEdit3.Location = new Point(150, 82);
+            textEdit3.Location = new Point(480, 69);
             textEdit3.Margin = new Padding(4, 2, 4, 2);
             textEdit3.MenuManager = ribbon;
             textEdit3.Name = "textEdit3";
-            textEdit3.Size = new Size(156, 22);
+            textEdit3.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit3.Properties.Appearance.Options.UseFont = true;
+            textEdit3.Size = new Size(156, 28);
             textEdit3.TabIndex = 1;
             // 
             // labelControl2
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(21, 86);
+            labelControl2.Location = new Point(351, 73);
             labelControl2.Margin = new Padding(4, 2, 4, 2);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(56, 21);
@@ -283,18 +263,20 @@
             // 
             // textEdit1
             // 
-            textEdit1.Location = new Point(150, 22);
+            textEdit1.Location = new Point(480, 13);
             textEdit1.Margin = new Padding(4, 2, 4, 2);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(156, 22);
+            textEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit1.Properties.Appearance.Options.UseFont = true;
+            textEdit1.Size = new Size(156, 28);
             textEdit1.TabIndex = 0;
             // 
             // labelControl1
             // 
             labelControl1.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new Point(21, 25);
+            labelControl1.Location = new Point(351, 17);
             labelControl1.Margin = new Padding(4, 2, 4, 2);
             labelControl1.Name = "labelControl1";
             labelControl1.Size = new Size(75, 21);
@@ -304,15 +286,20 @@
             // gridControl1
             // 
             gridControl1.DataSource = employeeBindingSource;
+            gridControl1.Dock = DockStyle.Fill;
             gridControl1.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            gridControl1.Location = new Point(0, 328);
+            gridControl1.Location = new Point(0, 318);
             gridControl1.MainView = gridView1;
             gridControl1.Margin = new Padding(4, 2, 4, 2);
             gridControl1.MenuManager = ribbon;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(1346, 437);
+            gridControl1.Size = new Size(1346, 452);
             gridControl1.TabIndex = 13;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            // 
+            // employeeBindingSource
+            // 
+            employeeBindingSource.DataSource = typeof(Models.Employee);
             // 
             // gridView1
             // 
@@ -325,6 +312,7 @@
             gridView1.OptionsBehavior.Editable = false;
             gridView1.OptionsView.ShowAutoFilterRow = true;
             gridView1.OptionsView.ShowGroupPanel = false;
+            gridView1.RowClick += gridView1_RowClick_1;
             // 
             // colId
             // 
@@ -373,25 +361,39 @@
             // 
             // EmployeeHeaderPanel
             // 
-            EmployeeHeaderPanel.Controls.Add(panelControl2);
+            EmployeeHeaderPanel.Controls.Add(labelControl3);
+            EmployeeHeaderPanel.Controls.Add(labelControl5);
+            EmployeeHeaderPanel.Controls.Add(textEdit5);
+            EmployeeHeaderPanel.Controls.Add(labelControl4);
+            EmployeeHeaderPanel.Controls.Add(textEdit2);
+            EmployeeHeaderPanel.Controls.Add(textEdit4);
+            EmployeeHeaderPanel.Controls.Add(dateEdit1);
+            EmployeeHeaderPanel.Controls.Add(textEdit3);
+            EmployeeHeaderPanel.Controls.Add(labelControl6);
+            EmployeeHeaderPanel.Controls.Add(labelControl2);
+            EmployeeHeaderPanel.Controls.Add(labelControl1);
+            EmployeeHeaderPanel.Controls.Add(textEdit1);
             EmployeeHeaderPanel.Dock = DockStyle.Top;
             EmployeeHeaderPanel.Location = new Point(0, 193);
             EmployeeHeaderPanel.Name = "EmployeeHeaderPanel";
             EmployeeHeaderPanel.Size = new Size(1346, 125);
             EmployeeHeaderPanel.TabIndex = 18;
             // 
-            // employeeBindingSource
+            // barButtonItem2
             // 
-            employeeBindingSource.DataSource = typeof(Models.Employee);
+            barButtonItem2.Caption = "Close";
+            barButtonItem2.Id = 5;
+            barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
+            barButtonItem2.Name = "barButtonItem2";
+            barButtonItem2.ItemClick += barButtonItem2_ItemClick;
             // 
             // InsertEmployee
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1346, 800);
-            Controls.Add(panelControl3);
-            Controls.Add(EmployeeHeaderPanel);
             Controls.Add(gridControl1);
+            Controls.Add(EmployeeHeaderPanel);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
             Name = "InsertEmployee";
@@ -400,24 +402,19 @@
             Text = "InsertEmployee";
             Load += InsertEmployee_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
-            panelControl3.ResumeLayout(false);
-            panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
-            panelControl2.ResumeLayout(false);
-            panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeHeaderPanel).EndInit();
             EmployeeHeaderPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
+            EmployeeHeaderPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -432,11 +429,9 @@
         private DevExpress.XtraBars.BarButtonItem SaveEmployeeButton;
         private DevExpress.XtraBars.BarButtonItem CancelEmployeeButton;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit textEdit4;
@@ -455,5 +450,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraEditors.PanelControl EmployeeHeaderPanel;
         private BindingSource employeeBindingSource;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
     }
 }

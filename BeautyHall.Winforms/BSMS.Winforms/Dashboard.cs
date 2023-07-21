@@ -1,11 +1,11 @@
 ﻿using BeautyHall.Api.SDK.Responses;
 using DevExpress.Utils.Extensions;
-using Demo.UserControls;
+using BSMS.UserControls;
 using BSMS.Winforms.Forms;
 using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 
-namespace Demo
+namespace BSMS
 {
     public partial class Dashboard : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {

@@ -13,5 +13,6 @@ namespace BSMS.Winforms.Models
         public string? Name { get; set; }
         public string? Tel { get; set; }
         public string? Email { get; set; }
+        public DateTime? RegistrationDate { get; set; }
     }
 }

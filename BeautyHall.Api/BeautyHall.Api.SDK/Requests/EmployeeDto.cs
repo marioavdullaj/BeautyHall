@@ -7,8 +7,8 @@
         public string? EmployeeLastName { get; set; }
         public string? EmployeeRole { get; set; }
         public string? EmployeePhone { get; set; }
-        public string? EmployeeEMail { get; set; }
         public bool? IsActive { get; set; } = true;
+        public string? EmployeeEmail { get; set; }
         public DateTime? EmployeeRegistrationDate { get; set; }
     }
 }

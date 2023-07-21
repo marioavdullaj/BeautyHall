@@ -17,6 +17,10 @@ public partial class Employee
 
     public bool? IsActive { get; set; }
 
+    public string? EmployeeEmail { get; set; }
+
+    public DateTime? EmployeeRegistrationDate { get; set; }
+
     public virtual ICollection<OrderService> OrderServices { get; set; } = new List<OrderService>();
 
     public virtual ICollection<Service> Services { get; set; } = new List<Service>();

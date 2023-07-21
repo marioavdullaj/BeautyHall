@@ -62,6 +62,8 @@
             colName = new DevExpress.XtraGrid.Columns.GridColumn();
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
@@ -84,10 +86,10 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton, barButtonItem2 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton, barButtonItem2, barButtonItem3 });
             ribbon.Location = new Point(0, 0);
             ribbon.Margin = new Padding(4, 2, 4, 2);
-            ribbon.MaxItemId = 6;
+            ribbon.MaxItemId = 7;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { Εγγραφη });
             ribbon.Size = new Size(1362, 193);
@@ -135,7 +137,7 @@
             // 
             // Εγγραφη
             // 
-            Εγγραφη.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
+            Εγγραφη.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2 });
             Εγγραφη.Name = "Εγγραφη";
             Εγγραφη.Text = "Εγγραφή Πελάτη";
             // 
@@ -302,7 +304,7 @@
             // 
             dateEdit1.EditValue = null;
             dateEdit1.Location = new Point(105, 82);
-            dateEdit1.Margin = new Padding(4, 4, 4, 4);
+            dateEdit1.Margin = new Padding(4);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
             dateEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -317,7 +319,7 @@
             labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
             labelControl6.Location = new Point(6, 90);
-            labelControl6.Margin = new Padding(4, 4, 4, 4);
+            labelControl6.Margin = new Padding(4);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new Size(91, 21);
             labelControl6.TabIndex = 10;
@@ -399,6 +401,19 @@
             colEmail.VisibleIndex = 4;
             colEmail.Width = 185;
             // 
+            // ribbonPageGroup2
+            // 
+            ribbonPageGroup2.ItemLinks.Add(barButtonItem3);
+            ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // barButtonItem3
+            // 
+            barButtonItem3.Caption = "Close";
+            barButtonItem3.Id = 6;
+            barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
+            barButtonItem3.Name = "barButtonItem3";
+            barButtonItem3.ItemClick += barButtonItem3_ItemClick;
+            // 
             // InsertClient
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -472,5 +487,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTel;
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

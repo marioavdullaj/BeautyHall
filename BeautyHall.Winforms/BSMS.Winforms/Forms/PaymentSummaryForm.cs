@@ -1,6 +1,6 @@
 ﻿using BeautyHall.Api.SDK.Requests;
 using BeautyHall.Api.SDK.Responses;
-using Demo;
+using BSMS;
 using DevExpress.XtraEditors;
 
 namespace BSMS.Winforms.Forms

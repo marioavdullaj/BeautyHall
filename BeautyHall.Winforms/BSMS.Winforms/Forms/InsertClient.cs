@@ -2,7 +2,7 @@
 using DevExpress.XtraBars;
 using System.Data;
 using BeautyHall.Api.SDK.Responses;
-using Demo;
+using BSMS;
 using BSMS.Winforms.Models;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
@@ -26,6 +26,7 @@ namespace BSMS.Winforms.Forms
             SaveClientButton.Enabled = enable;
             CancelClientButton.Enabled = enable;
             EditClientButton.Enabled = enable;
+            barButtonItem2.Enabled = enable;
         }
         private async void InsertClient_Load(object sender, EventArgs e)
         {
@@ -200,5 +201,7 @@ namespace BSMS.Winforms.Forms
             }
             return false;
         }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
     }
 }

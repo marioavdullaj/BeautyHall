@@ -1,4 +1,4 @@
-﻿namespace Demo.UserControls
+﻿namespace BSMS.UserControls
 {
     partial class CategoryControl
     {
