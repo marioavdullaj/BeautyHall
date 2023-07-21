@@ -37,7 +37,7 @@
             usernameInfoElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            ΩΜΜΟΤΕΣΚ = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             productAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             newOrderAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -64,7 +64,7 @@
             fluentDesignFormContainer1.Location = new Point(303, 39);
             fluentDesignFormContainer1.Margin = new Padding(4);
             fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            fluentDesignFormContainer1.Size = new Size(1042, 571);
+            fluentDesignFormContainer1.Size = new Size(1090, 673);
             fluentDesignFormContainer1.TabIndex = 0;
             // 
             // DisplayControl
@@ -74,7 +74,7 @@
             DisplayControl.Location = new Point(0, 0);
             DisplayControl.Margin = new Padding(0);
             DisplayControl.Name = "DisplayControl";
-            DisplayControl.Size = new Size(1042, 571);
+            DisplayControl.Size = new Size(1090, 673);
             DisplayControl.TabIndex = 0;
             // 
             // fluentFormDefaultManager1
@@ -90,7 +90,7 @@
             accordionControl1.Name = "accordionControl1";
             accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
-            accordionControl1.Size = new Size(303, 571);
+            accordionControl1.Size = new Size(303, 673);
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             accordionControl1.StateChanged += accordionControl1_StateChanged;
@@ -108,7 +108,7 @@
             // 
             // accordionControlElement4
             // 
-            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement5, ΩΜΜΟΤΕΣΚ, productAccordionItem });
+            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement5, accordionControlElement6, productAccordionItem });
             accordionControlElement4.Expanded = true;
             accordionControlElement4.Name = "accordionControlElement4";
             accordionControlElement4.Text = "Registry";
@@ -120,12 +120,12 @@
             accordionControlElement5.Text = "ΠΕΛΑΤΕΣ";
             accordionControlElement5.Click += accordionControlElement5_Click;
             // 
-            // ΩΜΜΟΤΕΣΚ
+            // accordionControlElement6
             // 
-            ΩΜΜΟΤΕΣΚ.Name = "ΩΜΜΟΤΕΣΚ";
-            ΩΜΜΟΤΕΣΚ.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            ΩΜΜΟΤΕΣΚ.Text = "ΚΩΜΜΟΤΕΣ";
-            ΩΜΜΟΤΕΣΚ.Click += accordionControlElement6_Click;
+            accordionControlElement6.Name = "accordionControlElement6";
+            accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            accordionControlElement6.Text = "ΚΩΜΜΟΤΕΣ";
+            accordionControlElement6.Click += accordionControlElement6_Click;
             // 
             // productAccordionItem
             // 
@@ -181,7 +181,7 @@
             fluentDesignFormControl1.Manager = fluentFormDefaultManager1;
             fluentDesignFormControl1.Margin = new Padding(4);
             fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            fluentDesignFormControl1.Size = new Size(1345, 39);
+            fluentDesignFormControl1.Size = new Size(1393, 39);
             fluentDesignFormControl1.TabIndex = 2;
             fluentDesignFormControl1.TabStop = false;
             // 
@@ -189,7 +189,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1345, 610);
+            ClientSize = new Size(1393, 712);
             ControlContainer = fluentDesignFormContainer1;
             Controls.Add(fluentDesignFormContainer1);
             Controls.Add(accordionControl1);
@@ -220,7 +220,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ΩΜΜΟΤΕΣΚ;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement productAccordionItem;
         private DevExpress.XtraBars.Navigation.AccordionControlElement newOrderAccordionItem;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;

@@ -164,7 +164,7 @@ namespace BSMS.Winforms.Forms
             if (selected != null && selected.Any())
             {
                 var selectedCustomer = subjects?.ElementAt(selected[0]);
-                if(await DeleteSubject(selectedCustomer))
+                if (await DeleteSubject(selectedCustomer))
                 {
                     Clear();
                     EnableClientButtons(false);
@@ -194,7 +194,7 @@ namespace BSMS.Winforms.Forms
                     XtraMessageBox.Show("No customer selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
