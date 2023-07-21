@@ -36,8 +36,13 @@
             accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             usernameInfoElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+<<<<<<< HEAD
             Νεος = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             Κωμμοτέ = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+=======
+            accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             productAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ΥπηΥ = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -64,7 +69,11 @@
             fluentDesignFormContainer1.Dock = DockStyle.Fill;
             fluentDesignFormContainer1.Location = new Point(260, 31);
             fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
+<<<<<<< HEAD
             fluentDesignFormContainer1.Size = new Size(893, 465);
+=======
+            fluentDesignFormContainer1.Size = new Size(1090, 673);
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             fluentDesignFormContainer1.TabIndex = 0;
             // 
             // DisplayControl
@@ -74,7 +83,11 @@
             DisplayControl.Location = new Point(0, 0);
             DisplayControl.Margin = new Padding(0);
             DisplayControl.Name = "DisplayControl";
+<<<<<<< HEAD
             DisplayControl.Size = new Size(893, 465);
+=======
+            DisplayControl.Size = new Size(1090, 673);
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             DisplayControl.TabIndex = 0;
             // 
             // fluentFormDefaultManager1
@@ -89,7 +102,11 @@
             accordionControl1.Name = "accordionControl1";
             accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
+<<<<<<< HEAD
             accordionControl1.Size = new Size(260, 465);
+=======
+            accordionControl1.Size = new Size(303, 673);
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             accordionControl1.TabIndex = 1;
             accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             accordionControl1.StateChanged += accordionControl1_StateChanged;
@@ -107,7 +124,11 @@
             // 
             // accordionControlElement4
             // 
+<<<<<<< HEAD
             accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { Νεος, Κωμμοτέ, productAccordionItem, ΥπηΥ });
+=======
+            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement5, accordionControlElement6, productAccordionItem });
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             accordionControlElement4.Expanded = true;
             accordionControlElement4.Name = "accordionControlElement4";
             accordionControlElement4.Text = "ΕΓΓΡΑΦΕΣ";
@@ -119,12 +140,21 @@
             Νεος.Text = "Νέος Πελάτης";
             Νεος.Click += accordionControlElement5_Click;
             // 
+<<<<<<< HEAD
             // Κωμμοτέ
             // 
             Κωμμοτέ.Name = "Κωμμοτέ";
             Κωμμοτέ.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             Κωμμοτέ.Text = "Κωμμοτές - Υπάλληλοι";
             Κωμμοτέ.Click += accordionControlElement6_Click;
+=======
+            // accordionControlElement6
+            // 
+            accordionControlElement6.Name = "accordionControlElement6";
+            accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            accordionControlElement6.Text = "ΚΩΜΜΟΤΕΣ";
+            accordionControlElement6.Click += accordionControlElement6_Click;
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             // 
             // productAccordionItem
             // 
@@ -185,7 +215,11 @@
             fluentDesignFormControl1.Location = new Point(0, 0);
             fluentDesignFormControl1.Manager = fluentFormDefaultManager1;
             fluentDesignFormControl1.Name = "fluentDesignFormControl1";
+<<<<<<< HEAD
             fluentDesignFormControl1.Size = new Size(1153, 31);
+=======
+            fluentDesignFormControl1.Size = new Size(1393, 39);
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             fluentDesignFormControl1.TabIndex = 2;
             fluentDesignFormControl1.TabStop = false;
             // 
@@ -193,7 +227,11 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< HEAD
             ClientSize = new Size(1153, 496);
+=======
+            ClientSize = new Size(1393, 712);
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             ControlContainer = fluentDesignFormContainer1;
             Controls.Add(fluentDesignFormContainer1);
             Controls.Add(accordionControl1);
@@ -222,8 +260,13 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
+<<<<<<< HEAD
         private DevExpress.XtraBars.Navigation.AccordionControlElement Νεος;
         private DevExpress.XtraBars.Navigation.AccordionControlElement Κωμμοτέ;
+=======
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
+>>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
         private DevExpress.XtraBars.Navigation.AccordionControlElement productAccordionItem;
         private DevExpress.XtraBars.Navigation.AccordionControlElement newOrderAccordionItem;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;

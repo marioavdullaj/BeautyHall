@@ -83,6 +83,7 @@ namespace Demo
 
         private void accordionControlElement6_Click(object sender, EventArgs e)
         {
+            ShowForm(new InsertEmployee());
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)

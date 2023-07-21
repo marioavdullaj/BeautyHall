@@ -14,6 +14,8 @@ public class Employee
     public string? EmployeeRole { get; set; }
 
     public string? EmployeePhone { get; set; }
+    public string? EmployeeEmail { get; set; }
+    public DateTime? EmployeeRegistrationDate { get; set; }
 
     public bool? IsActive { get; set; }
 
