@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertClient));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -39,56 +40,54 @@
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ClientHeaderPanel = new DevExpress.XtraEditors.PanelControl();
-            textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            labelControl1 = new DevExpress.XtraEditors.LabelControl();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            labelControl1 = new DevExpress.XtraEditors.LabelControl();
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            labelControl6 = new DevExpress.XtraEditors.LabelControl();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
+            customerBindingSource = new BindingSource(components);
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-<<<<<<< HEAD
-=======
             colId = new DevExpress.XtraGrid.Columns.GridColumn();
             colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             colName = new DevExpress.XtraGrid.Columns.GridColumn();
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
+            panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
+            panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
-            panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
             // 
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton, barButtonItem2 });
             ribbon.Location = new Point(0, 0);
-<<<<<<< HEAD
-            ribbon.Margin = new Padding(3, 2, 3, 2);
-            ribbon.MaxItemId = 5;
-=======
             ribbon.Margin = new Padding(4, 2, 4, 2);
             ribbon.MaxItemId = 6;
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { Εγγραφη });
             ribbon.Size = new Size(1362, 193);
@@ -98,16 +97,15 @@
             // 
             barButtonItem1.Caption = "Εγγραφή";
             barButtonItem1.Id = 1;
-            barButtonItem1.ImageOptions.Image = (Image)resources.GetObject("barButtonItem1.ImageOptions.Image");
-            barButtonItem1.ImageOptions.LargeImage = (Image)resources.GetObject("barButtonItem1.ImageOptions.LargeImage");
+            barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
             barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.ItemClick += barButtonItem1_ItemClick;
             // 
             // SaveClientButton
             // 
             SaveClientButton.Caption = "Καταχώρηση";
             SaveClientButton.Id = 2;
-            SaveClientButton.ImageOptions.Image = (Image)resources.GetObject("SaveClientButton.ImageOptions.Image");
-            SaveClientButton.ImageOptions.LargeImage = (Image)resources.GetObject("SaveClientButton.ImageOptions.LargeImage");
+            SaveClientButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("SaveClientButton.ImageOptions.SvgImage");
             SaveClientButton.Name = "SaveClientButton";
             SaveClientButton.ItemClick += SaveClientButton_ItemClick;
             // 
@@ -115,9 +113,9 @@
             // 
             CancelClientButton.Caption = "Ακύρωση";
             CancelClientButton.Id = 3;
-            CancelClientButton.ImageOptions.Image = (Image)resources.GetObject("CancelClientButton.ImageOptions.Image");
-            CancelClientButton.ImageOptions.LargeImage = (Image)resources.GetObject("CancelClientButton.ImageOptions.LargeImage");
+            CancelClientButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("CancelClientButton.ImageOptions.SvgImage");
             CancelClientButton.Name = "CancelClientButton";
+            CancelClientButton.ItemClick += CancelClientButton_ItemClick;
             // 
             // EditClientButton
             // 
@@ -146,7 +144,7 @@
             ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
             ribbonPageGroup1.ItemLinks.Add(SaveClientButton);
             ribbonPageGroup1.ItemLinks.Add(CancelClientButton);
-            ribbonPageGroup1.ItemLinks.Add(EditClientButton);
+            ribbonPageGroup1.ItemLinks.Add(barButtonItem2);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonStatusBar
@@ -159,17 +157,8 @@
             // 
             // ClientHeaderPanel
             // 
-            ClientHeaderPanel.Controls.Add(textEdit2);
-            ClientHeaderPanel.Controls.Add(labelControl6);
-            ClientHeaderPanel.Controls.Add(dateEdit1);
             ClientHeaderPanel.Controls.Add(labelControl5);
-            ClientHeaderPanel.Controls.Add(textBox3);
-            ClientHeaderPanel.Controls.Add(textBox2);
-            ClientHeaderPanel.Controls.Add(textBox1);
-            ClientHeaderPanel.Controls.Add(labelControl4);
             ClientHeaderPanel.Controls.Add(labelControl3);
-            ClientHeaderPanel.Controls.Add(labelControl2);
-            ClientHeaderPanel.Controls.Add(labelControl1);
             ClientHeaderPanel.Controls.Add(panelControl2);
             ClientHeaderPanel.Controls.Add(panelControl3);
             ClientHeaderPanel.Dock = DockStyle.Top;
@@ -178,40 +167,6 @@
             ClientHeaderPanel.Name = "ClientHeaderPanel";
             ClientHeaderPanel.Size = new Size(1362, 132);
             ClientHeaderPanel.TabIndex = 2;
-            // 
-            // textEdit2
-            // 
-            textEdit2.Location = new Point(90, 18);
-            textEdit2.Margin = new Padding(3, 2, 3, 2);
-            textEdit2.MenuManager = ribbon;
-            textEdit2.Name = "textEdit2";
-            textEdit2.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textEdit2.Properties.Appearance.Options.UseFont = true;
-            textEdit2.Size = new Size(159, 24);
-            textEdit2.TabIndex = 11;
-            // 
-            // labelControl6
-            // 
-            labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(5, 77);
-            labelControl6.Name = "labelControl6";
-            labelControl6.Size = new Size(68, 16);
-            labelControl6.TabIndex = 10;
-            labelControl6.Text = "Insert Date:";
-            // 
-            // dateEdit1
-            // 
-            dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(90, 76);
-            dateEdit1.MenuManager = ribbon;
-            dateEdit1.Name = "dateEdit1";
-            dateEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            dateEdit1.Properties.Appearance.Options.UseFont = true;
-            dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new Size(159, 24);
-            dateEdit1.TabIndex = 9;
             // 
             // labelControl5
             // 
@@ -224,44 +179,6 @@
             labelControl5.TabIndex = 8;
             labelControl5.Text = "ClientId:";
             // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(668, 75);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(242, 24);
-            textBox3.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(668, 17);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(242, 24);
-            textBox2.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(363, 75);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(242, 24);
-            textBox1.TabIndex = 5;
-            // 
-            // labelControl4
-            // 
-            labelControl4.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(622, 76);
-            labelControl4.Margin = new Padding(3, 2, 3, 2);
-            labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(36, 17);
-            labelControl4.TabIndex = 3;
-            labelControl4.Text = "Email:";
-            // 
             // labelControl3
             // 
             labelControl3.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -273,8 +190,6 @@
             labelControl3.TabIndex = 2;
             labelControl3.Text = "Τηλ.:";
             // 
-<<<<<<< HEAD
-=======
             // panelControl2
             // 
             panelControl2.Controls.Add(textEdit5);
@@ -328,25 +243,17 @@
             textEdit3.Size = new Size(156, 22);
             textEdit3.TabIndex = 1;
             // 
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             // labelControl2
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-<<<<<<< HEAD
-            labelControl2.Location = new Point(294, 76);
-            labelControl2.Margin = new Padding(3, 2, 3, 2);
-=======
             labelControl2.Location = new Point(21, 86);
             labelControl2.Margin = new Padding(4, 2, 4, 2);
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(56, 21);
             labelControl2.TabIndex = 1;
             labelControl2.Text = "Όνομα:";
             // 
-<<<<<<< HEAD
-=======
             // textEdit1
             // 
             textEdit1.Location = new Point(150, 22);
@@ -356,57 +263,28 @@
             textEdit1.Size = new Size(156, 22);
             textEdit1.TabIndex = 0;
             // 
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             // labelControl1
             // 
             labelControl1.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl1.Appearance.Options.UseFont = true;
-<<<<<<< HEAD
-            labelControl1.Location = new Point(294, 20);
-            labelControl1.Margin = new Padding(3, 2, 3, 2);
-=======
             labelControl1.Location = new Point(21, 25);
             labelControl1.Margin = new Padding(4, 2, 4, 2);
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             labelControl1.Name = "labelControl1";
             labelControl1.Size = new Size(75, 21);
             labelControl1.TabIndex = 0;
             labelControl1.Text = "Επώνυμο:";
             // 
-            // panelControl2
-            // 
-            panelControl2.Controls.Add(lookUpEdit1);
-            panelControl2.Location = new Point(276, 2);
-            panelControl2.Margin = new Padding(3, 2, 3, 2);
-            panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(663, 102);
-            panelControl2.TabIndex = 12;
-            // 
-            // lookUpEdit1
-            // 
-            lookUpEdit1.Location = new Point(87, 15);
-            lookUpEdit1.Margin = new Padding(3, 2, 3, 2);
-            lookUpEdit1.MenuManager = ribbon;
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.NullText = "";
-            lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
-            lookUpEdit1.Size = new Size(242, 24);
-            lookUpEdit1.TabIndex = 0;
-            // 
             // panelControl3
             // 
+            panelControl3.Controls.Add(textEdit2);
+            panelControl3.Controls.Add(dateEdit1);
+            panelControl3.Controls.Add(labelControl6);
             panelControl3.Location = new Point(0, 2);
             panelControl3.Margin = new Padding(4, 2, 4, 2);
             panelControl3.Name = "panelControl3";
             panelControl3.Size = new Size(322, 126);
             panelControl3.TabIndex = 13;
             // 
-<<<<<<< HEAD
-=======
             // textEdit2
             // 
             textEdit2.EditValue = "0";
@@ -445,9 +323,9 @@
             labelControl6.TabIndex = 10;
             labelControl6.Text = "Insert Date:";
             // 
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             // gridControl1
             // 
+            gridControl1.DataSource = customerBindingSource;
             gridControl1.Dock = DockStyle.Fill;
             gridControl1.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
             gridControl1.Location = new Point(0, 325);
@@ -459,13 +337,12 @@
             gridControl1.TabIndex = 5;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Models.Customer);
+            // 
             // gridView1
             // 
-<<<<<<< HEAD
-            gridView1.DetailHeight = 284;
-            gridView1.GridControl = gridControl1;
-            gridView1.Name = "gridView1";
-=======
             gridView1.Appearance.Row.Font = new Font("Tahoma", 10.25F, FontStyle.Regular, GraphicsUnit.Point);
             gridView1.Appearance.Row.Options.UseFont = true;
             gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colSurname, colName, colTel, colEmail });
@@ -521,7 +398,6 @@
             colEmail.Visible = true;
             colEmail.VisibleIndex = 4;
             colEmail.Width = 185;
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             // 
             // InsertClient
             // 
@@ -537,18 +413,26 @@
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             Text = "InsertClient";
+            Load += InsertClient_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).EndInit();
             ClientHeaderPanel.ResumeLayout(false);
             ClientHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
+            panelControl2.ResumeLayout(false);
+            panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
+            panelControl3.ResumeLayout(false);
+            panelControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
-            panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -566,20 +450,27 @@
         private DevExpress.XtraBars.BarButtonItem EditClientButton;
         private DevExpress.XtraEditors.PanelControl ClientHeaderPanel;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private BindingSource customerBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colSurname;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colTel;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
     }
 }

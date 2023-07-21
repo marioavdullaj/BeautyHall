@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
-=======
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertEmployee));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -85,23 +78,11 @@
             ((System.ComponentModel.ISupportInitialize)EmployeeHeaderPanel).BeginInit();
             EmployeeHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             SuspendLayout();
             // 
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-<<<<<<< HEAD
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem });
-            ribbon.Location = new Point(0, 0);
-            ribbon.Margin = new Padding(3, 4, 3, 4);
-            ribbon.MaxItemId = 1;
-            ribbon.Name = "ribbon";
-            ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
-            ribbon.Size = new Size(1232, 158);
-            ribbon.StatusBar = ribbonStatusBar;
-            // 
-=======
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveEmployeeButton, CancelEmployeeButton, barButtonItem4 });
             ribbon.Location = new Point(0, 0);
             ribbon.MaxItemId = 5;
@@ -142,38 +123,10 @@
             barButtonItem4.Name = "barButtonItem4";
             barButtonItem4.ItemClick += barButtonItem4_ItemClick;
             // 
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             // ribbonPage1
             // 
             ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
             ribbonPage1.Name = "ribbonPage1";
-<<<<<<< HEAD
-            ribbonPage1.Text = "ribbonPage1";
-            // 
-            // ribbonPageGroup1
-            // 
-            ribbonPageGroup1.Name = "ribbonPageGroup1";
-            ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // ribbonStatusBar
-            // 
-            ribbonStatusBar.Location = new Point(0, 657);
-            ribbonStatusBar.Margin = new Padding(3, 4, 3, 4);
-            ribbonStatusBar.Name = "ribbonStatusBar";
-            ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new Size(1232, 24);
-            // 
-            // InsertEmployee
-            // 
-            Appearance.Options.UseFont = true;
-            AutoScaleDimensions = new SizeF(6F, 13F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1232, 681);
-            Controls.Add(ribbonStatusBar);
-            Controls.Add(ribbon);
-            Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(3, 4, 3, 4);
-=======
             ribbonPage1.Text = "Εγγραφή Κομμωτή - Υπάλληλο";
             // 
             // ribbonPageGroup1
@@ -441,14 +394,10 @@
             Controls.Add(gridControl1);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             Name = "InsertEmployee";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             Text = "InsertEmployee";
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
-=======
             Load += InsertEmployee_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
@@ -469,7 +418,6 @@
             ((System.ComponentModel.ISupportInitialize)EmployeeHeaderPanel).EndInit();
             EmployeeHeaderPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
             ResumeLayout(false);
             PerformLayout();
         }
@@ -480,8 +428,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-<<<<<<< HEAD
-=======
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem SaveEmployeeButton;
         private DevExpress.XtraBars.BarButtonItem CancelEmployeeButton;
@@ -509,6 +455,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraEditors.PanelControl EmployeeHeaderPanel;
         private BindingSource employeeBindingSource;
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
     }
 }

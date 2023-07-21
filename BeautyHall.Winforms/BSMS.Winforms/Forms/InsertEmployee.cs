@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿using BSMS.Winforms.GenericUtils;
-using DevExpress.XtraBars;
-=======
 ﻿using DevExpress.XtraBars;
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-using BeautyHall.Api.SDK.Responses;
-using Demo;
-using BSMS.Winforms.Models;
-using DevExpress.Utils.Extensions;
-using Demo.UserControls;
-using BeautyHall.Api.SDK.Requests;
-using DevExpress.XtraEditors;
-using BSMS.Winforms.UserControls;
-=======
 using BSMS.Winforms.GenericUtils;
 using BeautyHall.Api.SDK.Responses;
 using Demo;
@@ -31,23 +16,17 @@ using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.Native;
 
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
 
 namespace BSMS.Winforms.Forms
 {
     public partial class InsertEmployee : FixedRibbonForm
     {
-<<<<<<< HEAD
-=======
         private IEnumerable<BeautyHall.Api.SDK.Responses.Employee>? employees;
 
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
         public InsertEmployee()
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
 
 
         private void EnableClientButtons(bool enable)
@@ -229,6 +208,5 @@ namespace BSMS.Winforms.Forms
             Clear();
             EnableClientButtons(true);
         }
->>>>>>> d5073bb563845b48499ac078516cf60c86a8ff84
     }
 }
