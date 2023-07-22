@@ -123,7 +123,7 @@ namespace BSMS.Winforms.Forms
             if (selected != null && selected.Any())
             {
                 var selectedEmployee = employees?.ElementAt(selected[0]);
-                if (await DeleteSubject(selectedEmployee))
+                if (await DeleteEmployee(selectedEmployee))
                 {
                     Clear();
                     EnableClientButtons(false);
@@ -132,13 +132,13 @@ namespace BSMS.Winforms.Forms
             }
         }
 
-        private async Task<bool> DeleteSubject(BeautyHall.Api.SDK.Responses.Employee? employee)
+        private async Task<bool> DeleteEmployee(BeautyHall.Api.SDK.Responses.Employee? employee)
         {
             try
             {
                 if (employee != null)
                 {
-                    if (await Program.ApiSdk.DeleteSubject(employee.EmployeeId))
+                    if (await Program.ApiSdk.DeleteEmployee(employee.EmployeeId))
                     {
                         XtraMessageBox.Show("Customer removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return true;
