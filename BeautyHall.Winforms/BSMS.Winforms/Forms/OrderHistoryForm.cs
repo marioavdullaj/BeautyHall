@@ -19,10 +19,10 @@ using BSMS.Winforms.GenericUtils;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class AllOrdersForm : FixedRibbonForm
+    public partial class OrderHistoryForm : FixedRibbonForm
     {
         private IEnumerable<Order>? orders;
-        public AllOrdersForm()
+        public OrderHistoryForm()
         {
             InitializeComponent();
         }

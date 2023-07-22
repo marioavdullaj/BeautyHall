@@ -83,7 +83,7 @@ namespace BSMS
 
         private void accordionControlElement6_Click(object sender, EventArgs e)
         {
-            ShowForm(new InsertEmployee());
+            ShowForm(new EmployeeForm());
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)
@@ -112,12 +112,12 @@ namespace BSMS
 
         private void accordionControlElement5_Click(object sender, EventArgs e)
         {
-            ShowForm(new InsertClient());
+            ShowForm(new CustomerForm());
         }
 
         private void accordionControlElement3_Click(object sender, EventArgs e)
         {
-            ShowForm(new AllOrdersForm());
+            ShowForm(new OrderHistoryForm());
         }
     }
 }

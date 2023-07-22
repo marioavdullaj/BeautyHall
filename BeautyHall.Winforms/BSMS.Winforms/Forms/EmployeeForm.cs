@@ -6,11 +6,11 @@ using DevExpress.XtraEditors;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class InsertEmployee : FixedRibbonForm
+    public partial class EmployeeForm : FixedRibbonForm
     {
         private IEnumerable<BeautyHall.Api.SDK.Responses.Employee>? employees;
 
-        public InsertEmployee()
+        public EmployeeForm()
         {
             InitializeComponent();
         }
@@ -32,6 +32,7 @@ namespace BSMS.Winforms.Forms
             textEdit3.Text = "";
             textEdit4.Text = "";
             textEdit5.Text = "";
+            employeeCodeTxt.Text = "";
             dateEdit1.DateTime = DateTime.Now;
         }
 
@@ -49,7 +50,8 @@ namespace BSMS.Winforms.Forms
                         Name = x.EmployeeName,
                         Tel = x.EmployeePhone,
                         Email = x.EmployeeEmail,
-                        RegistrationDate = x.EmployeeRegistrationDate
+                        RegistrationDate = x.EmployeeRegistrationDate,
+                        Code = x.EmployeeCode
                     });
 
                     gridControl1.DataSource = employee;
@@ -89,7 +91,8 @@ namespace BSMS.Winforms.Forms
                         EmployeeName = textEdit3.Text,
                         EmployeePhone = textEdit4.Text,
                         EmployeeEmail= textEdit5.Text,
-                        EmployeeRegistrationDate = dateEdit1.DateTime
+                        EmployeeRegistrationDate = dateEdit1.DateTime,
+                        EmployeeCode = employeeCodeTxt.Text
                     }
                 };
                 bool result = await Program.ApiSdk.UpsertEmployees(input);
@@ -101,7 +104,7 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
-                    XtraMessageBox.Show("Error durig registration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Error during registration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -192,6 +195,7 @@ namespace BSMS.Winforms.Forms
                     textEdit4.EditValue = selectedEmployees.EmployeePhone;
                     textEdit5.EditValue = selectedEmployees.EmployeeEmail;
                     dateEdit1.DateTime = selectedEmployees.EmployeeRegistrationDate ?? DateTime.MinValue;
+                    employeeCodeTxt.Text = selectedEmployees.EmployeeCode;
 
                     EnableClientButtons(true);
                 }

@@ -1,6 +1,6 @@
 ﻿namespace BSMS.Winforms.Forms
 {
-    partial class AllOrdersForm
+    partial class OrderHistoryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllOrdersForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderHistoryForm));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();

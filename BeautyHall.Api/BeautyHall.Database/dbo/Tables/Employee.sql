@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[Employee] (
     [EmployeeId]       INT            IDENTITY (1, 1) NOT NULL,
+    [EmployeeCode] NVARCHAR(50) NOT NULL, 
     [EmployeeName]     NVARCHAR (MAX) NOT NULL,
     [EmployeeLastName] NVARCHAR (MAX) NULL,
     [EmployeeRole]     NVARCHAR (200) NULL,

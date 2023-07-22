@@ -5,13 +5,13 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\AllOrdersForm.cs">
+    <Compile Update="Forms\OrderHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\InsertClient.cs">
+    <Compile Update="Forms\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\InsertEmployee.cs">
+    <Compile Update="Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\OrderForm.cs">

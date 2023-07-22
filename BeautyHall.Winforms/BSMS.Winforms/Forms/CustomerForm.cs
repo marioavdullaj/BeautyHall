@@ -10,12 +10,12 @@ using DevExpress.XtraReports.Native;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class InsertClient : FixedRibbonForm
+    public partial class CustomerForm : FixedRibbonForm
     {
         private IEnumerable<Subject>? subjects;
 
 
-        public InsertClient()
+        public CustomerForm()
         {
             InitializeComponent();
         }

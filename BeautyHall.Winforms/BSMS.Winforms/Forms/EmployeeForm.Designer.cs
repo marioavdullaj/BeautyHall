@@ -1,6 +1,6 @@
 ﻿namespace BSMS.Winforms.Forms
 {
-    partial class InsertEmployee
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertEmployee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             SaveEmployeeButton = new DevExpress.XtraBars.BarButtonItem();
             CancelEmployeeButton = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -60,7 +61,10 @@
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             EmployeeHeaderPanel = new DevExpress.XtraEditors.PanelControl();
-            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            employeeCodeTxt = new DevExpress.XtraEditors.TextEdit();
+            repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
@@ -74,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmployeeHeaderPanel).BeginInit();
             EmployeeHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)employeeCodeTxt.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemPictureEdit1).BeginInit();
             SuspendLayout();
             // 
             // ribbon
@@ -81,9 +87,10 @@
             ribbon.ExpandCollapseItem.Id = 0;
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveEmployeeButton, CancelEmployeeButton, barButtonItem4, barButtonItem2 });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 6;
+            ribbon.MaxItemId = 7;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
+            ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemPictureEdit1 });
             ribbon.Size = new Size(1346, 193);
             ribbon.StatusBar = ribbonStatusBar;
             // 
@@ -118,6 +125,14 @@
             barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
             barButtonItem4.Name = "barButtonItem4";
             barButtonItem4.ItemClick += barButtonItem4_ItemClick;
+            // 
+            // barButtonItem2
+            // 
+            barButtonItem2.Caption = "Close";
+            barButtonItem2.Id = 5;
+            barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
+            barButtonItem2.Name = "barButtonItem2";
+            barButtonItem2.ItemClick += barButtonItem2_ItemClick;
             // 
             // ribbonPage1
             // 
@@ -173,7 +188,7 @@
             // dateEdit1
             // 
             dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(109, 69);
+            dateEdit1.Location = new Point(1108, 14);
             dateEdit1.Margin = new Padding(4);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
@@ -188,7 +203,7 @@
             // 
             labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(11, 72);
+            labelControl6.Location = new Point(1010, 17);
             labelControl6.Margin = new Padding(4);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new Size(91, 21);
@@ -305,7 +320,7 @@
             // 
             gridView1.Appearance.Row.Font = new Font("Tahoma", 10.25F, FontStyle.Regular, GraphicsUnit.Point);
             gridView1.Appearance.Row.Options.UseFont = true;
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colSurname, colName, colTel, colEmail });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colCode, colSurname, colName, colTel, colEmail });
             gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
@@ -329,7 +344,7 @@
             colSurname.MinWidth = 24;
             colSurname.Name = "colSurname";
             colSurname.Visible = true;
-            colSurname.VisibleIndex = 1;
+            colSurname.VisibleIndex = 2;
             colSurname.Width = 180;
             // 
             // colName
@@ -338,7 +353,7 @@
             colName.MinWidth = 24;
             colName.Name = "colName";
             colName.Visible = true;
-            colName.VisibleIndex = 2;
+            colName.VisibleIndex = 3;
             colName.Width = 180;
             // 
             // colTel
@@ -347,7 +362,7 @@
             colTel.MinWidth = 24;
             colTel.Name = "colTel";
             colTel.Visible = true;
-            colTel.VisibleIndex = 3;
+            colTel.VisibleIndex = 4;
             colTel.Width = 180;
             // 
             // colEmail
@@ -356,11 +371,13 @@
             colEmail.MinWidth = 24;
             colEmail.Name = "colEmail";
             colEmail.Visible = true;
-            colEmail.VisibleIndex = 4;
+            colEmail.VisibleIndex = 5;
             colEmail.Width = 185;
             // 
             // EmployeeHeaderPanel
             // 
+            EmployeeHeaderPanel.Controls.Add(labelControl7);
+            EmployeeHeaderPanel.Controls.Add(employeeCodeTxt);
             EmployeeHeaderPanel.Controls.Add(labelControl3);
             EmployeeHeaderPanel.Controls.Add(labelControl5);
             EmployeeHeaderPanel.Controls.Add(textEdit5);
@@ -379,15 +396,43 @@
             EmployeeHeaderPanel.Size = new Size(1346, 125);
             EmployeeHeaderPanel.TabIndex = 18;
             // 
-            // barButtonItem2
+            // labelControl7
             // 
-            barButtonItem2.Caption = "Close";
-            barButtonItem2.Id = 5;
-            barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
-            barButtonItem2.Name = "barButtonItem2";
-            barButtonItem2.ItemClick += barButtonItem2_ItemClick;
+            labelControl7.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl7.Appearance.Options.UseFont = true;
+            labelControl7.Location = new Point(10, 74);
+            labelControl7.Margin = new Padding(4, 2, 4, 2);
+            labelControl7.Name = "labelControl7";
+            labelControl7.Size = new Size(43, 21);
+            labelControl7.TabIndex = 13;
+            labelControl7.Text = "Code:";
             // 
-            // InsertEmployee
+            // employeeCodeTxt
+            // 
+            employeeCodeTxt.Location = new Point(109, 70);
+            employeeCodeTxt.Margin = new Padding(4, 2, 4, 2);
+            employeeCodeTxt.MenuManager = ribbon;
+            employeeCodeTxt.Name = "employeeCodeTxt";
+            employeeCodeTxt.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            employeeCodeTxt.Properties.Appearance.Options.UseFont = true;
+            employeeCodeTxt.Size = new Size(186, 28);
+            employeeCodeTxt.TabIndex = 14;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            // 
+            // colCode
+            // 
+            colCode.Caption = "Code";
+            colCode.FieldName = "Code";
+            colCode.MinWidth = 25;
+            colCode.Name = "colCode";
+            colCode.Visible = true;
+            colCode.VisibleIndex = 1;
+            colCode.Width = 94;
+            // 
+            // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -396,7 +441,7 @@
             Controls.Add(EmployeeHeaderPanel);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
-            Name = "InsertEmployee";
+            Name = "EmployeeForm";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             Text = "InsertEmployee";
@@ -415,6 +460,8 @@
             ((System.ComponentModel.ISupportInitialize)EmployeeHeaderPanel).EndInit();
             EmployeeHeaderPanel.ResumeLayout(false);
             EmployeeHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)employeeCodeTxt.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemPictureEdit1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -452,5 +499,9 @@
         private BindingSource employeeBindingSource;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.TextEdit employeeCodeTxt;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode;
     }
 }

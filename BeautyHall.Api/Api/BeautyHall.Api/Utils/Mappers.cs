@@ -33,7 +33,8 @@ namespace BeautyHall.Api.DB.Utils
                 EmployeePhone = item.EmployeePhone,
                 IsActive = item.IsActive,
                 EmployeeEmail = item.EmployeeEmail,
-                EmployeeRegistrationDate = item.EmployeeRegistrationDate
+                EmployeeRegistrationDate = item.EmployeeRegistrationDate,
+                EmployeeCode = item.EmployeeCode
             };
         }
         public static Login Map(LoginDto item)
