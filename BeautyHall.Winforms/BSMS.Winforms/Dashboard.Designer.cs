@@ -111,27 +111,27 @@
             accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement5, accordionControlElement6, productAccordionItem });
             accordionControlElement4.Expanded = true;
             accordionControlElement4.Name = "accordionControlElement4";
-            accordionControlElement4.Text = "Registry";
+            accordionControlElement4.Text = "ΕΓΓΡΑΦΕΣ";
             // 
             // accordionControlElement5
             // 
             accordionControlElement5.Name = "accordionControlElement5";
             accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement5.Text = "ΠΕΛΑΤΕΣ";
+            accordionControlElement5.Text = "Νέος Πελάτης";
             accordionControlElement5.Click += accordionControlElement5_Click;
             // 
             // accordionControlElement6
             // 
             accordionControlElement6.Name = "accordionControlElement6";
             accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement6.Text = "ΚΩΜΜΟΤΕΣ";
+            accordionControlElement6.Text = "Κομμωτές - Υπάλληλοι";
             accordionControlElement6.Click += accordionControlElement6_Click;
             // 
             // productAccordionItem
             // 
             productAccordionItem.Name = "productAccordionItem";
             productAccordionItem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            productAccordionItem.Text = "ΠΡΟΙΟΝΤΑ";
+            productAccordionItem.Text = "Προϊόντα -Αναλώσιμα";
             productAccordionItem.Click += productAccordionItem_Click;
             // 
             // accordionControlElement2
@@ -139,20 +139,20 @@
             accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { newOrderAccordionItem, accordionControlElement3 });
             accordionControlElement2.Expanded = true;
             accordionControlElement2.Name = "accordionControlElement2";
-            accordionControlElement2.Text = "Orders";
+            accordionControlElement2.Text = "ΥΠΗΡΕΣΙΕΣ";
             // 
             // newOrderAccordionItem
             // 
             newOrderAccordionItem.Name = "newOrderAccordionItem";
             newOrderAccordionItem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            newOrderAccordionItem.Text = "New Order";
+            newOrderAccordionItem.Text = "Νέα Υπηρεσία";
             newOrderAccordionItem.Click += newOrderAccordionItem_Click;
             // 
             // accordionControlElement3
             // 
             accordionControlElement3.Name = "accordionControlElement3";
             accordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement3.Text = "Manage Orders";
+            accordionControlElement3.Text = "Διαχείριση Υπηρεσιών";
             accordionControlElement3.Click += accordionControlElement3_Click;
             // 
             // accordionControlElement8
@@ -160,19 +160,19 @@
             accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement10, accordionControlElement9 });
             accordionControlElement8.Expanded = true;
             accordionControlElement8.Name = "accordionControlElement8";
-            accordionControlElement8.Text = "Summary";
+            accordionControlElement8.Text = "ΥΠΟΛΟΓΙΣΜΟΙ";
             // 
             // accordionControlElement10
             // 
             accordionControlElement10.Name = "accordionControlElement10";
             accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement10.Text = "Calculate Daily Summary";
+            accordionControlElement10.Text = "Ημερήσιος υπολογισμός";
             // 
             // accordionControlElement9
             // 
             accordionControlElement9.Name = "accordionControlElement9";
             accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement9.Text = "View History";
+            accordionControlElement9.Text = "Ιστορικό";
             // 
             // fluentDesignFormControl1
             // 
