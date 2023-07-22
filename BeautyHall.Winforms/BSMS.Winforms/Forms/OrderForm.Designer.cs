@@ -104,7 +104,7 @@
             // 
             // addOrderButton
             // 
-            addOrderButton.Caption = "Add Order";
+            addOrderButton.Caption = "Προσθήκη Υπηρεσίας";
             addOrderButton.Id = 1;
             addOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("addOrderButton.ImageOptions.SvgImage");
             addOrderButton.Name = "addOrderButton";
@@ -112,7 +112,7 @@
             // 
             // cancelOrderButton
             // 
-            cancelOrderButton.Caption = "Cancel Order";
+            cancelOrderButton.Caption = "Ακύρωση Υπηρεσίας";
             cancelOrderButton.Id = 2;
             cancelOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("cancelOrderButton.ImageOptions.SvgImage");
             cancelOrderButton.Name = "cancelOrderButton";
@@ -120,7 +120,7 @@
             // 
             // paymentButton
             // 
-            paymentButton.Caption = "Payment";
+            paymentButton.Caption = "Πληρωμή";
             paymentButton.Id = 3;
             paymentButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("paymentButton.ImageOptions.SvgImage");
             paymentButton.Name = "paymentButton";
@@ -143,7 +143,7 @@
             // 
             // saveOrderButton
             // 
-            saveOrderButton.Caption = "Save Order";
+            saveOrderButton.Caption = "Αποθήκευση Υπηρεσίας";
             saveOrderButton.Id = 6;
             saveOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("saveOrderButton.ImageOptions.SvgImage");
             saveOrderButton.Name = "saveOrderButton";
@@ -153,7 +153,7 @@
             // 
             ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2, ribbonPageGroup3 });
             ribbonPage1.Name = "ribbonPage1";
-            ribbonPage1.Text = "Order";
+            ribbonPage1.Text = "Υπηρεσία";
             // 
             // ribbonPageGroup1
             // 
@@ -246,9 +246,9 @@
             labelControl4.Location = new Point(6, 77);
             labelControl4.Margin = new Padding(4);
             labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(83, 21);
+            labelControl4.Size = new Size(70, 21);
             labelControl4.TabIndex = 6;
-            labelControl4.Text = "Order Date";
+            labelControl4.Text = "ΗΜ/ΝΙΑ :";
             // 
             // memoEdit1
             // 
@@ -282,7 +282,7 @@
             lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             lookUpEdit1.Properties.Appearance.Options.UseFont = true;
             lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.NullText = "Select Customer";
+            lookUpEdit1.Properties.NullText = "Επιλογή Πελάτη";
             lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
             lookUpEdit1.Size = new Size(218, 28);
@@ -376,7 +376,6 @@
             // 
             AddedServicesFlowLayout.AutoScroll = true;
             AddedServicesFlowLayout.Dock = DockStyle.Fill;
-            AddedServicesFlowLayout.FlowDirection = FlowDirection.TopDown;
             AddedServicesFlowLayout.Location = new Point(2, 57);
             AddedServicesFlowLayout.Margin = new Padding(4, 2, 4, 2);
             AddedServicesFlowLayout.Name = "AddedServicesFlowLayout";
@@ -423,9 +422,9 @@
             labelControl1.Location = new Point(12, 15);
             labelControl1.Margin = new Padding(4, 2, 4, 2);
             labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(178, 28);
+            labelControl1.Size = new Size(228, 28);
             labelControl1.TabIndex = 0;
-            labelControl1.Text = "Available Services";
+            labelControl1.Text = "Διαθέσιμες Υπηρεσίες :";
             // 
             // panelControl5
             // 
@@ -455,9 +454,9 @@
             servicesInOrderLabel.Location = new Point(15, 15);
             servicesInOrderLabel.Margin = new Padding(4, 2, 4, 2);
             servicesInOrderLabel.Name = "servicesInOrderLabel";
-            servicesInOrderLabel.Size = new Size(171, 28);
+            servicesInOrderLabel.Size = new Size(189, 28);
             servicesInOrderLabel.TabIndex = 1;
-            servicesInOrderLabel.Text = "Services in Order";
+            servicesInOrderLabel.Text = "Κάρτα Υπηρεσίας :";
             // 
             // xtraScrollableControl1
             // 

@@ -72,7 +72,7 @@ namespace BSMS.Winforms.Forms
 
                 if (await Program.ApiSdk.UpsertPayment(paymentSummaryDto))
                 {
-                    XtraMessageBox.Show("Payment registered successfully!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Επιτυχής Πληρωμή!", "Πληρωμή", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

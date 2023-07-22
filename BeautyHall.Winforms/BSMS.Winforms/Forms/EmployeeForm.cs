@@ -143,7 +143,7 @@ namespace BSMS.Winforms.Forms
                 {
                     if (await Program.ApiSdk.DeleteEmployee(employee.EmployeeId))
                     {
-                        XtraMessageBox.Show("Customer removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("Employee removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return true;
                     }
                     else
@@ -153,7 +153,7 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
-                    XtraMessageBox.Show("No customer selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("No employee selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -203,5 +203,7 @@ namespace BSMS.Winforms.Forms
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
+
+        
     }
 }
