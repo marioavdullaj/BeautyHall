@@ -1,8 +1,8 @@
 ﻿using BeautyHall.Api.SDK.Responses;
-using Demo;
+using BSMS;
 using DevExpress.XtraBars;
 using DevExpress.Utils.Extensions;
-using Demo.UserControls;
+using BSMS.UserControls;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
 using BSMS.Winforms.UserControls;
@@ -127,7 +127,7 @@ namespace BSMS.Winforms.Forms
                 addedServiceControl.ServiceRemoved += ServiceRemoved_Handler;
                 AddedServicesFlowLayout.AddControl(addedServiceControl);
 
-                servicesInOrderLabel.Text = $"Services in Order. Total: {CurrentOrder.OrderServices.Sum(x => x.ServicePrice)} €";
+                servicesInOrderLabel.Text = $"Κάρτα Υπηρεσιών. Σύνολο: {CurrentOrder.OrderServices.Sum(x => x.ServicePrice)} €";
             }
             catch (Exception ex)
             {
@@ -153,7 +153,7 @@ namespace BSMS.Winforms.Forms
                         CurrentOrder.OrderServices = orderServices;
                 }
 
-                servicesInOrderLabel.Text = $"Services in Order. Total: {CurrentOrder?.OrderServices?.Sum(x => x.ServicePrice)} €";
+                servicesInOrderLabel.Text = $"Κάρτα Υπηρεσιών. Σύνολο: {CurrentOrder?.OrderServices?.Sum(x => x.ServicePrice)} €";
             }
             catch (Exception ex)
             {
@@ -180,7 +180,7 @@ namespace BSMS.Winforms.Forms
                     if (await Program.ApiSdk.DeleteOrder(CurrentOrder.OrderId))
                         this.Close();
                     else
-                        XtraMessageBox.Show("The order cannot be deleted anymore.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Η υπηρεσία δεν μπορεί να διαγραφή πλέον.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -216,7 +216,7 @@ namespace BSMS.Winforms.Forms
                 var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lookUpEdit1.EditValue)).FirstOrDefault();
                 if (selectedCustomer == null)
                 {
-                    XtraMessageBox.Show("Select customer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Επιλογή Πελάτη", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
@@ -245,7 +245,7 @@ namespace BSMS.Winforms.Forms
                 {
                     CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId ?? 0);
                     if (alertSaved)
-                        XtraMessageBox.Show("Order saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("Η Υπηρεσία Αποθηκεύτηκε!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

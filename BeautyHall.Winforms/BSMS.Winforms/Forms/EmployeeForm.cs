@@ -1,29 +1,16 @@
 ﻿using DevExpress.XtraBars;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BSMS.Winforms.GenericUtils;
-using BeautyHall.Api.SDK.Responses;
-using Demo;
-using BSMS.Winforms.Models;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Native;
-
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class InsertEmployee : FixedRibbonForm
+    public partial class EmployeeForm : FixedRibbonForm
     {
         private IEnumerable<BeautyHall.Api.SDK.Responses.Employee>? employees;
 
-        public InsertEmployee()
+        public EmployeeForm()
         {
             InitializeComponent();
         }
@@ -34,6 +21,7 @@ namespace BSMS.Winforms.Forms
             EmployeeHeaderPanel.Enabled = enable;
             SaveEmployeeButton.Enabled = enable;
             CancelEmployeeButton.Enabled = enable;
+            barButtonItem4.Enabled = enable;
             //EditEmployeeButton.Enabled = enable;
         }
 
@@ -44,6 +32,7 @@ namespace BSMS.Winforms.Forms
             textEdit3.Text = "";
             textEdit4.Text = "";
             textEdit5.Text = "";
+            employeeCodeTxt.Text = "";
             dateEdit1.DateTime = DateTime.Now;
         }
 
@@ -54,13 +43,15 @@ namespace BSMS.Winforms.Forms
                 employees = await Program.ApiSdk.GetEmployees();
                 if (employees != null)
                 {
-                    var employee = employees.Where(x => x.EmployeeId == 0).Select(x => new Customer
+                    var employee = employees.Select(x => new Models.Employee
                     {
                         Id = x.EmployeeId,
                         Surname = x.EmployeeLastName,
                         Name = x.EmployeeName,
                         Tel = x.EmployeePhone,
-                        //Email = x.EmployeeEmail
+                        Email = x.EmployeeEmail,
+                        RegistrationDate = x.EmployeeRegistrationDate,
+                        Code = x.EmployeeCode
                     });
 
                     gridControl1.DataSource = employee;
@@ -99,8 +90,9 @@ namespace BSMS.Winforms.Forms
                         EmployeeLastName = textEdit1.Text,
                         EmployeeName = textEdit3.Text,
                         EmployeePhone = textEdit4.Text,
-                        //EmployeeEmail= textEdit5.Text,
-                        //EmployeeRegistrationDate = dateEdit1.DateTime
+                        EmployeeEmail= textEdit5.Text,
+                        EmployeeRegistrationDate = dateEdit1.DateTime,
+                        EmployeeCode = employeeCodeTxt.Text
                     }
                 };
                 bool result = await Program.ApiSdk.UpsertEmployees(input);
@@ -112,7 +104,7 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
-                    XtraMessageBox.Show("Error durig registration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Error during registration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -120,27 +112,6 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
-        }
-
-        private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            // here when we select a row we autocompile the data in the above panel
-            var selected = gridView1.GetSelectedRows();
-            if (selected != null && selected.Any())
-            {
-                var selectedEmployees = employees?.ElementAt(selected[0]);
-                if (selectedEmployees != null)
-                {
-                    textEdit2.EditValue = selectedEmployees.EmployeeId;
-                    textEdit1.EditValue = selectedEmployees.EmployeeLastName;
-                    textEdit3.EditValue = selectedEmployees.EmployeeName;
-                    textEdit4.EditValue = selectedEmployees.EmployeePhone;
-                    //textEdit5.EditValue = selectedEmployees.EmployeeEmail;
-                    //dateEdit1.DateTime = selectedEmployees.EmployeeRegistrationDate ?? DateTime.MinValue;
-
-                    EnableClientButtons(true);
-                }
-            }
         }
 
         private void CancelEmployeeButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -155,7 +126,7 @@ namespace BSMS.Winforms.Forms
             if (selected != null && selected.Any())
             {
                 var selectedEmployee = employees?.ElementAt(selected[0]);
-                if (await DeleteSubject(selectedEmployee))
+                if (await DeleteEmployee(selectedEmployee))
                 {
                     Clear();
                     EnableClientButtons(false);
@@ -164,15 +135,15 @@ namespace BSMS.Winforms.Forms
             }
         }
 
-        private async Task<bool> DeleteSubject(BeautyHall.Api.SDK.Responses.Employee? employee)
+        private async Task<bool> DeleteEmployee(BeautyHall.Api.SDK.Responses.Employee? employee)
         {
             try
             {
                 if (employee != null)
                 {
-                    if (await Program.ApiSdk.DeleteSubject(employee.EmployeeId))
+                    if (await Program.ApiSdk.DeleteEmployee(employee.EmployeeId))
                     {
-                        XtraMessageBox.Show("Customer removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("Employee removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return true;
                     }
                     else
@@ -182,7 +153,7 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
-                    XtraMessageBox.Show("No customer selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("No employee selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -208,5 +179,31 @@ namespace BSMS.Winforms.Forms
             Clear();
             EnableClientButtons(true);
         }
+
+        private void gridView1_RowClick_1(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            // here when we select a row we autocompile the data in the above panel
+            var selected = gridView1.GetSelectedRows();
+            if (selected != null && selected.Any())
+            {
+                var selectedEmployees = employees?.ElementAt(selected[0]);
+                if (selectedEmployees != null)
+                {
+                    textEdit2.EditValue = selectedEmployees.EmployeeId;
+                    textEdit1.EditValue = selectedEmployees.EmployeeLastName;
+                    textEdit3.EditValue = selectedEmployees.EmployeeName;
+                    textEdit4.EditValue = selectedEmployees.EmployeePhone;
+                    textEdit5.EditValue = selectedEmployees.EmployeeEmail;
+                    dateEdit1.DateTime = selectedEmployees.EmployeeRegistrationDate ?? DateTime.MinValue;
+                    employeeCodeTxt.Text = selectedEmployees.EmployeeCode;
+
+                    EnableClientButtons(true);
+                }
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
+
+        
     }
 }

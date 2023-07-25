@@ -1,11 +1,11 @@
 ﻿using BeautyHall.Api.SDK.Responses;
 using DevExpress.Utils.Extensions;
-using Demo.UserControls;
+using BSMS.UserControls;
 using BSMS.Winforms.Forms;
 using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
 
-namespace Demo
+namespace BSMS
 {
     public partial class Dashboard : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
@@ -83,7 +83,7 @@ namespace Demo
 
         private void accordionControlElement6_Click(object sender, EventArgs e)
         {
-            ShowForm(new InsertEmployee());
+            ShowForm(new EmployeeForm());
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)
@@ -112,12 +112,12 @@ namespace Demo
 
         private void accordionControlElement5_Click(object sender, EventArgs e)
         {
-            ShowForm(new InsertClient());
+            ShowForm(new CustomerForm());
         }
 
         private void accordionControlElement3_Click(object sender, EventArgs e)
         {
-            ShowForm(new AllOrdersForm());
+            ShowForm(new OrderHistoryForm());
         }
     }
 }

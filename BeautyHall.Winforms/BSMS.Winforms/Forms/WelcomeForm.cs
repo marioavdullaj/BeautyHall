@@ -14,7 +14,7 @@ namespace BSMS.Winforms.Forms
 {
     public partial class WelcomeForm : DevExpress.XtraEditors.XtraForm
     {
-        public WelcomeForm(Login user)
+        public WelcomeForm(BeautyHall.Api.SDK.Responses.Login user)
         {
             InitializeComponent();
             labelControl1.Text = $"Welcome back, {user.Name} {user.Surname}";

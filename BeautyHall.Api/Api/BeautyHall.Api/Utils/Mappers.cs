@@ -31,7 +31,10 @@ namespace BeautyHall.Api.DB.Utils
                 EmployeeLastName = item.EmployeeLastName,
                 EmployeeRole = item.EmployeeRole,
                 EmployeePhone = item.EmployeePhone,
-                IsActive = item.IsActive
+                IsActive = item.IsActive,
+                EmployeeEmail = item.EmployeeEmail,
+                EmployeeRegistrationDate = item.EmployeeRegistrationDate,
+                EmployeeCode = item.EmployeeCode
             };
         }
         public static Login Map(LoginDto item)

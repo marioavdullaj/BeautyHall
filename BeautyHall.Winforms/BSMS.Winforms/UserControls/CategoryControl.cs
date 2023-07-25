@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BSMS.Winforms.GenericUtils;
 
-namespace Demo.UserControls
+namespace BSMS.UserControls
 {
     public partial class CategoryControl : DevExpress.XtraEditors.XtraUserControl
     {

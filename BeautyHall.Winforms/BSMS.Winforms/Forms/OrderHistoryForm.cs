@@ -1,6 +1,6 @@
 ﻿using BeautyHall.Api.SDK.Responses;
 using BSMS.Winforms.Models;
-using Demo;
+using BSMS;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors;
@@ -15,13 +15,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
+using BSMS.Winforms.GenericUtils;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class AllOrdersForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class OrderHistoryForm : FixedRibbonForm
     {
         private IEnumerable<Order>? orders;
-        public AllOrdersForm()
+        public OrderHistoryForm()
         {
             InitializeComponent();
         }

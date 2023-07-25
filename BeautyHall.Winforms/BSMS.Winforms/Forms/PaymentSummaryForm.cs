@@ -1,6 +1,6 @@
 ﻿using BeautyHall.Api.SDK.Requests;
 using BeautyHall.Api.SDK.Responses;
-using Demo;
+using BSMS;
 using DevExpress.XtraEditors;
 
 namespace BSMS.Winforms.Forms
@@ -72,7 +72,7 @@ namespace BSMS.Winforms.Forms
 
                 if (await Program.ApiSdk.UpsertPayment(paymentSummaryDto))
                 {
-                    XtraMessageBox.Show("Payment registered successfully!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Επιτυχής Πληρωμή!", "Πληρωμή", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

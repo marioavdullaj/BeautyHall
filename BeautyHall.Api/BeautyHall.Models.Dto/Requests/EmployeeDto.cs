@@ -12,6 +12,9 @@ namespace BeautyHall.Models.Dto.Requests
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int EmployeeId { get; set; }
+
+        [Required]
+        public string EmployeeCode { get; set; } = null!;
         [Required]
         public string EmployeeName { get; set; } = null!;
         [Required]
@@ -24,5 +27,9 @@ namespace BeautyHall.Models.Dto.Requests
         public string? EmployeePhone { get; set; }
 
         public bool? IsActive { get; set; } = true;
+
+        public string? EmployeeEmail { get; set; }
+
+        public DateTime? EmployeeRegistrationDate { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Demo
+namespace BSMS
 {
     public partial class LoadingScreen : SplashScreen
     {
