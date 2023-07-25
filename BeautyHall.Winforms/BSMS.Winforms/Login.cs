@@ -33,7 +33,8 @@ namespace BSMS
             {
                 textEdit1.Text = ""; textEdit2.Text = "";
                 this.Hide();
-                new Dashboard(loginResponse).Show();
+                Program.dashboard = new Dashboard(loginResponse);
+                Program.dashboard.Show();
             }
             else
             {

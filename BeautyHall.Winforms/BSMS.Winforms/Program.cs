@@ -12,6 +12,7 @@ namespace BSMS
     {
         public static IBeautyHallApiSDK ApiSdk = null!;
         public static Login login = new();
+        public static Dashboard dashboard = null!;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

@@ -22,6 +22,12 @@ namespace BSMS.Winforms.Forms
             InitializeComponent();
         }
 
+        public OrderForm(Order? order)
+        {
+            InitializeComponent();
+            CurrentOrder = order;
+        }
+
         private void EnableOrderButtons(bool enable)
         {
             OrderHeaderPanel.Enabled = enable;
@@ -52,6 +58,36 @@ namespace BSMS.Winforms.Forms
                     lookUpEdit1.Properties.ValueMember = "Id";
                     lookUpEdit1.Properties.DataSource = clients;
                 }
+
+                if (CurrentOrder != null)
+                {
+                    saveOrderButton.Enabled = true;
+                    cancelOrderButton.Enabled = true;
+                    printButton.Enabled = true;
+                    paymentButton.Enabled = true;
+
+                    if (CurrentOrder.PaymentSummaries.Any())
+                    {
+                        paymentButton.Visibility = BarItemVisibility.Never;
+                        barButtonItem1.Visibility = BarItemVisibility.Always;
+                    }
+                    panelControl4.Visible = false;
+                    panelControl5.Dock = DockStyle.Fill;
+                    addOrderButton.Visibility = BarItemVisibility.Never;
+                    textEdit1.Text = CurrentOrder?.OrderId.ToString();
+                    dateEdit1.DateTime = CurrentOrder?.OrderDate ?? DateTime.Now;
+                    lookUpEdit1.EditValue = CurrentOrder?.Customer?.SubjectId;
+                    textEdit2.EditValue = CurrentOrder?.Customer?.SubjectName;
+                    textEdit3.EditValue = CurrentOrder?.Customer?.PhoneNumber;
+                    textEdit4.EditValue = CurrentOrder?.Customer?.Email;
+                    memoEdit1.EditValue = CurrentOrder?.Notes;
+
+                    foreach (var service in CurrentOrder.OrderServices)
+                    {
+                        var addedServiceControl = new OrderServiceControl(service, deletable: false);
+                        AddedServicesFlowLayout.AddControl(addedServiceControl);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -71,7 +107,7 @@ namespace BSMS.Winforms.Forms
             textEdit4.Text = $"{selectedCustomer?.Email}";
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void addOrderButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             CreateNewOrder();
         }
@@ -198,8 +234,8 @@ namespace BSMS.Winforms.Forms
                     PaymentSummaryForm paymentSummaryForm = new(CurrentOrder);
                     if (paymentSummaryForm.ShowDialog() == DialogResult.OK)
                     {
-                        paymentButton.Enabled = false;
-                        paymentButton.ButtonStyle = BarButtonStyle.Check;
+                        paymentButton.Visibility = BarItemVisibility.Never;
+                        barButtonItem1.Visibility = BarItemVisibility.Always;
                     }
                 }
             }
@@ -258,5 +294,37 @@ namespace BSMS.Winforms.Forms
         private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
         private async void saveOrderButton_ItemClick(object sender, ItemClickEventArgs e) => await SaveOrder();
+
+        private async void barButtonItem1_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!(CurrentOrder?.PaymentSummaries.Any() ?? false))
+                    return;
+
+                var question = XtraMessageBox.Show("Do you wanna cancel the previous payment?", "Delete payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (question == DialogResult.Yes)
+                {
+                    int paymentId = CurrentOrder?.PaymentSummaries.First().PaymentId ?? 0;
+                    var result = await Program.ApiSdk.DeletePayment(paymentId);
+                    if (result)
+                    {
+                        XtraMessageBox.Show("The payment has been successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId ?? 0);
+
+                        barButtonItem1.Enabled = false;
+                        paymentButton.Enabled = true;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Error during the save of the order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
