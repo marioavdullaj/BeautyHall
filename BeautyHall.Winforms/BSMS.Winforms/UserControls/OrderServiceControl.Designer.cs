@@ -53,7 +53,7 @@
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(115, 7);
+            labelControl2.Location = new Point(154, 6);
             labelControl2.Margin = new Padding(4, 2, 4, 2);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(97, 21);
@@ -64,7 +64,7 @@
             // 
             labelControl3.Appearance.Font = new Font("Tahoma", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(115, 35);
+            labelControl3.Location = new Point(154, 35);
             labelControl3.Margin = new Padding(4, 2, 4, 2);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(97, 21);
@@ -86,7 +86,7 @@
             // 
             labelControl5.Appearance.Font = new Font("Tahoma", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(115, 65);
+            labelControl5.Location = new Point(154, 65);
             labelControl5.Margin = new Padding(4, 2, 4, 2);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(97, 21);
@@ -107,7 +107,7 @@
             // simpleButton1
             // 
             simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
-            simpleButton1.Location = new Point(261, 8);
+            simpleButton1.Location = new Point(400, 8);
             simpleButton1.Margin = new Padding(4, 2, 4, 2);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -121,6 +121,7 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(simpleButton1);
             Controls.Add(labelControl5);
             Controls.Add(labelControl6);
@@ -130,7 +131,7 @@
             Controls.Add(labelControl1);
             Margin = new Padding(6);
             Name = "OrderServiceControl";
-            Size = new Size(317, 96);
+            Size = new Size(446, 98);
             ResumeLayout(false);
             PerformLayout();
         }

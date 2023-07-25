@@ -314,7 +314,6 @@ namespace BeautyHall.DAL.DB
         private bool DeleteOrder(Order input)
         {
             bool ret = false;
-
             if (Context.Orders.Any(item => item.OrderId == input.OrderId))
             {
                 Context.Orders.Remove(input);

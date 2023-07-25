@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
+            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             addOrderButton = new DevExpress.XtraBars.BarButtonItem();
             cancelOrderButton = new DevExpress.XtraBars.BarButtonItem();
@@ -36,6 +38,7 @@
             printButton = new DevExpress.XtraBars.BarButtonItem();
             closeButton = new DevExpress.XtraBars.BarButtonItem();
             saveOrderButton = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -66,6 +69,7 @@
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
             servicesInOrderLabel = new DevExpress.XtraEditors.LabelControl();
             xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).BeginInit();
             OrderHeaderPanel.SuspendLayout();
@@ -94,10 +98,10 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, addOrderButton, cancelOrderButton, paymentButton, printButton, closeButton, saveOrderButton });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, addOrderButton, cancelOrderButton, paymentButton, printButton, closeButton, saveOrderButton, barButtonItem1 });
             ribbon.Location = new Point(0, 0);
             ribbon.Margin = new Padding(4, 2, 4, 2);
-            ribbon.MaxItemId = 8;
+            ribbon.MaxItemId = 15;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbon.Size = new Size(1366, 193);
@@ -108,7 +112,7 @@
             addOrderButton.Id = 1;
             addOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("addOrderButton.ImageOptions.SvgImage");
             addOrderButton.Name = "addOrderButton";
-            addOrderButton.ItemClick += barButtonItem1_ItemClick;
+            addOrderButton.ItemClick += addOrderButton_ItemClick;
             // 
             // cancelOrderButton
             // 
@@ -149,6 +153,15 @@
             saveOrderButton.Name = "saveOrderButton";
             saveOrderButton.ItemClick += saveOrderButton_ItemClick;
             // 
+            // barButtonItem1
+            // 
+            barButtonItem1.Caption = "Delete Payment";
+            barButtonItem1.Id = 9;
+            barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
+            barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            barButtonItem1.ItemClick += barButtonItem1_ItemClick_1;
+            // 
             // ribbonPage1
             // 
             ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2, ribbonPageGroup3 });
@@ -165,6 +178,7 @@
             // ribbonPageGroup2
             // 
             ribbonPageGroup2.ItemLinks.Add(paymentButton);
+            ribbonPageGroup2.ItemLinks.Add(barButtonItem1);
             ribbonPageGroup2.ItemLinks.Add(printButton);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
@@ -375,6 +389,7 @@
             // AddedServicesFlowLayout
             // 
             AddedServicesFlowLayout.AutoScroll = true;
+            AddedServicesFlowLayout.AutoSize = true;
             AddedServicesFlowLayout.Dock = DockStyle.Fill;
             AddedServicesFlowLayout.Location = new Point(2, 57);
             AddedServicesFlowLayout.Margin = new Padding(4, 2, 4, 2);
@@ -469,6 +484,11 @@
             xtraScrollableControl1.Size = new Size(1366, 487);
             xtraScrollableControl1.TabIndex = 9;
             // 
+            // workspaceManager1
+            // 
+            workspaceManager1.TargetControl = this;
+            workspaceManager1.TransitionType = pushTransition1;
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -504,6 +524,7 @@
             panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl5).EndInit();
             panelControl5.ResumeLayout(false);
+            panelControl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
             panelControl3.ResumeLayout(false);
             panelControl3.PerformLayout();
@@ -551,5 +572,7 @@
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.Utils.WorkspaceManager workspaceManager1;
     }
 }

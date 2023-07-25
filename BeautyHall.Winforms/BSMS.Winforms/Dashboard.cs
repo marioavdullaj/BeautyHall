@@ -24,7 +24,7 @@ namespace BSMS
             ShowForm(new WelcomeForm(User));
         }
 
-        private void ShowForm(Form form)
+        public void ShowForm(Form form)
         {
             var existingForm = OpenedForms.Where(x => form.GetType() == x.GetType()).FirstOrDefault();
             if (existingForm != null)
@@ -57,6 +57,11 @@ namespace BSMS
             var openedForm = OpenedForms.Where(x => sender?.GetType() == x.GetType()).FirstOrDefault();
             if (openedForm != null)
                 OpenedForms.Remove(openedForm);
+            if (OpenedForms.Count() > 0)
+            {
+                var reopen = OpenedForms.Last();
+                ShowForm(reopen);
+            }
         }
 
         private void Dashboard_Resize(object sender, EventArgs e)

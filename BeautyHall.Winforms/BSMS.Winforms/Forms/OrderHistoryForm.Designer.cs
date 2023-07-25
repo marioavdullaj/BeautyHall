@@ -55,6 +55,7 @@
             colDiscountedPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
+            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
@@ -69,9 +70,9 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3 });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 5;
+            ribbon.MaxItemId = 6;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo });
@@ -137,6 +138,7 @@
             // ribbonPageGroup1
             // 
             ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
+            ribbonPageGroup1.ItemLinks.Add(barButtonItem3);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPageGroup3
@@ -292,7 +294,15 @@
             colTotalPOS.VisibleIndex = 8;
             colTotalPOS.Width = 94;
             // 
-            // AllOrdersForm
+            // barButtonItem3
+            // 
+            barButtonItem3.Caption = "Open Order";
+            barButtonItem3.Id = 5;
+            barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
+            barButtonItem3.Name = "barButtonItem3";
+            barButtonItem3.ItemClick += barButtonItem3_ItemClick;
+            // 
+            // OrderHistoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -300,7 +310,7 @@
             Controls.Add(grOrders);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
-            Name = "AllOrdersForm";
+            Name = "OrderHistoryForm";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
@@ -343,5 +353,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPOS;
         private DevExpress.XtraGrid.Columns.GridColumn colPayed;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }

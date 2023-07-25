@@ -56,6 +56,28 @@ namespace BSMS.Winforms.Forms
             dateFrom.EditValue = DateTime.Today;
             dateTo.EditValue = DateTime.Today.AddDays(1);
         }
+
+        private async void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                var selected = grvOrders.GetSelectedRows();
+                if (selected != null && selected.Any())
+                {
+                    var selectedOrder = orders?.ElementAt(selected[0]);
+                    if(selectedOrder != null)
+                    {
+                        var orderForm = new OrderForm(selectedOrder);
+                        Program.dashboard.ShowForm(orderForm);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void SetCheckboxEdit<T>(GridControl grid, string colName, T checkedValue, T uncheckedValue, EventHandler ev = null)
         {
             try
