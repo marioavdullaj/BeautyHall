@@ -58,7 +58,9 @@
             ((System.ComponentModel.ISupportInitialize)spinEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)spinEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
+            panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
+            panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
             panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl4).BeginInit();
@@ -88,11 +90,11 @@
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 15.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(32, 70);
+            labelControl2.Location = new Point(20, 16);
             labelControl2.Name = "labelControl2";
-            labelControl2.Size = new Size(96, 31);
+            labelControl2.Size = new Size(112, 31);
             labelControl2.TabIndex = 2;
-            labelControl2.Text = "Πελάτης";
+            labelControl2.Text = "Πελάτης :";
             // 
             // labelControl3
             // 
@@ -100,9 +102,9 @@
             labelControl3.Appearance.Options.UseFont = true;
             labelControl3.Location = new Point(32, 132);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(82, 31);
+            labelControl3.Size = new Size(99, 31);
             labelControl3.TabIndex = 4;
-            labelControl3.Text = "Σύνολο";
+            labelControl3.Text = "Σύνολο :";
             // 
             // textEdit2
             // 
@@ -178,7 +180,7 @@
             // spinEdit1
             // 
             spinEdit1.EditValue = new decimal(new int[] { 0, 0, 0, 0 });
-            spinEdit1.Location = new Point(401, 318);
+            spinEdit1.Location = new Point(388, 37);
             spinEdit1.Name = "spinEdit1";
             spinEdit1.Properties.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             spinEdit1.Properties.Appearance.Options.UseFont = true;
@@ -194,30 +196,30 @@
             // 
             // labelControl9
             // 
-            labelControl9.Appearance.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl9.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl9.Appearance.Options.UseFont = true;
             labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            labelControl9.Location = new Point(215, 318);
+            labelControl9.Location = new Point(248, 40);
             labelControl9.Name = "labelControl9";
-            labelControl9.Size = new Size(122, 33);
+            labelControl9.Size = new Size(129, 28);
             labelControl9.TabIndex = 16;
-            labelControl9.Text = "Μετρητά :";
+            labelControl9.Text = "Μετρητά -->";
             // 
             // labelControl10
             // 
-            labelControl10.Appearance.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl10.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl10.Appearance.Options.UseFont = true;
             labelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            labelControl10.Location = new Point(215, 375);
+            labelControl10.Location = new Point(223, 84);
             labelControl10.Name = "labelControl10";
-            labelControl10.Size = new Size(151, 33);
+            labelControl10.Size = new Size(154, 28);
             labelControl10.TabIndex = 19;
-            labelControl10.Text = "Κάρτα-POS :";
+            labelControl10.Text = "Κάρτα-POS -->";
             // 
             // spinEdit2
             // 
             spinEdit2.EditValue = new decimal(new int[] { 0, 0, 0, 0 });
-            spinEdit2.Location = new Point(401, 377);
+            spinEdit2.Location = new Point(389, 81);
             spinEdit2.Name = "spinEdit2";
             spinEdit2.Properties.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             spinEdit2.Properties.Appearance.Options.UseFont = true;
@@ -239,7 +241,7 @@
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new Size(491, 47);
             simpleButton1.TabIndex = 20;
-            simpleButton1.Text = "PAY";
+            simpleButton1.Text = "Αποθήκευση";
             simpleButton1.Click += simpleButton1_Click;
             // 
             // simpleButton2
@@ -254,9 +256,9 @@
             // simpleButton3
             // 
             simpleButton3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton3.ImageOptions.SvgImage");
-            simpleButton3.Location = new Point(533, 318);
+            simpleButton3.Location = new Point(520, 38);
             simpleButton3.Name = "simpleButton3";
-            simpleButton3.Size = new Size(44, 93);
+            simpleButton3.Size = new Size(44, 75);
             simpleButton3.TabIndex = 22;
             simpleButton3.Click += simpleButton3_Click;
             // 
@@ -266,16 +268,16 @@
             labelControl5.Appearance.Options.UseFont = true;
             labelControl5.Location = new Point(20, 5);
             labelControl5.Name = "labelControl5";
-            labelControl5.Size = new Size(161, 31);
+            labelControl5.Size = new Size(178, 31);
             labelControl5.TabIndex = 23;
-            labelControl5.Text = "Γενικό Σύνολο";
+            labelControl5.Text = "Γενικό Σύνολο :";
             // 
             // labelControl6
             // 
             labelControl6.Appearance.Font = new Font("Tahoma", 15.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
             labelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            labelControl6.Location = new Point(32, 344);
+            labelControl6.Location = new Point(20, 5);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new Size(126, 31);
             labelControl6.TabIndex = 24;
@@ -284,6 +286,12 @@
             // panelControl1
             // 
             panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            panelControl1.Controls.Add(simpleButton3);
+            panelControl1.Controls.Add(labelControl6);
+            panelControl1.Controls.Add(labelControl10);
+            panelControl1.Controls.Add(labelControl9);
+            panelControl1.Controls.Add(spinEdit1);
+            panelControl1.Controls.Add(spinEdit2);
             panelControl1.Location = new Point(12, 303);
             panelControl1.Name = "panelControl1";
             panelControl1.Size = new Size(576, 125);
@@ -292,6 +300,7 @@
             // panelControl2
             // 
             panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            panelControl2.Controls.Add(labelControl2);
             panelControl2.Location = new Point(12, 51);
             panelControl2.Name = "panelControl2";
             panelControl2.Size = new Size(576, 196);
@@ -319,20 +328,13 @@
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(600, 546);
-            Controls.Add(labelControl6);
-            Controls.Add(simpleButton3);
             Controls.Add(simpleButton2);
             Controls.Add(simpleButton1);
-            Controls.Add(labelControl10);
-            Controls.Add(spinEdit2);
-            Controls.Add(labelControl9);
-            Controls.Add(spinEdit1);
             Controls.Add(comboBoxEdit1);
             Controls.Add(labelControl7);
             Controls.Add(labelControl4);
             Controls.Add(textEdit2);
             Controls.Add(labelControl3);
-            Controls.Add(labelControl2);
             Controls.Add(textEdit1);
             Controls.Add(labelControl1);
             Controls.Add(panelControl1);
@@ -350,7 +352,11 @@
             ((System.ComponentModel.ISupportInitialize)spinEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)spinEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
+            panelControl1.ResumeLayout(false);
+            panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
+            panelControl2.ResumeLayout(false);
+            panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
             panelControl3.ResumeLayout(false);
             panelControl3.PerformLayout();

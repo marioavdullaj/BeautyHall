@@ -37,6 +37,12 @@
             EditClientButton = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            
+            
+            
+            
+            
             Εγγραφη = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,11 +70,8 @@
             colName = new DevExpress.XtraGrid.Columns.GridColumn();
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
-            barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
-            barEditItem2 = new DevExpress.XtraBars.BarEditItem();
-            repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
+            
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
@@ -85,20 +88,18 @@
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)repositoryItemTimeEdit1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)repositoryItemHypertextLabel1).BeginInit();
             SuspendLayout();
             // 
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton, barButtonItem2, barButtonItem3, barEditItem1, barEditItem2 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, SaveClientButton, CancelClientButton, EditClientButton, barButtonItem2, barButtonItem3, barEditItem1 });
             ribbon.Location = new Point(0, 0);
             ribbon.Margin = new Padding(4, 2, 4, 2);
-            ribbon.MaxItemId = 9;
+            ribbon.MaxItemId = 11;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { Εγγραφη });
-            ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemTimeEdit1, repositoryItemHypertextLabel1 });
+            
             ribbon.Size = new Size(1362, 193);
             ribbon.StatusBar = ribbonStatusBar;
             // 
@@ -150,6 +151,34 @@
             barButtonItem3.Name = "barButtonItem3";
             barButtonItem3.ItemClick += barButtonItem3_ItemClick;
             // 
+            // barEditItem1
+            // 
+            barEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            barEditItem1.Caption = "barEditItem1";
+            
+            barEditItem1.Id = 7;
+            barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemTimeEdit1
+            // 
+            
+            // 
+            // beiDate
+            // 
+            
+            // 
+            // repositoryItemHypertextLabel1
+            // 
+            
+            // 
+            // barEditItem2
+            // 
+            
+            // 
+            // repositoryItemDateEdit1
+            // 
+            
+            // 
             // Εγγραφη
             // 
             Εγγραφη.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup2 });
@@ -171,7 +200,6 @@
             // 
             // ribbonStatusBar
             // 
-            ribbonStatusBar.ItemLinks.Add(barEditItem2);
             ribbonStatusBar.Location = new Point(0, 766);
             ribbonStatusBar.Margin = new Padding(4, 2, 4, 2);
             ribbonStatusBar.Name = "ribbonStatusBar";
@@ -422,32 +450,6 @@
             colEmail.VisibleIndex = 4;
             colEmail.Width = 185;
             // 
-            // barEditItem1
-            // 
-            barEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            barEditItem1.Caption = "barEditItem1";
-            barEditItem1.Edit = repositoryItemTimeEdit1;
-            barEditItem1.Id = 7;
-            barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemTimeEdit1
-            // 
-            repositoryItemTimeEdit1.AutoHeight = false;
-            repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
-            // 
-            // barEditItem2
-            // 
-            barEditItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            barEditItem2.Caption = "Date";
-            barEditItem2.Edit = repositoryItemHypertextLabel1;
-            barEditItem2.Id = 8;
-            barEditItem2.Name = "barEditItem2";
-            // 
-            // repositoryItemHypertextLabel1
-            // 
-            repositoryItemHypertextLabel1.Name = "repositoryItemHypertextLabel1";
-            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -464,6 +466,7 @@
             Text = "InsertClient";
             Load += InsertClient_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).EndInit();
             ClientHeaderPanel.ResumeLayout(false);
             ClientHeaderPanel.PerformLayout();
@@ -483,8 +486,6 @@
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)repositoryItemTimeEdit1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)repositoryItemHypertextLabel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -526,8 +527,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
-        private DevExpress.XtraBars.BarEditItem barEditItem2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
+        
+        
+        
+        
+        
     }
 }

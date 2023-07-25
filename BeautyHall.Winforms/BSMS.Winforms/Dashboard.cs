@@ -4,6 +4,7 @@ using BSMS.UserControls;
 using BSMS.Winforms.Forms;
 using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
+using DevExpress.Utils;
 
 namespace BSMS
 {
@@ -16,6 +17,7 @@ namespace BSMS
             InitializeComponent();
             User = user;
             OpenedForms = new();
+
         }
 
         private async void OnLoad(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace BSMS
 
         private void OnFormClosed(object? sender, FormClosedEventArgs e)
         {
-            Program.login.Show();
+            Program.login.Close();
         }
 
         private void newOrderAccordionItem_Click(object sender, EventArgs e)
@@ -93,11 +95,12 @@ namespace BSMS
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //categories?.ForEach(category => NewOrderServicesFlowLayout.AddControl(new CategoryControl(category)));
+
         }
 
         private void usernameInfoElement_Click(object sender, EventArgs e)
         {
+
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -107,7 +110,7 @@ namespace BSMS
 
         private void productAccordionItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new WelcomeForm(User));
+
         }
 
         private void accordionControlElement5_Click(object sender, EventArgs e)
@@ -118,6 +121,17 @@ namespace BSMS
         private void accordionControlElement3_Click(object sender, EventArgs e)
         {
             ShowForm(new OrderHistoryForm());
+        }
+
+        private void fluentDesignFormControl1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbDate.Text = DateTime.Now.ToLongDateString();
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ssss");
         }
     }
 }
