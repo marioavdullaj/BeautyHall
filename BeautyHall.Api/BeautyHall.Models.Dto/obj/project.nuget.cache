@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Dt3Fn/pcgrJnGMsCo2h3AXxotLt6IGex9MtuOqjkjzOXq4xKDYAkjF89F6hSuxo3o0au4Ze/ZilfYgCFWODqMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\offset\\Desktop\\SOFTWARE PROJECT_IWB-IEBOOK_MAMANGEMENT\\BeautyHall-main\\BeautyHall\\BeautyHall.Api\\BeautyHall.Models.Dto\\BeautyHall.Models.Dto.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\offset\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
