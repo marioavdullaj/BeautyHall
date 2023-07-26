@@ -38,6 +38,7 @@
             dateTo = new DevExpress.XtraBars.BarEditItem();
             dateToRepo = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -56,7 +57,7 @@
             colDiscountedPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
-            barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
@@ -71,9 +72,9 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5 });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 7;
+            ribbon.MaxItemId = 8;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo });
@@ -138,6 +139,13 @@
             barButtonItem3.Name = "barButtonItem3";
             barButtonItem3.ItemClick += barButtonItem3_ItemClick;
             // 
+            // barButtonItem4
+            // 
+            barButtonItem4.Caption = "Save as PDF";
+            barButtonItem4.Id = 6;
+            barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
+            barButtonItem4.Name = "barButtonItem4";
+            // 
             // ribbonPage1
             // 
             ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2 });
@@ -148,7 +156,7 @@
             // 
             ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
             ribbonPageGroup1.ItemLinks.Add(barButtonItem3);
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem4);
+            ribbonPageGroup1.ItemLinks.Add(barButtonItem5);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPageGroup3
@@ -159,6 +167,7 @@
             // 
             // ribbonPageGroup2
             // 
+            ribbonPageGroup2.ItemLinks.Add(barButtonItem4);
             ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
@@ -307,12 +316,13 @@
             colTotalPOS.VisibleIndex = 9;
             colTotalPOS.Width = 94;
             // 
-            // barButtonItem4
+            // barButtonItem5
             // 
-            barButtonItem4.Caption = "Save as PDF";
-            barButtonItem4.Id = 6;
-            barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
-            barButtonItem4.Name = "barButtonItem4";
+            barButtonItem5.Caption = "Delete Orders";
+            barButtonItem5.Id = 7;
+            barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
+            barButtonItem5.Name = "barButtonItem5";
+            barButtonItem5.ItemClick += barButtonItem5_ItemClick;
             // 
             // OrderHistoryForm
             // 
@@ -367,5 +377,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
     }
 }

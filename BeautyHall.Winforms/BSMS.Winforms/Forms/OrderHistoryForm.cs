@@ -1,5 +1,5 @@
 ﻿using BeautyHall.Api.SDK.Responses;
-using BSMS.Winforms.Models
+using BSMS.Winforms.Models;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors;
@@ -7,6 +7,7 @@ using DevExpress.XtraGrid;
 using System.Data;
 using DevExpress.XtraGrid.Views.Grid;
 using BSMS.Winforms.GenericUtils;
+using DevExpress.XtraRichEdit.UI;
 
 namespace BSMS.Winforms.Forms
 {
@@ -24,6 +25,11 @@ namespace BSMS.Winforms.Forms
         }
 
         private async void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            await Reload();
+        }
+
+        private async Task Reload()
         {
             orders = await Program.ApiSdk.GetOrders((DateTime)dateFrom.EditValue, (DateTime)dateTo.EditValue);
             grOrders.DataSource = orders?.Select(x => new OrderSummary
@@ -59,6 +65,7 @@ namespace BSMS.Winforms.Forms
                     if (selectedOrder != null)
                     {
                         var orderForm = new OrderForm(selectedOrder);
+                        orderForm.FormClosed += OrderForm_FormClosed;
                         Program.dashboard.ShowForm(orderForm);
                     }
                 }
@@ -69,14 +76,62 @@ namespace BSMS.Winforms.Forms
             }
         }
 
+        private async void OrderForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            await Reload();
+        }
+
         private void grvOrders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
+            /*
             var selectedRow = e.ControllerRow;
             grvOrders.SelectionChanged -= grvOrders_SelectionChanged;
-            foreach(var row in grvOrders.GetSelectedRows())
+            foreach (var row in grvOrders.GetSelectedRows())
                 if (row != selectedRow)
                     grvOrders.UnselectRow(row);
             grvOrders.SelectionChanged += grvOrders_SelectionChanged;
+            */
+        }
+
+        private async void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                bool result = true;
+                var selectedRows = grvOrders.GetSelectedRows();
+                var question = $"Are you sure you wanna delete these {selectedRows.Length} orders?";
+                if(XtraMessageBox.Show(question, "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (var selectedRow in selectedRows)
+                    {
+                        var selectedOrder = orders?.ElementAt(selectedRow);
+                        if (selectedOrder != null)
+                        {
+                            result = await Program.ApiSdk.DeleteOrder(selectedOrder.OrderId);
+                            if (!result)
+                                break;
+                        }
+                    }
+
+                    if (result)
+                    {
+                        XtraMessageBox.Show("Orders deleted successfully!", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("An error occured while deleting the orders", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally 
+            { 
+                await Reload(); 
+            }
         }
 
         private void SetCheckboxEdit<T>(GridControl grid, string colName, T checkedValue, T uncheckedValue, EventHandler ev = null)

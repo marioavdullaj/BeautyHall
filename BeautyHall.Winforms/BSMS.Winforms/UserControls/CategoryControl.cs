@@ -28,6 +28,19 @@ namespace BSMS.UserControls
         {
             labelServiceName.Text = $"{Category.CategoryName}";
             lookUpEdit2.Properties.DataSource = Category.Services;
+
+            if(Category.Services != null && Category.Services.Count() == 1)
+            {
+                lookUpEdit2.EditValue = Category.Services.First().ServiceId;
+
+                // autoload the employee
+                var employees = Category.Services.First().Employees;
+                lookUpEdit1.Properties.DataSource = employees;
+                if(employees != null && employees.Count() == 1)
+                {
+                    lookUpEdit1.EditValue = employees.First().EmployeeId;
+                }
+            }
         }
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
@@ -36,6 +49,11 @@ namespace BSMS.UserControls
             if (selectedService == null) return;
 
             lookUpEdit1.Properties.DataSource = selectedService?.Employees;
+
+            if (selectedService?.Employees != null && selectedService?.Employees.Count() == 1)
+            {
+                lookUpEdit1.EditValue = selectedService?.Employees.First().EmployeeId;
+            }
 
             List<decimal?> priceRange = new();
             for (decimal? i = selectedService?.ServiceMinimumPrice; i <= selectedService?.ServiceMaximumPrice; i++)

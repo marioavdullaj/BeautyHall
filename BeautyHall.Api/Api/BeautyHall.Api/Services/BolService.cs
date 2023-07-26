@@ -206,15 +206,15 @@ namespace BeautyHall.Api.DB.Services
                         new FilterSetting { Comparisation = ECompareType.Equal, Key = "OrderId", Value = orderId }
                     });
                     if (paymentSummaries != null && paymentSummaries.Any()) 
-                        foreach(var paymentSummary in paymentSummaries as IEnumerable<PaymentSummary>)
+                        foreach(var paymentSummary in (paymentSummaries as IEnumerable<PaymentSummary>).ToList())
                             DbService.Delete(paymentSummary);
 
-                    var servicesInOreder = DbService.Search<OrderService>(new List<FilterSetting>
+                    var servicesInOrder = DbService.Search<OrderService>(new List<FilterSetting>
                     {
                         new FilterSetting { Comparisation = ECompareType.Equal, Key = "OrderId", Value = orderId }
                     });
-                    if (servicesInOreder != null && servicesInOreder.Any())
-                        foreach (var service in servicesInOreder as IEnumerable<OrderService>)
+                    if (servicesInOrder != null && servicesInOrder.Any())
+                        foreach (var service in (servicesInOrder as IEnumerable<OrderService>).ToList())
                             DbService.Delete(service);
 
                     res = DbService.Delete(new Order { OrderId = orderId });

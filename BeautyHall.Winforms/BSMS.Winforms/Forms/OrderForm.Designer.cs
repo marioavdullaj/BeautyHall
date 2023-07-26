@@ -222,7 +222,7 @@
             // 
             labelControl5.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(1132, 6);
+            labelControl5.Location = new Point(926, 6);
             labelControl5.Margin = new Padding(4);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(88, 21);
@@ -242,11 +242,11 @@
             // 
             // memoEdit1
             // 
-            memoEdit1.Location = new Point(926, 2);
+            memoEdit1.Location = new Point(926, 35);
             memoEdit1.Margin = new Padding(4);
             memoEdit1.MenuManager = ribbon;
             memoEdit1.Name = "memoEdit1";
-            memoEdit1.Size = new Size(438, 112);
+            memoEdit1.Size = new Size(438, 62);
             memoEdit1.TabIndex = 5;
             // 
             // dateEdit1
