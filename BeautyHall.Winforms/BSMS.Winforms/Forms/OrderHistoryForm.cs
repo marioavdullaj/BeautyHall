@@ -1,19 +1,10 @@
 ﻿using BeautyHall.Api.SDK.Responses;
-using BSMS.Winforms.Models;
-using BSMS;
+using BSMS.Winforms.Models
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
 using BSMS.Winforms.GenericUtils;
 
@@ -65,17 +56,27 @@ namespace BSMS.Winforms.Forms
                 if (selected != null && selected.Any())
                 {
                     var selectedOrder = orders?.ElementAt(selected[0]);
-                    if(selectedOrder != null)
+                    if (selectedOrder != null)
                     {
                         var orderForm = new OrderForm(selectedOrder);
                         Program.dashboard.ShowForm(orderForm);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void grvOrders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            var selectedRow = e.ControllerRow;
+            grvOrders.SelectionChanged -= grvOrders_SelectionChanged;
+            foreach(var row in grvOrders.GetSelectedRows())
+                if (row != selectedRow)
+                    grvOrders.UnselectRow(row);
+            grvOrders.SelectionChanged += grvOrders_SelectionChanged;
         }
 
         private void SetCheckboxEdit<T>(GridControl grid, string colName, T checkedValue, T uncheckedValue, EventHandler ev = null)
