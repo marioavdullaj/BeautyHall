@@ -57,7 +57,7 @@
             // 
             // lookUpEdit1
             // 
-            lookUpEdit1.Location = new Point(313, 10);
+            lookUpEdit1.Location = new Point(358, 11);
             lookUpEdit1.Margin = new Padding(4);
             lookUpEdit1.Name = "lookUpEdit1";
             lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 9.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -81,7 +81,7 @@
             // 
             simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
             simpleButton1.ImageOptions.SvgImageSize = new Size(20, 20);
-            simpleButton1.Location = new Point(659, 8);
+            simpleButton1.Location = new Point(704, 9);
             simpleButton1.Margin = new Padding(4);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new Size(79, 29);
@@ -91,7 +91,7 @@
             // 
             // lookUpEdit2
             // 
-            lookUpEdit2.Location = new Point(109, 10);
+            lookUpEdit2.Location = new Point(154, 11);
             lookUpEdit2.Margin = new Padding(4);
             lookUpEdit2.Name = "lookUpEdit2";
             lookUpEdit2.Properties.Appearance.Font = new Font("Tahoma", 9.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -112,7 +112,7 @@
             // 
             labelControl4.Appearance.Font = new Font("Tahoma", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(611, 10);
+            labelControl4.Location = new Point(656, 11);
             labelControl4.Margin = new Padding(4);
             labelControl4.Name = "labelControl4";
             labelControl4.Size = new Size(11, 24);
@@ -121,7 +121,7 @@
             // 
             // lookUpEdit3
             // 
-            lookUpEdit3.Location = new Point(518, 8);
+            lookUpEdit3.Location = new Point(563, 9);
             lookUpEdit3.Margin = new Padding(4, 2, 4, 2);
             lookUpEdit3.Name = "lookUpEdit3";
             lookUpEdit3.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -147,7 +147,7 @@
             Controls.Add(labelServiceName);
             Margin = new Padding(6);
             Name = "CategoryControl";
-            Size = new Size(750, 49);
+            Size = new Size(793, 49);
             Load += ServiceControl_Load;
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();

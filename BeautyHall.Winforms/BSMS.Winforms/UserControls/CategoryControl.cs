@@ -29,14 +29,14 @@ namespace BSMS.UserControls
             labelServiceName.Text = $"{Category.CategoryName}";
             lookUpEdit2.Properties.DataSource = Category.Services;
 
-            if(Category.Services != null && Category.Services.Count() == 1)
+            if (Category.Services != null && Category.Services.Count() == 1)
             {
                 lookUpEdit2.EditValue = Category.Services.First().ServiceId;
 
                 // autoload the employee
                 var employees = Category.Services.First().Employees;
                 lookUpEdit1.Properties.DataSource = employees;
-                if(employees != null && employees.Count() == 1)
+                if (employees != null && employees.Count() == 1)
                 {
                     lookUpEdit1.EditValue = employees.First().EmployeeId;
                 }
