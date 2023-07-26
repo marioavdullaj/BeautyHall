@@ -45,13 +45,12 @@
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             OrderHeaderPanel = new DevExpress.XtraEditors.PanelControl();
             labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            labelControl6 = new DevExpress.XtraEditors.LabelControl();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            employeeBindingSource = new BindingSource(components);
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textEdit1 = new DevExpress.XtraEditors.TextEdit();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -59,6 +58,8 @@
             panelControl6 = new DevExpress.XtraEditors.PanelControl();
             textEdit4 = new DevExpress.XtraEditors.TextEdit();
             textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            labelControl7 = new DevExpress.XtraEditors.LabelControl();
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
             AddedServicesFlowLayout = new FlowLayoutPanel();
             panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -77,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl6).BeginInit();
@@ -190,8 +192,6 @@
             // OrderHeaderPanel
             // 
             OrderHeaderPanel.Controls.Add(labelControl8);
-            OrderHeaderPanel.Controls.Add(labelControl7);
-            OrderHeaderPanel.Controls.Add(labelControl6);
             OrderHeaderPanel.Controls.Add(labelControl5);
             OrderHeaderPanel.Controls.Add(labelControl4);
             OrderHeaderPanel.Controls.Add(memoEdit1);
@@ -220,33 +220,11 @@
             labelControl8.TabIndex = 12;
             labelControl8.Text = "EMAIL:";
             // 
-            // labelControl7
-            // 
-            labelControl7.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl7.Appearance.Options.UseFont = true;
-            labelControl7.Location = new Point(627, 17);
-            labelControl7.Margin = new Padding(4);
-            labelControl7.Name = "labelControl7";
-            labelControl7.Size = new Size(43, 21);
-            labelControl7.TabIndex = 10;
-            labelControl7.Text = "ΤΗΛ.:";
-            // 
-            // labelControl6
-            // 
-            labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(276, 79);
-            labelControl6.Margin = new Padding(4);
-            labelControl6.Name = "labelControl6";
-            labelControl6.Size = new Size(65, 21);
-            labelControl6.TabIndex = 8;
-            labelControl6.Text = "ΟΝΟΜΑ:";
-            // 
             // labelControl5
             // 
             labelControl5.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(929, 6);
+            labelControl5.Location = new Point(1132, 6);
             labelControl5.Margin = new Padding(4);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(88, 21);
@@ -296,12 +274,19 @@
             lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             lookUpEdit1.Properties.Appearance.Options.UseFont = true;
             lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEdit1.Properties.DataSource = employeeBindingSource;
+            lookUpEdit1.Properties.DisplayMember = "Surname";
             lookUpEdit1.Properties.NullText = "Επιλογή Πελάτη";
             lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
+            lookUpEdit1.Properties.ValueMember = "Id";
             lookUpEdit1.Size = new Size(218, 28);
             lookUpEdit1.TabIndex = 3;
             lookUpEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
+            // 
+            // employeeBindingSource
+            // 
+            employeeBindingSource.DataSource = typeof(Models.Employee);
             // 
             // labelControl3
             // 
@@ -347,6 +332,8 @@
             // 
             panelControl6.Controls.Add(textEdit4);
             panelControl6.Controls.Add(textEdit3);
+            panelControl6.Controls.Add(labelControl6);
+            panelControl6.Controls.Add(labelControl7);
             panelControl6.Controls.Add(textEdit2);
             panelControl6.Location = new Point(231, 0);
             panelControl6.Name = "panelControl6";
@@ -367,7 +354,7 @@
             // textEdit3
             // 
             textEdit3.Enabled = false;
-            textEdit3.Location = new Point(454, 9);
+            textEdit3.Location = new Point(140, 70);
             textEdit3.MenuManager = ribbon;
             textEdit3.Name = "textEdit3";
             textEdit3.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -375,10 +362,32 @@
             textEdit3.Size = new Size(218, 28);
             textEdit3.TabIndex = 11;
             // 
+            // labelControl6
+            // 
+            labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl6.Appearance.Options.UseFont = true;
+            labelControl6.Location = new Point(374, 17);
+            labelControl6.Margin = new Padding(4);
+            labelControl6.Name = "labelControl6";
+            labelControl6.Size = new Size(65, 21);
+            labelControl6.TabIndex = 8;
+            labelControl6.Text = "ΟΝΟΜΑ:";
+            // 
+            // labelControl7
+            // 
+            labelControl7.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl7.Appearance.Options.UseFont = true;
+            labelControl7.Location = new Point(45, 77);
+            labelControl7.Margin = new Padding(4);
+            labelControl7.Name = "labelControl7";
+            labelControl7.Size = new Size(43, 21);
+            labelControl7.TabIndex = 10;
+            labelControl7.Text = "ΤΗΛ.:";
+            // 
             // textEdit2
             // 
             textEdit2.Enabled = false;
-            textEdit2.Location = new Point(137, 71);
+            textEdit2.Location = new Point(454, 15);
             textEdit2.MenuManager = ribbon;
             textEdit2.Name = "textEdit2";
             textEdit2.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -510,10 +519,12 @@
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl6).EndInit();
             panelControl6.ResumeLayout(false);
+            panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
@@ -574,5 +585,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.Utils.WorkspaceManager workspaceManager1;
+        private BindingSource employeeBindingSource;
     }
 }

@@ -38,11 +38,6 @@
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            
-            
-            
-            
-            
             Εγγραφη = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -71,7 +66,6 @@
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
-            
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
@@ -99,7 +93,6 @@
             ribbon.MaxItemId = 11;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { Εγγραφη });
-            
             ribbon.Size = new Size(1362, 193);
             ribbon.StatusBar = ribbonStatusBar;
             // 
@@ -155,29 +148,9 @@
             // 
             barEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             barEditItem1.Caption = "barEditItem1";
-            
+            barEditItem1.Edit = null;
             barEditItem1.Id = 7;
             barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemTimeEdit1
-            // 
-            
-            // 
-            // beiDate
-            // 
-            
-            // 
-            // repositoryItemHypertextLabel1
-            // 
-            
-            // 
-            // barEditItem2
-            // 
-            
-            // 
-            // repositoryItemDateEdit1
-            // 
-            
             // 
             // Εγγραφη
             // 
@@ -209,7 +182,6 @@
             // ClientHeaderPanel
             // 
             ClientHeaderPanel.Controls.Add(labelControl5);
-            ClientHeaderPanel.Controls.Add(labelControl3);
             ClientHeaderPanel.Controls.Add(panelControl2);
             ClientHeaderPanel.Controls.Add(panelControl3);
             ClientHeaderPanel.Dock = DockStyle.Top;
@@ -234,7 +206,7 @@
             // 
             labelControl3.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(726, 25);
+            labelControl3.Location = new Point(21, 82);
             labelControl3.Margin = new Padding(4, 2, 4, 2);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(38, 21);
@@ -244,6 +216,7 @@
             // panelControl2
             // 
             panelControl2.Controls.Add(textEdit5);
+            panelControl2.Controls.Add(labelControl3);
             panelControl2.Controls.Add(labelControl4);
             panelControl2.Controls.Add(textEdit4);
             panelControl2.Controls.Add(textEdit3);
@@ -258,11 +231,11 @@
             // 
             // textEdit5
             // 
-            textEdit5.Location = new Point(514, 82);
+            textEdit5.Location = new Point(486, 83);
             textEdit5.Margin = new Padding(4, 2, 4, 2);
             textEdit5.MenuManager = ribbon;
             textEdit5.Name = "textEdit5";
-            textEdit5.Size = new Size(156, 22);
+            textEdit5.Size = new Size(216, 22);
             textEdit5.TabIndex = 3;
             // 
             // labelControl4
@@ -278,27 +251,27 @@
             // 
             // textEdit4
             // 
-            textEdit4.Location = new Point(514, 18);
+            textEdit4.Location = new Point(148, 83);
             textEdit4.Margin = new Padding(4, 2, 4, 2);
             textEdit4.MenuManager = ribbon;
             textEdit4.Name = "textEdit4";
-            textEdit4.Size = new Size(156, 22);
+            textEdit4.Size = new Size(216, 22);
             textEdit4.TabIndex = 2;
             // 
             // textEdit3
             // 
-            textEdit3.Location = new Point(150, 82);
+            textEdit3.Location = new Point(486, 24);
             textEdit3.Margin = new Padding(4, 2, 4, 2);
             textEdit3.MenuManager = ribbon;
             textEdit3.Name = "textEdit3";
-            textEdit3.Size = new Size(156, 22);
+            textEdit3.Size = new Size(216, 22);
             textEdit3.TabIndex = 1;
             // 
             // labelControl2
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(21, 86);
+            labelControl2.Location = new Point(404, 23);
             labelControl2.Margin = new Padding(4, 2, 4, 2);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(56, 21);
@@ -307,11 +280,11 @@
             // 
             // textEdit1
             // 
-            textEdit1.Location = new Point(150, 22);
+            textEdit1.Location = new Point(148, 26);
             textEdit1.Margin = new Padding(4, 2, 4, 2);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(156, 22);
+            textEdit1.Size = new Size(216, 22);
             textEdit1.TabIndex = 0;
             // 
             // labelControl1
@@ -466,7 +439,6 @@
             Text = "InsertClient";
             Load += InsertClient_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
-            
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).EndInit();
             ClientHeaderPanel.ResumeLayout(false);
             ClientHeaderPanel.PerformLayout();
@@ -527,10 +499,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
-        
-        
-        
-        
-        
+
+
+
+
+
     }
 }

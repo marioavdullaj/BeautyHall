@@ -107,7 +107,7 @@
             // simpleButton1
             // 
             simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
-            simpleButton1.Location = new Point(400, 8);
+            simpleButton1.Location = new Point(366, 6);
             simpleButton1.Margin = new Padding(4, 2, 4, 2);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -131,7 +131,7 @@
             Controls.Add(labelControl1);
             Margin = new Padding(6);
             Name = "OrderServiceControl";
-            Size = new Size(446, 98);
+            Size = new Size(421, 98);
             ResumeLayout(false);
             PerformLayout();
         }
