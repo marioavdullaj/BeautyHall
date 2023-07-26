@@ -54,8 +54,6 @@
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textEdit1 = new DevExpress.XtraEditors.TextEdit();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            panelControl6 = new DevExpress.XtraEditors.PanelControl();
             textEdit4 = new DevExpress.XtraEditors.TextEdit();
             textEdit3 = new DevExpress.XtraEditors.TextEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -80,9 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl6).BeginInit();
-            panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
@@ -191,17 +186,20 @@
             // 
             // OrderHeaderPanel
             // 
-            OrderHeaderPanel.Controls.Add(labelControl8);
-            OrderHeaderPanel.Controls.Add(labelControl5);
-            OrderHeaderPanel.Controls.Add(labelControl4);
-            OrderHeaderPanel.Controls.Add(memoEdit1);
             OrderHeaderPanel.Controls.Add(dateEdit1);
+            OrderHeaderPanel.Controls.Add(labelControl4);
+            OrderHeaderPanel.Controls.Add(textEdit4);
+            OrderHeaderPanel.Controls.Add(labelControl8);
+            OrderHeaderPanel.Controls.Add(textEdit2);
+            OrderHeaderPanel.Controls.Add(textEdit3);
+            OrderHeaderPanel.Controls.Add(labelControl6);
+            OrderHeaderPanel.Controls.Add(labelControl5);
+            OrderHeaderPanel.Controls.Add(labelControl7);
+            OrderHeaderPanel.Controls.Add(memoEdit1);
             OrderHeaderPanel.Controls.Add(lookUpEdit1);
             OrderHeaderPanel.Controls.Add(labelControl3);
             OrderHeaderPanel.Controls.Add(textEdit1);
             OrderHeaderPanel.Controls.Add(labelControl2);
-            OrderHeaderPanel.Controls.Add(panelControl1);
-            OrderHeaderPanel.Controls.Add(panelControl6);
             OrderHeaderPanel.Dock = DockStyle.Top;
             OrderHeaderPanel.Location = new Point(0, 193);
             OrderHeaderPanel.Margin = new Padding(4, 2, 4, 2);
@@ -213,7 +211,7 @@
             // 
             labelControl8.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl8.Appearance.Options.UseFont = true;
-            labelControl8.Location = new Point(627, 77);
+            labelControl8.Location = new Point(598, 72);
             labelControl8.Margin = new Padding(4);
             labelControl8.Name = "labelControl8";
             labelControl8.Size = new Size(54, 21);
@@ -235,7 +233,7 @@
             // 
             labelControl4.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(6, 77);
+            labelControl4.Location = new Point(13, 73);
             labelControl4.Margin = new Padding(4);
             labelControl4.Name = "labelControl4";
             labelControl4.Size = new Size(70, 21);
@@ -255,19 +253,21 @@
             // dateEdit1
             // 
             dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(97, 78);
+            dateEdit1.Location = new Point(104, 70);
             dateEdit1.Margin = new Padding(4);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
+            dateEdit1.Properties.Appearance.Font = new Font("Tahoma", 9.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dateEdit1.Properties.Appearance.Options.UseFont = true;
             dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new Size(117, 22);
+            dateEdit1.Size = new Size(117, 26);
             dateEdit1.TabIndex = 4;
             dateEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
             // 
             // lookUpEdit1
             // 
-            lookUpEdit1.Location = new Point(371, 15);
+            lookUpEdit1.Location = new Point(356, 16);
             lookUpEdit1.Margin = new Padding(4);
             lookUpEdit1.MenuManager = ribbon;
             lookUpEdit1.Name = "lookUpEdit1";
@@ -292,7 +292,7 @@
             // 
             labelControl3.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(276, 17);
+            labelControl3.Location = new Point(247, 17);
             labelControl3.Margin = new Padding(4);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(85, 21);
@@ -302,48 +302,30 @@
             // textEdit1
             // 
             textEdit1.Enabled = false;
-            textEdit1.Location = new Point(97, 18);
+            textEdit1.Location = new Point(104, 17);
             textEdit1.Margin = new Padding(4);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(117, 22);
+            textEdit1.Properties.Appearance.Font = new Font("Tahoma", 9.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit1.Properties.Appearance.Options.UseFont = true;
+            textEdit1.Size = new Size(117, 26);
             textEdit1.TabIndex = 1;
             // 
             // labelControl2
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(6, 17);
+            labelControl2.Location = new Point(13, 15);
             labelControl2.Margin = new Padding(4);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(60, 21);
             labelControl2.TabIndex = 0;
             labelControl2.Text = "OrderID";
             // 
-            // panelControl1
-            // 
-            panelControl1.Dock = DockStyle.Left;
-            panelControl1.Location = new Point(2, 2);
-            panelControl1.Name = "panelControl1";
-            panelControl1.Size = new Size(225, 112);
-            panelControl1.TabIndex = 14;
-            // 
-            // panelControl6
-            // 
-            panelControl6.Controls.Add(textEdit4);
-            panelControl6.Controls.Add(textEdit3);
-            panelControl6.Controls.Add(labelControl6);
-            panelControl6.Controls.Add(labelControl7);
-            panelControl6.Controls.Add(textEdit2);
-            panelControl6.Location = new Point(231, 0);
-            panelControl6.Name = "panelControl6";
-            panelControl6.Size = new Size(691, 113);
-            panelControl6.TabIndex = 15;
-            // 
             // textEdit4
             // 
             textEdit4.Enabled = false;
-            textEdit4.Location = new Point(454, 69);
+            textEdit4.Location = new Point(675, 69);
             textEdit4.MenuManager = ribbon;
             textEdit4.Name = "textEdit4";
             textEdit4.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -354,7 +336,7 @@
             // textEdit3
             // 
             textEdit3.Enabled = false;
-            textEdit3.Location = new Point(140, 70);
+            textEdit3.Location = new Point(356, 69);
             textEdit3.MenuManager = ribbon;
             textEdit3.Name = "textEdit3";
             textEdit3.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -366,7 +348,7 @@
             // 
             labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(374, 17);
+            labelControl6.Location = new Point(598, 17);
             labelControl6.Margin = new Padding(4);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new Size(65, 21);
@@ -377,7 +359,7 @@
             // 
             labelControl7.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl7.Appearance.Options.UseFont = true;
-            labelControl7.Location = new Point(45, 77);
+            labelControl7.Location = new Point(248, 76);
             labelControl7.Margin = new Padding(4);
             labelControl7.Name = "labelControl7";
             labelControl7.Size = new Size(43, 21);
@@ -387,7 +369,7 @@
             // textEdit2
             // 
             textEdit2.Enabled = false;
-            textEdit2.Location = new Point(454, 15);
+            textEdit2.Location = new Point(675, 12);
             textEdit2.MenuManager = ribbon;
             textEdit2.Name = "textEdit2";
             textEdit2.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -521,10 +503,6 @@
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelControl6).EndInit();
-            panelControl6.ResumeLayout(false);
-            panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
@@ -581,8 +559,6 @@
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.Utils.WorkspaceManager workspaceManager1;
         private BindingSource employeeBindingSource;
