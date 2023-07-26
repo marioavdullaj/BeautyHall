@@ -196,7 +196,40 @@ namespace BeautyHall.Api.DB.Services
 
         public bool DeleteOrder(int orderId)
         {
-            return DbService.Delete(new Order { OrderId = orderId });
+            bool res = true;
+            using (var scope = new TransactionScope())
+            {
+                try
+                {
+                    var paymentSummaries = DbService.Search<PaymentSummary>(new List<FilterSetting>
+                    {
+                        new FilterSetting { Comparisation = ECompareType.Equal, Key = "OrderId", Value = orderId }
+                    });
+                    if (paymentSummaries != null && paymentSummaries.Any()) 
+                        foreach(var paymentSummary in paymentSummaries as IEnumerable<PaymentSummary>)
+                            DbService.Delete(paymentSummary);
+
+                    var servicesInOreder = DbService.Search<OrderService>(new List<FilterSetting>
+                    {
+                        new FilterSetting { Comparisation = ECompareType.Equal, Key = "OrderId", Value = orderId }
+                    });
+                    if (servicesInOreder != null && servicesInOreder.Any())
+                        foreach (var service in servicesInOreder as IEnumerable<OrderService>)
+                            DbService.Delete(service);
+
+                    res = DbService.Delete(new Order { OrderId = orderId });
+                }
+                catch(Exception)
+                {
+                    res = false;
+                }
+                
+                if (res)
+                    scope.Complete();
+                else
+                    scope.Dispose();
+            }
+            return res;
         }
 
         public bool DeleteOrderServices(IEnumerable<OrderServiceDto> data)
