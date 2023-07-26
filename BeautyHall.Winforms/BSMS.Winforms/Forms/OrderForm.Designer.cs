@@ -242,7 +242,6 @@
             // 
             // memoEdit1
             // 
-            memoEdit1.Dock = DockStyle.Right;
             memoEdit1.Location = new Point(926, 2);
             memoEdit1.Margin = new Padding(4);
             memoEdit1.MenuManager = ribbon;
