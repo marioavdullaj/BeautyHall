@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BeautyHall.Winforms", "Beau
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BSMS.Winforms", "BeautyHall.Winforms\BSMS.Winforms\BSMS.Winforms.csproj", "{4AFAF876-4DCE-435D-892F-5BD095F160CE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BeautyHall.ReportDesigner", "BeautyHall.ReportDesigner", "{B08295F2-B0AF-4EEC-967A-816133A25417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyHall.ReportDesigner", "BeautyHall.ReportDesigner\BeautyHall.ReportDesigner.csproj", "{F91744EB-A309-49A6-94E5-48233996A8AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{4AFAF876-4DCE-435D-892F-5BD095F160CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AFAF876-4DCE-435D-892F-5BD095F160CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AFAF876-4DCE-435D-892F-5BD095F160CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F91744EB-A309-49A6-94E5-48233996A8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F91744EB-A309-49A6-94E5-48233996A8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F91744EB-A309-49A6-94E5-48233996A8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F91744EB-A309-49A6-94E5-48233996A8AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +99,7 @@ Global
 		{1207F600-451E-4B29-A98F-2AB42A067258} = {43AD630C-CC1B-46D8-8B01-C344EB8001B0}
 		{4C4932EF-4EF7-436B-A665-80E3D30973A9} = {1207F600-451E-4B29-A98F-2AB42A067258}
 		{4AFAF876-4DCE-435D-892F-5BD095F160CE} = {91D96FF8-CE3E-4465-AFAD-969B1BEF9CF2}
+		{F91744EB-A309-49A6-94E5-48233996A8AF} = {B08295F2-B0AF-4EEC-967A-816133A25417}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52A714D0-5BD9-4476-971C-46FA87B67227}
