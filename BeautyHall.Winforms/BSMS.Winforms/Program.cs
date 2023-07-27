@@ -13,6 +13,7 @@ namespace BSMS
         public static IBeautyHallApiSDK ApiSdk = null!;
         public static Login login = new();
         public static Dashboard dashboard = null!;
+        public static string? OrderReportPath = null;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -24,6 +25,7 @@ namespace BSMS
             var baseUrl = config.GetValue<string>("Api:BaseUrl");
             var dxSkinPalette = config.GetValue<string>("DXSkin:SkinPalette");
             var dxPaletteName = config.GetValue<string>("DXSkin:PaletteName");
+            OrderReportPath = config.GetValue<string>("Reports:OrderReportPath");
 
             UserLookAndFeel.Default.SetSkinStyle(dxSkinPalette, dxPaletteName);
 

@@ -9,6 +9,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Assets\Reports\Order.repx" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Assets\Reports\Order.repx" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="BeautyHall.Api.SDK" Version="1.0.19" />
 		<PackageReference Include="DevExpress.Win.Design" Version="22.1.9" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />

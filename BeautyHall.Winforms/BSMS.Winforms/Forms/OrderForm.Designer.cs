@@ -133,6 +133,7 @@
             printButton.Id = 4;
             printButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("printButton.ImageOptions.SvgImage");
             printButton.Name = "printButton";
+            printButton.ItemClick += printButton_ItemClick;
             // 
             // closeButton
             // 

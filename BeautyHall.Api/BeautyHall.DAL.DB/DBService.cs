@@ -578,7 +578,8 @@ namespace BeautyHall.DAL.DB
                                 EmployeeName = os.Employee.EmployeeName,
                                 EmployeeLastName = os.Employee.EmployeeLastName,
                                 EmployeePhone = os.Employee.EmployeePhone,
-                                EmployeeRole = os.Employee.EmployeeRole
+                                EmployeeRole = os.Employee.EmployeeRole,
+                                EmployeeCode = os.Employee.EmployeeCode
                             },
                             Service = new Service
                             {

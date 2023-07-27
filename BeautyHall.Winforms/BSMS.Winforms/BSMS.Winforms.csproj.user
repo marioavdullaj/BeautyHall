@@ -23,7 +23,7 @@
     <Compile Update="Forms\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GenericUtils\FixedRibbonForm.cs">
+    <Compile Update="Utils\FixedRibbonForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LoadingScreen.cs">

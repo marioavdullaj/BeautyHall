@@ -9,6 +9,7 @@ using BSMS.Winforms.UserControls;
 using System.Data;
 using BSMS.Winforms.Models;
 using BSMS.Winforms.GenericUtils;
+using BSMS.Winforms.Utils;
 
 namespace BSMS.Winforms.Forms
 {
@@ -236,6 +237,8 @@ namespace BSMS.Winforms.Forms
                     {
                         paymentButton.Visibility = BarItemVisibility.Never;
                         barButtonItem1.Visibility = BarItemVisibility.Always;
+
+                        CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId??0);
                     }
                 }
             }
@@ -324,6 +327,36 @@ namespace BSMS.Winforms.Forms
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void printButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            List<Service> services = new();
+            foreach (var category in categories ?? new List<Category>())
+            {
+                if(category != null && category.Services != null && category.Services.Any())
+                {
+                    services.AddRange(category.Services);
+                }
+            }
+
+            var report = PrintUtils.GenerateReportString(CurrentOrder, services);
+            using SaveFileDialog exportSaveFileDialog = new SaveFileDialog();
+            exportSaveFileDialog.Title = "Select PDFFile";
+            exportSaveFileDialog.Filter = "PDF(*.pdf)|*.pdf";
+
+            if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
+            {
+                var result = PrintUtils.GenerateRpt(report, Program.OrderReportPath, exportSaveFileDialog.FileName);
+                if (result)
+                {
+                    XtraMessageBox.Show("File saved successfully!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Error during the save of the file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
