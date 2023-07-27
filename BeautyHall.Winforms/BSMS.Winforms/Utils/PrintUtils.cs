@@ -7,32 +7,60 @@ namespace BSMS.Winforms.Utils
 {
     public static class PrintUtils
     {
-        public static string GenerateReportString(Order? order, IEnumerable<Service> services)
+        public static string GenerateReportDataSource(Order? order, IEnumerable<Service>? services = null)
         {
             List<ReportOrder> report = new();
-            foreach (Service service in services)
+            var name = $"{order?.Customer?.SubjectLastName} {order?.Customer?.SubjectName}";
+            var phone = order?.Customer?.PhoneNumber;
+            var email = order?.Customer?.Email;
+            var paymentSummary = order?.PaymentSummaries?.FirstOrDefault();
+            var totalCash = paymentSummary != null ? paymentSummary.TotalCash : 0;
+            var totalPos = paymentSummary != null ? paymentSummary.TotalPOS : 0;
+            var discountedPrice = paymentSummary != null ? paymentSummary.DiscountedPrice : 0;
+
+            if (services != null && services.Any())
             {
-                var paymentSummary = order?.PaymentSummaries?.FirstOrDefault();
-                var reportOrder = new ReportOrder
+                foreach (Service service in services)
                 {
-                    Name = $"{order?.Customer?.SubjectLastName} {order.Customer?.SubjectName}",
-                    Phone = order?.Customer?.PhoneNumber,
-                    Email = order?.Customer?.Email,
-                    ServiceId = service.ServiceId,
-                    ServiceDescription = service.ServiceDescription,
-                    TotalCash = paymentSummary != null ? paymentSummary.TotalCash : 0,
-                    TotalPOS = paymentSummary != null ? paymentSummary?.TotalPOS : 0,
-                    DiscountedPrice = paymentSummary != null ? paymentSummary.DiscountedPrice : 0
-                };
+                    var reportOrder = new ReportOrder
+                    {
+                        Name = name,
+                        Phone = phone,
+                        Email = email,
+                        ServiceId = service.ServiceId,
+                        ServiceDescription = service.ServiceDescription,
+                        TotalCash = totalCash,
+                        TotalPOS = totalPos,
+                        DiscountedPrice = discountedPrice
+                    };
 
-                var orderService = order?.OrderServices?.Where(x => x.ServiceId == service.ServiceId).FirstOrDefault();
-                if(orderService != null)
-                {
-                    reportOrder.Price = orderService.ServicePrice;
-                    reportOrder.EmployeeCode = orderService.Employee?.EmployeeCode;
+                    var orderService = order?.OrderServices?.Where(x => x.ServiceId == service.ServiceId).FirstOrDefault();
+                    if (orderService != null)
+                    {
+                        reportOrder.Price = orderService.ServicePrice;
+                        reportOrder.EmployeeCode = orderService.Employee?.EmployeeCode;
+                    }
+                    report.Add(reportOrder);
                 }
-
-                report.Add(reportOrder);
+            }
+            else
+            {
+                foreach(var service in order?.OrderServices??new List<OrderService>())
+                {
+                    report.Add(new ReportOrder
+                    {
+                        Name = name,
+                        Phone = phone,
+                        Email = email,
+                        ServiceId = service.ServiceId,
+                        ServiceDescription = service.Service?.ServiceDescription,
+                        EmployeeCode = service.Employee?.EmployeeCode,
+                        Price = service?.ServicePrice,
+                        TotalCash = totalCash,
+                        TotalPOS = totalPos,
+                        DiscountedPrice = discountedPrice
+                    });
+                }
             }
             return Newtonsoft.Json.JsonConvert.SerializeObject(report);
         }

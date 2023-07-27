@@ -332,24 +332,14 @@ namespace BSMS.Winforms.Forms
 
         private void printButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            List<Service> services = new();
-            foreach (var category in categories ?? new List<Category>())
+            using SaveFileDialog exportSaveFileDialog = new()
             {
-                if(category != null && category.Services != null && category.Services.Any())
-                {
-                    services.AddRange(category.Services);
-                }
-            }
-
-            var report = PrintUtils.GenerateReportString(CurrentOrder, services);
-            using SaveFileDialog exportSaveFileDialog = new SaveFileDialog();
-            exportSaveFileDialog.Title = "Select PDFFile";
-            exportSaveFileDialog.Filter = "PDF(*.pdf)|*.pdf";
-
+                Title = "Select Pdf file",
+                Filter = "PDF(*.pdf)|*.pdf"
+            };
             if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
             {
-                var result = PrintUtils.GenerateRpt(report, Program.OrderReportPath, exportSaveFileDialog.FileName);
-                if (result)
+                if (SaveAsFile(exportSaveFileDialog.FileName, includeAllServices:true))
                 {
                     XtraMessageBox.Show("File saved successfully!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -358,6 +348,21 @@ namespace BSMS.Winforms.Forms
                     XtraMessageBox.Show("Error during the save of the file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private bool SaveAsFile(string fileName, bool includeAllServices = false)
+        {
+            List<Service>? services = null;
+            if (includeAllServices)
+            {
+                services = new();
+                foreach (var category in categories ?? new List<Category>())
+                    if (category != null && category.Services != null && category.Services.Any())
+                        services.AddRange(category.Services);
+            }
+
+            var report = PrintUtils.GenerateReportDataSource(CurrentOrder, services);
+            return PrintUtils.GenerateRpt(report, Program.OrderReportPath, fileName);
         }
     }
 }
