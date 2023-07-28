@@ -206,7 +206,7 @@ namespace BSMS.Winforms.Forms
         {
             if (CurrentOrder != null)
             {
-                textEdit1.Text = $"ORDER_{CurrentOrder.OrderId}";
+                textEdit1.Text = CurrentOrder.OrderId > 0 ? $"ORDER_{CurrentOrder.OrderId}" : "";
                 dateEdit1.EditValue = CurrentOrder.OrderDate;
                 memoEdit1.EditValue = CurrentOrder.Notes;
             }
