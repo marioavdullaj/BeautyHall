@@ -39,6 +39,7 @@
             dateToRepo = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -57,7 +58,6 @@
             colDiscountedPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
-            barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
@@ -145,6 +145,15 @@
             barButtonItem4.Id = 6;
             barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
             barButtonItem4.Name = "barButtonItem4";
+            barButtonItem4.ItemClick += barButtonItem4_ItemClick;
+            // 
+            // barButtonItem5
+            // 
+            barButtonItem5.Caption = "Delete Orders";
+            barButtonItem5.Id = 7;
+            barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
+            barButtonItem5.Name = "barButtonItem5";
+            barButtonItem5.ItemClick += barButtonItem5_ItemClick;
             // 
             // ribbonPage1
             // 
@@ -315,14 +324,6 @@
             colTotalPOS.Visible = true;
             colTotalPOS.VisibleIndex = 9;
             colTotalPOS.Width = 94;
-            // 
-            // barButtonItem5
-            // 
-            barButtonItem5.Caption = "Delete Orders";
-            barButtonItem5.Id = 7;
-            barButtonItem5.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem5.ImageOptions.SvgImage");
-            barButtonItem5.Name = "barButtonItem5";
-            barButtonItem5.ItemClick += barButtonItem5_ItemClick;
             // 
             // OrderHistoryForm
             // 

@@ -368,7 +368,7 @@ namespace BSMS.Winforms.Forms
             }
 
             var report = PrintUtils.GenerateReportDataSource(CurrentOrder, services);
-            return PrintUtils.GenerateRpt(report, Program.OrderReportPath, fileName);
+            return PrintUtils.GenerateReportFile(report, Program.OrderReportPath, fileName);
         }
     }
 }

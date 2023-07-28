@@ -8,6 +8,7 @@ using System.Data;
 using DevExpress.XtraGrid.Views.Grid;
 using BSMS.Winforms.GenericUtils;
 using DevExpress.XtraRichEdit.UI;
+using BSMS.Winforms.Utils;
 
 namespace BSMS.Winforms.Forms
 {
@@ -100,7 +101,7 @@ namespace BSMS.Winforms.Forms
                 bool result = true;
                 var selectedRows = grvOrders.GetSelectedRows();
                 var question = $"Are you sure you wanna delete these {selectedRows.Length} orders?";
-                if(XtraMessageBox.Show(question, "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (XtraMessageBox.Show(question, "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     foreach (var selectedRow in selectedRows)
                     {
@@ -116,7 +117,7 @@ namespace BSMS.Winforms.Forms
                     if (result)
                     {
                         XtraMessageBox.Show("Orders deleted successfully!", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                       
+
                     }
                     else
                     {
@@ -124,14 +125,71 @@ namespace BSMS.Winforms.Forms
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally 
-            { 
-                await Reload(); 
+            finally
+            {
+                await Reload();
             }
+        }
+
+        private async void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                var selectedRows = grvOrders.GetSelectedRows();
+                List<Order?> selectedOrders = new();
+                
+                foreach (var selectedRow in selectedRows)
+                {
+                    var selectedOrder = orders?.ElementAt(selectedRow);
+                    if (selectedOrder != null)
+                    {
+                        selectedOrders.Add(selectedOrder);
+                    }
+                }
+
+                using SaveFileDialog exportSaveFileDialog = new()
+                {
+                    Title = "Select Pdf file",
+                    Filter = "PDF(*.pdf)|*.pdf"
+                };
+                if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
+                {
+                    if (await SaveAsFile(selectedOrders, exportSaveFileDialog.FileName, includeAllServices: true))
+                    {
+                        XtraMessageBox.Show("File saved successfully!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Error during the save of the file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async Task<bool> SaveAsFile(IEnumerable<Order?> orders, string fileName, bool includeAllServices = false)
+        {
+            List<Service>? services = null;
+            if (includeAllServices)
+            {
+                var categories = await Program.ApiSdk.GetCategories();
+                services = new();
+                foreach (var category in categories ?? new List<Category>())
+                    if (category != null && category.Services != null && category.Services.Any())
+                        services.AddRange(category.Services);
+            }
+
+            List<string> reports = new();
+            foreach (var order in orders)
+                reports.Add(PrintUtils.GenerateReportDataSource(order, services));
+
+            return PrintUtils.GenerateReportsFile(reports.ToArray(), Program.OrderReportPath, fileName);
         }
 
         private void SetCheckboxEdit<T>(GridControl grid, string colName, T checkedValue, T uncheckedValue, EventHandler ev = null)

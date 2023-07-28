@@ -64,11 +64,11 @@ namespace BSMS.Winforms.Utils
             }
             return Newtonsoft.Json.JsonConvert.SerializeObject(report);
         }
-        public static bool GenerateRpt(string reportData, string? reportPath = "", string exportPath = "")
+        public static bool GenerateReportFile(string reportData, string? reportPath = "", string exportPath = "")
         {
             try
             {
-                JsonDataSource jsDs = getJsonSource(reportData.ToString());
+                JsonDataSource jsDs = getJsonSource(reportData);
                 XtraReport rpt = GetReport(reportPath??"", jsDs);
                 rpt.ShowPrintMarginsWarning = false;
                 rpt.ShowPrintStatusDialog = false;
@@ -82,6 +82,36 @@ namespace BSMS.Winforms.Utils
             catch 
             { 
                 return false; 
+            }
+            return true;
+        }
+
+        public static bool GenerateReportsFile(string[] reportData, string? reportPath = "", string exportPath = "")
+        {
+            try
+            {
+                XtraReport report1 = GetReport(reportPath??"", getJsonSource(reportData[0]));
+                report1.ShowPrintMarginsWarning = false;
+                report1.ShowPrintStatusDialog = false;
+
+                for(int i = 1; i < reportData.Length; i++)
+                {
+                    XtraReport report2 = GetReport(reportPath ?? "", getJsonSource(reportData[i]));
+                    report2.ShowPrintMarginsWarning = false;
+                    report2.ShowPrintStatusDialog = false;
+                    report1.ModifyDocument(x => x.AddPages(report2.Pages));
+                }
+
+                PdfExportOptions options = report1.ExportOptions.Pdf;
+                options.PdfACompatibility = PdfACompatibility.None;
+                options.ExportEditingFieldsToAcroForms = true;
+                options.ConvertImagesToJpeg = false;
+                options.ImageQuality = PdfJpegImageQuality.High;
+                report1.ExportToPdf(exportPath, options);
+            }
+            catch
+            {
+                return false;
             }
             return true;
         }
