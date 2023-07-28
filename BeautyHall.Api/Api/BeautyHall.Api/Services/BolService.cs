@@ -366,8 +366,8 @@ namespace BeautyHall.Api.DB.Services
         {
             var res = DbService.Search<DailySummary>(new List<FilterSetting>
             {
-                new FilterSetting{ Comparisation = ECompareType.GreaterThanOrEqual, Key = "SummaryDate", Value = to },
-                new FilterSetting{ Comparisation = ECompareType.LessThanOrEqual, Key = "SummaryDate", Value = from }
+                new FilterSetting{ Comparisation = ECompareType.GreaterThanOrEqual, Key = "SummaryDate", Value = from },
+                new FilterSetting{ Comparisation = ECompareType.LessThanOrEqual, Key = "SummaryDate", Value = to }
             });
             return (res as IEnumerable<DailySummary>);
         }

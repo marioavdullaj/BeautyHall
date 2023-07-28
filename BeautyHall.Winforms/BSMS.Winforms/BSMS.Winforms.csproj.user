@@ -5,6 +5,9 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\DailySummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\OrderHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>

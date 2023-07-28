@@ -1,10 +1,4 @@
-﻿using BeautyHall.Api.SDK.Responses;
-using DevExpress.Utils.Extensions;
-using BSMS.UserControls;
-using BSMS.Winforms.Forms;
-using DevExpress.CodeParser;
-using DevExpress.XtraEditors;
-using DevExpress.Utils;
+﻿using BSMS.Winforms.Forms;
 
 namespace BSMS
 {
@@ -137,6 +131,11 @@ namespace BSMS
         {
             lbDate.Text = DateTime.Now.ToLongDateString();
             lbTime.Text = DateTime.Now.ToString("HH:mm:ssss");
+        }
+
+        private void accordionControlElement10_Click(object sender, EventArgs e)
+        {
+            ShowForm(new DailySummaryForm());
         }
     }
 }

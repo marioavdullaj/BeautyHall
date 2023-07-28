@@ -296,6 +296,7 @@
             accordionControlElement10.Name = "accordionControlElement10";
             accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             accordionControlElement10.Text = "Ημερήσιος υπολογισμός";
+            accordionControlElement10.Click += accordionControlElement10_Click;
             // 
             // accordionControlElement9
             // 
