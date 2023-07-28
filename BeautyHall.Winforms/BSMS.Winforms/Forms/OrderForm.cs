@@ -113,11 +113,15 @@ namespace BSMS.Winforms.Forms
             CreateNewOrder();
         }
 
-        private async void CreateNewOrder()
+        private void CreateNewOrder()
         {
             try
             {
-                var order = await Program.ApiSdk.UpsertOrder(new OrderDto());
+                var order = new Order
+                {
+                    OrderDate = DateTime.Now
+                };
+
                 if (order == null)
                 {
                     XtraMessageBox.Show("Error during the creation of a new Order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -282,9 +286,10 @@ namespace BSMS.Winforms.Forms
                 }
                 else
                 {
-                    CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId ?? 0);
+                    CurrentOrder = await Program.ApiSdk.GetOrder(savedOrder.OrderId);
                     if (alertSaved)
                         XtraMessageBox.Show("Η Υπηρεσία Αποθηκεύτηκε!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateControls();
                 }
             }
             catch (Exception ex)
