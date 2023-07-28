@@ -335,7 +335,8 @@ namespace BSMS.Winforms.Forms
             using SaveFileDialog exportSaveFileDialog = new()
             {
                 Title = "Select Pdf file",
-                Filter = "PDF(*.pdf)|*.pdf"
+                Filter = "PDF(*.pdf)|*.pdf",
+                FileName = $"ORDER{CurrentOrder?.OrderId}_{CurrentOrder?.Customer?.SubjectLastName}_{CurrentOrder?.OrderDate.ToString("dd-MM-yyyy")}"
             };
             if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
             {
