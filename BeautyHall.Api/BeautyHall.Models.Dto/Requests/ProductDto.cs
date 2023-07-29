@@ -20,5 +20,8 @@ namespace BeautyHall.Models.Dto.Requests
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int? SupplierId { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public decimal? SellingPrice { get; set; }
     }
 }

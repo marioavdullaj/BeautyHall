@@ -12,6 +12,7 @@ public class Product
     public string? ProductDescription { get; set; }
 
     public int? SupplierId { get; set; }
+    public decimal? SellingPrice { get; set; }
 
     public Stock? Stock { get; set; }
 

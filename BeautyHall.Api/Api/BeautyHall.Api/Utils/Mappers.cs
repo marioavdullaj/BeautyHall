@@ -121,7 +121,8 @@ namespace BeautyHall.Api.DB.Utils
                 ProductId = item.ProductId,
                 ProductCode = item.ProductCode,
                 ProductDescription = item.ProductDescription,
-                SupplierId = item.SupplierId
+                SupplierId = item.SupplierId,
+                SellingPrice = item.SellingPrice
             };
         }
         public static Stock Map(StockDto item)

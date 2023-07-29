@@ -825,6 +825,7 @@ namespace BeautyHall.DAL.DB
                 item.ProductCode = input.ProductCode;
                 item.ProductDescription = input.ProductDescription;
                 item.SupplierId = input.SupplierId;
+                item.SellingPrice = input.SellingPrice;
                 Context.Products.Update(item);
             }
 
