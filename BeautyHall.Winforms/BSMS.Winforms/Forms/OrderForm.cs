@@ -341,7 +341,7 @@ namespace BSMS.Winforms.Forms
             {
                 Title = "Select Pdf file",
                 Filter = "PDF(*.pdf)|*.pdf",
-                FileName = $"ORDER{CurrentOrder?.OrderId}_{CurrentOrder?.Customer?.SubjectLastName}_{CurrentOrder?.OrderDate.ToString("dd-MM-yyyy")}"
+                FileName = $"ORDER{CurrentOrder?.OrderId}_{CurrentOrder?.Customer?.SubjectLastName} {CurrentOrder?.Customer?.SubjectName}_{CurrentOrder?.OrderDate.ToString("dd-MM-yyyy")}"
             };
             if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
             {

@@ -14,6 +14,7 @@ namespace BSMS.Winforms.Forms
 {
     public partial class OrderHistoryForm : FixedRibbonForm
     {
+        
         private IEnumerable<Order>? orders;
         public OrderHistoryForm()
         {
@@ -154,7 +155,8 @@ namespace BSMS.Winforms.Forms
                 using SaveFileDialog exportSaveFileDialog = new()
                 {
                     Title = "Select Pdf file",
-                    Filter = "PDF(*.pdf)|*.pdf"
+                    Filter = "PDF(*.pdf)|*.pdf",
+                    
                 };
                 if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
                 {
