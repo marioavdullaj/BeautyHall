@@ -120,7 +120,7 @@
                   </ExpressionBindings>
                   <StylePriority Ref="61" UseBorders="false" UseTextAlignment="false" />
                 </Item2>
-                <Item3 Ref="62" ControlType="XRTableCell" Name="tableCell11" Weight="0.9759760683542408" Multiline="true" Text="POS" TextAlignment="MiddleLeft" Dpi="254" Font="Arial, 12.75pt, style=Bold" Borders="All">
+                <Item3 Ref="62" ControlType="XRTableCell" Name="tableCell11" Weight="0.9759760683542408" Multiline="true" Text="                POS" TextAlignment="MiddleLeft" Dpi="254" Font="Arial, 12.75pt, style=Bold" Borders="All">
                   <StylePriority Ref="63" UseFont="false" UseBorders="false" UseTextAlignment="false" />
                 </Item3>
                 <Item4 Ref="64" ControlType="XRTableCell" Name="tableCell5" Weight="0.9759761599986169" TextFormatString="{0:c2}" Multiline="true" TextAlignment="MiddleCenter" Dpi="254" Borders="All">
@@ -129,7 +129,7 @@
                   </ExpressionBindings>
                   <StylePriority Ref="66" UseBorders="false" UseTextAlignment="false" />
                 </Item4>
-                <Item5 Ref="67" ControlType="XRTableCell" Name="tableCell6" Weight="1.126126122273209" Multiline="true" Text="TOTAL" TextAlignment="MiddleLeft" Dpi="254" Font="Arial, 12.75pt, style=Bold" Borders="All">
+                <Item5 Ref="67" ControlType="XRTableCell" Name="tableCell6" Weight="1.126126122273209" Multiline="true" Text="                TOTAL" TextAlignment="MiddleLeft" Dpi="254" Font="Arial, 12.75pt, style=Bold" Borders="All">
                   <StylePriority Ref="68" UseFont="false" UseBorders="false" UseTextAlignment="false" />
                 </Item5>
                 <Item6 Ref="69" ControlType="XRTableCell" Name="tableCell8" Weight="1.0450444938027308" TextFormatString="{0:c2}" Multiline="true" TextAlignment="MiddleCenter" Dpi="254" Borders="All">

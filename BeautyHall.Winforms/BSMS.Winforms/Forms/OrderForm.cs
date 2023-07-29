@@ -17,6 +17,7 @@ namespace BSMS.Winforms.Forms
     {
         private IEnumerable<Category>? categories;
         private IEnumerable<Subject>? subjects;
+        private IEnumerable<Product>? products;
         private Order? CurrentOrder;
         public OrderForm()
         {
@@ -45,6 +46,7 @@ namespace BSMS.Winforms.Forms
             {
                 categories = await Program.ApiSdk.GetCategories();
                 subjects = await Program.ApiSdk.GetSubjects();
+                products = await Program.ApiSdk.GetAllProducts();
 
                 if (subjects != null)
                 {
@@ -72,8 +74,16 @@ namespace BSMS.Winforms.Forms
                         paymentButton.Visibility = BarItemVisibility.Never;
                         barButtonItem1.Visibility = BarItemVisibility.Always;
                     }
-                    panelControl4.Visible = false;
-                    panelControl5.Dock = DockStyle.Fill;
+                    //panelControl4.Visible = false;
+                    //panelControl5.Dock = DockStyle.Fill;
+                    foreach (var category in categories)
+                    {
+                        var categoryControl = new CategoryControl(category);
+                        categoryControl.ServiceAdded += ServiceAdded_Handler;
+                        ServicesFlowPanel.AddControl(categoryControl);
+                    }
+                    EnableOrderButtons(true);
+
                     addOrderButton.Visibility = BarItemVisibility.Never;
                     textEdit1.Text = CurrentOrder?.OrderId.ToString();
                     dateEdit1.DateTime = CurrentOrder?.OrderDate ?? DateTime.Now;
@@ -85,7 +95,8 @@ namespace BSMS.Winforms.Forms
 
                     foreach (var service in CurrentOrder.OrderServices)
                     {
-                        var addedServiceControl = new OrderServiceControl(service, deletable: false);
+                        var addedServiceControl = new OrderServiceControl(service, deletable: true);
+                        addedServiceControl.ServiceRemoved += ServiceRemoved_Handler;
                         AddedServicesFlowLayout.AddControl(addedServiceControl);
                     }
                 }
@@ -113,6 +124,19 @@ namespace BSMS.Winforms.Forms
             CreateNewOrder();
         }
 
+        private void ResetUI()
+        {
+            AddedServicesFlowLayout.Controls.Clear();
+            ServicesFlowPanel.Controls.Clear();
+            servicesInOrderLabel.Text = "Κάρτα Υπηρεσίας :";
+            textEdit1.EditValue = null;
+            textEdit2.EditValue = null;
+            textEdit3.EditValue = null;
+            textEdit4.EditValue = null;
+            dateEdit1.DateTime = DateTime.Today;
+            lookUpEdit1.EditValue = null;
+        }
+
         private void CreateNewOrder()
         {
             try
@@ -131,6 +155,7 @@ namespace BSMS.Winforms.Forms
 
                 CurrentOrder = order;
                 CurrentOrder.OrderServices = new List<OrderService>();
+                ResetUI();
                 UpdateControls();
 
                 // Add all services addable into the order
@@ -242,7 +267,7 @@ namespace BSMS.Winforms.Forms
                         paymentButton.Visibility = BarItemVisibility.Never;
                         barButtonItem1.Visibility = BarItemVisibility.Always;
 
-                        CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId??0);
+                        CurrentOrder = await Program.ApiSdk.GetOrder(CurrentOrder?.OrderId ?? 0);
                     }
                 }
             }
@@ -345,7 +370,7 @@ namespace BSMS.Winforms.Forms
             };
             if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
             {
-                if (SaveAsFile(exportSaveFileDialog.FileName, includeAllServices:true))
+                if (SaveAsFile(exportSaveFileDialog.FileName, includeAllServices: true))
                 {
                     XtraMessageBox.Show("File saved successfully!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -369,6 +394,24 @@ namespace BSMS.Winforms.Forms
 
             var report = PrintUtils.GenerateReportDataSource(CurrentOrder, services);
             return PrintUtils.GenerateReportFile(report, Program.OrderReportPath, fileName);
+        }
+
+        private void addProductButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var addProductForm = new AddProductOrderForm(products);
+            if(addProductForm.ShowDialog() == DialogResult.OK)
+            {
+                var selectedProduct = addProductForm.SelectedProduct;
+                var selectedQuantity = addProductForm.SelectedQuantity;
+
+                // do stuff here
+            }
+        }
+
+        private async void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // while the form is closing, we save the order not to lose our work
+            await SaveOrder(alertSaved: false);
         }
     }
 }

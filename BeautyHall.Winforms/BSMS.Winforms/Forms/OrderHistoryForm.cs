@@ -152,12 +152,24 @@ namespace BSMS.Winforms.Forms
                     }
                 }
 
+                DateTime minDate = DateTime.MaxValue;
+                DateTime maxDate = DateTime.MinValue;
+                foreach (var selectedOrder in selectedOrders)
+                {
+                    if (minDate > selectedOrder?.OrderDate)
+                        minDate = selectedOrder.OrderDate;
+
+                    if (maxDate < selectedOrder?.OrderDate)
+                        maxDate = selectedOrder.OrderDate;
+                }
+
                 using SaveFileDialog exportSaveFileDialog = new()
                 {
                     Title = "Select Pdf file",
                     Filter = "PDF(*.pdf)|*.pdf",
-                    
+                    FileName = $"Orders_{minDate.ToString("dd/MM/yyyy")}_{maxDate.ToString("dd/MM/yyyy")}"
                 };
+
                 if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
                 {
                     if (await SaveAsFile(selectedOrders, exportSaveFileDialog.FileName, includeAllServices: true))
@@ -222,5 +234,7 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    
+    
     }
 }

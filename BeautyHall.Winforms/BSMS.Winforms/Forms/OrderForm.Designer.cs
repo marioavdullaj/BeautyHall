@@ -69,6 +69,7 @@
             servicesInOrderLabel = new DevExpress.XtraEditors.LabelControl();
             xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
+            addProductButton = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).BeginInit();
             OrderHeaderPanel.SuspendLayout();
@@ -95,10 +96,10 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, addOrderButton, cancelOrderButton, paymentButton, printButton, closeButton, saveOrderButton, barButtonItem1 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, addOrderButton, cancelOrderButton, paymentButton, printButton, closeButton, saveOrderButton, barButtonItem1, addProductButton });
             ribbon.Location = new Point(0, 0);
             ribbon.Margin = new Padding(4, 2, 4, 2);
-            ribbon.MaxItemId = 15;
+            ribbon.MaxItemId = 16;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbon.Size = new Size(1366, 193);
@@ -149,6 +150,7 @@
             saveOrderButton.Id = 6;
             saveOrderButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("saveOrderButton.ImageOptions.SvgImage");
             saveOrderButton.Name = "saveOrderButton";
+            saveOrderButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             saveOrderButton.ItemClick += saveOrderButton_ItemClick;
             // 
             // barButtonItem1
@@ -171,6 +173,7 @@
             ribbonPageGroup1.ItemLinks.Add(addOrderButton);
             ribbonPageGroup1.ItemLinks.Add(saveOrderButton);
             ribbonPageGroup1.ItemLinks.Add(cancelOrderButton);
+            ribbonPageGroup1.ItemLinks.Add(addProductButton);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPageGroup2
@@ -478,6 +481,14 @@
             workspaceManager1.TargetControl = this;
             workspaceManager1.TransitionType = pushTransition1;
             // 
+            // addProductButton
+            // 
+            addProductButton.Caption = "Add products to order";
+            addProductButton.Id = 15;
+            addProductButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
+            addProductButton.Name = "addProductButton";
+            addProductButton.ItemClick += addProductButton_ItemClick;
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -490,6 +501,7 @@
             Margin = new Padding(4, 2, 4, 2);
             Name = "OrderForm";
             Ribbon = ribbon;
+            FormClosing += OrderForm_FormClosing;
             Load += OrderForm_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).EndInit();
@@ -560,5 +572,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.Utils.WorkspaceManager workspaceManager1;
         private BindingSource employeeBindingSource;
+        private DevExpress.XtraBars.BarButtonItem addProductButton;
     }
 }

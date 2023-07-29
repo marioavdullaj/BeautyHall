@@ -35,7 +35,6 @@
             employeeBindingSource = new BindingSource(components);
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            labelControl4 = new DevExpress.XtraEditors.LabelControl();
             lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
@@ -57,7 +56,7 @@
             // 
             // lookUpEdit1
             // 
-            lookUpEdit1.Location = new Point(358, 11);
+            lookUpEdit1.Location = new Point(350, 11);
             lookUpEdit1.Margin = new Padding(4);
             lookUpEdit1.Name = "lookUpEdit1";
             lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 9.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -66,11 +65,11 @@
             lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("EmployeeCode", "Code", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("EmployeeName", "Name", 99, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("EmployeeLastName", "Surname", 126, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default) });
             lookUpEdit1.Properties.DataSource = employeeBindingSource;
             lookUpEdit1.Properties.DisplayMember = "EmployeeCode";
-            lookUpEdit1.Properties.NullText = "Επιλογή Κομμωτή";
+            lookUpEdit1.Properties.NullText = "Κωδ.";
             lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
             lookUpEdit1.Properties.ValueMember = "EmployeeId";
-            lookUpEdit1.Size = new Size(187, 26);
+            lookUpEdit1.Size = new Size(88, 26);
             lookUpEdit1.TabIndex = 3;
             // 
             // employeeBindingSource
@@ -81,7 +80,7 @@
             // 
             simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
             simpleButton1.ImageOptions.SvgImageSize = new Size(20, 20);
-            simpleButton1.Location = new Point(704, 9);
+            simpleButton1.Location = new Point(544, 10);
             simpleButton1.Margin = new Padding(4);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new Size(79, 29);
@@ -108,28 +107,21 @@
             lookUpEdit2.TabIndex = 8;
             lookUpEdit2.EditValueChanged += lookUpEdit2_EditValueChanged;
             // 
-            // labelControl4
-            // 
-            labelControl4.Appearance.Font = new Font("Tahoma", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(656, 11);
-            labelControl4.Margin = new Padding(4);
-            labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(11, 24);
-            labelControl4.TabIndex = 9;
-            labelControl4.Text = "€";
-            // 
             // lookUpEdit3
             // 
-            lookUpEdit3.Location = new Point(563, 9);
+            lookUpEdit3.Location = new Point(446, 11);
             lookUpEdit3.Margin = new Padding(4, 2, 4, 2);
             lookUpEdit3.Name = "lookUpEdit3";
             lookUpEdit3.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             lookUpEdit3.Properties.Appearance.Options.UseFont = true;
             lookUpEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEdit3.Properties.DisplayFormat.FormatString = "c";
+            lookUpEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            lookUpEdit3.Properties.EditFormat.FormatString = "c";
+            lookUpEdit3.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             lookUpEdit3.Properties.NullText = "0";
             lookUpEdit3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            lookUpEdit3.Size = new Size(83, 28);
+            lookUpEdit3.Size = new Size(90, 28);
             lookUpEdit3.TabIndex = 10;
             // 
             // CategoryControl
@@ -140,14 +132,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(lookUpEdit3);
-            Controls.Add(labelControl4);
             Controls.Add(lookUpEdit2);
             Controls.Add(simpleButton1);
             Controls.Add(lookUpEdit1);
             Controls.Add(labelServiceName);
             Margin = new Padding(6);
             Name = "CategoryControl";
-            Size = new Size(793, 49);
+            Size = new Size(633, 49);
             Load += ServiceControl_Load;
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
@@ -163,7 +154,6 @@
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit3;
         private BindingSource employeeBindingSource;
     }
