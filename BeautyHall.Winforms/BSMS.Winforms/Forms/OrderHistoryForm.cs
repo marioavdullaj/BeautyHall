@@ -14,7 +14,7 @@ namespace BSMS.Winforms.Forms
 {
     public partial class OrderHistoryForm : FixedRibbonForm
     {
-        
+
         private IEnumerable<Order>? orders;
         public OrderHistoryForm()
         {
@@ -52,8 +52,8 @@ namespace BSMS.Winforms.Forms
 
         private void grOrders_Load(object sender, EventArgs e)
         {
-            dateFrom.EditValue = DateTime.Today;
-            dateTo.EditValue = DateTime.Today.AddDays(1);
+            dateFrom.EditValue = new DateTime(2023, 4, 4);
+            dateTo.EditValue = DateTime.Today;
         }
 
         private async void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -142,7 +142,7 @@ namespace BSMS.Winforms.Forms
             {
                 var selectedRows = grvOrders.GetSelectedRows();
                 List<Order?> selectedOrders = new();
-                
+
                 foreach (var selectedRow in selectedRows)
                 {
                     var selectedOrder = orders?.ElementAt(selectedRow);
@@ -151,12 +151,12 @@ namespace BSMS.Winforms.Forms
                         selectedOrders.Add(selectedOrder);
                     }
                 }
-
+                //DateTime selectedDate = new DateTime(2023, 4, 4);
                 DateTime minDate = DateTime.MaxValue;
                 DateTime maxDate = DateTime.MinValue;
                 foreach (var selectedOrder in selectedOrders)
                 {
-                    if (minDate > selectedOrder?.OrderDate)
+                    if (minDate < selectedOrder?.OrderDate)
                         minDate = selectedOrder.OrderDate;
 
                     if (maxDate < selectedOrder?.OrderDate)
@@ -206,6 +206,8 @@ namespace BSMS.Winforms.Forms
             return PrintUtils.GenerateReportsFile(reports.ToArray(), Program.OrderReportPath, fileName);
         }
 
+
+
         private void SetCheckboxEdit<T>(GridControl grid, string colName, T checkedValue, T uncheckedValue, EventHandler ev = null)
         {
             try
@@ -234,7 +236,7 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    
-    
+
+
     }
 }

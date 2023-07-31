@@ -44,6 +44,7 @@
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             grOrders = new DevExpress.XtraGrid.GridControl();
             orderSummaryBindingSource = new BindingSource(components);
@@ -63,6 +64,8 @@
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grOrders).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grvOrders).BeginInit();
@@ -74,11 +77,11 @@
             ribbon.ExpandCollapseItem.Id = 0;
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5 });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 8;
+            ribbon.MaxItemId = 9;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
-            ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo });
-            ribbon.Size = new Size(1097, 193);
+            ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo, repositoryItemDateEdit1 });
+            ribbon.Size = new Size(1447, 193);
             ribbon.StatusBar = ribbonStatusBar;
             // 
             // barButtonItem1
@@ -180,12 +183,19 @@
             ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
+            // repositoryItemDateEdit1
+            // 
+            repositoryItemDateEdit1.AutoHeight = false;
+            repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            // 
             // ribbonStatusBar
             // 
-            ribbonStatusBar.Location = new Point(0, 492);
+            ribbonStatusBar.Location = new Point(0, 728);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new Size(1097, 30);
+            ribbonStatusBar.Size = new Size(1447, 30);
             // 
             // grOrders
             // 
@@ -196,7 +206,7 @@
             grOrders.MenuManager = ribbon;
             grOrders.Name = "grOrders";
             grOrders.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemCheckEdit1 });
-            grOrders.Size = new Size(1097, 299);
+            grOrders.Size = new Size(1447, 535);
             grOrders.TabIndex = 2;
             grOrders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { grvOrders });
             grOrders.Load += grOrders_Load;
@@ -329,7 +339,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1097, 522);
+            ClientSize = new Size(1447, 758);
             Controls.Add(grOrders);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
@@ -341,6 +351,8 @@
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1).EndInit();
             ((System.ComponentModel.ISupportInitialize)grOrders).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)grvOrders).EndInit();
@@ -379,5 +391,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
     }
 }

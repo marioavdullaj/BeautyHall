@@ -135,6 +135,9 @@ namespace BSMS.Winforms.Forms
             textEdit4.EditValue = null;
             dateEdit1.DateTime = DateTime.Today;
             lookUpEdit1.EditValue = null;
+            paymentButton.Visibility = BarItemVisibility.Always;
+
+
         }
 
         private void CreateNewOrder()
@@ -234,6 +237,8 @@ namespace BSMS.Winforms.Forms
                 textEdit1.Text = CurrentOrder.OrderId > 0 ? $"ORDER_{CurrentOrder.OrderId}" : "";
                 dateEdit1.EditValue = CurrentOrder.OrderDate;
                 memoEdit1.EditValue = CurrentOrder.Notes;
+
+
             }
         }
 
@@ -399,7 +404,7 @@ namespace BSMS.Winforms.Forms
         private void addProductButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var addProductForm = new AddProductOrderForm(products);
-            if(addProductForm.ShowDialog() == DialogResult.OK)
+            if (addProductForm.ShowDialog() == DialogResult.OK)
             {
                 var selectedProduct = addProductForm.SelectedProduct;
                 var selectedQuantity = addProductForm.SelectedQuantity;

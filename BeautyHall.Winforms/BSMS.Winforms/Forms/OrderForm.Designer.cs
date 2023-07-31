@@ -39,6 +39,7 @@
             closeButton = new DevExpress.XtraBars.BarButtonItem();
             saveOrderButton = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            addProductButton = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,7 +70,6 @@
             servicesInOrderLabel = new DevExpress.XtraEditors.LabelControl();
             xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
-            addProductButton = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).BeginInit();
             OrderHeaderPanel.SuspendLayout();
@@ -161,6 +161,14 @@
             barButtonItem1.Name = "barButtonItem1";
             barButtonItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             barButtonItem1.ItemClick += barButtonItem1_ItemClick_1;
+            // 
+            // addProductButton
+            // 
+            addProductButton.Caption = "Add products to order";
+            addProductButton.Id = 15;
+            addProductButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("addProductButton.ImageOptions.SvgImage");
+            addProductButton.Name = "addProductButton";
+            addProductButton.ItemClick += addProductButton_ItemClick;
             // 
             // ribbonPage1
             // 
@@ -480,14 +488,6 @@
             // 
             workspaceManager1.TargetControl = this;
             workspaceManager1.TransitionType = pushTransition1;
-            // 
-            // addProductButton
-            // 
-            addProductButton.Caption = "Add products to order";
-            addProductButton.Id = 15;
-            addProductButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
-            addProductButton.Name = "addProductButton";
-            addProductButton.ItemClick += addProductButton_ItemClick;
             // 
             // OrderForm
             // 
