@@ -220,6 +220,11 @@ namespace BeautyHall.Api.SDK
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_ORDER_SEVICES));
             return await GetFromApi<IEnumerable<OrderServiceDto>, bool>(uri, HttpMethod.Delete, orderServices);
         }
+        public async Task<bool> DeleteOrderProducts(IEnumerable<OrderProductDto> orderProducts)
+        {
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_ORDER_PRODUCTS));
+            return await GetFromApi<IEnumerable<OrderProductDto>, bool>(uri, HttpMethod.Delete, orderProducts);
+        }
 
         public async Task<IEnumerable<Appointment>?> GetAppointments()
         {

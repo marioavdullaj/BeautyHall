@@ -28,7 +28,10 @@ namespace BSMS.Winforms.Forms
 
             comboBoxEdit1.Properties.Items.AddRange(discountPercentages);
 
-            PaymentSummary.TotalPrice = GenericUtils.Functions.NullToDecimal(PaymentSummary.Order?.OrderServices?.Sum(x => x.ServicePrice));
+            PaymentSummary.TotalPrice =
+                GenericUtils.Functions.NullToDecimal(PaymentSummary.Order?.OrderServices?.Sum(x => x.ServicePrice)) +
+                GenericUtils.Functions.NullToDecimal(PaymentSummary.Order?.OrderProducts?.Sum(x => x.TotalPrice));
+
             textEdit2.EditValue = PaymentSummary.TotalPrice;
             PaymentSummary.PaymentDate = DateTime.Now;
             labelControl1.Text = $"ORDER_{PaymentSummary.OrderId} - {PaymentSummary.PaymentDate?.ToString("dd/MM/yyyy")}";

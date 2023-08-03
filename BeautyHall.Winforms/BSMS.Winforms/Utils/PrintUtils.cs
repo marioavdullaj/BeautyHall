@@ -27,7 +27,7 @@ namespace BSMS.Winforms.Utils
                         Name = name,
                         Phone = phone,
                         Email = email,
-                        ServiceId = service.ServiceId,
+                        ServiceId = service.ServiceId.ToString(),
                         ServiceDescription = service.ServiceDescription,
                         TotalCash = totalCash,
                         TotalPOS = totalPos,
@@ -42,6 +42,22 @@ namespace BSMS.Winforms.Utils
                     }
                     report.Add(reportOrder);
                 }
+                foreach (var product in order?.OrderProducts ?? new List<OrderProduct>())
+                {
+                    report.Add(new ReportOrder
+                    {
+                        Name = name,
+                        Phone = phone,
+                        Email = email,
+                        ServiceId = "#",
+                        ServiceDescription = $"{product.ProductQuantity.ToString("N0")} x {product.Product?.ProductDescription}",
+                        EmployeeCode = "PRODUCT",
+                        Price = product.TotalPrice,
+                        TotalCash = totalCash,
+                        TotalPOS = totalPos,
+                        DiscountedPrice = discountedPrice
+                    });
+                }
             }
             else
             {
@@ -52,10 +68,26 @@ namespace BSMS.Winforms.Utils
                         Name = name,
                         Phone = phone,
                         Email = email,
-                        ServiceId = service.ServiceId,
+                        ServiceId = service.ServiceId.ToString(),
                         ServiceDescription = service.Service?.ServiceDescription,
                         EmployeeCode = service.Employee?.EmployeeCode,
                         Price = service?.ServicePrice,
+                        TotalCash = totalCash,
+                        TotalPOS = totalPos,
+                        DiscountedPrice = discountedPrice
+                    });
+                }
+                foreach(var product in order?.OrderProducts??new List<OrderProduct>())
+                {
+                    report.Add(new ReportOrder
+                    {
+                        Name = name,
+                        Phone = phone,
+                        Email = email,
+                        ServiceId = "#",
+                        ServiceDescription = $"{product.ProductQuantity.ToString("N0")} x {product.Product?.ProductDescription}",
+                        EmployeeCode = "PRODUCT",
+                        Price = product.TotalPrice,
                         TotalCash = totalCash,
                         TotalPOS = totalPos,
                         DiscountedPrice = discountedPrice

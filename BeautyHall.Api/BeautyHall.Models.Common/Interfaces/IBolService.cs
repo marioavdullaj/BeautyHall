@@ -27,6 +27,7 @@ namespace BeautyHall.Models.Common.Interfaces
         IEnumerable<Order> GetOrders(int customerId);
         Order? GetOrder(int orderId);
         bool DeleteOrderServices(IEnumerable<OrderServiceDto> data);
+        bool DeleteOrderProducts(IEnumerable<OrderProductDto> data);
         // Appointments
         bool UpSertAppointment(AppointmentDto data);
         bool DeleteAppointment(int appointmentId);

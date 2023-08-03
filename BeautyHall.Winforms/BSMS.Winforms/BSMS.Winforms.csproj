@@ -17,13 +17,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BeautyHall.Api.SDK" Version="1.1.0" />
+		<PackageReference Include="BeautyHall.Api.SDK" Version="1.2.1" />
 		<PackageReference Include="DevExpress.Win.Design" Version="22.1.9" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Assets\Reports\Order.cs">
+		  <DependentUpon>Order.repx</DependentUpon>
+		</Compile>
+		<Compile Update="Assets\Reports\Order.Designer.cs">
+		  <DependentUpon>Order.repx</DependentUpon>
+		</Compile>
 		<Compile Update="Forms\AddProductOrderForm.cs">
 		  <SubType>Form</SubType>
 		</Compile>

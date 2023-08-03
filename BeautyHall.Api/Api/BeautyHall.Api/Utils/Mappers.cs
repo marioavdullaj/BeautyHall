@@ -83,6 +83,17 @@ namespace BeautyHall.Api.DB.Utils
                 ServicePrice = item.ServicePrice
             };
         }
+
+        public static OrderProduct Map(OrderProductDto item)
+        {
+            return new OrderProduct()
+            {
+                OrderId = item.OrderId,
+                ProductId = item.ProductId,
+                ProductQuantity = item.ProductQuantity,
+                TotalPrice = item.TotalPrice
+            };
+        }
         public static Appointment Map(AppointmentDto item)
         {
             return new Appointment()

@@ -192,7 +192,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(600, 546);
+            ClientSize = new Size(589, 455);
             Controls.Add(textEdit4);
             Controls.Add(textEdit3);
             Controls.Add(textEdit2);

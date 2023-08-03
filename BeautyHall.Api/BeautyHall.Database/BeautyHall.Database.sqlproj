@@ -74,5 +74,9 @@
     <Build Include="dbo\Tables\Appointment.sql" />
     <Build Include="dbo\Tables\Login.sql" />
     <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\Order_Product.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="BeautyHall.Database.refactorlog" />
   </ItemGroup>
 </Project>

@@ -43,6 +43,7 @@ public partial class BeautyHallContext : DbContext
     public virtual DbSet<Subject> Subjects { get; set; }
     public virtual DbSet<Login> Logins { get; set; }
     public virtual DbSet<Category> Categories { get; set; }
+    public virtual DbSet<OrderProduct> OrderProducts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(ConnectionString);
     
@@ -146,6 +147,27 @@ public partial class BeautyHallContext : DbContext
                 .HasForeignKey(d => d.ServiceId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Order_Service_Service");
+        });
+
+        modelBuilder.Entity<OrderProduct>(entity =>
+        {
+            entity.HasKey(e => new { e.OrderId, e.ProductId }).HasName("PK_Order_Product");
+
+            entity.ToTable("Order_Product");
+
+            entity.Property(e => e.ProductQuantity).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
+
+
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderProducts)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Order_Product_Order");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.OrderProducts)
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Order_Product_Product");
         });
 
         modelBuilder.Entity<PaymentSummary>(entity =>

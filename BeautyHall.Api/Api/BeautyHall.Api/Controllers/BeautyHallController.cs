@@ -197,6 +197,15 @@ namespace BeautyHall.Api.DB.Controllers
             return NoContent();
         }
 
+        [HttpDelete]
+        [Route("Orders/Products")]
+        public IActionResult DeleteOrderProducts([FromBody] IEnumerable<OrderProductDto> data)
+        {
+            if (BolService.DeleteOrderProducts(data))
+                return Ok();
+            return NoContent();
+        }
+
         // Appointments
         [HttpGet]
         [Route("Appointments")]

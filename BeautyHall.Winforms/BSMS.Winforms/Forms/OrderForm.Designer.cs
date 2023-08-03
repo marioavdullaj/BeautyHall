@@ -69,6 +69,16 @@
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
             servicesInOrderLabel = new DevExpress.XtraEditors.LabelControl();
             xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            AddedProductsFlowLayout = new FlowLayoutPanel();
+            panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            totalPriceLabel = new DevExpress.XtraEditors.LabelControl();
             workspaceManager1 = new DevExpress.Utils.WorkspaceManager(components);
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OrderHeaderPanel).BeginInit();
@@ -91,6 +101,18 @@
             ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
             panelControl3.SuspendLayout();
             xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl7).BeginInit();
+            panelControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)xtraTabControl1).BeginInit();
+            xtraTabControl1.SuspendLayout();
+            xtraTabPage1.SuspendLayout();
+            xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
+            panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl6).BeginInit();
+            panelControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl8).BeginInit();
+            panelControl8.SuspendLayout();
             SuspendLayout();
             // 
             // ribbon
@@ -395,7 +417,7 @@
             AddedServicesFlowLayout.Margin = new Padding(4, 2, 4, 2);
             AddedServicesFlowLayout.Name = "AddedServicesFlowLayout";
             AddedServicesFlowLayout.Padding = new Padding(6);
-            AddedServicesFlowLayout.Size = new Size(436, 428);
+            AddedServicesFlowLayout.Size = new Size(491, 333);
             AddedServicesFlowLayout.TabIndex = 0;
             // 
             // panelControl4
@@ -406,7 +428,7 @@
             panelControl4.Location = new Point(0, 0);
             panelControl4.Margin = new Padding(4, 2, 4, 2);
             panelControl4.Name = "panelControl4";
-            panelControl4.Size = new Size(926, 487);
+            panelControl4.Size = new Size(865, 487);
             panelControl4.TabIndex = 6;
             // 
             // ServicesFlowPanel
@@ -417,7 +439,7 @@
             ServicesFlowPanel.Margin = new Padding(4);
             ServicesFlowPanel.Name = "ServicesFlowPanel";
             ServicesFlowPanel.Padding = new Padding(12);
-            ServicesFlowPanel.Size = new Size(922, 428);
+            ServicesFlowPanel.Size = new Size(861, 428);
             ServicesFlowPanel.TabIndex = 3;
             // 
             // panelControl2
@@ -427,7 +449,7 @@
             panelControl2.Location = new Point(2, 2);
             panelControl2.Margin = new Padding(4, 2, 4, 2);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(922, 55);
+            panelControl2.Size = new Size(861, 55);
             panelControl2.TabIndex = 2;
             // 
             // labelControl1
@@ -445,12 +467,12 @@
             // 
             panelControl5.Controls.Add(AddedServicesFlowLayout);
             panelControl5.Controls.Add(panelControl3);
-            panelControl5.Dock = DockStyle.Right;
-            panelControl5.Location = new Point(926, 0);
+            panelControl5.Dock = DockStyle.Fill;
+            panelControl5.Location = new Point(0, 0);
             panelControl5.Margin = new Padding(4, 2, 4, 2);
             panelControl5.Name = "panelControl5";
-            panelControl5.Size = new Size(440, 487);
-            panelControl5.TabIndex = 7;
+            panelControl5.Size = new Size(495, 392);
+            panelControl5.TabIndex = 6;
             // 
             // panelControl3
             // 
@@ -459,7 +481,7 @@
             panelControl3.Location = new Point(2, 2);
             panelControl3.Margin = new Padding(4, 2, 4, 2);
             panelControl3.Name = "panelControl3";
-            panelControl3.Size = new Size(436, 55);
+            panelControl3.Size = new Size(491, 55);
             panelControl3.TabIndex = 2;
             // 
             // servicesInOrderLabel
@@ -469,20 +491,120 @@
             servicesInOrderLabel.Location = new Point(15, 15);
             servicesInOrderLabel.Margin = new Padding(4, 2, 4, 2);
             servicesInOrderLabel.Name = "servicesInOrderLabel";
-            servicesInOrderLabel.Size = new Size(189, 28);
+            servicesInOrderLabel.Size = new Size(120, 28);
             servicesInOrderLabel.TabIndex = 1;
-            servicesInOrderLabel.Text = "Κάρτα Υπηρεσίας :";
+            servicesInOrderLabel.Text = "Σύνολο: 0 €";
             // 
             // xtraScrollableControl1
             // 
             xtraScrollableControl1.Controls.Add(panelControl4);
-            xtraScrollableControl1.Controls.Add(panelControl5);
+            xtraScrollableControl1.Controls.Add(panelControl7);
             xtraScrollableControl1.Dock = DockStyle.Fill;
             xtraScrollableControl1.Location = new Point(0, 309);
             xtraScrollableControl1.Margin = new Padding(4);
             xtraScrollableControl1.Name = "xtraScrollableControl1";
             xtraScrollableControl1.Size = new Size(1366, 487);
             xtraScrollableControl1.TabIndex = 9;
+            // 
+            // panelControl7
+            // 
+            panelControl7.Controls.Add(xtraTabControl1);
+            panelControl7.Controls.Add(panelControl8);
+            panelControl7.Dock = DockStyle.Right;
+            panelControl7.Location = new Point(865, 0);
+            panelControl7.Name = "panelControl7";
+            panelControl7.Size = new Size(501, 487);
+            panelControl7.TabIndex = 7;
+            // 
+            // xtraTabControl1
+            // 
+            xtraTabControl1.Dock = DockStyle.Fill;
+            xtraTabControl1.Location = new Point(2, 57);
+            xtraTabControl1.Name = "xtraTabControl1";
+            xtraTabControl1.SelectedTabPage = xtraTabPage1;
+            xtraTabControl1.Size = new Size(497, 428);
+            xtraTabControl1.TabIndex = 0;
+            xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] { xtraTabPage1, xtraTabPage2 });
+            // 
+            // xtraTabPage1
+            // 
+            xtraTabPage1.Appearance.Header.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            xtraTabPage1.Appearance.Header.Options.UseFont = true;
+            xtraTabPage1.Appearance.HeaderActive.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            xtraTabPage1.Appearance.HeaderActive.Options.UseFont = true;
+            xtraTabPage1.Controls.Add(panelControl5);
+            xtraTabPage1.Name = "xtraTabPage1";
+            xtraTabPage1.Size = new Size(495, 392);
+            xtraTabPage1.Text = "Κάρτα Υπηρεσίας";
+            // 
+            // xtraTabPage2
+            // 
+            xtraTabPage2.Appearance.Header.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            xtraTabPage2.Appearance.Header.Options.UseFont = true;
+            xtraTabPage2.Appearance.HeaderActive.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            xtraTabPage2.Appearance.HeaderActive.Options.UseFont = true;
+            xtraTabPage2.Controls.Add(panelControl1);
+            xtraTabPage2.Name = "xtraTabPage2";
+            xtraTabPage2.Size = new Size(495, 392);
+            xtraTabPage2.Text = "Κάρτα Προϊόντα";
+            // 
+            // panelControl1
+            // 
+            panelControl1.Controls.Add(AddedProductsFlowLayout);
+            panelControl1.Controls.Add(panelControl6);
+            panelControl1.Dock = DockStyle.Fill;
+            panelControl1.Location = new Point(0, 0);
+            panelControl1.Name = "panelControl1";
+            panelControl1.Size = new Size(495, 392);
+            panelControl1.TabIndex = 10;
+            // 
+            // AddedProductsFlowLayout
+            // 
+            AddedProductsFlowLayout.Dock = DockStyle.Fill;
+            AddedProductsFlowLayout.Location = new Point(2, 57);
+            AddedProductsFlowLayout.Name = "AddedProductsFlowLayout";
+            AddedProductsFlowLayout.Size = new Size(491, 333);
+            AddedProductsFlowLayout.TabIndex = 1;
+            // 
+            // panelControl6
+            // 
+            panelControl6.Controls.Add(labelControl9);
+            panelControl6.Dock = DockStyle.Top;
+            panelControl6.Location = new Point(2, 2);
+            panelControl6.Name = "panelControl6";
+            panelControl6.Size = new Size(491, 55);
+            panelControl6.TabIndex = 0;
+            // 
+            // labelControl9
+            // 
+            labelControl9.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl9.Appearance.Options.UseFont = true;
+            labelControl9.Location = new Point(15, 15);
+            labelControl9.Margin = new Padding(4, 2, 4, 2);
+            labelControl9.Name = "labelControl9";
+            labelControl9.Size = new Size(120, 28);
+            labelControl9.TabIndex = 2;
+            labelControl9.Text = "Σύνολο: 0 €";
+            // 
+            // panelControl8
+            // 
+            panelControl8.Controls.Add(totalPriceLabel);
+            panelControl8.Dock = DockStyle.Top;
+            panelControl8.Location = new Point(2, 2);
+            panelControl8.Name = "panelControl8";
+            panelControl8.Size = new Size(497, 55);
+            panelControl8.TabIndex = 1;
+            // 
+            // totalPriceLabel
+            // 
+            totalPriceLabel.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            totalPriceLabel.Appearance.Options.UseFont = true;
+            totalPriceLabel.Location = new Point(18, 15);
+            totalPriceLabel.Margin = new Padding(4, 2, 4, 2);
+            totalPriceLabel.Name = "totalPriceLabel";
+            totalPriceLabel.Size = new Size(191, 28);
+            totalPriceLabel.TabIndex = 2;
+            totalPriceLabel.Text = "Σύνολο Κάρτα: 0 €";
             // 
             // workspaceManager1
             // 
@@ -528,6 +650,20 @@
             panelControl3.ResumeLayout(false);
             panelControl3.PerformLayout();
             xtraScrollableControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)panelControl7).EndInit();
+            panelControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)xtraTabControl1).EndInit();
+            xtraTabControl1.ResumeLayout(false);
+            xtraTabPage1.ResumeLayout(false);
+            xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
+            panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)panelControl6).EndInit();
+            panelControl6.ResumeLayout(false);
+            panelControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl8).EndInit();
+            panelControl8.ResumeLayout(false);
+            panelControl8.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -549,7 +685,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.LabelControl servicesInOrderLabel;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -573,5 +708,16 @@
         private DevExpress.Utils.WorkspaceManager workspaceManager1;
         private BindingSource employeeBindingSource;
         private DevExpress.XtraBars.BarButtonItem addProductButton;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private FlowLayoutPanel AddedProductsFlowLayout;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.PanelControl panelControl8;
+        private DevExpress.XtraEditors.LabelControl servicesInOrderLabel;
+        private DevExpress.XtraEditors.LabelControl totalPriceLabel;
     }
 }

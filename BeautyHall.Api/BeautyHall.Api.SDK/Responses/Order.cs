@@ -14,6 +14,7 @@ public class Order
     public string? Notes { get; set; }
 
     public IEnumerable<OrderService> OrderServices { get; set; } = new List<OrderService>();
+    public IEnumerable<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 
     public IEnumerable<PaymentSummary> PaymentSummaries { get; set; } = new List<PaymentSummary>();
     public IEnumerable<Appointment> Appointments { get; set; } = new List<Appointment>();

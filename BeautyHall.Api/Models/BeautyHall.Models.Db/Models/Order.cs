@@ -14,6 +14,7 @@ public partial class Order
     public string? Notes { get; set; }
 
     public virtual ICollection<OrderService> OrderServices { get; set; } = new List<OrderService>();
+    public virtual ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 
     public virtual ICollection<PaymentSummary> PaymentSummaries { get; set; } = new List<PaymentSummary>();
     public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();

@@ -152,18 +152,12 @@ namespace BeautyHall.Api.DB.Services
                     {
                         if (data.Services != null)
                         {
-                            var orderServices = data.Services.Select(x => new OrderService
-                            {
-                                ServiceId = x.ServiceId,
-                                EmployeeId = x.EmployeeId,
-                                OrderId = order.OrderId,
-                                ServicePrice = x.ServicePrice
-                            });
+                            var orderServices = data.Services.Select(x => Mappers.Map(x));
 
                             // get current order's services
                             var searchOrders = DbService.Search<Order>(new List<FilterSetting>
                             {
-                                new FilterSetting{ Comparisation = ECompareType.Equal, Key = "OrderId", Value = data.OrderId }
+                                new FilterSetting{ Comparisation = ECompareType.Equal, Key = "OrderId", Value = order.OrderId }
                             });
                             if(searchOrders != null && searchOrders.Count() == 1)
                             {
@@ -177,6 +171,32 @@ namespace BeautyHall.Api.DB.Services
 
                             foreach (var os in orderServices)
                             {
+                                if (os.OrderId <= 0) os.OrderId = order.OrderId;
+                                DbService.UpSert(os);
+                            }
+                        }
+                        if (data.Products != null)
+                        {
+                            var orderProducts = data.Products.Select(x => Mappers.Map(x));
+
+                            // get current order's products
+                            var searchOrders = DbService.Search<Order>(new List<FilterSetting>
+                            {
+                                new FilterSetting{ Comparisation = ECompareType.Equal, Key = "OrderId", Value = order.OrderId }
+                            });
+                            if (searchOrders != null && searchOrders.Count() == 1)
+                            {
+                                order = (searchOrders as IEnumerable<Order>).First();
+                                var currentOrderProducts = order.OrderProducts.ToList();
+                                var productsToRemove = currentOrderProducts.Where(x => !orderProducts.Any(y => y.ProductId == x.ProductId));
+                                if (productsToRemove != null)
+                                    foreach (var product in productsToRemove)
+                                        DbService.Delete<OrderProduct>(product);
+                            }
+
+                            foreach (var os in orderProducts)
+                            {
+                                if (os.OrderId <= 0) os.OrderId = order.OrderId;
                                 DbService.UpSert(os);
                             }
                         }
@@ -217,6 +237,14 @@ namespace BeautyHall.Api.DB.Services
                         foreach (var service in (servicesInOrder as IEnumerable<OrderService>).ToList())
                             DbService.Delete(service);
 
+                    var productsInOrder = DbService.Search<OrderProduct>(new List<FilterSetting>
+                    {
+                        new FilterSetting { Comparisation = ECompareType.Equal, Key = "OrderId", Value = orderId }
+                    });
+                    if (productsInOrder != null && productsInOrder.Any())
+                        foreach (var product in (productsInOrder as IEnumerable<OrderProduct>).ToList())
+                            DbService.Delete(product);
+
                     res = DbService.Delete(new Order { OrderId = orderId });
                 }
                 catch(Exception)
@@ -237,6 +265,16 @@ namespace BeautyHall.Api.DB.Services
             foreach (var orderservice in data)
             {
                 if (!DbService.Delete(Mappers.Map(orderservice)))
+                    return false;
+            }
+            return true;
+        }
+
+        public bool DeleteOrderProducts(IEnumerable<OrderProductDto> data)
+        {
+            foreach (var orderProduct in data)
+            {
+                if (!DbService.Delete(Mappers.Map(orderProduct)))
                     return false;
             }
             return true;

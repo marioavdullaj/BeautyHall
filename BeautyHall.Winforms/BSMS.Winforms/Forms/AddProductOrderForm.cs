@@ -31,6 +31,8 @@ namespace BSMS.Winforms.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            SelectedProduct = Products?.Where(x => x.ProductId == Convert.ToInt32(lookUpEdit1.EditValue)).FirstOrDefault();
+            SelectedQuantity = GenericUtils.Functions.NullToDecimal(spinEdit1.EditValue);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -39,19 +41,13 @@ namespace BSMS.Winforms.Forms
         {
             var selectedProduct = Products?.Where(x => x.ProductId == Convert.ToInt32(lookUpEdit1.EditValue)).FirstOrDefault();
 
-            // TO DO (for armando)
-            // set the values of the textedits and the spinEdit max value
-            spinEdit1.Properties.MaxValue = selectedProduct?.Stock?.Quantity ?? 0; // check if this works
+            spinEdit1.Enabled = selectedProduct?.Stock?.Quantity > 0;
+            simpleButton2.Enabled = selectedProduct?.Stock?.Quantity > 0;
+            spinEdit1.Properties.MaxValue = selectedProduct?.Stock?.Quantity ?? 0;
             textEdit1.EditValue = $"{selectedProduct?.ProductCode}";
             textEdit2.EditValue = $"{selectedProduct?.ProductDescription}";
-            textEdit3.EditValue = $"{selectedProduct?.Stock}";
+            textEdit3.EditValue = selectedProduct?.Stock?.Quantity.ToString("0.##");
             textEdit4.EditValue = selectedProduct?.SellingPrice;
-
-
-            // selectedProduct is an object of the class Product (from the SDK)
-            // access to its properties (Code, Description, ..) to value the controls
-            // i leave it for now ok!!!!
-
         }
     }
 }

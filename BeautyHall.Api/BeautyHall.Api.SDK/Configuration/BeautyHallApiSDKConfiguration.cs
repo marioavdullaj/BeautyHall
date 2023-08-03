@@ -53,6 +53,8 @@ namespace BeautyHall.Api.SDK.Configuration
         ENDPOINT_GET_ORDER_ID,
         [Description("BeautyHall/Orders/Services")]
         ENDPOINT_DELETE_ORDER_SEVICES,
+        [Description("BeautyHall/Orders/Products")]
+        ENDPOINT_DELETE_ORDER_PRODUCTS,
         [Description("BeautyHall/Appointments")]
         ENDPOINT_GET_APPOINTMENTS,
         [Description("BeautyHall/Appointments/Customer/{0}")]

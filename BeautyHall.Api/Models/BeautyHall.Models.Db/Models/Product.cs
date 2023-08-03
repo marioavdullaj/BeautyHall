@@ -17,4 +17,5 @@ public partial class Product
     public virtual Stock? Stock { get; set; }
 
     public virtual Subject? Supplier { get; set; }
+    public virtual ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 }

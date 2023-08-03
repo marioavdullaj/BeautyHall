@@ -99,6 +99,17 @@ namespace BSMS.Winforms.Forms
                         addedServiceControl.ServiceRemoved += ServiceRemoved_Handler;
                         AddedServicesFlowLayout.AddControl(addedServiceControl);
                     }
+                    servicesInOrderLabel.Text = $"Σύνολο: {CurrentOrder.OrderServices.Sum(x => x.ServicePrice)} €";
+
+                    foreach (var product in CurrentOrder.OrderProducts)
+                    {
+                        var addedProductControl = new OrderProductControl(product, deletable: true);
+                        addedProductControl.ProductRemoved += ProductRemoved_Handler;
+                        AddedProductsFlowLayout.AddControl(addedProductControl);
+                    }
+                    labelControl9.Text = $"Σύνολο: {CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
+
+                    totalPriceLabel.Text = $"Σύνολο Κάρτα: {CurrentOrder?.OrderServices.Sum(x => x.ServicePrice) + CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
                 }
             }
             catch (Exception ex)
@@ -127,8 +138,11 @@ namespace BSMS.Winforms.Forms
         private void ResetUI()
         {
             AddedServicesFlowLayout.Controls.Clear();
+            AddedProductsFlowLayout.Controls.Clear();
             ServicesFlowPanel.Controls.Clear();
-            servicesInOrderLabel.Text = "Κάρτα Υπηρεσίας :";
+            servicesInOrderLabel.Text = "Σύνολο: 0 €";
+            labelControl9.Text = "Σύνολο: 0 €";
+            totalPriceLabel.Text = "Σύνολο Κάρτα: 0 €";
             textEdit1.EditValue = null;
             textEdit2.EditValue = null;
             textEdit3.EditValue = null;
@@ -177,7 +191,7 @@ namespace BSMS.Winforms.Forms
             }
         }
 
-        private void ServiceAdded_Handler(object? sender, ServiceAddedArgs args)
+        private async void ServiceAdded_Handler(object? sender, ServiceAddedArgs args)
         {
             try
             {
@@ -192,11 +206,13 @@ namespace BSMS.Winforms.Forms
                 };
 
                 ((List<OrderService>)CurrentOrder.OrderServices).Add(added);
+                await SaveOrder(alertSaved: false);
                 var addedServiceControl = new OrderServiceControl(added, deletable: true);
                 addedServiceControl.ServiceRemoved += ServiceRemoved_Handler;
                 AddedServicesFlowLayout.AddControl(addedServiceControl);
 
-                servicesInOrderLabel.Text = $"Κάρτα Υπηρεσιών. Σύνολο: {CurrentOrder.OrderServices.Sum(x => x.ServicePrice)} €";
+                servicesInOrderLabel.Text = $"Σύνολο: {CurrentOrder.OrderServices.Sum(x => x.ServicePrice)} €";
+                totalPriceLabel.Text = $"Σύνολο Κάρτα: {CurrentOrder?.OrderServices.Sum(x => x.ServicePrice) + CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
             }
             catch (Exception ex)
             {
@@ -204,7 +220,38 @@ namespace BSMS.Winforms.Forms
             }
         }
 
-        private void ServiceRemoved_Handler(object? sender, RemoveOrderServiceArgs e)
+        private async Task AddProduct(Product? product, decimal quantity)
+        {
+            try
+            {
+                var added = new OrderProduct
+                {
+                    OrderId = CurrentOrder?.OrderId ?? 0,
+                    Product = product,
+                    ProductId = product?.ProductId ?? 0,
+                    ProductQuantity = quantity,
+                    TotalPrice = quantity * product?.SellingPrice ?? 0
+                };
+
+                ((List<OrderProduct>)CurrentOrder.OrderProducts).Add(added);
+                if (await SaveOrder(alertSaved: false))
+                    products = await Program.ApiSdk.GetAllProducts();
+
+                var addedProductControl = new OrderProductControl(added, deletable: true);
+                addedProductControl.ProductRemoved += ProductRemoved_Handler;
+                AddedProductsFlowLayout.AddControl(addedProductControl);
+
+                labelControl9.Text = $"Σύνολο: {CurrentOrder.OrderProducts.Sum(x => x.TotalPrice)} €";
+                totalPriceLabel.Text = $"Σύνολο Κάρτα: {CurrentOrder?.OrderServices.Sum(x => x.ServicePrice) + CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private async void ServiceRemoved_Handler(object? sender, RemoveOrderServiceArgs e)
         {
             try
             {
@@ -220,9 +267,52 @@ namespace BSMS.Winforms.Forms
 
                     if (CurrentOrder != null)
                         CurrentOrder.OrderServices = orderServices;
+                    await SaveOrder(alertSaved: false);
                 }
 
-                servicesInOrderLabel.Text = $"Κάρτα Υπηρεσιών. Σύνολο: {CurrentOrder?.OrderServices?.Sum(x => x.ServicePrice)} €";
+                servicesInOrderLabel.Text = $"Σύνολο: {CurrentOrder?.OrderServices?.Sum(x => x.ServicePrice)} €";
+                totalPriceLabel.Text = $"Σύνολο Κάρτα: {CurrentOrder?.OrderServices.Sum(x => x.ServicePrice) + CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void ProductRemoved_Handler(object? sender, RemovesOrderProductArgs e)
+        {
+            try
+            {
+                if (e == null || e.OrderProduct == null) return;
+                await RemoveProduct(e.OrderProduct);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task RemoveProduct(OrderProduct product)
+        {
+            try
+            {
+                var toRemove = AddedProductsFlowLayout.Controls.Cast<OrderProductControl>().Where(x => x.OrderProduct.ProductId == product.ProductId).FirstOrDefault();
+                if (toRemove != null)
+                {
+                    AddedProductsFlowLayout.Controls.Remove(toRemove);
+                    var orderProducts = CurrentOrder?.OrderProducts.ToList();
+                    var productToRemove = orderProducts?.Where(x => x.ProductId == product.ProductId).FirstOrDefault();
+                    if (productToRemove != null)
+                        orderProducts?.Remove(productToRemove);
+
+                    if (CurrentOrder != null)
+                        CurrentOrder.OrderProducts = orderProducts;
+                    if (await SaveOrder(alertSaved: false))
+                        products = await Program.ApiSdk.GetAllProducts();
+                }
+
+                labelControl9.Text = $"Σύνολο: {CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
+                totalPriceLabel.Text = $"Σύνολο Κάρτα: {CurrentOrder?.OrderServices.Sum(x => x.ServicePrice) + CurrentOrder?.OrderProducts?.Sum(x => x.TotalPrice)} €";
             }
             catch (Exception ex)
             {
@@ -237,8 +327,6 @@ namespace BSMS.Winforms.Forms
                 textEdit1.Text = CurrentOrder.OrderId > 0 ? $"ORDER_{CurrentOrder.OrderId}" : "";
                 dateEdit1.EditValue = CurrentOrder.OrderDate;
                 memoEdit1.EditValue = CurrentOrder.Notes;
-
-
             }
         }
 
@@ -305,6 +393,12 @@ namespace BSMS.Winforms.Forms
                         ServiceId = x.ServiceId,
                         ServicePrice = x.ServicePrice,
                         OrderId = CurrentOrder.OrderId
+                    }),
+                    Products = CurrentOrder?.OrderProducts?.Select(x => new OrderProductDto
+                    {
+                        ProductId = x.ProductId,
+                        TotalPrice = x.TotalPrice,
+                        ProductQuantity = x.ProductQuantity
                     })
                 };
 
@@ -401,7 +495,7 @@ namespace BSMS.Winforms.Forms
             return PrintUtils.GenerateReportFile(report, Program.OrderReportPath, fileName);
         }
 
-        private void addProductButton_ItemClick(object sender, ItemClickEventArgs e)
+        private async void addProductButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var addProductForm = new AddProductOrderForm(products);
             if (addProductForm.ShowDialog() == DialogResult.OK)
@@ -409,14 +503,24 @@ namespace BSMS.Winforms.Forms
                 var selectedProduct = addProductForm.SelectedProduct;
                 var selectedQuantity = addProductForm.SelectedQuantity;
 
-                // do stuff here
+                var existingOrderProduct = CurrentOrder?.OrderProducts?.Where(x => x.ProductId == selectedProduct?.ProductId).FirstOrDefault();
+                if (existingOrderProduct != null)
+                {
+                    selectedQuantity += existingOrderProduct.ProductQuantity;
+                    await RemoveProduct(existingOrderProduct);
+                }
+                await AddProduct(selectedProduct, selectedQuantity);
             }
         }
 
         private async void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // while the form is closing, we save the order not to lose our work
-            await SaveOrder(alertSaved: false);
+            try
+            {
+                await SaveOrder(alertSaved: false);
+            }
+            catch { }
         }
     }
 }

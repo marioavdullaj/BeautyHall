@@ -130,7 +130,7 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            BorderStyle = BorderStyle.Fixed3D;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(lookUpEdit3);
             Controls.Add(lookUpEdit2);
             Controls.Add(simpleButton1);
@@ -138,7 +138,7 @@
             Controls.Add(labelServiceName);
             Margin = new Padding(6);
             Name = "CategoryControl";
-            Size = new Size(633, 49);
+            Size = new Size(635, 51);
             Load += ServiceControl_Load;
             ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();

@@ -10,7 +10,7 @@ namespace BSMS.Winforms.UserControls
             InitializeComponent();
             OrderService = orderService;
             labelControl2.Text = orderService.Service?.ServiceDescription;
-            labelControl3.Text = $" {orderService.Employee?.EmployeeCode}    {orderService.Employee?.EmployeeName}";
+            labelControl3.Text = $"{orderService.Employee?.EmployeeCode}    {orderService.Employee?.EmployeeName}";
             labelControl5.Text = $"{orderService.ServicePrice} €";
             simpleButton1.Visible = deletable;
         }

@@ -5,7 +5,7 @@
         public string? Name { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
-        public int? ServiceId { get; set; }
+        public string? ServiceId { get; set; }
         public string? ServiceDescription { get; set; }
         public string? EmployeeCode { get; set; }
         public decimal? Price { get; set; }

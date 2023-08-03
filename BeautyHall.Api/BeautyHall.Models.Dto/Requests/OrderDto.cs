@@ -22,5 +22,7 @@ namespace BeautyHall.Models.Dto.Requests
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<OrderServiceDto>? Services { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public IEnumerable<OrderProductDto>? Products { get; set; }
     }
 }

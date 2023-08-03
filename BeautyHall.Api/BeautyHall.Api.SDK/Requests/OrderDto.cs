@@ -11,5 +11,6 @@
         public string? Notes { get; set; }
 
         public IEnumerable<OrderServiceDto>? Services { get; set; }
+        public IEnumerable<OrderProductDto>? Products { get; set; }
     }
 }

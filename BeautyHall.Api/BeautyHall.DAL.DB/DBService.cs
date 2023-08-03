@@ -5,6 +5,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections;
+using System.Transactions;
 
 namespace BeautyHall.DAL.DB
 {
@@ -41,9 +42,10 @@ namespace BeautyHall.DAL.DB
                 if (value.GetType() == typeof(Login)) ret = UpSertLogin(value as Login);
                 if (value.GetType() == typeof(Order)) ret = UpSertOrder(value as Order);
                 if (value.GetType() == typeof(OrderService)) ret = UpSertOrderService(value as OrderService);
+                if (value.GetType() == typeof(OrderProduct)) ret = UpSertOrderProduct(value as OrderProduct);
                 if (value.GetType() == typeof(PaymentSummary)) ret = UpSertPaymentSummary(value as PaymentSummary);
                 if (value.GetType() == typeof(Service)) ret = UpSertService(value as Service);
-                if (value.GetType() == typeof(Stock)) ret = UpSertSubject(value as Subject);
+                if (value.GetType() == typeof(Stock)) ret = UpSertStock(value as Stock);
                 if (value.GetType() == typeof(Product)) ret = UpSertProduct(value as Product);
                 if (value.GetType() == typeof(Category)) ret = UpSertCategory(value as Category);
             }
@@ -68,6 +70,7 @@ namespace BeautyHall.DAL.DB
                 if (value?.GetType() == typeof(Login)) ret = DeleteLogin(value as Login);
                 if (value?.GetType() == typeof(Order)) ret = DeleteOrder(value as Order);
                 if (value?.GetType() == typeof(OrderService)) ret = DeleteOrderService(value as OrderService);
+                if (value?.GetType() == typeof(OrderProduct)) ret = DeleteOrderProduct(value as OrderProduct);
                 if (value?.GetType() == typeof(PaymentSummary)) ret = DeletePaymentSummary(value as PaymentSummary);
                 if (value?.GetType() == typeof(Product)) ret = DeleteProduct(value as Product);
                 if (value?.GetType() == typeof(Service)) ret = DeleteService(value as Service);
@@ -97,6 +100,7 @@ namespace BeautyHall.DAL.DB
             if (typeof(TObject) == typeof(Stock)) ret = SearchStock(clause, parameters);
             if (typeof(TObject) == typeof(PaymentSummary)) ret = SearchPaymentSummary(clause, parameters);
             if (typeof(TObject) == typeof(OrderService)) ret = SearchOrderService(clause, parameters);
+            if (typeof(TObject) == typeof(OrderProduct)) ret = SearchOrderProduct(clause, parameters);
             if (typeof(TObject) == typeof(Discount)) ret = SearchDiscount(clause, parameters);
             if (typeof(TObject) == typeof(Login)) ret = SearchLogin(clause, parameters);
             if (typeof(TObject) == typeof(DailySummary)) ret = SearchDailySummary(clause, parameters);
@@ -335,6 +339,47 @@ namespace BeautyHall.DAL.DB
 
             return ret;
         }
+        private bool DeleteOrderProduct(OrderProduct input)
+        {
+            bool ret = false;
+            using (var scope = new TransactionScope())
+            {
+                decimal productQuantityRestore = 0;
+                if (Context.OrderProducts.Any(item => item.OrderId == input.OrderId && item.ProductId == input.ProductId))
+                {
+                    var orderProduct = Context.OrderProducts.Where(item => item.OrderId == input.OrderId && item.ProductId == input.ProductId).ToList().First();
+                    productQuantityRestore = orderProduct.ProductQuantity;
+                    Context.OrderProducts.Remove(orderProduct);
+                    ret = Context.SaveChanges() > 0;
+                }
+                if (ret && productQuantityRestore > 0)
+                {
+                    var stocks = Search<Stock>(new List<FilterSetting>
+                    {
+                        new FilterSetting { Comparisation = ECompareType.Equal, Key = "ProductId", Value = input.ProductId }
+                    }).ToList();
+
+                    if (stocks.Count == 1)
+                    {
+                        var stock = (Stock)stocks.First();
+                        stock.Quantity += productQuantityRestore;
+                        Context.Stocks.Update(stock);
+                        ret = Context.SaveChanges() > 0;
+                    }
+                }
+
+                if (ret)
+                {
+                    scope.Complete();
+                }
+                else
+                {
+                    scope.Dispose();
+                }
+            }
+
+            return ret;
+        }
 
         private bool DeletePaymentSummary(PaymentSummary input)
         {
@@ -414,7 +459,7 @@ namespace BeautyHall.DAL.DB
                 ret = Context.Subjects
                     .Include(x => x.Discounts);
             else
-                ret = Context.Subjects.FromSqlRaw($"SELECT * FROM Subjects {clause}", parameters.ToArray())
+                ret = Context.Subjects.FromSqlRaw($"SELECT * FROM Subjects WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.Discounts);
 
             return ret;
@@ -442,7 +487,7 @@ namespace BeautyHall.DAL.DB
             IEnumerable<Login> ret = new List<Login>();
 
             if(!string.IsNullOrWhiteSpace(clause))
-                ret = Context.Logins.FromSqlRaw($"SELECT * FROM Login {clause}", parameters.ToArray());
+                ret = Context.Logins.FromSqlRaw($"SELECT * FROM Login WITH(NOLOCK) {clause}", parameters.ToArray());
 
             return ret;
         }
@@ -456,7 +501,7 @@ namespace BeautyHall.DAL.DB
                     .Include(x => x.Customer)
                     .Include(x => x.Order);
             else
-                ret = Context.Appointments.FromSqlRaw($"SELECT * FROM Appointment {clause}", parameters.ToArray())
+                ret = Context.Appointments.FromSqlRaw($"SELECT * FROM Appointment WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.Customer)
                     .Include(x => x.Order);
 
@@ -469,7 +514,7 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.DailySummaries;
             else
-                ret = Context.DailySummaries.FromSqlRaw($"SELECT * FROM [Daily_Summary] {clause}", parameters.ToArray());
+                ret = Context.DailySummaries.FromSqlRaw($"SELECT * FROM [Daily_Summary] WITH(NOLOCK) {clause}", parameters.ToArray());
 
             return ret;
         }
@@ -482,7 +527,7 @@ namespace BeautyHall.DAL.DB
                     .Include(x => x.Service)
                     .Include(x => x.Customer);
             else
-                ret = Context.Discounts.FromSqlRaw($"SELECT * FROM Discount {clause}", parameters.ToArray())
+                ret = Context.Discounts.FromSqlRaw($"SELECT * FROM Discount WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.Service)
                     .Include(x => x.Customer);
 
@@ -496,7 +541,7 @@ namespace BeautyHall.DAL.DB
                 ret = Context.Employees
                     .Include(x => x.Services);
             else
-                ret = Context.Employees.FromSqlRaw($"SELECT * FROM Employee {clause}", parameters.ToArray())
+                ret = Context.Employees.FromSqlRaw($"SELECT * FROM Employee WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.Services);
 
             return ret;
@@ -508,7 +553,9 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.Orders
                     .Include(x => x.OrderServices)
-                    .ThenInclude(x => x.Service)
+                        .ThenInclude(x => x.Service)
+                    .Include(x => x.OrderProducts)
+                        .ThenInclude(x => x.Product)
                     .Include(x => x.Customer)
                     .Include(x => x.PaymentSummaries)
                     .Select(c => new Order { 
@@ -542,6 +589,20 @@ namespace BeautyHall.DAL.DB
                                 Category = os.Service.Category
                             }
                         }).ToList(),
+                        OrderProducts = c.OrderProducts.Select(os => new OrderProduct
+                        {
+                            OrderId = os.OrderId,
+                            ProductId = os.ProductId,
+                            ProductQuantity = os.ProductQuantity,
+                            TotalPrice = os.TotalPrice,
+                            Product = new Product
+                            {
+                                ProductId = os.Product.ProductId,
+                                ProductCode = os.Product.ProductCode,
+                                ProductDescription = os.Product.ProductDescription,
+                                SellingPrice = os.Product.SellingPrice
+                            }
+                        }).ToList(),
                         Customer = c.Customer == null ? null : new Subject
                         {
                             SubjectId = c.Customer.SubjectId,
@@ -555,9 +616,11 @@ namespace BeautyHall.DAL.DB
                         PaymentSummaries = c.PaymentSummaries
                     });
             else
-                ret = Context.Orders.FromSqlRaw($"SELECT * FROM [Order] {clause}", parameters.ToArray())
+                ret = Context.Orders.FromSqlRaw($"SELECT * FROM [Order] WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.OrderServices)
-                    .ThenInclude(x => x.Service)
+                        .ThenInclude(x => x.Service)
+                    .Include(x => x.OrderProducts)
+                        .ThenInclude(x => x.Product)
                     .Include(x => x.Customer)
                     .Include(x => x.PaymentSummaries)
                     .Select(c => new Order
@@ -593,6 +656,20 @@ namespace BeautyHall.DAL.DB
                                 Category = os.Service.Category
                             }
                         }).ToList(),
+                        OrderProducts = c.OrderProducts.Select(os => new OrderProduct
+                        {
+                            OrderId = os.OrderId,
+                            ProductId = os.ProductId,
+                            ProductQuantity = os.ProductQuantity,
+                            TotalPrice = os.TotalPrice,
+                            Product = new Product
+                            {
+                                ProductId = os.Product.ProductId,
+                                ProductCode = os.Product.ProductCode,
+                                ProductDescription = os.Product.ProductDescription,
+                                SellingPrice = os.Product.SellingPrice
+                            }
+                        }).ToList(),
                         Customer = c.Customer == null ? null : new Subject
                         {
                             SubjectId = c.Customer.SubjectId,
@@ -615,7 +692,18 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.OrderServices;
             else
-                ret = Context.OrderServices.FromSqlRaw($"SELECT * FROM Order_Service {clause}", parameters.ToArray());
+                ret = Context.OrderServices.FromSqlRaw($"SELECT * FROM Order_Service WITH(NOLOCK) {clause}", parameters.ToArray());
+
+            return ret;
+        }
+        private IEnumerable<OrderProduct> SearchOrderProduct(string clause, List<SqlParameter> parameters)
+        {
+            IEnumerable<OrderProduct> ret;
+
+            if (string.IsNullOrWhiteSpace(clause))
+                ret = Context.OrderProducts;
+            else
+                ret = Context.OrderProducts.FromSqlRaw($"SELECT * FROM Order_Product WITH(NOLOCK) {clause}", parameters.ToArray());
 
             return ret;
         }
@@ -626,7 +714,7 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.PaymentSummaries;
             else
-                ret = Context.PaymentSummaries.FromSqlRaw($"SELECT * FROM [Payment_Summary] {clause}", parameters.ToArray());
+                ret = Context.PaymentSummaries.FromSqlRaw($"SELECT * FROM [Payment_Summary] WITH(NOLOCK) {clause}", parameters.ToArray());
 
             return ret;
         }
@@ -639,7 +727,7 @@ namespace BeautyHall.DAL.DB
                     .Include(x => x.Supplier)
                     .Include(x => x.Stock);
             else
-                ret = Context.Products.FromSqlRaw($"SELECT * FROM Product {clause}", parameters.ToArray())
+                ret = Context.Products.FromSqlRaw($"SELECT * FROM Product WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.Supplier)
                     .Include(x => x.Stock);
 
@@ -654,7 +742,7 @@ namespace BeautyHall.DAL.DB
                 ret = Context.Categories
                     .Include(x => x.Services).ThenInclude(x => x.Employees);
             else
-                ret = Context.Categories.FromSqlRaw($"SELECT * FROM Category {clause}", parameters.ToArray())
+                ret = Context.Categories.FromSqlRaw($"SELECT * FROM Category WITH(NOLOCK) {clause}", parameters.ToArray())
                     .Include(x => x.Services).ThenInclude(x => x.Employees); ;
 
             return ret;
@@ -666,7 +754,7 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.Services.AsNoTracking().Include(x => x.Employees).Include(x => x.Category);
             else
-                ret = Context.Services.FromSqlRaw($"SELECT * FROM Service {clause}", parameters.ToArray()).AsNoTracking().Include(x => x.Employees).Include(x => x.Category);
+                ret = Context.Services.FromSqlRaw($"SELECT * FROM Service WITH(NOLOCK) {clause}", parameters.ToArray()).AsNoTracking().Include(x => x.Employees).Include(x => x.Category);
 
             return ret;
         }
@@ -677,7 +765,7 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.Stocks;
             else
-                ret = Context.Stocks.FromSqlRaw($"SELECT * FROM Stock {clause}", parameters.ToArray());
+                ret = Context.Stocks.FromSqlRaw($"SELECT * FROM Stock WITH(NOLOCK) {clause}", parameters.ToArray());
 
             return ret;
         }
@@ -797,6 +885,58 @@ namespace BeautyHall.DAL.DB
                 Context.OrderServices.Add(input);
 
             return Context.SaveChanges() > 0;
+        }
+
+        private bool UpSertOrderProduct(OrderProduct input)
+        {
+            bool ret = false;
+            using (var scope = new TransactionScope())
+            {
+                decimal productStockDelta = 0;
+                if (Context.OrderProducts.Any(item => item.OrderId == input.OrderId && item.ProductId == input.ProductId))
+                {
+                    var item = Context.OrderProducts.First(item => item.OrderId == input.OrderId && item.ProductId == input.ProductId);
+
+                    productStockDelta = input.ProductQuantity - item.ProductQuantity;
+                    item.TotalPrice = input.TotalPrice;
+                    item.ProductQuantity = input.ProductQuantity;
+                    Context.OrderProducts.Update(item);
+                }
+                else
+                {
+                    productStockDelta = input.ProductQuantity;
+                    Context.OrderProducts.Add(input);
+                }
+
+                ret = Context.SaveChanges() > 0;
+
+                if (ret)
+                {
+                    var stocks = Search<Stock>(new List<FilterSetting>
+                    {
+                        new FilterSetting { Comparisation = ECompareType.Equal, Key = "ProductId", Value = input.ProductId }
+                    }).ToList();
+
+                    if (stocks.Count == 1)
+                    {
+                        var stock = (Stock)stocks.First();
+                        stock.Quantity -= productStockDelta;
+                        Context.Stocks.Update(stock);
+                        ret = Context.SaveChanges() > 0;
+                    }
+                }
+
+                if (ret)
+                {
+                    scope.Complete();
+                }
+                else
+                {
+                    scope.Dispose();
+                }
+            }
+
+            return ret;
         }
 
         private bool UpSertPaymentSummary(PaymentSummary input)
