@@ -296,7 +296,6 @@ namespace BSMS.Winforms.Forms
         {
             DataTable dtP = new();
             dtP.Columns.Add("OrderId");
-            dtP.Columns.Add("ProductId");
             dtP.Columns.Add("ProductCode");
             dtP.Columns.Add("ProductDescription");
             dtP.Columns.Add("ProductQuantity");
@@ -309,7 +308,6 @@ namespace BSMS.Winforms.Forms
                     {
                         dtP.Rows.Add(
                             p.OrderId,
-                            p.ProductId,
                             p.Product?.ProductCode,
                             p.Product?.ProductDescription,
                             p.ProductQuantity,

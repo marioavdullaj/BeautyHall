@@ -35,7 +35,6 @@ namespace BSMS.Winforms.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderHistoryForm));
             grvProducts = new DevExpress.XtraGrid.Views.Grid.GridView();
             colOrderId = new DevExpress.XtraGrid.Columns.GridColumn();
-            colProductId = new DevExpress.XtraGrid.Columns.GridColumn();
             colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
             colProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             colProductQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,6 +51,7 @@ namespace BSMS.Winforms.Forms
             colPayed = new DevExpress.XtraGrid.Columns.GridColumn();
             repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             colDiscountedPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            colDiscountPercentage = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -72,7 +72,6 @@ namespace BSMS.Winforms.Forms
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             orderSummaryBindingSource = new BindingSource(components);
             orderSummaryBindingSource1 = new BindingSource(components);
-            colDiscountPercentage = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)grvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grOrders).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grvOrders).BeginInit();
@@ -91,10 +90,11 @@ namespace BSMS.Winforms.Forms
             // 
             // grvProducts
             // 
-            grvProducts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colOrderId, colProductId, colProductCode, colProductDescription, colProductQuantity, colTotalPriceProduct });
+            grvProducts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colOrderId, colProductCode, colProductDescription, colProductQuantity, colTotalPriceProduct });
             grvProducts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             grvProducts.GridControl = grOrders;
             grvProducts.Name = "grvProducts";
+            grvProducts.OptionsView.ColumnAutoWidth = false;
             grvProducts.OptionsView.EnableAppearanceEvenRow = true;
             grvProducts.OptionsView.ShowGroupPanel = false;
             // 
@@ -106,14 +106,6 @@ namespace BSMS.Winforms.Forms
             colOrderId.Name = "colOrderId";
             colOrderId.Width = 94;
             // 
-            // colProductId
-            // 
-            colProductId.Caption = "Product Id";
-            colProductId.FieldName = "ProductId";
-            colProductId.MinWidth = 25;
-            colProductId.Name = "colProductId";
-            colProductId.Width = 94;
-            // 
             // colProductCode
             // 
             colProductCode.Caption = "Product Code";
@@ -122,7 +114,7 @@ namespace BSMS.Winforms.Forms
             colProductCode.Name = "colProductCode";
             colProductCode.Visible = true;
             colProductCode.VisibleIndex = 0;
-            colProductCode.Width = 94;
+            colProductCode.Width = 160;
             // 
             // colProductDescription
             // 
@@ -132,7 +124,7 @@ namespace BSMS.Winforms.Forms
             colProductDescription.Name = "colProductDescription";
             colProductDescription.Visible = true;
             colProductDescription.VisibleIndex = 1;
-            colProductDescription.Width = 94;
+            colProductDescription.Width = 260;
             // 
             // colProductQuantity
             // 
@@ -292,6 +284,16 @@ namespace BSMS.Winforms.Forms
             colDiscountedPrice.Visible = true;
             colDiscountedPrice.VisibleIndex = 8;
             colDiscountedPrice.Width = 94;
+            // 
+            // colDiscountPercentage
+            // 
+            colDiscountPercentage.Caption = "Discount";
+            colDiscountPercentage.FieldName = "DiscountPercentage";
+            colDiscountPercentage.MinWidth = 25;
+            colDiscountPercentage.Name = "colDiscountPercentage";
+            colDiscountPercentage.Visible = true;
+            colDiscountPercentage.VisibleIndex = 9;
+            colDiscountPercentage.Width = 94;
             // 
             // colTotalCash
             // 
@@ -454,16 +456,6 @@ namespace BSMS.Winforms.Forms
             // 
             orderSummaryBindingSource1.DataSource = typeof(Models.OrderSummary);
             // 
-            // colDiscountPercentage
-            // 
-            colDiscountPercentage.Caption = "Discount";
-            colDiscountPercentage.FieldName = "DiscountPercentage";
-            colDiscountPercentage.MinWidth = 25;
-            colDiscountPercentage.Name = "colDiscountPercentage";
-            colDiscountPercentage.Visible = true;
-            colDiscountPercentage.VisibleIndex = 9;
-            colDiscountPercentage.Width = 94;
-            // 
             // OrderHistoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -533,7 +525,6 @@ namespace BSMS.Winforms.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colProductQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPriceProduct;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderId;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductId;
         private DevExpress.XtraGrid.Columns.GridColumn colDiscountPercentage;
     }
 }
