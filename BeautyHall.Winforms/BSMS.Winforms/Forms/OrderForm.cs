@@ -497,6 +497,8 @@ namespace BSMS.Winforms.Forms
 
         private async void addProductButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            // refresh products
+            products = await Program.ApiSdk.GetAllProducts();
             var addProductForm = new AddProductOrderForm(products);
             if (addProductForm.ShowDialog() == DialogResult.OK)
             {

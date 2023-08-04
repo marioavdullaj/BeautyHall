@@ -1,24 +1,22 @@
 ﻿using BeautyHall.Api.SDK.Responses;
 using BSMS.Winforms.Models;
 using DevExpress.XtraBars;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid;
 using System.Data;
 using DevExpress.XtraGrid.Views.Grid;
 using BSMS.Winforms.GenericUtils;
-using DevExpress.XtraRichEdit.UI;
 using BSMS.Winforms.Utils;
 
 namespace BSMS.Winforms.Forms
 {
     public partial class OrderHistoryForm : FixedRibbonForm
     {
-
+        DataSet ds;
         private IEnumerable<Order>? orders;
         public OrderHistoryForm()
         {
             InitializeComponent();
+            ds = new();
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
@@ -33,22 +31,47 @@ namespace BSMS.Winforms.Forms
 
         private async Task Reload()
         {
-            orders = await Program.ApiSdk.GetOrders((DateTime)dateFrom.EditValue, (DateTime)dateTo.EditValue);
-            grOrders.DataSource = orders?.Select(x => new OrderSummary
+            try
             {
-                Id = x.OrderId,
-                Date = x.OrderDate,
-                CustomerFullName = x.Customer != null ? $"{x.Customer.SubjectLastName} {x.Customer.SubjectName}" : "",
-                Notes = x.Notes,
-                TotalPrice = x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice),
-                DiscountedPrice = x.PaymentSummaries.FirstOrDefault()?.DiscountedPrice ?? 0,
-                TotalPOS = x.PaymentSummaries.FirstOrDefault()?.TotalPOS ?? 0,
-                TotalCash = x.PaymentSummaries.FirstOrDefault()?.TotalCash ?? 0,
-                Payed = x.PaymentSummaries != null && x.PaymentSummaries.Count() > 0,
-                ProductsInOrder = string.Join(", ", x.OrderProducts?.Select(x => x.Product?.ProductCode).Distinct())
-            });
+                ClearData();
+                DataRelation dRel;
+                orders = await Program.ApiSdk.GetOrders((DateTime)dateFrom.EditValue, (DateTime)dateTo.EditValue);
+                var orderSummary = orders?.Select(x => new OrderSummary
+                {
+                    Id = x.OrderId,
+                    Date = x.OrderDate,
+                    CustomerFullName = x.Customer != null ? $"{x.Customer.SubjectLastName} {x.Customer.SubjectName}" : "",
+                    Notes = x.Notes,
+                    TotalPrice = x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice),
+                    DiscountedPrice = x.PaymentSummaries.FirstOrDefault()?.DiscountedPrice ?? 0,
+                    TotalPOS = x.PaymentSummaries.FirstOrDefault()?.TotalPOS ?? 0,
+                    TotalCash = x.PaymentSummaries.FirstOrDefault()?.TotalCash ?? 0,
+                    Payed = x.PaymentSummaries != null && x.PaymentSummaries.Any(),
+                    ProductsInOrder = x.OrderProducts,
+                    ExistProductsInOrder = x.OrderProducts != null && x.OrderProducts.Any(),
+                    DiscountPercentage = (x.PaymentSummaries == null || !x.PaymentSummaries.Any()) ? "" : $"{(1 - (x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice) > 0 ? ((x.PaymentSummaries?.FirstOrDefault()?.DiscountedPrice ?? 0) / (x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice))) : 1)):P}"
+                });
 
-            SetCheckboxEdit<bool>(grOrders, "Payed", true, false);
+                var dt1 = OrderSummaryToDataTable(orderSummary);
+                dt1.TableName = "OrderSummary";
+                ds.Tables.Add(dt1);
+
+                var dt2 = OrderProductToDataTable(orderSummary?.Where(x => x.ExistProductsInOrder ?? false).First()?.ProductsInOrder);
+                dt2.TableName = "OrderProducts";
+                ds.Tables.Add(dt2);
+
+                if (dt1.Rows.Count > 0 && dt2.Rows.Count > 0)
+                {
+                    dRel = new("Products in order", dt1.Columns["Id"], dt2.Columns["OrderId"]);
+                    ds.Relations.Add(dRel);
+                }
+                grOrders.DataSource = dt1;
+                grOrders.Refresh();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void grOrders_Load(object sender, EventArgs e)
@@ -83,19 +106,7 @@ namespace BSMS.Winforms.Forms
         {
             await Reload();
         }
-
-        private void grvOrders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
-        {
-            /*
-            var selectedRow = e.ControllerRow;
-            grvOrders.SelectionChanged -= grvOrders_SelectionChanged;
-            foreach (var row in grvOrders.GetSelectedRows())
-                if (row != selectedRow)
-                    grvOrders.UnselectRow(row);
-            grvOrders.SelectionChanged += grvOrders_SelectionChanged;
-            */
-        }
-
+        private void grvOrders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e) { }
         private async void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
@@ -207,37 +218,131 @@ namespace BSMS.Winforms.Forms
             return PrintUtils.GenerateReportsFile(reports.ToArray(), Program.OrderReportPath, fileName);
         }
 
-
-
-        private void SetCheckboxEdit<T>(GridControl grid, string colName, T checkedValue, T uncheckedValue, EventHandler ev = null)
+        private void grvOrders_MasterRowExpanding(object sender, MasterRowCanExpandEventArgs e)
         {
             try
             {
-                RepositoryItemCheckEdit rce = new RepositoryItemCheckEdit();
+                DataRow dr = grvOrders.GetDataRow(e.RowHandle);
+                DataTable dtTmp;
+                int idOrder;
 
-                DevExpress.XtraGrid.Columns.GridColumn col = ((GridView)grid.Views.First()).Columns[colName];
+                if (dr != null)
+                {
+                    idOrder = Convert.ToInt32(dr["Id"]);
+                    DataTable dtProduct = new();
+                    dtProduct.Columns.Add("VAL", typeof(Int32));
+                    DataRow row = dtProduct.NewRow();
+                    row["VAL"] = idOrder;
+                    dtProduct.Rows.Add(row);
 
-                ((System.ComponentModel.ISupportInitialize)(rce)).BeginInit();
+                    grvProducts.ViewCaption = "Products in order";
+                    dtTmp = OrderProductToDataTable(orders?.Where(x => x.OrderId == idOrder).First()?.OrderProducts);
 
-                grid.RepositoryItems.AddRange(new RepositoryItem[] { rce });
-                col.ColumnEdit = rce;
-
-                rce.Name = "riChk" + col.FieldName;
-                rce.ValueChecked = checkedValue;
-                rce.ValueUnchecked = uncheckedValue;
-                rce.ValueGrayed = DBNull.Value;
-
-                if (ev != null)
-                    rce.DoubleClick += ev;
-
-                ((System.ComponentModel.ISupportInitialize)(rce)).EndInit();
+                    ds.Tables["OrderProducts"].Clear();
+                    ds.Tables["OrderProducts"].Merge(dtTmp);
+                }
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
+        private DataTable OrderSummaryToDataTable(IEnumerable<OrderSummary>? orders)
+        {
+            DataTable dtO = new();
+            dtO.Columns.Add("Id");
+            dtO.Columns.Add("CustomerFullName");
+            dtO.Columns.Add("Date");
+            dtO.Columns.Add("Notes");
+            dtO.Columns.Add("ExistProductsInOrder", typeof(bool));
+            dtO.Columns.Add("TotalPrice");
+            dtO.Columns.Add("Payed", typeof(bool));
+            dtO.Columns.Add("DiscountedPrice");
+            dtO.Columns.Add("DiscountPercentage");
+            dtO.Columns.Add("TotalCash");
+            dtO.Columns.Add("TotalPOS");
+
+            try
+            {
+                if (orders != null && orders.Any())
+                {
+                    foreach (var o in orders)
+                    {
+                        dtO.Rows.Add(
+                            o.Id,
+                            o.CustomerFullName,
+                            o.Date,
+                            o.Notes,
+                            o.ExistProductsInOrder,
+                            o.TotalPrice,
+                            o.Payed,
+                            o.DiscountedPrice,
+                            o.DiscountPercentage,
+                            o.TotalCash,
+                            o.TotalPOS);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            return dtO;
+        }
+
+        private DataTable OrderProductToDataTable(IEnumerable<OrderProduct>? products)
+        {
+            DataTable dtP = new();
+            dtP.Columns.Add("OrderId");
+            dtP.Columns.Add("ProductId");
+            dtP.Columns.Add("ProductCode");
+            dtP.Columns.Add("ProductDescription");
+            dtP.Columns.Add("ProductQuantity");
+            dtP.Columns.Add("TotalPrice");
+            try
+            {
+                if (products != null && products.Any())
+                {
+                    foreach (var p in products)
+                    {
+                        dtP.Rows.Add(
+                            p.OrderId,
+                            p.ProductId,
+                            p.Product?.ProductCode,
+                            p.Product?.ProductDescription,
+                            p.ProductQuantity,
+                            p.TotalPrice);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+
+            return dtP;
+        }
+        public void ClearData()
+        {
+            try
+            {
+                ds.Relations.Clear();
+
+                foreach (DataTable dt in ds.Tables)
+                {
+                    dt.Constraints.Clear();
+                }
+
+                ds.Tables.Clear();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+        }
 
     }
 }

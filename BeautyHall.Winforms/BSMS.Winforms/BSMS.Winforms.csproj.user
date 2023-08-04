@@ -11,9 +11,6 @@
     <Compile Update="Forms\DailySummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\OrderHistoryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -21,6 +18,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\OrderHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PaymentSummaryForm.cs">
