@@ -56,11 +56,11 @@ namespace BSMS.Winforms.Forms
                 dt1.TableName = "OrderSummary";
                 ds.Tables.Add(dt1);
 
-                var dt2 = OrderProductToDataTable(orderSummary?.Where(x => x.ExistProductsInOrder ?? false).First()?.ProductsInOrder);
+                var dt2 = OrderProductToDataTable(null);
                 dt2.TableName = "OrderProducts";
                 ds.Tables.Add(dt2);
 
-                if (dt1.Rows.Count > 0 && dt2.Rows.Count > 0)
+                if (dt1.Rows.Count > 0)
                 {
                     dRel = new("Products in order", dt1.Columns["Id"], dt2.Columns["OrderId"]);
                     ds.Relations.Add(dRel);
@@ -68,9 +68,9 @@ namespace BSMS.Winforms.Forms
                 grOrders.DataSource = dt1;
                 grOrders.Refresh();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
