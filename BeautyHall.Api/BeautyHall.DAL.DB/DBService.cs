@@ -714,7 +714,7 @@ namespace BeautyHall.DAL.DB
             if (string.IsNullOrWhiteSpace(clause))
                 ret = Context.PaymentSummaries;
             else
-                ret = Context.PaymentSummaries.FromSqlRaw($"SELECT * FROM [Payment_Summary] WITH(NOLOCK) {clause}", parameters.ToArray());
+                ret = Context.PaymentSummaries.FromSqlRaw($"SELECT [Payment_Summary].* FROM [Payment_Summary] LEFT JOIN [Order] WITH(NOLOCK) ON [Order].OrderId = [Payment_Summary].OrderId {clause}", parameters.ToArray());
 
             return ret;
         }

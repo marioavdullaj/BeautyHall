@@ -54,6 +54,10 @@ namespace BSMS.Winforms.Forms
                     }
                     orderSummaryGridControl.DataSource = orderSummaries;
                 }
+                else
+                {
+                    orderSummaryGridControl.DataSource = null;
+                }
             }
             catch (Exception ex)
             {

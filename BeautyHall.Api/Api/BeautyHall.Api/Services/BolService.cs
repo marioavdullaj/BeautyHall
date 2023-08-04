@@ -370,7 +370,7 @@ namespace BeautyHall.Api.DB.Services
             };
             var p = DbService.Search<PaymentSummary>(new List<FilterSetting>
             {
-                new FilterSetting{Comparisation = ECompareType.SameDay, Key = "PaymentDate", Value=date }
+                new FilterSetting{Comparisation = ECompareType.SameDay, Key = "OrderDate", Value=date }
             });
             if (p != null)
             {
