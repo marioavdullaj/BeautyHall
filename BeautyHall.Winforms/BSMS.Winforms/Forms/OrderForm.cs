@@ -370,14 +370,15 @@ namespace BSMS.Winforms.Forms
             }
         }
 
-        private async Task<bool> SaveOrder(bool alertSaved = true)
+        private async Task<bool> SaveOrder(bool alertSaved = true, bool showErrors = true)
         {
             try
             {
                 var selectedCustomer = subjects?.Where(x => x.SubjectId == GenericUtils.Functions.NullToInt(lookUpEdit1.EditValue)).FirstOrDefault();
                 if (selectedCustomer == null)
                 {
-                    XtraMessageBox.Show("Επιλογή Πελάτη", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if(showErrors)
+                        XtraMessageBox.Show("Επιλογή Πελάτη", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
@@ -405,7 +406,8 @@ namespace BSMS.Winforms.Forms
                 var savedOrder = await Program.ApiSdk.UpsertOrder(updateOrder);
                 if (savedOrder == null)
                 {
-                    XtraMessageBox.Show("Error during the update of the order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(showErrors)
+                        XtraMessageBox.Show("Error during the update of the order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else
@@ -418,7 +420,8 @@ namespace BSMS.Winforms.Forms
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(showErrors)
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return true;
         }
@@ -520,7 +523,7 @@ namespace BSMS.Winforms.Forms
             // while the form is closing, we save the order not to lose our work
             try
             {
-                await SaveOrder(alertSaved: false);
+                await SaveOrder(alertSaved: false, showErrors:false);
             }
             catch { }
         }
