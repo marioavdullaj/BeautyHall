@@ -72,6 +72,7 @@ namespace BSMS.Winforms.Forms
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             orderSummaryBindingSource = new BindingSource(components);
             orderSummaryBindingSource1 = new BindingSource(components);
+            barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)grvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grOrders).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grvOrders).BeginInit();
@@ -326,9 +327,9 @@ namespace BSMS.Winforms.Forms
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5, barButtonItem6 });
             ribbon.Location = new Point(0, 0);
-            ribbon.MaxItemId = 9;
+            ribbon.MaxItemId = 10;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo, repositoryItemDateEdit1 });
@@ -420,6 +421,7 @@ namespace BSMS.Winforms.Forms
             ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
             ribbonPageGroup1.ItemLinks.Add(barButtonItem3);
             ribbonPageGroup1.ItemLinks.Add(barButtonItem5);
+            ribbonPageGroup1.ItemLinks.Add(barButtonItem6);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPageGroup3
@@ -455,6 +457,14 @@ namespace BSMS.Winforms.Forms
             // orderSummaryBindingSource1
             // 
             orderSummaryBindingSource1.DataSource = typeof(Models.OrderSummary);
+            // 
+            // barButtonItem6
+            // 
+            barButtonItem6.Caption = "Export Grid";
+            barButtonItem6.Id = 9;
+            barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
+            barButtonItem6.Name = "barButtonItem6";
+            barButtonItem6.ItemClick += barButtonItem6_ItemClick;
             // 
             // OrderHistoryForm
             // 
@@ -526,5 +536,6 @@ namespace BSMS.Winforms.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPriceProduct;
         private DevExpress.XtraGrid.Columns.GridColumn colOrderId;
         private DevExpress.XtraGrid.Columns.GridColumn colDiscountPercentage;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
     }
 }

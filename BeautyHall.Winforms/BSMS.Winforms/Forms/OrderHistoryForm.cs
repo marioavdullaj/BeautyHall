@@ -342,5 +342,12 @@ namespace BSMS.Winforms.Forms
             }
         }
 
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            grvOrders.OptionsPrint.ExpandAllDetails = false;
+            grvOrders.ShowRibbonPrintPreview();
+            grvOrders.ExportToPdf("List View.pdf");
+            grvOrders.OptionsView.ShowViewCaption = false;
+        }
     }
 }
