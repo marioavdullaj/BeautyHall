@@ -151,7 +151,7 @@ namespace BSMS.Winforms.Forms
                         selectedOrders.Add(selectedOrder);
                     }
                 }
-                //DateTime selectedDate = new DateTime(2023, 4, 4);
+
                 DateTime minDate = DateTime.MaxValue;
                 DateTime maxDate = DateTime.MinValue;
                 foreach (var selectedOrder in selectedOrders)
