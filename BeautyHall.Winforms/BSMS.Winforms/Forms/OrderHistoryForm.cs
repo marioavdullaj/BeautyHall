@@ -40,7 +40,7 @@ namespace BSMS.Winforms.Forms
                 Date = x.OrderDate,
                 CustomerFullName = x.Customer != null ? $"{x.Customer.SubjectLastName} {x.Customer.SubjectName}" : "",
                 Notes = x.Notes,
-                TotalPrice = x.OrderServices?.Sum(x => x.ServicePrice) ?? 0,
+                TotalPrice = x.OrderServices?.Sum(x => x.ServicePrice) ?? 0 + x.OrderProducts?.Sum(x => x.TotalPrice)??0,
                 DiscountedPrice = x.PaymentSummaries.FirstOrDefault()?.DiscountedPrice ?? 0,
                 TotalPOS = x.PaymentSummaries.FirstOrDefault()?.TotalPOS ?? 0,
                 TotalCash = x.PaymentSummaries.FirstOrDefault()?.TotalCash ?? 0,
