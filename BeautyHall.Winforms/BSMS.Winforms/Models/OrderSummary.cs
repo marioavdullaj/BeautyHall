@@ -6,6 +6,7 @@
         public string? CustomerFullName { get; set; }
         public DateTime Date { get; set; }
         public string? Notes { get; set; }
+        public string? ProductsInOrder { get; set; }
         public decimal? TotalPrice { get; set; }
         public bool Payed { get; set; }
         public decimal? DiscountedPrice { get; set; }

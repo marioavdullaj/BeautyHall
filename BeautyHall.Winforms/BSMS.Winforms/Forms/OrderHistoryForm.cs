@@ -44,7 +44,8 @@ namespace BSMS.Winforms.Forms
                 DiscountedPrice = x.PaymentSummaries.FirstOrDefault()?.DiscountedPrice ?? 0,
                 TotalPOS = x.PaymentSummaries.FirstOrDefault()?.TotalPOS ?? 0,
                 TotalCash = x.PaymentSummaries.FirstOrDefault()?.TotalCash ?? 0,
-                Payed = x.PaymentSummaries != null && x.PaymentSummaries.Count() > 0
+                Payed = x.PaymentSummaries != null && x.PaymentSummaries.Count() > 0,
+                ProductsInOrder = string.Join(", ", x.OrderProducts?.Select(x => x.Product?.ProductCode).Distinct())
             });
 
             SetCheckboxEdit<bool>(grOrders, "Payed", true, false);

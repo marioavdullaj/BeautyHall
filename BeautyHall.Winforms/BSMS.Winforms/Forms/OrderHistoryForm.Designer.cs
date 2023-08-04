@@ -59,6 +59,7 @@
             colDiscountedPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
+            colProductsInOrder = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
@@ -217,7 +218,7 @@
             // 
             // grvOrders
             // 
-            grvOrders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colCustomerFullName, colDate, colNotes, colTotalPrice, colPayed, colDiscountedPrice, colTotalCash, colTotalPOS });
+            grvOrders.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colCustomerFullName, colDate, colNotes, colProductsInOrder, colTotalPrice, colPayed, colDiscountedPrice, colTotalCash, colTotalPOS });
             grvOrders.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             grvOrders.GridControl = grOrders;
             grvOrders.Name = "grvOrders";
@@ -288,7 +289,7 @@
             colPayed.MinWidth = 25;
             colPayed.Name = "colPayed";
             colPayed.Visible = true;
-            colPayed.VisibleIndex = 6;
+            colPayed.VisibleIndex = 7;
             colPayed.Width = 94;
             // 
             // repositoryItemCheckEdit1
@@ -332,8 +333,18 @@
             colTotalPOS.MinWidth = 25;
             colTotalPOS.Name = "colTotalPOS";
             colTotalPOS.Visible = true;
-            colTotalPOS.VisibleIndex = 9;
+            colTotalPOS.VisibleIndex = 10;
             colTotalPOS.Width = 94;
+            // 
+            // colProductsInOrder
+            // 
+            colProductsInOrder.Caption = "Products in order";
+            colProductsInOrder.FieldName = "ProductsInOrder";
+            colProductsInOrder.MinWidth = 25;
+            colProductsInOrder.Name = "colProductsInOrder";
+            colProductsInOrder.Visible = true;
+            colProductsInOrder.VisibleIndex = 5;
+            colProductsInOrder.Width = 94;
             // 
             // OrderHistoryForm
             // 
@@ -392,5 +403,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colProductsInOrder;
     }
 }
