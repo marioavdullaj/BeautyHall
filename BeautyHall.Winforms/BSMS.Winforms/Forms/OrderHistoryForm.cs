@@ -156,7 +156,7 @@ namespace BSMS.Winforms.Forms
                 DateTime maxDate = DateTime.MinValue;
                 foreach (var selectedOrder in selectedOrders)
                 {
-                    if (minDate < selectedOrder?.OrderDate)
+                    if (minDate > selectedOrder?.OrderDate)
                         minDate = selectedOrder.OrderDate;
 
                     if (maxDate < selectedOrder?.OrderDate)
