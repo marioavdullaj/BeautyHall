@@ -109,7 +109,7 @@ namespace BSMS
 
         private void productAccordionItem_Click(object sender, EventArgs e)
         {
-
+            ShowForm(new ProductForm());
         }
 
         private void accordionControlElement5_Click(object sender, EventArgs e)

@@ -44,9 +44,9 @@
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ClientHeaderPanel = new DevExpress.XtraEditors.PanelControl();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            labelControl3 = new DevExpress.XtraEditors.LabelControl();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
             textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            labelControl3 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             textEdit4 = new DevExpress.XtraEditors.TextEdit();
             textEdit3 = new DevExpress.XtraEditors.TextEdit();
@@ -202,17 +202,6 @@
             labelControl5.TabIndex = 8;
             labelControl5.Text = "ClientId:";
             // 
-            // labelControl3
-            // 
-            labelControl3.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(21, 82);
-            labelControl3.Margin = new Padding(4, 2, 4, 2);
-            labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(38, 21);
-            labelControl3.TabIndex = 2;
-            labelControl3.Text = "Τηλ.:";
-            // 
             // panelControl2
             // 
             panelControl2.Controls.Add(textEdit5);
@@ -223,20 +212,33 @@
             panelControl2.Controls.Add(labelControl2);
             panelControl2.Controls.Add(textEdit1);
             panelControl2.Controls.Add(labelControl1);
-            panelControl2.Location = new Point(322, 2);
+            panelControl2.Location = new Point(310, 2);
             panelControl2.Margin = new Padding(4, 2, 4, 2);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(774, 126);
+            panelControl2.Size = new Size(1039, 126);
             panelControl2.TabIndex = 12;
             // 
             // textEdit5
             // 
-            textEdit5.Location = new Point(486, 83);
+            textEdit5.Location = new Point(486, 81);
             textEdit5.Margin = new Padding(4, 2, 4, 2);
             textEdit5.MenuManager = ribbon;
             textEdit5.Name = "textEdit5";
-            textEdit5.Size = new Size(216, 22);
+            textEdit5.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit5.Properties.Appearance.Options.UseFont = true;
+            textEdit5.Size = new Size(216, 24);
             textEdit5.TabIndex = 3;
+            // 
+            // labelControl3
+            // 
+            labelControl3.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl3.Appearance.Options.UseFont = true;
+            labelControl3.Location = new Point(21, 82);
+            labelControl3.Margin = new Padding(4, 2, 4, 2);
+            labelControl3.Name = "labelControl3";
+            labelControl3.Size = new Size(38, 21);
+            labelControl3.TabIndex = 2;
+            labelControl3.Text = "Τηλ.:";
             // 
             // labelControl4
             // 
@@ -251,11 +253,13 @@
             // 
             // textEdit4
             // 
-            textEdit4.Location = new Point(148, 83);
+            textEdit4.Location = new Point(148, 81);
             textEdit4.Margin = new Padding(4, 2, 4, 2);
             textEdit4.MenuManager = ribbon;
             textEdit4.Name = "textEdit4";
-            textEdit4.Size = new Size(216, 22);
+            textEdit4.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit4.Properties.Appearance.Options.UseFont = true;
+            textEdit4.Size = new Size(216, 24);
             textEdit4.TabIndex = 2;
             // 
             // textEdit3
@@ -264,7 +268,9 @@
             textEdit3.Margin = new Padding(4, 2, 4, 2);
             textEdit3.MenuManager = ribbon;
             textEdit3.Name = "textEdit3";
-            textEdit3.Size = new Size(216, 22);
+            textEdit3.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit3.Properties.Appearance.Options.UseFont = true;
+            textEdit3.Size = new Size(216, 24);
             textEdit3.TabIndex = 1;
             // 
             // labelControl2
@@ -280,18 +286,20 @@
             // 
             // textEdit1
             // 
-            textEdit1.Location = new Point(148, 26);
+            textEdit1.Location = new Point(148, 24);
             textEdit1.Margin = new Padding(4, 2, 4, 2);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(216, 22);
+            textEdit1.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit1.Properties.Appearance.Options.UseFont = true;
+            textEdit1.Size = new Size(216, 24);
             textEdit1.TabIndex = 0;
             // 
             // labelControl1
             // 
             labelControl1.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new Point(21, 25);
+            labelControl1.Location = new Point(21, 23);
             labelControl1.Margin = new Padding(4, 2, 4, 2);
             labelControl1.Name = "labelControl1";
             labelControl1.Size = new Size(75, 21);
@@ -306,46 +314,46 @@
             panelControl3.Location = new Point(0, 2);
             panelControl3.Margin = new Padding(4, 2, 4, 2);
             panelControl3.Name = "panelControl3";
-            panelControl3.Size = new Size(322, 126);
+            panelControl3.Size = new Size(302, 126);
             panelControl3.TabIndex = 13;
             // 
             // textEdit2
             // 
             textEdit2.EditValue = "0";
             textEdit2.Enabled = false;
-            textEdit2.Location = new Point(105, 18);
+            textEdit2.Location = new Point(105, 22);
             textEdit2.Margin = new Padding(4, 2, 4, 2);
             textEdit2.MenuManager = ribbon;
             textEdit2.Name = "textEdit2";
-            textEdit2.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            textEdit2.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             textEdit2.Properties.Appearance.Options.UseFont = true;
-            textEdit2.Size = new Size(186, 28);
+            textEdit2.Size = new Size(186, 24);
             textEdit2.TabIndex = 11;
             // 
             // dateEdit1
             // 
             dateEdit1.EditValue = null;
-            dateEdit1.Location = new Point(105, 82);
+            dateEdit1.Location = new Point(105, 81);
             dateEdit1.Margin = new Padding(4);
             dateEdit1.MenuManager = ribbon;
             dateEdit1.Name = "dateEdit1";
-            dateEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            dateEdit1.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dateEdit1.Properties.Appearance.Options.UseFont = true;
             dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            dateEdit1.Size = new Size(186, 28);
+            dateEdit1.Size = new Size(186, 24);
             dateEdit1.TabIndex = 9;
             // 
             // labelControl6
             // 
             labelControl6.Appearance.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(6, 90);
+            labelControl6.Location = new Point(6, 82);
             labelControl6.Margin = new Padding(4);
             labelControl6.Name = "labelControl6";
-            labelControl6.Size = new Size(91, 21);
+            labelControl6.Size = new Size(65, 21);
             labelControl6.TabIndex = 10;
-            labelControl6.Text = "Insert Date:";
+            labelControl6.Text = "ΗΜ/ΝΙΑ:";
             // 
             // gridControl1
             // 

@@ -329,7 +329,7 @@
             lbTime.Appearance.Options.UseFont = true;
             lbTime.Appearance.Options.UseForeColor = true;
             lbTime.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            lbTime.Location = new Point(483, 9);
+            lbTime.Location = new Point(600, 12);
             lbTime.Name = "lbTime";
             lbTime.Size = new Size(97, 21);
             lbTime.TabIndex = 1;
@@ -344,7 +344,7 @@
             lbDate.Appearance.Options.UseFont = true;
             lbDate.Appearance.Options.UseForeColor = true;
             lbDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            lbDate.Location = new Point(302, 9);
+            lbDate.Location = new Point(302, 11);
             lbDate.Name = "lbDate";
             lbDate.Size = new Size(97, 21);
             lbDate.TabIndex = 0;

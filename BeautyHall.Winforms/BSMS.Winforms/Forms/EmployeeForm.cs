@@ -204,6 +204,6 @@ namespace BSMS.Winforms.Forms
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
-        
+
     }
 }

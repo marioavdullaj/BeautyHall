@@ -472,7 +472,7 @@ namespace BSMS.Winforms.Forms
             };
             if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
             {
-                if (SaveAsFile(exportSaveFileDialog.FileName, includeAllServices: true))
+                if (SaveAsFile(exportSaveFileDialog.FileName, includeAllServices: false))
                 {
                     XtraMessageBox.Show("File saved successfully!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

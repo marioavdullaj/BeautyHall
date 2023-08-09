@@ -503,10 +503,6 @@
             panelControl3.Size = new Size(743, 114);
             panelControl3.TabIndex = 17;
             // 
-            // dateTimeChartRangeControlClient1
-            // 
-            
-            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);

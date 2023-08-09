@@ -87,6 +87,7 @@ namespace BSMS.Winforms.Forms
                 var selected = grvOrders.GetSelectedRows();
                 if (selected != null && selected.Any())
                 {
+                    selected = selected.Select(x => grvOrders.GetDataSourceRowIndex(x)).ToArray();
                     var selectedOrder = orders?.ElementAt(selected[0]);
                     if (selectedOrder != null)
                     {
@@ -113,6 +114,7 @@ namespace BSMS.Winforms.Forms
             {
                 bool result = true;
                 var selectedRows = grvOrders.GetSelectedRows();
+                selectedRows = selectedRows.Select(x => grvOrders.GetDataSourceRowIndex(x)).ToArray();
                 var question = $"Are you sure you wanna delete these {selectedRows.Length} orders?";
                 if (XtraMessageBox.Show(question, "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -153,6 +155,7 @@ namespace BSMS.Winforms.Forms
             try
             {
                 var selectedRows = grvOrders.GetSelectedRows();
+                selectedRows = selectedRows.Select(x => grvOrders.GetDataSourceRowIndex(x)).ToArray();
                 List<Order?> selectedOrders = new();
 
                 foreach (var selectedRow in selectedRows)
@@ -184,7 +187,7 @@ namespace BSMS.Winforms.Forms
 
                 if (DialogResult.OK == exportSaveFileDialog.ShowDialog())
                 {
-                    if (await SaveAsFile(selectedOrders, exportSaveFileDialog.FileName, includeAllServices: true))
+                    if (await SaveAsFile(selectedOrders, exportSaveFileDialog.FileName, includeAllServices: false))
                     {
                         XtraMessageBox.Show("File saved successfully!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
