@@ -44,7 +44,9 @@ namespace BSMS.Winforms.Forms
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedPercentage = GenericUtils.Functions.NullToDecimal(comboBoxEdit1.EditValue);
+            var value = GenericUtils.Functions.NullToDecimal(comboBoxEdit1.EditValue);
+            if (value > 1) value /= 100;
+            var selectedPercentage = value;
             var discountedPrice = PaymentSummary.TotalPrice * (1 - (decimal)selectedPercentage);
 
             textEdit3.EditValueChanged -= textEdit3_EditValueChanged;

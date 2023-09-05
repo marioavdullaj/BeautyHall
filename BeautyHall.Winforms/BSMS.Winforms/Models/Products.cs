@@ -10,10 +10,10 @@ namespace BSMS.Winforms.Models
     {
         public int ProductId { get; set; }
         public string? ProductCode { get; set; }
-        public string? ProductTitle { get; set; }
-        public string? Supplier { get; set; }
+        public string? ProductDescription { get; set; }
+        public string? SupplierId { get; set; }
         public DateTime? ProductRegistrationDate { get; set; }
-        public decimal? Price { get; set; }
+        public decimal? SellingPrice { get; set; }
 
     }
 }

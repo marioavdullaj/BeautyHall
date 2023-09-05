@@ -92,6 +92,7 @@ namespace BeautyHall.Api.SDK.Configuration
         [Description("BeautyHall/Category")]
         ENDPOINT_UPDATE_CATEGORY,
         [Description("BeautyHall/Category/{0}")]
-        ENDPOINT_DELETE_CATEGORY
+        ENDPOINT_DELETE_CATEGORY,
+        ENDPOINT_GET_ALL_STOCKS
     }
 }

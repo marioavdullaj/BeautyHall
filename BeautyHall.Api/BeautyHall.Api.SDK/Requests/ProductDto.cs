@@ -9,5 +9,6 @@
 
         public int? SupplierId { get; set; }
         public decimal? SellingPrice { get; set; }
+        public DateTime? ProductRegistrationDate { get; set; }
     }
 }

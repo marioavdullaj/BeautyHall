@@ -7,13 +7,13 @@ using BSMS.Winforms.Models;
 using BeautyHall.Api.SDK.Requests;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.Native;
+using DevExpress.XtraGrid.Columns;
 
 namespace BSMS.Winforms.Forms
 {
     public partial class CustomerForm : FixedRibbonForm
     {
         private IEnumerable<Subject>? subjects;
-
 
         public CustomerForm()
         {
@@ -54,12 +54,16 @@ namespace BSMS.Winforms.Forms
                         Id = x.SubjectId,
                         Surname = x.SubjectLastName,
                         Name = x.SubjectName,
-                        Tel = x.PhoneNumber,
-                        Email = x.Email
+                        Tel = x.PhoneNumber
+                        
                     });
-
+                    lookUpEdit1.Properties.DataSource = clients;
+                    lookUpEdit1.Properties.DisplayMember = "Surname"; // Adjust property name as needed
+                    lookUpEdit1.Properties.ValueMember = "Id";
                     gridControl1.DataSource = clients;
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -109,7 +113,6 @@ namespace BSMS.Winforms.Forms
             return false;
         }
 
-
         private async void SaveClientButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (await InsertNewClient())
@@ -146,8 +149,9 @@ namespace BSMS.Winforms.Forms
                     textEdit4.EditValue = selectedCustomer.PhoneNumber;
                     textEdit5.EditValue = selectedCustomer.Email;
                     dateEdit1.DateTime = selectedCustomer.RegistrationDate ?? DateTime.MinValue;
+                    lookUpEdit1.EditValue = selectedCustomer;
 
-                    EnableClientButtons(true);
+                    EnableClientButtons(false);
                 }
             }
         }
@@ -204,7 +208,42 @@ namespace BSMS.Winforms.Forms
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
+        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            
+            // Get the selected customer's ID from the lookup edit
+            int selectedCustomerId = (int)lookUpEdit1.EditValue;
 
+            if (subjects != null)
+            {
+                
+                // Filter the subjects collection to find the selected customer
+                var selectedCustomer = subjects.FirstOrDefault(customer => customer.SubjectId == selectedCustomerId);
 
+                if (selectedCustomer != null)
+                {
+                    var selectedCustomerList = new List<Customer> { new Customer
+                    {
+                        Id = selectedCustomer.SubjectId,
+                        Surname = selectedCustomer.SubjectLastName,
+                        Name = selectedCustomer.SubjectName,
+                        Tel = selectedCustomer.PhoneNumber,
+                        Email = selectedCustomer.Email
+                    }};
+                    gridControl1.DataSource = selectedCustomerList;
+
+                    {
+                        textEdit2.EditValue = selectedCustomer.SubjectId;
+                        textEdit1.EditValue = selectedCustomer.SubjectLastName;
+                        textEdit3.EditValue = selectedCustomer.SubjectName;
+                        textEdit4.EditValue = selectedCustomer.PhoneNumber;
+                        textEdit5.EditValue = selectedCustomer.Email;
+                        dateEdit1.DateTime = selectedCustomer.RegistrationDate ?? DateTime.MinValue;
+                    }
+                    
+                }
+            }
+   
+        }
     }
 }

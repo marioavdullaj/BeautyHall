@@ -17,4 +17,6 @@ public class Product
     public Stock? Stock { get; set; }
 
     public Subject? Supplier { get; set; }
+    public DateTime? ProductRegistrationDate { get; set; }
+
 }

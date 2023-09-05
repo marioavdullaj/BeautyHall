@@ -42,46 +42,49 @@
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            txtproductId = new DevExpress.XtraEditors.TextEdit();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             label1 = new Label();
             label6 = new Label();
             label2 = new Label();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            txtStock = new DevExpress.XtraEditors.TextEdit();
+            label7 = new Label();
+            luaProductTitle = new DevExpress.XtraEditors.LookUpEdit();
+            txtProductPrice = new DevExpress.XtraEditors.TextEdit();
+            txtProductCode = new DevExpress.XtraEditors.TextEdit();
+            txtSupplier = new DevExpress.XtraEditors.TextEdit();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             productsBindingSource = new BindingSource(components);
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            colProductId = new DevExpress.XtraGrid.Columns.GridColumn();
-            colProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            colProductTitle = new DevExpress.XtraGrid.Columns.GridColumn();
-            colSupplier = new DevExpress.XtraGrid.Columns.GridColumn();
-            colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            colProductRegistrationDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            ProductId = new DevExpress.XtraGrid.Columns.GridColumn();
+            ProductCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            ProductDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            SupplierId = new DevExpress.XtraGrid.Columns.GridColumn();
+            SellingPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            ProductRegistrationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ProductHeaderPanel = new DevExpress.XtraEditors.PanelControl();
-            txtSupplier = new DevExpress.XtraEditors.TextEdit();
-            txtproductId = new DevExpress.XtraEditors.TextEdit();
-            txtProductCode = new DevExpress.XtraEditors.TextEdit();
-            txtProductPrice = new DevExpress.XtraEditors.TextEdit();
-            luaProductTitle = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
             panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtproductId.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
             panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtStock.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)luaProductTitle.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtProductPrice.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtProductCode.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtSupplier.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProductHeaderPanel).BeginInit();
             ProductHeaderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtSupplier.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtproductId.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtProductCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtProductPrice.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)luaProductTitle.Properties).BeginInit();
             SuspendLayout();
             // 
             // ribbon
@@ -92,7 +95,7 @@
             ribbon.MaxItemId = 7;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
-            ribbon.Size = new Size(1168, 193);
+            ribbon.Size = new Size(1328, 193);
             ribbon.StatusBar = ribbonStatusBar;
             // 
             // barAddProduct
@@ -109,6 +112,7 @@
             barSaveProduct.Id = 2;
             barSaveProduct.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barSaveProduct.ImageOptions.SvgImage");
             barSaveProduct.Name = "barSaveProduct";
+            barSaveProduct.ItemClick += barSaveProduct_ItemClick;
             // 
             // barCancelProduct
             // 
@@ -123,6 +127,7 @@
             barDeleteProduct.Id = 4;
             barDeleteProduct.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barDeleteProduct.ImageOptions.SvgImage");
             barDeleteProduct.Name = "barDeleteProduct";
+            barDeleteProduct.ItemClick += barDeleteProduct_ItemClick;
             // 
             // barExitForm
             // 
@@ -130,6 +135,7 @@
             barExitForm.Id = 5;
             barExitForm.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barExitForm.ImageOptions.SvgImage");
             barExitForm.Name = "barExitForm";
+            barExitForm.ItemClick += barExitForm_ItemClick;
             // 
             // barButtonItem6
             // 
@@ -160,10 +166,10 @@
             // 
             // ribbonStatusBar
             // 
-            ribbonStatusBar.Location = new Point(0, 760);
+            ribbonStatusBar.Location = new Point(0, 783);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new Size(1168, 30);
+            ribbonStatusBar.Size = new Size(1328, 30);
             // 
             // panelControl1
             // 
@@ -175,6 +181,18 @@
             panelControl1.Name = "panelControl1";
             panelControl1.Size = new Size(319, 95);
             panelControl1.TabIndex = 2;
+            // 
+            // txtproductId
+            // 
+            txtproductId.Enabled = false;
+            txtproductId.Location = new Point(129, 63);
+            txtproductId.Margin = new Padding(4, 2, 4, 2);
+            txtproductId.MenuManager = ribbon;
+            txtproductId.Name = "txtproductId";
+            txtproductId.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtproductId.Properties.Appearance.Options.UseFont = true;
+            txtproductId.Size = new Size(140, 24);
+            txtproductId.TabIndex = 17;
             // 
             // dateEdit1
             // 
@@ -222,6 +240,8 @@
             // 
             // panelControl2
             // 
+            panelControl2.Controls.Add(txtStock);
+            panelControl2.Controls.Add(label7);
             panelControl2.Controls.Add(luaProductTitle);
             panelControl2.Controls.Add(txtProductPrice);
             panelControl2.Controls.Add(txtProductCode);
@@ -232,8 +252,77 @@
             panelControl2.Controls.Add(label3);
             panelControl2.Location = new Point(330, 7);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(826, 95);
+            panelControl2.Size = new Size(986, 95);
             panelControl2.TabIndex = 3;
+            // 
+            // txtStock
+            // 
+            txtStock.Enabled = false;
+            txtStock.Location = new Point(819, 42);
+            txtStock.Margin = new Padding(4, 2, 4, 2);
+            txtStock.MenuManager = ribbon;
+            txtStock.Name = "txtStock";
+            txtStock.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStock.Properties.Appearance.Options.UseFont = true;
+            txtStock.Size = new Size(85, 24);
+            txtStock.TabIndex = 20;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(773, 19);
+            label7.Name = "label7";
+            label7.Size = new Size(177, 21);
+            label7.TabIndex = 19;
+            label7.Text = "Available Qty in Stock:";
+            // 
+            // luaProductTitle
+            // 
+            luaProductTitle.Location = new Point(135, 13);
+            luaProductTitle.MenuManager = ribbon;
+            luaProductTitle.Name = "luaProductTitle";
+            luaProductTitle.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            luaProductTitle.Properties.Appearance.Options.UseFont = true;
+            luaProductTitle.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            luaProductTitle.Properties.NullText = "";
+            luaProductTitle.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            luaProductTitle.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSuggest;
+            luaProductTitle.Size = new Size(254, 24);
+            luaProductTitle.TabIndex = 18;
+            // 
+            // txtProductPrice
+            // 
+            txtProductPrice.Location = new Point(551, 61);
+            txtProductPrice.Margin = new Padding(4, 2, 4, 2);
+            txtProductPrice.MenuManager = ribbon;
+            txtProductPrice.Name = "txtProductPrice";
+            txtProductPrice.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProductPrice.Properties.Appearance.Options.UseFont = true;
+            txtProductPrice.Size = new Size(140, 24);
+            txtProductPrice.TabIndex = 17;
+            // 
+            // txtProductCode
+            // 
+            txtProductCode.Location = new Point(551, 13);
+            txtProductCode.Margin = new Padding(4, 2, 4, 2);
+            txtProductCode.MenuManager = ribbon;
+            txtProductCode.Name = "txtProductCode";
+            txtProductCode.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProductCode.Properties.Appearance.Options.UseFont = true;
+            txtProductCode.Size = new Size(140, 24);
+            txtProductCode.TabIndex = 16;
+            // 
+            // txtSupplier
+            // 
+            txtSupplier.Location = new Point(135, 61);
+            txtSupplier.Margin = new Padding(4, 2, 4, 2);
+            txtSupplier.MenuManager = ribbon;
+            txtSupplier.Name = "txtSupplier";
+            txtSupplier.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSupplier.Properties.Appearance.Options.UseFont = true;
+            txtSupplier.Size = new Size(254, 24);
+            txtSupplier.TabIndex = 15;
             // 
             // label5
             // 
@@ -268,78 +357,78 @@
             // gridControl1
             // 
             gridControl1.DataSource = productsBindingSource;
-            gridControl1.Dock = DockStyle.Bottom;
             gridControl1.Location = new Point(0, 300);
             gridControl1.MainView = gridView1;
             gridControl1.MenuManager = ribbon;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(1168, 460);
+            gridControl1.Size = new Size(1316, 460);
             gridControl1.TabIndex = 6;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
-            // productsBindingSource
-            // 
-            productsBindingSource.DataSource = typeof(Models.Products);
-            // 
             // gridView1
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colProductId, colProductCode, colProductTitle, colSupplier, colPrice, colProductRegistrationDate });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { ProductId, ProductCode, ProductDescription, SupplierId, SellingPrice, ProductRegistrationDate });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
+            gridView1.OptionsView.ShowAutoFilterRow = true;
+            gridView1.OptionsView.ShowGroupPanel = false;
+            gridView1.RowClick += gridView1_RowClick;
             // 
-            // colProductId
+            // ProductId
             // 
-            colProductId.FieldName = "ProductId";
-            colProductId.MinWidth = 25;
-            colProductId.Name = "colProductId";
-            colProductId.Visible = true;
-            colProductId.VisibleIndex = 0;
-            colProductId.Width = 94;
+            ProductId.FieldName = "ProductId";
+            ProductId.MinWidth = 25;
+            ProductId.Name = "ProductId";
+            ProductId.Visible = true;
+            ProductId.VisibleIndex = 0;
+            ProductId.Width = 94;
             // 
-            // colProductCode
+            // ProductCode
             // 
-            colProductCode.FieldName = "ProductCode";
-            colProductCode.MinWidth = 25;
-            colProductCode.Name = "colProductCode";
-            colProductCode.Visible = true;
-            colProductCode.VisibleIndex = 1;
-            colProductCode.Width = 94;
+            ProductCode.FieldName = "ProductCode";
+            ProductCode.MinWidth = 25;
+            ProductCode.Name = "ProductCode";
+            ProductCode.Visible = true;
+            ProductCode.VisibleIndex = 1;
+            ProductCode.Width = 94;
             // 
-            // colProductTitle
+            // ProductDescription
             // 
-            colProductTitle.FieldName = "ProductTitle";
-            colProductTitle.MinWidth = 25;
-            colProductTitle.Name = "colProductTitle";
-            colProductTitle.Visible = true;
-            colProductTitle.VisibleIndex = 2;
-            colProductTitle.Width = 94;
+            ProductDescription.FieldName = "ProductDescription";
+            ProductDescription.MinWidth = 25;
+            ProductDescription.Name = "ProductDescription";
+            ProductDescription.Visible = true;
+            ProductDescription.VisibleIndex = 2;
+            ProductDescription.Width = 94;
             // 
-            // colSupplier
+            // SupplierId
             // 
-            colSupplier.FieldName = "Supplier";
-            colSupplier.MinWidth = 25;
-            colSupplier.Name = "colSupplier";
-            colSupplier.Visible = true;
-            colSupplier.VisibleIndex = 3;
-            colSupplier.Width = 94;
+            SupplierId.FieldName = "SupplierId";
+            SupplierId.MinWidth = 25;
+            SupplierId.Name = "SupplierId";
+            SupplierId.Visible = true;
+            SupplierId.VisibleIndex = 3;
+            SupplierId.Width = 94;
             // 
-            // colPrice
+            // SellingPrice
             // 
-            colPrice.FieldName = "Price";
-            colPrice.MinWidth = 25;
-            colPrice.Name = "colPrice";
-            colPrice.Visible = true;
-            colPrice.VisibleIndex = 4;
-            colPrice.Width = 94;
+            SellingPrice.FieldName = "SellingPrice";
+            SellingPrice.MinWidth = 25;
+            SellingPrice.Name = "SellingPrice";
+            SellingPrice.Visible = true;
+            SellingPrice.VisibleIndex = 4;
+            SellingPrice.Width = 94;
             // 
-            // colProductRegistrationDate
+            // ProductRegistrationDate
             // 
-            colProductRegistrationDate.FieldName = "ProductRegistrationDate";
-            colProductRegistrationDate.MinWidth = 25;
-            colProductRegistrationDate.Name = "colProductRegistrationDate";
-            colProductRegistrationDate.Visible = true;
-            colProductRegistrationDate.VisibleIndex = 5;
-            colProductRegistrationDate.Width = 94;
+            ProductRegistrationDate.DisplayFormat.FormatString = "d";
+            ProductRegistrationDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            ProductRegistrationDate.FieldName = "ProductRegistrationDate";
+            ProductRegistrationDate.MinWidth = 25;
+            ProductRegistrationDate.Name = "ProductRegistrationDate";
+            ProductRegistrationDate.Visible = true;
+            ProductRegistrationDate.VisibleIndex = 5;
+            ProductRegistrationDate.Width = 94;
             // 
             // ProductHeaderPanel
             // 
@@ -348,69 +437,14 @@
             ProductHeaderPanel.Dock = DockStyle.Top;
             ProductHeaderPanel.Location = new Point(0, 193);
             ProductHeaderPanel.Name = "ProductHeaderPanel";
-            ProductHeaderPanel.Size = new Size(1168, 110);
+            ProductHeaderPanel.Size = new Size(1328, 110);
             ProductHeaderPanel.TabIndex = 9;
-            // 
-            // txtSupplier
-            // 
-            txtSupplier.Location = new Point(135, 61);
-            txtSupplier.Margin = new Padding(4, 2, 4, 2);
-            txtSupplier.MenuManager = ribbon;
-            txtSupplier.Name = "txtSupplier";
-            txtSupplier.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSupplier.Properties.Appearance.Options.UseFont = true;
-            txtSupplier.Size = new Size(254, 24);
-            txtSupplier.TabIndex = 15;
-            // 
-            // txtproductId
-            // 
-            txtproductId.Location = new Point(129, 63);
-            txtproductId.Margin = new Padding(4, 2, 4, 2);
-            txtproductId.MenuManager = ribbon;
-            txtproductId.Name = "txtproductId";
-            txtproductId.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtproductId.Properties.Appearance.Options.UseFont = true;
-            txtproductId.Size = new Size(140, 24);
-            txtproductId.TabIndex = 17;
-            // 
-            // txtProductCode
-            // 
-            txtProductCode.Location = new Point(551, 13);
-            txtProductCode.Margin = new Padding(4, 2, 4, 2);
-            txtProductCode.MenuManager = ribbon;
-            txtProductCode.Name = "txtProductCode";
-            txtProductCode.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProductCode.Properties.Appearance.Options.UseFont = true;
-            txtProductCode.Size = new Size(140, 24);
-            txtProductCode.TabIndex = 16;
-            // 
-            // txtProductPrice
-            // 
-            txtProductPrice.Location = new Point(551, 61);
-            txtProductPrice.Margin = new Padding(4, 2, 4, 2);
-            txtProductPrice.MenuManager = ribbon;
-            txtProductPrice.Name = "txtProductPrice";
-            txtProductPrice.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProductPrice.Properties.Appearance.Options.UseFont = true;
-            txtProductPrice.Size = new Size(140, 24);
-            txtProductPrice.TabIndex = 17;
-            // 
-            // luaProductTitle
-            // 
-            luaProductTitle.Location = new Point(135, 13);
-            luaProductTitle.MenuManager = ribbon;
-            luaProductTitle.Name = "luaProductTitle";
-            luaProductTitle.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            luaProductTitle.Properties.Appearance.Options.UseFont = true;
-            luaProductTitle.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            luaProductTitle.Size = new Size(254, 24);
-            luaProductTitle.TabIndex = 18;
             // 
             // ProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 790);
+            ClientSize = new Size(1328, 813);
             Controls.Add(ProductHeaderPanel);
             Controls.Add(gridControl1);
             Controls.Add(ribbonStatusBar);
@@ -424,21 +458,22 @@
             ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
             panelControl1.ResumeLayout(false);
             panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtproductId.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
             panelControl2.ResumeLayout(false);
             panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtStock.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)luaProductTitle.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtProductPrice.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtProductCode.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtSupplier.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)productsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)ProductHeaderPanel).EndInit();
             ProductHeaderPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)txtSupplier.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtproductId.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtProductCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtProductPrice.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)luaProductTitle.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -466,13 +501,12 @@
         private Label label6;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private BindingSource productsBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductId;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductTitle;
-        private DevExpress.XtraGrid.Columns.GridColumn colSupplier;
-        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colProductRegistrationDate;
+        private DevExpress.XtraGrid.Columns.GridColumn ProductId;
+        private DevExpress.XtraGrid.Columns.GridColumn ProductCode;
+        private DevExpress.XtraGrid.Columns.GridColumn ProductDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn SupplierId;
+        private DevExpress.XtraGrid.Columns.GridColumn SellingPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn ProductRegistrationDate;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraEditors.PanelControl ProductHeaderPanel;
         private DevExpress.XtraEditors.TextEdit txtSupplier;
@@ -480,5 +514,8 @@
         private DevExpress.XtraEditors.TextEdit txtProductPrice;
         private DevExpress.XtraEditors.TextEdit txtProductCode;
         private DevExpress.XtraEditors.LookUpEdit luaProductTitle;
+        private BindingSource productsBindingSource;
+        private Label label7;
+        private DevExpress.XtraEditors.TextEdit txtStock;
     }
 }

@@ -253,6 +253,8 @@
             lookUpEdit1.Properties.DataSource = employeeBindingSource;
             lookUpEdit1.Properties.DisplayMember = "Surname";
             lookUpEdit1.Properties.NullText = "Επιλογή πελάτη";
+            lookUpEdit1.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lookUpEdit1.Properties.ValueMember = "Id";
             lookUpEdit1.Size = new Size(218, 28);
             lookUpEdit1.TabIndex = 14;

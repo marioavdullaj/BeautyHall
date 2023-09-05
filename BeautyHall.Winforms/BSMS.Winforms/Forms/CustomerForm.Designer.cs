@@ -57,14 +57,16 @@
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            gridControl1 = new DevExpress.XtraGrid.GridControl();
+            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             customerBindingSource = new BindingSource(components);
+            gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             colId = new DevExpress.XtraGrid.Columns.GridColumn();
             colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             colName = new DevExpress.XtraGrid.Columns.GridColumn();
             colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            productsBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
@@ -79,9 +81,11 @@
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)productsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // ribbon
@@ -215,7 +219,7 @@
             panelControl2.Location = new Point(310, 2);
             panelControl2.Margin = new Padding(4, 2, 4, 2);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(1039, 126);
+            panelControl2.Size = new Size(1046, 126);
             panelControl2.TabIndex = 12;
             // 
             // textEdit5
@@ -355,6 +359,24 @@
             labelControl6.TabIndex = 10;
             labelControl6.Text = "ΗΜ/ΝΙΑ:";
             // 
+            // lookUpEdit1
+            // 
+            lookUpEdit1.Location = new Point(492, 129);
+            lookUpEdit1.MenuManager = ribbon;
+            lookUpEdit1.Name = "lookUpEdit1";
+            lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEdit1.Properties.NullText = "";
+            lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lookUpEdit1.Size = new Size(278, 24);
+            lookUpEdit1.TabIndex = 4;
+            lookUpEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
+            // 
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Models.Customer);
+            // 
             // gridControl1
             // 
             gridControl1.DataSource = customerBindingSource;
@@ -368,10 +390,6 @@
             gridControl1.Size = new Size(1362, 441);
             gridControl1.TabIndex = 5;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
-            // 
-            // customerBindingSource
-            // 
-            customerBindingSource.DataSource = typeof(Models.Customer);
             // 
             // gridView1
             // 
@@ -431,11 +449,16 @@
             colEmail.VisibleIndex = 4;
             colEmail.Width = 185;
             // 
+            // productsBindingSource
+            // 
+            productsBindingSource.DataSource = typeof(Models.Products);
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1362, 796);
+            Controls.Add(lookUpEdit1);
             Controls.Add(gridControl1);
             Controls.Add(ClientHeaderPanel);
             Controls.Add(ribbonStatusBar);
@@ -463,9 +486,11 @@
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)productsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -507,10 +532,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
-
-
-
-
-
+        private BindingSource productsBindingSource;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

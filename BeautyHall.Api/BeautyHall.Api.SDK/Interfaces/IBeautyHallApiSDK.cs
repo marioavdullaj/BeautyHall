@@ -234,6 +234,13 @@ using BeautyHall.Api.SDK.Requests;using BeautyHall.Api.SDK.Responses;namespac
         Task<bool> UpsertStock(StockDto stock);
 
         /// <summary>
+        /// Get all stocks in the system. The function retrieves a list of Stock objects representing the stocks.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation. It returns a list of Stock objects if successful, otherwise null.</returns>
+        Task<IEnumerable<Stock>?> GetAllStocks();
+
+
+        /// <summary>
         /// Upsert a payment summary into the system. The function accepts a PaymentSummaryDto object containing payment summary data.
         /// It inserts a new payment summary into the system or updates an existing payment summary. It returns a boolean indicating if the insertion/update
         /// was successful.

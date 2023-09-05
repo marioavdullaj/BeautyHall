@@ -138,5 +138,33 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message);
             }
         }
+
+        private async void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var dailyCosts = Functions.NullToDecimal(dailyCostsEdit.EditValue);
+                if (dailyCosts < 0)
+                {
+                    XtraMessageBox.Show("Only values >= 0 allowed for daily costs", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var result = await Program.ApiSdk.CalculateDailySummary(summaryDateEdit.DateTime, dailyCosts);
+                if (result != null)
+                {
+                    DailySummary = result;
+                    UpdateControls(DailySummary);
+                }
+                else
+                {
+                    XtraMessageBox.Show("It was not possible calculating the daily summary", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -8,6 +8,9 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ClientHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\DailySummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -30,6 +33,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\StockProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TotalSummary.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\WelcomeForm.cs">

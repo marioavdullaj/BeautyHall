@@ -342,5 +342,11 @@ namespace BeautyHall.Api.SDK
             var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_DELETE_CATEGORY, categoryId));
             return await GetFromApi<object, bool>(uri, HttpMethod.Delete);
         }
+
+        public async Task<IEnumerable<Stock>?> GetAllStocks()
+        {
+            var uri = new Uri(PrepareUrl(SdkEndpoint.ENDPOINT_GET_ALL_STOCKS));
+            return await GetFromApi<object, IEnumerable<Stock>>(uri, HttpMethod.Get);
+        }
     }
 }

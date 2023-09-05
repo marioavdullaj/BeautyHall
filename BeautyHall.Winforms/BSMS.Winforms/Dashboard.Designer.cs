@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(LoadingScreen), true, true);
             fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             DisplayControl = new DevExpress.XtraEditors.PanelControl();
             fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(components);
@@ -53,11 +52,13 @@
             accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             productAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            StockAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             newOrderAccordionItem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             lbTime = new DevExpress.XtraEditors.LabelControl();
@@ -79,10 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)fluentDesignFormControl1).BeginInit();
             fluentDesignFormControl1.SuspendLayout();
             SuspendLayout();
-            // 
-            // splashScreenManager1
-            // 
-            splashScreenManager1.ClosingDelay = 500;
             // 
             // fluentDesignFormContainer1
             // 
@@ -237,7 +234,7 @@
             // 
             // accordionControlElement4
             // 
-            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement5, accordionControlElement6, productAccordionItem });
+            accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement5, accordionControlElement6, productAccordionItem, StockAccordionItem });
             accordionControlElement4.Expanded = true;
             accordionControlElement4.Name = "accordionControlElement4";
             accordionControlElement4.Text = "ΕΓΓΡΑΦΕΣ";
@@ -263,6 +260,13 @@
             productAccordionItem.Text = "Προϊόντα -Αναλώσιμα";
             productAccordionItem.Click += productAccordionItem_Click;
             // 
+            // StockAccordionItem
+            // 
+            StockAccordionItem.Name = "StockAccordionItem";
+            StockAccordionItem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            StockAccordionItem.Text = "Stock - Προϊόντων";
+            StockAccordionItem.Click += StockAccordionItem_Click;
+            // 
             // accordionControlElement2
             // 
             accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { newOrderAccordionItem, accordionControlElement3 });
@@ -286,7 +290,7 @@
             // 
             // accordionControlElement8
             // 
-            accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement10, accordionControlElement9 });
+            accordionControlElement8.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { accordionControlElement10, accordionControlElement1, accordionControlElement9 });
             accordionControlElement8.Expanded = true;
             accordionControlElement8.Name = "accordionControlElement8";
             accordionControlElement8.Text = "ΥΠΟΛΟΓΙΣΜΟΙ";
@@ -295,14 +299,22 @@
             // 
             accordionControlElement10.Name = "accordionControlElement10";
             accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement10.Text = "Ημερήσιος υπολογισμός";
+            accordionControlElement10.Text = "Ημερήσιος Υπολογισμός";
             accordionControlElement10.Click += accordionControlElement10_Click;
+            // 
+            // accordionControlElement1
+            // 
+            accordionControlElement1.Name = "accordionControlElement1";
+            accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            accordionControlElement1.Text = "Γενικός Υπολογισμός";
+            accordionControlElement1.Click += accordionControlElement1_Click;
             // 
             // accordionControlElement9
             // 
             accordionControlElement9.Name = "accordionControlElement9";
             accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            accordionControlElement9.Text = "Ιστορικό";
+            accordionControlElement9.Text = "Ιστορικό Πελατών";
+            accordionControlElement9.Click += accordionControlElement9_Click;
             // 
             // fluentDesignFormControl1
             // 
@@ -426,5 +438,7 @@
         private DevExpress.XtraEditors.LabelControl lbTime;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement StockAccordionItem;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
     }
 }

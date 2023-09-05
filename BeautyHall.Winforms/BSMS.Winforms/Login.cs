@@ -18,6 +18,7 @@ namespace BSMS
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = simpleButton1;
         }
 
         private async void simpleButton1_Click(object sender, EventArgs e)

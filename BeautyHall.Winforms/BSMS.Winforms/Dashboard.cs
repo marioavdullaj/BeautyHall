@@ -137,5 +137,20 @@ namespace BSMS
         {
             ShowForm(new DailySummaryForm());
         }
+
+        private void StockAccordionItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(new StockProduct());
+        }
+
+        private void accordionControlElement1_Click(object sender, EventArgs e)
+        {
+            ShowForm(new TotalSummary());
+        }
+
+        private void accordionControlElement9_Click(object sender, EventArgs e)
+        {
+            ShowForm(new ClientHistory());
+        }
     }
 }
