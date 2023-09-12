@@ -7,10 +7,10 @@ using DevExpress.XtraEditors.Controls;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class TotalSummary : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class TotalSummaryForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private DailySummary? TotalSummaryData { get; set; }
-        public TotalSummary()
+        public TotalSummaryForm()
         {
             InitializeComponent();
         }

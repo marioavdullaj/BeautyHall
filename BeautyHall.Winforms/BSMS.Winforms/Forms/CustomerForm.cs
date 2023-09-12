@@ -27,6 +27,7 @@ namespace BSMS.Winforms.Forms
             CancelClientButton.Enabled = enable;
             EditClientButton.Enabled = enable;
             barButtonItem2.Enabled = enable;
+            
         }
         private async void InsertClient_Load(object sender, EventArgs e)
         {
@@ -58,7 +59,7 @@ namespace BSMS.Winforms.Forms
                         
                     });
                     lookUpEdit1.Properties.DataSource = clients;
-                    lookUpEdit1.Properties.DisplayMember = "Surname"; // Adjust property name as needed
+                    lookUpEdit1.Properties.DisplayMember = "Surname";
                     lookUpEdit1.Properties.ValueMember = "Id";
                     gridControl1.DataSource = clients;
                 }
@@ -136,24 +137,21 @@ namespace BSMS.Winforms.Forms
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            // here when we select a row we autocompile the data in the above panel
-            var selected = gridView1.GetSelectedRows();
-            if (selected != null && selected.Any())
-            {
-                var selectedCustomer = subjects?.ElementAt(selected[0]);
-                if (selectedCustomer != null)
-                {
-                    textEdit2.EditValue = selectedCustomer.SubjectId;
-                    textEdit1.EditValue = selectedCustomer.SubjectLastName;
-                    textEdit3.EditValue = selectedCustomer.SubjectName;
-                    textEdit4.EditValue = selectedCustomer.PhoneNumber;
-                    textEdit5.EditValue = selectedCustomer.Email;
-                    dateEdit1.DateTime = selectedCustomer.RegistrationDate ?? DateTime.MinValue;
-                    lookUpEdit1.EditValue = selectedCustomer;
+            var selectedRowHandle = gridView1.FocusedRowHandle;
+            var selectedCustomer = gridView1.GetRow(selectedRowHandle) as Customer;
 
-                    EnableClientButtons(false);
-                }
+            if (selectedCustomer != null)
+            {
+                textEdit2.EditValue = selectedCustomer.Id;
+                textEdit1.EditValue = selectedCustomer.Surname;
+                textEdit3.EditValue = selectedCustomer.Name;
+                textEdit4.EditValue = selectedCustomer.Tel;
+                textEdit5.EditValue = selectedCustomer.Email;
+                dateEdit1.DateTime = DateTime.Now;
+
+                EnableClientButtons(true);
             }
+            
         }
 
         private void CancelClientButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -208,42 +206,38 @@ namespace BSMS.Winforms.Forms
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
-        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        private async void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
             
-            // Get the selected customer's ID from the lookup edit
             int selectedCustomerId = (int)lookUpEdit1.EditValue;
 
-            if (subjects != null)
+            var selectedCustomer = subjects?.FirstOrDefault(x => x.SubjectId == selectedCustomerId);
+            if (selectedCustomer != null)
             {
-                
-                // Filter the subjects collection to find the selected customer
-                var selectedCustomer = subjects.FirstOrDefault(customer => customer.SubjectId == selectedCustomerId);
-
-                if (selectedCustomer != null)
+                var selectedCustomerList = new List<Customer>
                 {
-                    var selectedCustomerList = new List<Customer> { new Customer
-                    {
-                        Id = selectedCustomer.SubjectId,
-                        Surname = selectedCustomer.SubjectLastName,
-                        Name = selectedCustomer.SubjectName,
-                        Tel = selectedCustomer.PhoneNumber,
-                        Email = selectedCustomer.Email
-                    }};
-                    gridControl1.DataSource = selectedCustomerList;
+                   new Customer
+                   {
+                      Id = selectedCustomer.SubjectId,
+                      Surname = selectedCustomer.SubjectLastName,
+                      Name = selectedCustomer.SubjectName,
+                      Tel = selectedCustomer.PhoneNumber,
+                      Email = selectedCustomer.Email
+                   }
+                };
 
-                    {
-                        textEdit2.EditValue = selectedCustomer.SubjectId;
-                        textEdit1.EditValue = selectedCustomer.SubjectLastName;
-                        textEdit3.EditValue = selectedCustomer.SubjectName;
-                        textEdit4.EditValue = selectedCustomer.PhoneNumber;
-                        textEdit5.EditValue = selectedCustomer.Email;
-                        dateEdit1.DateTime = selectedCustomer.RegistrationDate ?? DateTime.MinValue;
-                    }
-                    
-                }
+                gridControl1.DataSource = selectedCustomerList;
+                gridControl1.RefreshDataSource();
+
+                // Populate text fields
+                textEdit2.EditValue = selectedCustomer.SubjectId;
+                textEdit1.EditValue = selectedCustomer.SubjectLastName;
+                textEdit3.EditValue = selectedCustomer.SubjectName;
+                textEdit4.EditValue = selectedCustomer.PhoneNumber;
+                textEdit5.EditValue = selectedCustomer.Email;
+                dateEdit1.DateTime = selectedCustomer.RegistrationDate ?? DateTime.MinValue;
             }
-   
+            
         }
     }
 }

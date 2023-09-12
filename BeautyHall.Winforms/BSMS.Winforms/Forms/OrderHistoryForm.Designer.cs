@@ -64,6 +64,7 @@ namespace BSMS.Winforms.Forms
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -72,7 +73,6 @@ namespace BSMS.Winforms.Forms
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             orderSummaryBindingSource = new BindingSource(components);
             orderSummaryBindingSource1 = new BindingSource(components);
-            barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)grvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grOrders).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grvOrders).BeginInit();
@@ -103,7 +103,7 @@ namespace BSMS.Winforms.Forms
             // 
             colOrderId.Caption = "Order Id";
             colOrderId.FieldName = "OrderId";
-            colOrderId.MinWidth = 25;
+            colOrderId.MinWidth = 24;
             colOrderId.Name = "colOrderId";
             colOrderId.Width = 94;
             // 
@@ -111,7 +111,7 @@ namespace BSMS.Winforms.Forms
             // 
             colProductCode.Caption = "Product Code";
             colProductCode.FieldName = "ProductCode";
-            colProductCode.MinWidth = 25;
+            colProductCode.MinWidth = 24;
             colProductCode.Name = "colProductCode";
             colProductCode.Visible = true;
             colProductCode.VisibleIndex = 0;
@@ -121,7 +121,7 @@ namespace BSMS.Winforms.Forms
             // 
             colProductDescription.Caption = "Product Description";
             colProductDescription.FieldName = "ProductDescription";
-            colProductDescription.MinWidth = 25;
+            colProductDescription.MinWidth = 24;
             colProductDescription.Name = "colProductDescription";
             colProductDescription.Visible = true;
             colProductDescription.VisibleIndex = 1;
@@ -131,7 +131,7 @@ namespace BSMS.Winforms.Forms
             // 
             colProductQuantity.Caption = "Quantity";
             colProductQuantity.FieldName = "ProductQuantity";
-            colProductQuantity.MinWidth = 25;
+            colProductQuantity.MinWidth = 24;
             colProductQuantity.Name = "colProductQuantity";
             colProductQuantity.Visible = true;
             colProductQuantity.VisibleIndex = 2;
@@ -141,7 +141,7 @@ namespace BSMS.Winforms.Forms
             // 
             colTotalPriceProduct.Caption = "Total Price";
             colTotalPriceProduct.FieldName = "TotalPrice";
-            colTotalPriceProduct.MinWidth = 25;
+            colTotalPriceProduct.MinWidth = 24;
             colTotalPriceProduct.Name = "colTotalPriceProduct";
             colTotalPriceProduct.Visible = true;
             colTotalPriceProduct.VisibleIndex = 3;
@@ -151,11 +151,13 @@ namespace BSMS.Winforms.Forms
             // 
             grOrders.DataSource = typeof(OrderProduct);
             grOrders.Dock = DockStyle.Fill;
+            grOrders.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
             gridLevelNode1.LevelTemplate = grvProducts;
             gridLevelNode1.RelationName = "Level1";
             grOrders.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode1 });
             grOrders.Location = new Point(0, 193);
             grOrders.MainView = grvOrders;
+            grOrders.Margin = new Padding(4, 2, 4, 2);
             grOrders.MenuManager = ribbon;
             grOrders.Name = "grOrders";
             grOrders.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemCheckEdit1, repositoryItemCheckEdit2 });
@@ -190,7 +192,7 @@ namespace BSMS.Winforms.Forms
             // 
             colId.Caption = "Order Id";
             colId.FieldName = "Id";
-            colId.MinWidth = 25;
+            colId.MinWidth = 24;
             colId.Name = "colId";
             colId.Visible = true;
             colId.VisibleIndex = 1;
@@ -200,7 +202,7 @@ namespace BSMS.Winforms.Forms
             // 
             colCustomerFullName.Caption = "Customer";
             colCustomerFullName.FieldName = "CustomerFullName";
-            colCustomerFullName.MinWidth = 25;
+            colCustomerFullName.MinWidth = 24;
             colCustomerFullName.Name = "colCustomerFullName";
             colCustomerFullName.Visible = true;
             colCustomerFullName.VisibleIndex = 2;
@@ -210,7 +212,7 @@ namespace BSMS.Winforms.Forms
             // 
             colDate.Caption = "Date";
             colDate.FieldName = "Date";
-            colDate.MinWidth = 25;
+            colDate.MinWidth = 24;
             colDate.Name = "colDate";
             colDate.Visible = true;
             colDate.VisibleIndex = 3;
@@ -220,7 +222,7 @@ namespace BSMS.Winforms.Forms
             // 
             colNotes.Caption = "Notes";
             colNotes.FieldName = "Notes";
-            colNotes.MinWidth = 25;
+            colNotes.MinWidth = 24;
             colNotes.Name = "colNotes";
             colNotes.Visible = true;
             colNotes.VisibleIndex = 4;
@@ -231,7 +233,7 @@ namespace BSMS.Winforms.Forms
             colProductsInOrder.Caption = "Products in order";
             colProductsInOrder.ColumnEdit = repositoryItemCheckEdit2;
             colProductsInOrder.FieldName = "ExistProductsInOrder";
-            colProductsInOrder.MinWidth = 25;
+            colProductsInOrder.MinWidth = 24;
             colProductsInOrder.Name = "colProductsInOrder";
             colProductsInOrder.Visible = true;
             colProductsInOrder.VisibleIndex = 5;
@@ -250,7 +252,7 @@ namespace BSMS.Winforms.Forms
             colTotalPrice.FieldName = "TotalPrice";
             colTotalPrice.GroupFormat.FormatString = "c";
             colTotalPrice.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            colTotalPrice.MinWidth = 25;
+            colTotalPrice.MinWidth = 24;
             colTotalPrice.Name = "colTotalPrice";
             colTotalPrice.Visible = true;
             colTotalPrice.VisibleIndex = 6;
@@ -261,7 +263,7 @@ namespace BSMS.Winforms.Forms
             colPayed.Caption = "Payed";
             colPayed.ColumnEdit = repositoryItemCheckEdit1;
             colPayed.FieldName = "Payed";
-            colPayed.MinWidth = 25;
+            colPayed.MinWidth = 24;
             colPayed.Name = "colPayed";
             colPayed.Visible = true;
             colPayed.VisibleIndex = 7;
@@ -280,7 +282,7 @@ namespace BSMS.Winforms.Forms
             colDiscountedPrice.FieldName = "DiscountedPrice";
             colDiscountedPrice.GroupFormat.FormatString = "c";
             colDiscountedPrice.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            colDiscountedPrice.MinWidth = 25;
+            colDiscountedPrice.MinWidth = 24;
             colDiscountedPrice.Name = "colDiscountedPrice";
             colDiscountedPrice.Visible = true;
             colDiscountedPrice.VisibleIndex = 8;
@@ -290,7 +292,7 @@ namespace BSMS.Winforms.Forms
             // 
             colDiscountPercentage.Caption = "Discount";
             colDiscountPercentage.FieldName = "DiscountPercentage";
-            colDiscountPercentage.MinWidth = 25;
+            colDiscountPercentage.MinWidth = 24;
             colDiscountPercentage.Name = "colDiscountPercentage";
             colDiscountPercentage.Visible = true;
             colDiscountPercentage.VisibleIndex = 9;
@@ -304,7 +306,7 @@ namespace BSMS.Winforms.Forms
             colTotalCash.FieldName = "TotalCash";
             colTotalCash.GroupFormat.FormatString = "c";
             colTotalCash.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            colTotalCash.MinWidth = 25;
+            colTotalCash.MinWidth = 24;
             colTotalCash.Name = "colTotalCash";
             colTotalCash.Visible = true;
             colTotalCash.VisibleIndex = 10;
@@ -318,7 +320,7 @@ namespace BSMS.Winforms.Forms
             colTotalPOS.FieldName = "TotalPOS";
             colTotalPOS.GroupFormat.FormatString = "c";
             colTotalPOS.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            colTotalPOS.MinWidth = 25;
+            colTotalPOS.MinWidth = 24;
             colTotalPOS.Name = "colTotalPOS";
             colTotalPOS.Visible = true;
             colTotalPOS.VisibleIndex = 11;
@@ -329,6 +331,7 @@ namespace BSMS.Winforms.Forms
             ribbon.ExpandCollapseItem.Id = 0;
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5, barButtonItem6 });
             ribbon.Location = new Point(0, 0);
+            ribbon.Margin = new Padding(4, 2, 4, 2);
             ribbon.MaxItemId = 10;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
@@ -410,6 +413,14 @@ namespace BSMS.Winforms.Forms
             barButtonItem5.Name = "barButtonItem5";
             barButtonItem5.ItemClick += barButtonItem5_ItemClick;
             // 
+            // barButtonItem6
+            // 
+            barButtonItem6.Caption = "Export Grid";
+            barButtonItem6.Id = 9;
+            barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
+            barButtonItem6.Name = "barButtonItem6";
+            barButtonItem6.ItemClick += barButtonItem6_ItemClick;
+            // 
             // ribbonPage1
             // 
             ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2 });
@@ -446,6 +457,7 @@ namespace BSMS.Winforms.Forms
             // ribbonStatusBar
             // 
             ribbonStatusBar.Location = new Point(0, 728);
+            ribbonStatusBar.Margin = new Padding(4, 2, 4, 2);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
             ribbonStatusBar.Size = new Size(1447, 30);
@@ -458,14 +470,6 @@ namespace BSMS.Winforms.Forms
             // 
             orderSummaryBindingSource1.DataSource = typeof(Models.OrderSummary);
             // 
-            // barButtonItem6
-            // 
-            barButtonItem6.Caption = "Export Grid";
-            barButtonItem6.Id = 9;
-            barButtonItem6.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem6.ImageOptions.SvgImage");
-            barButtonItem6.Name = "barButtonItem6";
-            barButtonItem6.ItemClick += barButtonItem6_ItemClick;
-            // 
             // OrderHistoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -474,6 +478,7 @@ namespace BSMS.Winforms.Forms
             Controls.Add(grOrders);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "OrderHistoryForm";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;

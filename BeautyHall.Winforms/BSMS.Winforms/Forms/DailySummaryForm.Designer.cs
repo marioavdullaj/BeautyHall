@@ -86,6 +86,7 @@
             ribbon.ExpandCollapseItem.Id = 0;
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, calculateDailySummaryButton });
             ribbon.Location = new Point(0, 0);
+            ribbon.Margin = new Padding(4, 2, 4, 2);
             ribbon.MaxItemId = 4;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
@@ -127,6 +128,7 @@
             // ribbonStatusBar
             // 
             ribbonStatusBar.Location = new Point(0, 710);
+            ribbonStatusBar.Margin = new Padding(4, 2, 4, 2);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
             ribbonStatusBar.Size = new Size(1304, 30);
@@ -137,6 +139,7 @@
             panelControl1.Controls.Add(labelControl1);
             panelControl1.Dock = DockStyle.Top;
             panelControl1.Location = new Point(0, 193);
+            panelControl1.Margin = new Padding(4, 2, 4, 2);
             panelControl1.Name = "panelControl1";
             panelControl1.Size = new Size(1304, 78);
             panelControl1.TabIndex = 2;
@@ -145,6 +148,7 @@
             // 
             summaryDateEdit.EditValue = null;
             summaryDateEdit.Location = new Point(666, 27);
+            summaryDateEdit.Margin = new Padding(4, 2, 4, 2);
             summaryDateEdit.MenuManager = ribbon;
             summaryDateEdit.Name = "summaryDateEdit";
             summaryDateEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -160,6 +164,7 @@
             labelControl1.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl1.Appearance.Options.UseFont = true;
             labelControl1.Location = new Point(464, 25);
+            labelControl1.Margin = new Padding(4, 2, 4, 2);
             labelControl1.Name = "labelControl1";
             labelControl1.Size = new Size(161, 28);
             labelControl1.TabIndex = 0;
@@ -169,8 +174,10 @@
             // 
             orderSummaryGridControl.DataSource = orderSummaryBindingSource;
             orderSummaryGridControl.Dock = DockStyle.Left;
+            orderSummaryGridControl.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
             orderSummaryGridControl.Location = new Point(0, 271);
             orderSummaryGridControl.MainView = orderSummaryGridView;
+            orderSummaryGridControl.Margin = new Padding(4, 2, 4, 2);
             orderSummaryGridControl.MenuManager = ribbon;
             orderSummaryGridControl.Name = "orderSummaryGridControl";
             orderSummaryGridControl.Size = new Size(429, 439);
@@ -194,7 +201,7 @@
             // 
             colCustomerFullName.Caption = "Customer";
             colCustomerFullName.FieldName = "CustomerFullName";
-            colCustomerFullName.MinWidth = 25;
+            colCustomerFullName.MinWidth = 24;
             colCustomerFullName.Name = "colCustomerFullName";
             colCustomerFullName.Visible = true;
             colCustomerFullName.VisibleIndex = 0;
@@ -204,7 +211,7 @@
             // 
             colDiscountedPrice.Caption = "Total";
             colDiscountedPrice.FieldName = "DiscountedPrice";
-            colDiscountedPrice.MinWidth = 25;
+            colDiscountedPrice.MinWidth = 24;
             colDiscountedPrice.Name = "colDiscountedPrice";
             colDiscountedPrice.Visible = true;
             colDiscountedPrice.VisibleIndex = 1;
@@ -213,7 +220,7 @@
             // colTotalCash
             // 
             colTotalCash.FieldName = "TotalCash";
-            colTotalCash.MinWidth = 25;
+            colTotalCash.MinWidth = 24;
             colTotalCash.Name = "colTotalCash";
             colTotalCash.Visible = true;
             colTotalCash.VisibleIndex = 2;
@@ -222,7 +229,7 @@
             // colTotalPOS
             // 
             colTotalPOS.FieldName = "TotalPOS";
-            colTotalPOS.MinWidth = 25;
+            colTotalPOS.MinWidth = 24;
             colTotalPOS.Name = "colTotalPOS";
             colTotalPOS.Visible = true;
             colTotalPOS.VisibleIndex = 3;
@@ -247,18 +254,21 @@
             SummaryPanel.Controls.Add(labelControl2);
             SummaryPanel.Dock = DockStyle.Fill;
             SummaryPanel.Location = new Point(429, 271);
+            SummaryPanel.Margin = new Padding(4, 2, 4, 2);
             SummaryPanel.Name = "SummaryPanel";
             SummaryPanel.Size = new Size(875, 439);
             SummaryPanel.TabIndex = 4;
             SummaryPanel.Visible = false;
+            
             // 
             // CalculateDailySumbtn
             // 
-            CalculateDailySumbtn.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
+            CalculateDailySumbtn.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("CalculateDailySumbtn.ImageOptions.SvgImage");
             CalculateDailySumbtn.Location = new Point(496, 236);
+            CalculateDailySumbtn.Margin = new Padding(4, 2, 4, 2);
             CalculateDailySumbtn.Name = "CalculateDailySumbtn";
             CalculateDailySumbtn.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            CalculateDailySumbtn.Size = new Size(134, 51);
+            CalculateDailySumbtn.Size = new Size(134, 50);
             CalculateDailySumbtn.TabIndex = 16;
             CalculateDailySumbtn.Text = "Υπολογισμός";
             CalculateDailySumbtn.Click += simpleButton1_Click;
@@ -266,7 +276,8 @@
             // cashNetEdit
             // 
             cashNetEdit.Enabled = false;
-            cashNetEdit.Location = new Point(237, 392);
+            cashNetEdit.Location = new Point(237, 391);
+            cashNetEdit.Margin = new Padding(4, 2, 4, 2);
             cashNetEdit.MenuManager = ribbon;
             cashNetEdit.Name = "cashNetEdit";
             cashNetEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -281,7 +292,8 @@
             // totalNetEdit
             // 
             totalNetEdit.Enabled = false;
-            totalNetEdit.Location = new Point(237, 333);
+            totalNetEdit.Location = new Point(237, 334);
+            totalNetEdit.Margin = new Padding(4, 2, 4, 2);
             totalNetEdit.MenuManager = ribbon;
             totalNetEdit.Name = "totalNetEdit";
             totalNetEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -298,6 +310,7 @@
             labelControl8.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl8.Appearance.Options.UseFont = true;
             labelControl8.Location = new Point(38, 390);
+            labelControl8.Margin = new Padding(4, 2, 4, 2);
             labelControl8.Name = "labelControl8";
             labelControl8.Size = new Size(190, 28);
             labelControl8.TabIndex = 13;
@@ -308,6 +321,7 @@
             labelControl9.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl9.Appearance.Options.UseFont = true;
             labelControl9.Location = new Point(37, 331);
+            labelControl9.Margin = new Padding(4, 2, 4, 2);
             labelControl9.Name = "labelControl9";
             labelControl9.Size = new Size(172, 28);
             labelControl9.TabIndex = 12;
@@ -317,7 +331,8 @@
             // 
             labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            labelControl7.Location = new Point(35, 301);
+            labelControl7.Location = new Point(35, 302);
+            labelControl7.Margin = new Padding(4, 2, 4, 2);
             labelControl7.Name = "labelControl7";
             labelControl7.Size = new Size(760, 1);
             labelControl7.TabIndex = 10;
@@ -325,6 +340,7 @@
             // dailyCostsEdit
             // 
             dailyCostsEdit.Location = new Point(237, 246);
+            dailyCostsEdit.Margin = new Padding(4, 2, 4, 2);
             dailyCostsEdit.MenuManager = ribbon;
             dailyCostsEdit.Name = "dailyCostsEdit";
             dailyCostsEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -341,6 +357,7 @@
             labelControl6.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
             labelControl6.Location = new Point(37, 244);
+            labelControl6.Margin = new Padding(4, 2, 4, 2);
             labelControl6.Name = "labelControl6";
             labelControl6.Size = new Size(160, 28);
             labelControl6.TabIndex = 8;
@@ -349,7 +366,8 @@
             // totalPosEdit
             // 
             totalPosEdit.Enabled = false;
-            totalPosEdit.Location = new Point(237, 157);
+            totalPosEdit.Location = new Point(237, 158);
+            totalPosEdit.Margin = new Padding(4, 2, 4, 2);
             totalPosEdit.MenuManager = ribbon;
             totalPosEdit.Name = "totalPosEdit";
             totalPosEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -365,6 +383,7 @@
             // 
             totalCashEdit.Enabled = false;
             totalCashEdit.Location = new Point(237, 89);
+            totalCashEdit.Margin = new Padding(4, 2, 4, 2);
             totalCashEdit.MenuManager = ribbon;
             totalCashEdit.Name = "totalCashEdit";
             totalCashEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -380,6 +399,7 @@
             // 
             totalGrossEdit.Enabled = false;
             totalGrossEdit.Location = new Point(237, 21);
+            totalGrossEdit.Margin = new Padding(4, 2, 4, 2);
             totalGrossEdit.MenuManager = ribbon;
             totalGrossEdit.Name = "totalGrossEdit";
             totalGrossEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -396,6 +416,7 @@
             labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             labelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             labelControl5.Location = new Point(37, 202);
+            labelControl5.Margin = new Padding(4, 2, 4, 2);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(760, 1);
             labelControl5.TabIndex = 3;
@@ -405,6 +426,7 @@
             labelControl4.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl4.Appearance.Options.UseFont = true;
             labelControl4.Location = new Point(37, 155);
+            labelControl4.Margin = new Padding(4, 2, 4, 2);
             labelControl4.Name = "labelControl4";
             labelControl4.Size = new Size(136, 28);
             labelControl4.TabIndex = 2;
@@ -415,6 +437,7 @@
             labelControl3.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl3.Appearance.Options.UseFont = true;
             labelControl3.Location = new Point(35, 87);
+            labelControl3.Margin = new Padding(4, 2, 4, 2);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(183, 28);
             labelControl3.TabIndex = 1;
@@ -424,7 +447,8 @@
             // 
             labelControl2.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(35, 19);
+            labelControl2.Location = new Point(35, 18);
+            labelControl2.Margin = new Padding(4, 2, 4, 2);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(155, 28);
             labelControl2.TabIndex = 0;
@@ -440,9 +464,11 @@
             Controls.Add(panelControl1);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "DailySummaryForm";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
+            Text = "Calculate Daily Summary";
             Load += DailySummaryForm_Load;
             ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();

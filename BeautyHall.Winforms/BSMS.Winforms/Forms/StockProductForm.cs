@@ -10,13 +10,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace BSMS.Winforms.Forms
 {
-    public partial class StockProduct : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class StockProductForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private readonly IBeautyHallApiSDK _apiSdk;
 
         public IEnumerable<Product> products; // Add a property to store products
         public int selectedProductId; // Add a property to store the selected product ID
-        public StockProduct()
+        public StockProductForm()
         {
             InitializeComponent();
         }

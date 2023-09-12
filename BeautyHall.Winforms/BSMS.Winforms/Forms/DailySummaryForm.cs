@@ -35,7 +35,7 @@ namespace BSMS.Winforms.Forms
         {
             try
             {
-                var orders = await Program.ApiSdk.GetOrders(date, date.AddDays(1));
+                var orders = await Program.ApiSdk.GetOrders(date, date.AddDays(0));
                 if (orders != null)
                 {
                     List<OrderSummary> orderSummaries = new();
@@ -69,7 +69,7 @@ namespace BSMS.Winforms.Forms
         {
             try
             {
-                var s = await Program.ApiSdk.GetDailySummaries(date, date.AddDays(1));
+                var s = await Program.ApiSdk.GetDailySummaries(date, date.AddDays(0));
                 if (s != null && s.Any())
                 {
                     DailySummary = s.First();
@@ -166,5 +166,7 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }

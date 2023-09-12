@@ -140,17 +140,17 @@ namespace BSMS
 
         private void StockAccordionItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new StockProduct());
+            ShowForm(new StockProductForm());
         }
 
         private void accordionControlElement1_Click(object sender, EventArgs e)
         {
-            ShowForm(new TotalSummary());
+            ShowForm(new TotalSummaryForm());
         }
 
         private void accordionControlElement9_Click(object sender, EventArgs e)
         {
-            ShowForm(new ClientHistory());
+            ShowForm(new ClientHistoryForm());
         }
     }
 }

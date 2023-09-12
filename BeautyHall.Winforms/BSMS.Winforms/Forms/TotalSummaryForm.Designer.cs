@@ -1,6 +1,6 @@
 ﻿namespace BSMS.Winforms.Forms
 {
-    partial class TotalSummary
+    partial class TotalSummaryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TotalSummary));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TotalSummaryForm));
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             CalculateTotalSummarybtn = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();

@@ -190,6 +190,9 @@ namespace BSMS.Winforms.Forms
 
         }
 
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
 
+        }
     }
 }

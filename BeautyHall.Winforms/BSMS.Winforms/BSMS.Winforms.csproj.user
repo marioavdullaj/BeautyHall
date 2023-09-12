@@ -8,7 +8,10 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\ClientHistory.cs">
+    <Compile Update="Forms\ClientHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CustomerSummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\DailySummaryForm.cs">
@@ -32,10 +35,10 @@
     <Compile Update="Forms\ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\StockProduct.cs">
+    <Compile Update="Forms\StockProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\TotalSummary.cs">
+    <Compile Update="Forms\TotalSummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\WelcomeForm.cs">
