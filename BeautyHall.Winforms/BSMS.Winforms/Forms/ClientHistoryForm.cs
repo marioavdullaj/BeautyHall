@@ -6,8 +6,7 @@ using System.Data;
 using DevExpress.XtraGrid.Views.Grid;
 using BSMS.Winforms.GenericUtils;
 using BSMS.Winforms.Utils;
-using System.Linq;
-using System.Diagnostics;
+
 
 
 
@@ -19,7 +18,7 @@ namespace BSMS.Winforms.Forms
         private IEnumerable<Order>? orders;
         private IEnumerable<Subject> subjects;
         private IEnumerable<Order> allOrders; // Store all orders
-        private IEnumerable<Order> filteredOrders;
+        //private IEnumerable<Order> filteredOrders;
         public ClientHistoryForm()
         {
             InitializeComponent();
@@ -79,7 +78,7 @@ namespace BSMS.Winforms.Forms
         {
             await Reload();
         }
-       // private void grvOrders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e) { }
+       
         private DataTable OrderSummaryToDataTable(IEnumerable<OrderSummary>? orders)
         {
             DataTable dtO = new();

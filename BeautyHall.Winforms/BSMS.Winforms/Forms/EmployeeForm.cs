@@ -204,6 +204,10 @@ namespace BSMS.Winforms.Forms
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
-
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var EmployeeSummaryForm = new EmployeeSummaryForm();
+            Program.dashboard.ShowForm(EmployeeSummaryForm);
+        }
     }
 }

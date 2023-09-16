@@ -206,7 +206,7 @@ namespace BSMS.Winforms.Forms
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e) => this.Close();
 
-        private async void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        private  void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
             
             int selectedCustomerId = (int)lookUpEdit1.EditValue;

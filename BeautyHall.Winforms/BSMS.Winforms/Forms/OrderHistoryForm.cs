@@ -81,7 +81,7 @@ namespace BSMS.Winforms.Forms
             dateTo.EditValue = DateTime.Today;
         }
 
-        private async void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        private  void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {

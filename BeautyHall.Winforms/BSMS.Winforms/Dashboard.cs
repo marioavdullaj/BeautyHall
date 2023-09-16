@@ -14,7 +14,7 @@ namespace BSMS
 
         }
 
-        private async void OnLoad(object sender, EventArgs e)
+        private  void OnLoad(object sender, EventArgs e)
         {
             usernameInfoElement.Text = $"Hello, {User.Name} {User.Surname}";
             ShowForm(new WelcomeForm(User));
