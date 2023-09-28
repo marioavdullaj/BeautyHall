@@ -16,5 +16,6 @@ namespace BSMS.Winforms.Models
         public string DiscountPercentage { get; set; }
         public decimal? TotalCash { get; set; }
         public decimal? TotalPOS { get; set; }
+        
     }
 }

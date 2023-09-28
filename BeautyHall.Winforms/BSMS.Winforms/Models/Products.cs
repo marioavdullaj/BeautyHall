@@ -14,6 +14,6 @@ namespace BSMS.Winforms.Models
         public string? SupplierId { get; set; }
         public DateTime? ProductRegistrationDate { get; set; }
         public decimal? SellingPrice { get; set; }
-
+        
     }
 }

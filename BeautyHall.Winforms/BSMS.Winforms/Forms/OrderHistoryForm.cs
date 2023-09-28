@@ -14,6 +14,7 @@ namespace BSMS.Winforms.Forms
 
         DataSet ds;
         private IEnumerable<Order>? orders;
+       
         public OrderHistoryForm()
         {
             InitializeComponent();
@@ -28,8 +29,41 @@ namespace BSMS.Winforms.Forms
         private async void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
             await Reload();
-        }
 
+            // Calculate and display the desired values in the barEditItems
+            CalculateAndDisplayResults();
+        }
+       
+        private void CalculateAndDisplayResults()
+        {
+            DataTable dt1 = ds.Tables["OrderSummary"];
+           
+            decimal totalCustomers = dt1.Rows.Count;
+
+            decimal totalPrice = dt1.AsEnumerable().Sum(row =>
+            {
+                decimal.TryParse(row.Field<string>("TotalPrice"), out decimal price);
+                return price;
+            });
+
+            decimal totalCash = dt1.AsEnumerable().Sum(row =>
+            {
+                decimal.TryParse(row.Field<string>("TotalCash"), out decimal cash);
+                return cash;
+            });
+
+            decimal totalPOS = dt1.AsEnumerable().Sum(row =>
+            {
+                decimal.TryParse(row.Field<string>("TotalPOS"), out decimal pos);
+                return pos;
+            });
+
+            barEditItem1.EditValue = totalCustomers;
+            barEditItem3.EditValue = totalPrice;
+            barEditItem5.EditValue = totalCash;
+            barEditItem6.EditValue = totalPOS;
+        }
+       
         private async Task Reload()
         {
             try
@@ -50,7 +84,8 @@ namespace BSMS.Winforms.Forms
                     Payed = x.PaymentSummaries != null && x.PaymentSummaries.Any(),
                     ProductsInOrder = x.OrderProducts,
                     ExistProductsInOrder = x.OrderProducts != null && x.OrderProducts.Any(),
-                    DiscountPercentage = (x.PaymentSummaries == null || !x.PaymentSummaries.Any()) ? "" : $"{(1 - (x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice) > 0 ? ((x.PaymentSummaries?.FirstOrDefault()?.DiscountedPrice ?? 0) / (x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice))) : 1)):P}"
+                    DiscountPercentage = (x.PaymentSummaries == null || !x.PaymentSummaries.Any()) ? "" : $"{(1 - (x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice) > 0 ? ((x.PaymentSummaries?.FirstOrDefault()?.DiscountedPrice ?? 0) / (x.OrderServices?.Sum(x => x.ServicePrice) + x.OrderProducts?.Sum(x => x.TotalPrice))) : 1)):P}",
+
                 });
 
                 var dt1 = OrderSummaryToDataTable(orderSummary);
@@ -81,7 +116,7 @@ namespace BSMS.Winforms.Forms
             dateTo.EditValue = DateTime.Today;
         }
 
-        private  void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -108,7 +143,9 @@ namespace BSMS.Winforms.Forms
         {
             await Reload();
         }
+        
         private void grvOrders_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e) { }
+        
         private async void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
@@ -203,6 +240,7 @@ namespace BSMS.Winforms.Forms
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+       
         private async Task<bool> SaveAsFile(IEnumerable<Order?> orders, string fileName, bool includeAllServices = false)
         {
             List<Service>? services = null;
@@ -327,6 +365,7 @@ namespace BSMS.Winforms.Forms
 
             return dtP;
         }
+       
         public void ClearData()
         {
             try

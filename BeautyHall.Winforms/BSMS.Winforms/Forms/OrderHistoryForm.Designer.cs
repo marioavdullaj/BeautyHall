@@ -65,10 +65,22 @@ namespace BSMS.Winforms.Forms
             barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            barEditItem3 = new DevExpress.XtraBars.BarEditItem();
+            repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            barEditItem5 = new DevExpress.XtraBars.BarEditItem();
+            repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            barEditItem6 = new DevExpress.XtraBars.BarEditItem();
+            repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             orderSummaryBindingSource = new BindingSource(components);
@@ -83,6 +95,12 @@ namespace BSMS.Winforms.Forms
             ((System.ComponentModel.ISupportInitialize)dateFromRepo.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).BeginInit();
@@ -329,13 +347,13 @@ namespace BSMS.Winforms.Forms
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5, barButtonItem6 });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, dateFrom, dateTo, barButtonItem3, barButtonItem4, barButtonItem5, barButtonItem6, barEditItem1, barEditItem3, barEditItem5, barEditItem6 });
             ribbon.Location = new Point(0, 0);
             ribbon.Margin = new Padding(4, 2, 4, 2);
-            ribbon.MaxItemId = 10;
+            ribbon.MaxItemId = 16;
             ribbon.Name = "ribbon";
             ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
-            ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo, repositoryItemDateEdit1 });
+            ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { dateFromRepo, dateToRepo, repositoryItemDateEdit1, repositoryItemTextEdit1, repositoryItemTextEdit2, repositoryItemTextEdit3, repositoryItemTextEdit4, repositoryItemTextEdit5, repositoryItemTextEdit6 });
             ribbon.Size = new Size(1447, 193);
             ribbon.StatusBar = ribbonStatusBar;
             // 
@@ -421,9 +439,75 @@ namespace BSMS.Winforms.Forms
             barButtonItem6.Name = "barButtonItem6";
             barButtonItem6.ItemClick += barButtonItem6_ItemClick;
             // 
+            // barEditItem1
+            // 
+            barEditItem1.Caption = "Total Customers:  ";
+            barEditItem1.Edit = repositoryItemTextEdit1;
+            barEditItem1.EditWidth = 100;
+            barEditItem1.Enabled = false;
+            barEditItem1.Id = 10;
+            barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            repositoryItemTextEdit1.AutoHeight = false;
+            repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            repositoryItemTextEdit2.AutoHeight = false;
+            repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // barEditItem3
+            // 
+            barEditItem3.Caption = "Total Price:          ";
+            barEditItem3.Edit = repositoryItemTextEdit3;
+            barEditItem3.EditWidth = 100;
+            barEditItem3.Enabled = false;
+            barEditItem3.Id = 12;
+            barEditItem3.Name = "barEditItem3";
+            // 
+            // repositoryItemTextEdit3
+            // 
+            repositoryItemTextEdit3.AutoHeight = false;
+            repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+            // 
+            // repositoryItemTextEdit4
+            // 
+            repositoryItemTextEdit4.AutoHeight = false;
+            repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            // 
+            // barEditItem5
+            // 
+            barEditItem5.Caption = "Total Cash:  ";
+            barEditItem5.Edit = repositoryItemTextEdit5;
+            barEditItem5.EditWidth = 100;
+            barEditItem5.Enabled = false;
+            barEditItem5.Id = 14;
+            barEditItem5.Name = "barEditItem5";
+            // 
+            // repositoryItemTextEdit5
+            // 
+            repositoryItemTextEdit5.AutoHeight = false;
+            repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
+            // 
+            // barEditItem6
+            // 
+            barEditItem6.Caption = "Total POS:   ";
+            barEditItem6.Edit = repositoryItemTextEdit6;
+            barEditItem6.EditWidth = 100;
+            barEditItem6.Enabled = false;
+            barEditItem6.Id = 15;
+            barEditItem6.Name = "barEditItem6";
+            // 
+            // repositoryItemTextEdit6
+            // 
+            repositoryItemTextEdit6.AutoHeight = false;
+            repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
+            // 
             // ribbonPage1
             // 
-            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2 });
+            ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1, ribbonPageGroup3, ribbonPageGroup2, ribbonPageGroup4, ribbonPageGroup6 });
             ribbonPage1.Name = "ribbonPage1";
             ribbonPage1.Text = "All orders";
             // 
@@ -446,6 +530,18 @@ namespace BSMS.Winforms.Forms
             ribbonPageGroup2.ItemLinks.Add(barButtonItem4);
             ribbonPageGroup2.ItemLinks.Add(barButtonItem2);
             ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // ribbonPageGroup4
+            // 
+            ribbonPageGroup4.ItemLinks.Add(barEditItem1);
+            ribbonPageGroup4.ItemLinks.Add(barEditItem3);
+            ribbonPageGroup4.Name = "ribbonPageGroup4";
+            // 
+            // ribbonPageGroup6
+            // 
+            ribbonPageGroup6.ItemLinks.Add(barEditItem5);
+            ribbonPageGroup6.ItemLinks.Add(barEditItem6);
+            ribbonPageGroup6.Name = "ribbonPageGroup6";
             // 
             // repositoryItemDateEdit1
             // 
@@ -492,6 +588,12 @@ namespace BSMS.Winforms.Forms
             ((System.ComponentModel.ISupportInitialize)dateFromRepo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateToRepo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)repositoryItemTextEdit6).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemDateEdit1).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).EndInit();
@@ -542,5 +644,17 @@ namespace BSMS.Winforms.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colOrderId;
         private DevExpress.XtraGrid.Columns.GridColumn colDiscountPercentage;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarEditItem barEditItem3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
+        private DevExpress.XtraBars.BarEditItem barEditItem5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit5;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarEditItem barEditItem6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit6;
     }
 }

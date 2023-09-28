@@ -13,6 +13,7 @@ namespace BSMS.Winforms.Forms
         public TotalSummaryForm()
         {
             InitializeComponent();
+
         }
 
         private async void TotalSummary_Load(object sender, EventArgs e)
@@ -98,11 +99,6 @@ namespace BSMS.Winforms.Forms
             cashNetEdit.EditValue = summary.TotalCashNet;
             dailyCostsEdit.EditValue = summary.DailyCosts;
 
-            //Console.WriteLine($"TotalCash: {summary.TotalCash}");
-            //Console.WriteLine($"TotalPos: {summary.TotalPos}");
-            //Console.WriteLine($"TotalNet: {summary.TotalNet}");
-            //Console.WriteLine($"TotalCashNet: {summary.TotalCashNet}");
-            //Console.WriteLine($"DailyCosts: {summary.DailyCosts}");
         }
 
         private void ResetSummary()
@@ -194,12 +190,10 @@ namespace BSMS.Winforms.Forms
                         });
                     }
 
-
-                    //orderSummaryGridControl.DataSource = orderSummaries; // Set the DataSource here
                 }
                 else
                 {
-                    //orderSummaryGridControl.DataSource = null;
+
                 }
             }
             catch (Exception ex)
@@ -253,6 +247,43 @@ namespace BSMS.Winforms.Forms
             {
                 XtraMessageBox.Show(ex.Message);
             }
+        }
+
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateSummary();
+        }
+
+        private void CalculateSummary()
+        {
+            // Determine the selected time period
+            string selectedTimePeriod = comboBoxEdit1.SelectedItem.ToString();
+
+            DateTime startDate;
+            DateTime endDate = DateTime.Today;
+
+            switch (selectedTimePeriod)
+            {
+                case "Week":
+                    startDate = endDate.AddDays(-7);
+                    break;
+                case "1 Month":
+                    startDate = endDate.AddMonths(-1);
+                    break;
+                case "3 Months":
+                    startDate = endDate.AddMonths(-3);
+                    break;
+                case "6 Months":
+                    startDate = endDate.AddMonths(-6);
+                    break;
+                case "1 Year":
+                    startDate = endDate.AddYears(-1);
+                    break;
+                default:
+                    startDate = DateTime.MinValue;
+                    break;
+            }
+
         }
     }
 }
