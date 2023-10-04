@@ -30,11 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TotalSummaryForm));
-            DevExpress.Utils.SimpleContextButton simpleContextButton6 = new DevExpress.Utils.SimpleContextButton();
-            DevExpress.Utils.SimpleContextButton simpleContextButton7 = new DevExpress.Utils.SimpleContextButton();
-            DevExpress.Utils.SimpleContextButton simpleContextButton8 = new DevExpress.Utils.SimpleContextButton();
-            DevExpress.Utils.SimpleContextButton simpleContextButton9 = new DevExpress.Utils.SimpleContextButton();
-            DevExpress.Utils.SimpleContextButton simpleContextButton10 = new DevExpress.Utils.SimpleContextButton();
+            DevExpress.Utils.SimpleContextButton simpleContextButton1 = new DevExpress.Utils.SimpleContextButton();
+            DevExpress.Utils.SimpleContextButton simpleContextButton2 = new DevExpress.Utils.SimpleContextButton();
+            DevExpress.Utils.SimpleContextButton simpleContextButton3 = new DevExpress.Utils.SimpleContextButton();
+            DevExpress.Utils.SimpleContextButton simpleContextButton4 = new DevExpress.Utils.SimpleContextButton();
+            DevExpress.Utils.SimpleContextButton simpleContextButton5 = new DevExpress.Utils.SimpleContextButton();
             ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             CalculateTotalSummarybtn = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -56,18 +56,26 @@
             panelControl1 = new DevExpress.XtraEditors.PanelControl();
             SummaryPanel = new DevExpress.XtraEditors.PanelControl();
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            PaymentsCostsPOS = new DevExpress.XtraEditors.TextEdit();
+            labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            labelControl11 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            PaymentsCostsCash = new DevExpress.XtraEditors.TextEdit();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            cashNetEdit = new DevExpress.XtraEditors.TextEdit();
+            ShopingCostsPOS = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            totalNetEdit = new DevExpress.XtraEditors.TextEdit();
             totalGrossEdit = new DevExpress.XtraEditors.TextEdit();
-            labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            ShoppingCostsCash = new DevExpress.XtraEditors.TextEdit();
             totalCashEdit = new DevExpress.XtraEditors.TextEdit();
-            labelControl9 = new DevExpress.XtraEditors.LabelControl();
             totalPosEdit = new DevExpress.XtraEditors.TextEdit();
-            labelControl7 = new DevExpress.XtraEditors.LabelControl();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
             dailyCostsEdit = new DevExpress.XtraEditors.TextEdit();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -79,6 +87,11 @@
             DateTo = new DevExpress.XtraEditors.DateEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            cashNetEdit = new DevExpress.XtraEditors.TextEdit();
+            totalNetEdit = new DevExpress.XtraEditors.TextEdit();
+            labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            labelControl7 = new DevExpress.XtraEditors.LabelControl();
             CalculateSpecificSumbtn = new DevExpress.XtraEditors.SimpleButton();
             orderSummaryBindingSource = new BindingSource(components);
             barEditItem1 = new DevExpress.XtraBars.BarEditItem();
@@ -99,9 +112,11 @@
             SummaryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl3).BeginInit();
             panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)cashNetEdit.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)totalNetEdit.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsPOS.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsCash.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShopingCostsPOS.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalGrossEdit.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShoppingCostsCash.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalCashEdit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalPosEdit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dailyCostsEdit.Properties).BeginInit();
@@ -114,6 +129,8 @@
             ((System.ComponentModel.ISupportInitialize)DateFrom.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DateTo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DateTo.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cashNetEdit.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)totalNetEdit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -232,41 +249,41 @@
             // 
             repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
             repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            simpleContextButton6.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
-            simpleContextButton6.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            simpleContextButton6.Id = new Guid("605863c0-5b3c-4940-918b-3e391a4f848f");
-            simpleContextButton6.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
-            simpleContextButton6.Name = "simpleContextButton1";
-            simpleContextButton7.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
-            simpleContextButton7.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            simpleContextButton7.Id = new Guid("53d5c9fe-6632-4024-81d5-8883ef305b15");
-            simpleContextButton7.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
-            simpleContextButton7.Name = "simpleContextButton2";
-            simpleContextButton8.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
-            simpleContextButton8.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            simpleContextButton8.Id = new Guid("278f628b-0335-4374-a713-cb0f533307a3");
-            simpleContextButton8.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
-            simpleContextButton8.Name = "simpleContextButton3";
-            simpleContextButton9.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
-            simpleContextButton9.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            simpleContextButton9.Id = new Guid("b2ce2206-4aab-481b-a834-2e119d671096");
-            simpleContextButton9.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
-            simpleContextButton9.Name = "simpleContextButton4";
-            simpleContextButton10.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
-            simpleContextButton10.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            simpleContextButton10.Id = new Guid("8a256bf4-1a41-421a-8d27-18524859a975");
-            simpleContextButton10.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
-            simpleContextButton10.Name = "simpleContextButton5";
-            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton6);
-            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton7);
-            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton8);
-            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton9);
-            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton10);
+            simpleContextButton1.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
+            simpleContextButton1.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            simpleContextButton1.Id = new Guid("605863c0-5b3c-4940-918b-3e391a4f848f");
+            simpleContextButton1.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
+            simpleContextButton1.Name = "simpleContextButton1";
+            simpleContextButton2.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
+            simpleContextButton2.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            simpleContextButton2.Id = new Guid("53d5c9fe-6632-4024-81d5-8883ef305b15");
+            simpleContextButton2.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
+            simpleContextButton2.Name = "simpleContextButton2";
+            simpleContextButton3.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
+            simpleContextButton3.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            simpleContextButton3.Id = new Guid("278f628b-0335-4374-a713-cb0f533307a3");
+            simpleContextButton3.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
+            simpleContextButton3.Name = "simpleContextButton3";
+            simpleContextButton4.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
+            simpleContextButton4.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            simpleContextButton4.Id = new Guid("b2ce2206-4aab-481b-a834-2e119d671096");
+            simpleContextButton4.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
+            simpleContextButton4.Name = "simpleContextButton4";
+            simpleContextButton5.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
+            simpleContextButton5.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            simpleContextButton5.Id = new Guid("8a256bf4-1a41-421a-8d27-18524859a975");
+            simpleContextButton5.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
+            simpleContextButton5.Name = "simpleContextButton5";
+            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton1);
+            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton2);
+            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton3);
+            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton4);
+            repositoryItemCheckedComboBoxEdit1.ContextButtons.Add(simpleContextButton5);
             repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
             // 
             // ribbonStatusBar
             // 
-            ribbonStatusBar.Location = new Point(0, 739);
+            ribbonStatusBar.Location = new Point(0, 909);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
             ribbonStatusBar.Size = new Size(1200, 30);
@@ -293,25 +310,134 @@
             // panelControl3
             // 
             panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            panelControl3.Controls.Add(labelControl19);
+            panelControl3.Controls.Add(labelControl18);
+            panelControl3.Controls.Add(labelControl17);
+            panelControl3.Controls.Add(labelControl16);
+            panelControl3.Controls.Add(PaymentsCostsPOS);
+            panelControl3.Controls.Add(labelControl15);
+            panelControl3.Controls.Add(labelControl14);
+            panelControl3.Controls.Add(labelControl13);
+            panelControl3.Controls.Add(labelControl12);
+            panelControl3.Controls.Add(labelControl11);
             panelControl3.Controls.Add(labelControl2);
+            panelControl3.Controls.Add(PaymentsCostsCash);
             panelControl3.Controls.Add(labelControl3);
             panelControl3.Controls.Add(labelControl4);
-            panelControl3.Controls.Add(cashNetEdit);
+            panelControl3.Controls.Add(ShopingCostsPOS);
             panelControl3.Controls.Add(labelControl5);
-            panelControl3.Controls.Add(totalNetEdit);
             panelControl3.Controls.Add(totalGrossEdit);
-            panelControl3.Controls.Add(labelControl8);
+            panelControl3.Controls.Add(ShoppingCostsCash);
             panelControl3.Controls.Add(totalCashEdit);
-            panelControl3.Controls.Add(labelControl9);
             panelControl3.Controls.Add(totalPosEdit);
-            panelControl3.Controls.Add(labelControl7);
             panelControl3.Controls.Add(labelControl6);
             panelControl3.Controls.Add(dailyCostsEdit);
             panelControl3.Dock = DockStyle.Left;
             panelControl3.Location = new Point(2, 88);
             panelControl3.Name = "panelControl3";
-            panelControl3.Size = new Size(566, 446);
+            panelControl3.Size = new Size(569, 446);
             panelControl3.TabIndex = 49;
+            // 
+            // labelControl19
+            // 
+            labelControl19.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl19.Appearance.Options.UseFont = true;
+            labelControl19.Location = new Point(388, 399);
+            labelControl19.Name = "labelControl19";
+            labelControl19.Size = new Size(42, 28);
+            labelControl19.TabIndex = 59;
+            labelControl19.Text = "POS";
+            // 
+            // labelControl18
+            // 
+            labelControl18.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl18.Appearance.Options.UseFont = true;
+            labelControl18.Location = new Point(388, 350);
+            labelControl18.Name = "labelControl18";
+            labelControl18.Size = new Size(89, 28);
+            labelControl18.TabIndex = 58;
+            labelControl18.Text = "Μετρητά";
+            // 
+            // labelControl17
+            // 
+            labelControl17.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl17.Appearance.Options.UseFont = true;
+            labelControl17.Location = new Point(388, 301);
+            labelControl17.Name = "labelControl17";
+            labelControl17.Size = new Size(42, 28);
+            labelControl17.TabIndex = 57;
+            labelControl17.Text = "POS";
+            // 
+            // labelControl16
+            // 
+            labelControl16.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl16.Appearance.Options.UseFont = true;
+            labelControl16.Location = new Point(388, 252);
+            labelControl16.Name = "labelControl16";
+            labelControl16.Size = new Size(89, 28);
+            labelControl16.TabIndex = 56;
+            labelControl16.Text = "Μετρητά";
+            // 
+            // PaymentsCostsPOS
+            // 
+            PaymentsCostsPOS.Enabled = false;
+            PaymentsCostsPOS.Location = new Point(217, 401);
+            PaymentsCostsPOS.MenuManager = ribbon;
+            PaymentsCostsPOS.Name = "PaymentsCostsPOS";
+            PaymentsCostsPOS.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            PaymentsCostsPOS.Properties.Appearance.Options.UseFont = true;
+            PaymentsCostsPOS.Size = new Size(136, 28);
+            PaymentsCostsPOS.TabIndex = 50;
+            // 
+            // labelControl15
+            // 
+            labelControl15.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl15.Appearance.Options.UseFont = true;
+            labelControl15.Location = new Point(11, 399);
+            labelControl15.Name = "labelControl15";
+            labelControl15.Size = new Size(189, 28);
+            labelControl15.TabIndex = 55;
+            labelControl15.Text = "Έξοδα Πληρωμών:";
+            // 
+            // labelControl14
+            // 
+            labelControl14.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl14.Appearance.Options.UseFont = true;
+            labelControl14.Location = new Point(11, 350);
+            labelControl14.Name = "labelControl14";
+            labelControl14.Size = new Size(189, 28);
+            labelControl14.TabIndex = 54;
+            labelControl14.Text = "Έξοδα Πληρωμών:";
+            // 
+            // labelControl13
+            // 
+            labelControl13.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl13.Appearance.Options.UseFont = true;
+            labelControl13.Location = new Point(11, 301);
+            labelControl13.Name = "labelControl13";
+            labelControl13.Size = new Size(163, 28);
+            labelControl13.TabIndex = 53;
+            labelControl13.Text = "Έξοδα Αγορών :";
+            // 
+            // labelControl12
+            // 
+            labelControl12.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl12.Appearance.Options.UseFont = true;
+            labelControl12.Location = new Point(11, 252);
+            labelControl12.Name = "labelControl12";
+            labelControl12.Size = new Size(163, 28);
+            labelControl12.TabIndex = 52;
+            labelControl12.Text = "Έξοδα Αγορών :";
+            // 
+            // labelControl11
+            // 
+            labelControl11.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl11.Appearance.Options.UseFont = true;
+            labelControl11.Location = new Point(388, 203);
+            labelControl11.Name = "labelControl11";
+            labelControl11.Size = new Size(89, 28);
+            labelControl11.TabIndex = 51;
+            labelControl11.Text = "Μετρητά";
             // 
             // labelControl2
             // 
@@ -323,11 +449,22 @@
             labelControl2.TabIndex = 17;
             labelControl2.Text = "Γενικό Σύνολο :";
             // 
+            // PaymentsCostsCash
+            // 
+            PaymentsCostsCash.Enabled = false;
+            PaymentsCostsCash.Location = new Point(217, 350);
+            PaymentsCostsCash.MenuManager = ribbon;
+            PaymentsCostsCash.Name = "PaymentsCostsCash";
+            PaymentsCostsCash.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            PaymentsCostsCash.Properties.Appearance.Options.UseFont = true;
+            PaymentsCostsCash.Size = new Size(136, 28);
+            PaymentsCostsCash.TabIndex = 35;
+            // 
             // labelControl3
             // 
             labelControl3.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(5, 91);
+            labelControl3.Location = new Point(5, 76);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(183, 28);
             labelControl3.TabIndex = 18;
@@ -337,55 +474,36 @@
             // 
             labelControl4.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(7, 159);
+            labelControl4.Location = new Point(7, 130);
             labelControl4.Name = "labelControl4";
             labelControl4.Size = new Size(136, 28);
             labelControl4.TabIndex = 19;
             labelControl4.Text = "Σύνολο POS :";
             // 
-            // cashNetEdit
+            // ShopingCostsPOS
             // 
-            cashNetEdit.Enabled = false;
-            cashNetEdit.Location = new Point(207, 396);
-            cashNetEdit.MenuManager = ribbon;
-            cashNetEdit.Name = "cashNetEdit";
-            cashNetEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            cashNetEdit.Properties.Appearance.Options.UseFont = true;
-            cashNetEdit.Properties.DisplayFormat.FormatString = "c";
-            cashNetEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            cashNetEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            cashNetEdit.Properties.MaskSettings.Set("mask", "c");
-            cashNetEdit.Size = new Size(183, 28);
-            cashNetEdit.TabIndex = 30;
+            ShopingCostsPOS.Enabled = false;
+            ShopingCostsPOS.Location = new Point(217, 303);
+            ShopingCostsPOS.MenuManager = ribbon;
+            ShopingCostsPOS.Name = "ShopingCostsPOS";
+            ShopingCostsPOS.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ShopingCostsPOS.Properties.Appearance.Options.UseFont = true;
+            ShopingCostsPOS.Size = new Size(136, 28);
+            ShopingCostsPOS.TabIndex = 34;
             // 
             // labelControl5
             // 
             labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             labelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            labelControl5.Location = new Point(7, 206);
+            labelControl5.Location = new Point(7, 183);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(560, 1);
             labelControl5.TabIndex = 20;
             // 
-            // totalNetEdit
-            // 
-            totalNetEdit.Enabled = false;
-            totalNetEdit.Location = new Point(207, 337);
-            totalNetEdit.MenuManager = ribbon;
-            totalNetEdit.Name = "totalNetEdit";
-            totalNetEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            totalNetEdit.Properties.Appearance.Options.UseFont = true;
-            totalNetEdit.Properties.DisplayFormat.FormatString = "c";
-            totalNetEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            totalNetEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            totalNetEdit.Properties.MaskSettings.Set("mask", "c");
-            totalNetEdit.Size = new Size(183, 28);
-            totalNetEdit.TabIndex = 29;
-            // 
             // totalGrossEdit
             // 
             totalGrossEdit.Enabled = false;
-            totalGrossEdit.Location = new Point(207, 25);
+            totalGrossEdit.Location = new Point(217, 25);
             totalGrossEdit.MenuManager = ribbon;
             totalGrossEdit.Name = "totalGrossEdit";
             totalGrossEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -394,23 +512,24 @@
             totalGrossEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalGrossEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalGrossEdit.Properties.MaskSettings.Set("mask", "c");
-            totalGrossEdit.Size = new Size(183, 28);
+            totalGrossEdit.Size = new Size(136, 28);
             totalGrossEdit.TabIndex = 21;
             // 
-            // labelControl8
+            // ShoppingCostsCash
             // 
-            labelControl8.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl8.Appearance.Options.UseFont = true;
-            labelControl8.Location = new Point(8, 394);
-            labelControl8.Name = "labelControl8";
-            labelControl8.Size = new Size(190, 28);
-            labelControl8.TabIndex = 28;
-            labelControl8.Text = "Καθαρά Μετρητά :";
+            ShoppingCostsCash.Enabled = false;
+            ShoppingCostsCash.Location = new Point(217, 254);
+            ShoppingCostsCash.MenuManager = ribbon;
+            ShoppingCostsCash.Name = "ShoppingCostsCash";
+            ShoppingCostsCash.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ShoppingCostsCash.Properties.Appearance.Options.UseFont = true;
+            ShoppingCostsCash.Size = new Size(136, 28);
+            ShoppingCostsCash.TabIndex = 33;
             // 
             // totalCashEdit
             // 
             totalCashEdit.Enabled = false;
-            totalCashEdit.Location = new Point(207, 93);
+            totalCashEdit.Location = new Point(217, 78);
             totalCashEdit.MenuManager = ribbon;
             totalCashEdit.Name = "totalCashEdit";
             totalCashEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -419,23 +538,13 @@
             totalCashEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalCashEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalCashEdit.Properties.MaskSettings.Set("mask", "c");
-            totalCashEdit.Size = new Size(183, 28);
+            totalCashEdit.Size = new Size(136, 28);
             totalCashEdit.TabIndex = 22;
-            // 
-            // labelControl9
-            // 
-            labelControl9.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            labelControl9.Appearance.Options.UseFont = true;
-            labelControl9.Location = new Point(7, 335);
-            labelControl9.Name = "labelControl9";
-            labelControl9.Size = new Size(172, 28);
-            labelControl9.TabIndex = 27;
-            labelControl9.Text = "Καθαρό Σύνολο :";
             // 
             // totalPosEdit
             // 
             totalPosEdit.Enabled = false;
-            totalPosEdit.Location = new Point(207, 161);
+            totalPosEdit.Location = new Point(217, 132);
             totalPosEdit.MenuManager = ribbon;
             totalPosEdit.Name = "totalPosEdit";
             totalPosEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -444,32 +553,23 @@
             totalPosEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalPosEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalPosEdit.Properties.MaskSettings.Set("mask", "c");
-            totalPosEdit.Size = new Size(183, 28);
+            totalPosEdit.Size = new Size(136, 28);
             totalPosEdit.TabIndex = 23;
-            // 
-            // labelControl7
-            // 
-            labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            labelControl7.Location = new Point(5, 305);
-            labelControl7.Name = "labelControl7";
-            labelControl7.Size = new Size(560, 1);
-            labelControl7.TabIndex = 26;
             // 
             // labelControl6
             // 
             labelControl6.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(7, 248);
+            labelControl6.Location = new Point(8, 203);
             labelControl6.Name = "labelControl6";
-            labelControl6.Size = new Size(78, 28);
+            labelControl6.Size = new Size(160, 28);
             labelControl6.TabIndex = 24;
-            labelControl6.Text = "Έξοδα :";
+            labelControl6.Text = "Έξοδα Ημέρας :";
             // 
             // dailyCostsEdit
             // 
             dailyCostsEdit.Enabled = false;
-            dailyCostsEdit.Location = new Point(207, 250);
+            dailyCostsEdit.Location = new Point(217, 205);
             dailyCostsEdit.MenuManager = ribbon;
             dailyCostsEdit.Name = "dailyCostsEdit";
             dailyCostsEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -478,7 +578,7 @@
             dailyCostsEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             dailyCostsEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             dailyCostsEdit.Properties.MaskSettings.Set("mask", "c");
-            dailyCostsEdit.Size = new Size(183, 28);
+            dailyCostsEdit.Size = new Size(136, 28);
             dailyCostsEdit.TabIndex = 25;
             // 
             // panelControl2
@@ -590,6 +690,65 @@
             labelControl10.TabIndex = 35;
             labelControl10.Text = "Date To :";
             // 
+            // cashNetEdit
+            // 
+            cashNetEdit.Enabled = false;
+            cashNetEdit.Location = new Point(221, 831);
+            cashNetEdit.MenuManager = ribbon;
+            cashNetEdit.Name = "cashNetEdit";
+            cashNetEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cashNetEdit.Properties.Appearance.Options.UseFont = true;
+            cashNetEdit.Properties.DisplayFormat.FormatString = "c";
+            cashNetEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            cashNetEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            cashNetEdit.Properties.MaskSettings.Set("mask", "c");
+            cashNetEdit.Size = new Size(136, 28);
+            cashNetEdit.TabIndex = 30;
+            // 
+            // totalNetEdit
+            // 
+            totalNetEdit.Enabled = false;
+            totalNetEdit.Location = new Point(221, 767);
+            totalNetEdit.MenuManager = ribbon;
+            totalNetEdit.Name = "totalNetEdit";
+            totalNetEdit.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            totalNetEdit.Properties.Appearance.Options.UseFont = true;
+            totalNetEdit.Properties.DisplayFormat.FormatString = "c";
+            totalNetEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            totalNetEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            totalNetEdit.Properties.MaskSettings.Set("mask", "c");
+            totalNetEdit.Size = new Size(136, 28);
+            totalNetEdit.TabIndex = 29;
+            // 
+            // labelControl8
+            // 
+            labelControl8.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl8.Appearance.Options.UseFont = true;
+            labelControl8.Location = new Point(15, 829);
+            labelControl8.Name = "labelControl8";
+            labelControl8.Size = new Size(190, 28);
+            labelControl8.TabIndex = 28;
+            labelControl8.Text = "Καθαρά Μετρητά :";
+            // 
+            // labelControl9
+            // 
+            labelControl9.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl9.Appearance.Options.UseFont = true;
+            labelControl9.Location = new Point(15, 765);
+            labelControl9.Name = "labelControl9";
+            labelControl9.Size = new Size(172, 28);
+            labelControl9.TabIndex = 27;
+            labelControl9.Text = "Καθαρό Σύνολο :";
+            // 
+            // labelControl7
+            // 
+            labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            labelControl7.Location = new Point(15, 733);
+            labelControl7.Name = "labelControl7";
+            labelControl7.Size = new Size(560, 1);
+            labelControl7.TabIndex = 26;
+            // 
             // CalculateSpecificSumbtn
             // 
             CalculateSpecificSumbtn.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("CalculateSpecificSumbtn.ImageOptions.SvgImage");
@@ -625,10 +784,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 769);
+            ClientSize = new Size(1200, 939);
+            Controls.Add(cashNetEdit);
+            Controls.Add(totalNetEdit);
             Controls.Add(panelControl1);
             Controls.Add(ribbonStatusBar);
             Controls.Add(CalculateSpecificSumbtn);
+            Controls.Add(labelControl8);
+            Controls.Add(labelControl9);
+            Controls.Add(labelControl7);
             Controls.Add(ribbon);
             Name = "TotalSummaryForm";
             Ribbon = ribbon;
@@ -652,9 +816,11 @@
             ((System.ComponentModel.ISupportInitialize)panelControl3).EndInit();
             panelControl3.ResumeLayout(false);
             panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)cashNetEdit.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)totalNetEdit.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsPOS.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsCash.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShopingCostsPOS.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalGrossEdit.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShoppingCostsCash.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalCashEdit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalPosEdit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dailyCostsEdit.Properties).EndInit();
@@ -668,6 +834,8 @@
             ((System.ComponentModel.ISupportInitialize)DateFrom.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)DateTo.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)DateTo.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cashNetEdit.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)totalNetEdit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderSummaryBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -723,5 +891,18 @@
         private Label label1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.TextEdit PaymentsCostsPOS;
+        private DevExpress.XtraEditors.TextEdit PaymentsCostsCash;
+        private DevExpress.XtraEditors.TextEdit ShopingCostsPOS;
+        private DevExpress.XtraEditors.TextEdit ShoppingCostsCash;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
     }
 }

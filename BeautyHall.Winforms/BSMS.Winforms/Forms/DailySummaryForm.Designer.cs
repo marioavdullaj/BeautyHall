@@ -48,6 +48,19 @@
             colTotalCash = new DevExpress.XtraGrid.Columns.GridColumn();
             colTotalPOS = new DevExpress.XtraGrid.Columns.GridColumn();
             SummaryPanel = new DevExpress.XtraEditors.PanelControl();
+            labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            PaymentsCostsPOS = new DevExpress.XtraEditors.TextEdit();
+            labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            PaymentsCostsCash = new DevExpress.XtraEditors.TextEdit();
+            ShopingCostsPOS = new DevExpress.XtraEditors.TextEdit();
+            ShoppingCostsCash = new DevExpress.XtraEditors.TextEdit();
             CalculateDailySumbtn = new DevExpress.XtraEditors.SimpleButton();
             cashNetEdit = new DevExpress.XtraEditors.TextEdit();
             totalNetEdit = new DevExpress.XtraEditors.TextEdit();
@@ -73,6 +86,10 @@
             ((System.ComponentModel.ISupportInitialize)orderSummaryGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SummaryPanel).BeginInit();
             SummaryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsPOS.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsCash.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShopingCostsPOS.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShoppingCostsCash.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cashNetEdit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)totalNetEdit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dailyCostsEdit.Properties).BeginInit();
@@ -127,7 +144,7 @@
             // 
             // ribbonStatusBar
             // 
-            ribbonStatusBar.Location = new Point(0, 710);
+            ribbonStatusBar.Location = new Point(0, 921);
             ribbonStatusBar.Margin = new Padding(4, 2, 4, 2);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
@@ -155,7 +172,7 @@
             summaryDateEdit.Properties.Appearance.Options.UseFont = true;
             summaryDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             summaryDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            summaryDateEdit.Size = new Size(183, 28);
+            summaryDateEdit.Size = new Size(131, 28);
             summaryDateEdit.TabIndex = 1;
             summaryDateEdit.EditValueChanged += summaryDateEdit_EditValueChanged;
             // 
@@ -180,7 +197,7 @@
             orderSummaryGridControl.Margin = new Padding(4, 2, 4, 2);
             orderSummaryGridControl.MenuManager = ribbon;
             orderSummaryGridControl.Name = "orderSummaryGridControl";
-            orderSummaryGridControl.Size = new Size(429, 439);
+            orderSummaryGridControl.Size = new Size(429, 650);
             orderSummaryGridControl.TabIndex = 3;
             orderSummaryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { orderSummaryGridView });
             // 
@@ -237,6 +254,19 @@
             // 
             // SummaryPanel
             // 
+            SummaryPanel.Controls.Add(labelControl10);
+            SummaryPanel.Controls.Add(labelControl19);
+            SummaryPanel.Controls.Add(labelControl18);
+            SummaryPanel.Controls.Add(labelControl17);
+            SummaryPanel.Controls.Add(labelControl16);
+            SummaryPanel.Controls.Add(PaymentsCostsPOS);
+            SummaryPanel.Controls.Add(labelControl15);
+            SummaryPanel.Controls.Add(labelControl14);
+            SummaryPanel.Controls.Add(labelControl13);
+            SummaryPanel.Controls.Add(labelControl12);
+            SummaryPanel.Controls.Add(PaymentsCostsCash);
+            SummaryPanel.Controls.Add(ShopingCostsPOS);
+            SummaryPanel.Controls.Add(ShoppingCostsCash);
             SummaryPanel.Controls.Add(CalculateDailySumbtn);
             SummaryPanel.Controls.Add(cashNetEdit);
             SummaryPanel.Controls.Add(totalNetEdit);
@@ -256,15 +286,144 @@
             SummaryPanel.Location = new Point(429, 271);
             SummaryPanel.Margin = new Padding(4, 2, 4, 2);
             SummaryPanel.Name = "SummaryPanel";
-            SummaryPanel.Size = new Size(875, 439);
+            SummaryPanel.Size = new Size(875, 650);
             SummaryPanel.TabIndex = 4;
             SummaryPanel.Visible = false;
-            
+            // 
+            // labelControl10
+            // 
+            labelControl10.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl10.Appearance.Options.UseFont = true;
+            labelControl10.Location = new Point(415, 244);
+            labelControl10.Name = "labelControl10";
+            labelControl10.Size = new Size(89, 28);
+            labelControl10.TabIndex = 72;
+            labelControl10.Text = "Μετρητά";
+            // 
+            // labelControl19
+            // 
+            labelControl19.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl19.Appearance.Options.UseFont = true;
+            labelControl19.Location = new Point(415, 450);
+            labelControl19.Name = "labelControl19";
+            labelControl19.Size = new Size(42, 28);
+            labelControl19.TabIndex = 71;
+            labelControl19.Text = "POS";
+            // 
+            // labelControl18
+            // 
+            labelControl18.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl18.Appearance.Options.UseFont = true;
+            labelControl18.Location = new Point(415, 401);
+            labelControl18.Name = "labelControl18";
+            labelControl18.Size = new Size(89, 28);
+            labelControl18.TabIndex = 70;
+            labelControl18.Text = "Μετρητά";
+            // 
+            // labelControl17
+            // 
+            labelControl17.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl17.Appearance.Options.UseFont = true;
+            labelControl17.Location = new Point(415, 352);
+            labelControl17.Name = "labelControl17";
+            labelControl17.Size = new Size(42, 28);
+            labelControl17.TabIndex = 69;
+            labelControl17.Text = "POS";
+            // 
+            // labelControl16
+            // 
+            labelControl16.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl16.Appearance.Options.UseFont = true;
+            labelControl16.Location = new Point(415, 303);
+            labelControl16.Name = "labelControl16";
+            labelControl16.Size = new Size(89, 28);
+            labelControl16.TabIndex = 68;
+            labelControl16.Text = "Μετρητά";
+            // 
+            // PaymentsCostsPOS
+            // 
+            PaymentsCostsPOS.Location = new Point(244, 452);
+            PaymentsCostsPOS.MenuManager = ribbon;
+            PaymentsCostsPOS.Name = "PaymentsCostsPOS";
+            PaymentsCostsPOS.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            PaymentsCostsPOS.Properties.Appearance.Options.UseFont = true;
+            PaymentsCostsPOS.Size = new Size(124, 28);
+            PaymentsCostsPOS.TabIndex = 63;
+            // 
+            // labelControl15
+            // 
+            labelControl15.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl15.Appearance.Options.UseFont = true;
+            labelControl15.Location = new Point(38, 450);
+            labelControl15.Name = "labelControl15";
+            labelControl15.Size = new Size(189, 28);
+            labelControl15.TabIndex = 67;
+            labelControl15.Text = "Έξοδα Πληρωμών:";
+            // 
+            // labelControl14
+            // 
+            labelControl14.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl14.Appearance.Options.UseFont = true;
+            labelControl14.Location = new Point(38, 401);
+            labelControl14.Name = "labelControl14";
+            labelControl14.Size = new Size(189, 28);
+            labelControl14.TabIndex = 66;
+            labelControl14.Text = "Έξοδα Πληρωμών:";
+            // 
+            // labelControl13
+            // 
+            labelControl13.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl13.Appearance.Options.UseFont = true;
+            labelControl13.Location = new Point(38, 352);
+            labelControl13.Name = "labelControl13";
+            labelControl13.Size = new Size(163, 28);
+            labelControl13.TabIndex = 65;
+            labelControl13.Text = "Έξοδα Αγορών :";
+            // 
+            // labelControl12
+            // 
+            labelControl12.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl12.Appearance.Options.UseFont = true;
+            labelControl12.Location = new Point(38, 303);
+            labelControl12.Name = "labelControl12";
+            labelControl12.Size = new Size(163, 28);
+            labelControl12.TabIndex = 64;
+            labelControl12.Text = "Έξοδα Αγορών :";
+            // 
+            // PaymentsCostsCash
+            // 
+            PaymentsCostsCash.Location = new Point(244, 401);
+            PaymentsCostsCash.MenuManager = ribbon;
+            PaymentsCostsCash.Name = "PaymentsCostsCash";
+            PaymentsCostsCash.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            PaymentsCostsCash.Properties.Appearance.Options.UseFont = true;
+            PaymentsCostsCash.Size = new Size(124, 28);
+            PaymentsCostsCash.TabIndex = 62;
+            // 
+            // ShopingCostsPOS
+            // 
+            ShopingCostsPOS.Location = new Point(244, 354);
+            ShopingCostsPOS.MenuManager = ribbon;
+            ShopingCostsPOS.Name = "ShopingCostsPOS";
+            ShopingCostsPOS.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ShopingCostsPOS.Properties.Appearance.Options.UseFont = true;
+            ShopingCostsPOS.Size = new Size(124, 28);
+            ShopingCostsPOS.TabIndex = 61;
+            // 
+            // ShoppingCostsCash
+            // 
+            ShoppingCostsCash.Location = new Point(244, 305);
+            ShoppingCostsCash.MenuManager = ribbon;
+            ShoppingCostsCash.Name = "ShoppingCostsCash";
+            ShoppingCostsCash.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            ShoppingCostsCash.Properties.Appearance.Options.UseFont = true;
+            ShoppingCostsCash.Size = new Size(124, 28);
+            ShoppingCostsCash.TabIndex = 60;
             // 
             // CalculateDailySumbtn
             // 
             CalculateDailySumbtn.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("CalculateDailySumbtn.ImageOptions.SvgImage");
-            CalculateDailySumbtn.Location = new Point(496, 236);
+            CalculateDailySumbtn.Location = new Point(661, 244);
             CalculateDailySumbtn.Margin = new Padding(4, 2, 4, 2);
             CalculateDailySumbtn.Name = "CalculateDailySumbtn";
             CalculateDailySumbtn.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -276,7 +435,7 @@
             // cashNetEdit
             // 
             cashNetEdit.Enabled = false;
-            cashNetEdit.Location = new Point(237, 391);
+            cashNetEdit.Location = new Point(244, 595);
             cashNetEdit.Margin = new Padding(4, 2, 4, 2);
             cashNetEdit.MenuManager = ribbon;
             cashNetEdit.Name = "cashNetEdit";
@@ -286,13 +445,13 @@
             cashNetEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             cashNetEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             cashNetEdit.Properties.MaskSettings.Set("mask", "c");
-            cashNetEdit.Size = new Size(183, 28);
+            cashNetEdit.Size = new Size(152, 28);
             cashNetEdit.TabIndex = 15;
             // 
             // totalNetEdit
             // 
             totalNetEdit.Enabled = false;
-            totalNetEdit.Location = new Point(237, 334);
+            totalNetEdit.Location = new Point(244, 538);
             totalNetEdit.Margin = new Padding(4, 2, 4, 2);
             totalNetEdit.MenuManager = ribbon;
             totalNetEdit.Name = "totalNetEdit";
@@ -302,14 +461,14 @@
             totalNetEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalNetEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalNetEdit.Properties.MaskSettings.Set("mask", "c");
-            totalNetEdit.Size = new Size(183, 28);
+            totalNetEdit.Size = new Size(152, 28);
             totalNetEdit.TabIndex = 14;
             // 
             // labelControl8
             // 
             labelControl8.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl8.Appearance.Options.UseFont = true;
-            labelControl8.Location = new Point(38, 390);
+            labelControl8.Location = new Point(38, 594);
             labelControl8.Margin = new Padding(4, 2, 4, 2);
             labelControl8.Name = "labelControl8";
             labelControl8.Size = new Size(190, 28);
@@ -320,7 +479,7 @@
             // 
             labelControl9.Appearance.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             labelControl9.Appearance.Options.UseFont = true;
-            labelControl9.Location = new Point(37, 331);
+            labelControl9.Location = new Point(37, 535);
             labelControl9.Margin = new Padding(4, 2, 4, 2);
             labelControl9.Name = "labelControl9";
             labelControl9.Size = new Size(172, 28);
@@ -331,7 +490,7 @@
             // 
             labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            labelControl7.Location = new Point(35, 302);
+            labelControl7.Location = new Point(35, 518);
             labelControl7.Margin = new Padding(4, 2, 4, 2);
             labelControl7.Name = "labelControl7";
             labelControl7.Size = new Size(760, 1);
@@ -339,7 +498,7 @@
             // 
             // dailyCostsEdit
             // 
-            dailyCostsEdit.Location = new Point(237, 246);
+            dailyCostsEdit.Location = new Point(244, 246);
             dailyCostsEdit.Margin = new Padding(4, 2, 4, 2);
             dailyCostsEdit.MenuManager = ribbon;
             dailyCostsEdit.Name = "dailyCostsEdit";
@@ -349,7 +508,7 @@
             dailyCostsEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             dailyCostsEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             dailyCostsEdit.Properties.MaskSettings.Set("mask", "c");
-            dailyCostsEdit.Size = new Size(183, 28);
+            dailyCostsEdit.Size = new Size(124, 28);
             dailyCostsEdit.TabIndex = 9;
             // 
             // labelControl6
@@ -366,7 +525,7 @@
             // totalPosEdit
             // 
             totalPosEdit.Enabled = false;
-            totalPosEdit.Location = new Point(237, 158);
+            totalPosEdit.Location = new Point(244, 158);
             totalPosEdit.Margin = new Padding(4, 2, 4, 2);
             totalPosEdit.MenuManager = ribbon;
             totalPosEdit.Name = "totalPosEdit";
@@ -376,13 +535,13 @@
             totalPosEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalPosEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalPosEdit.Properties.MaskSettings.Set("mask", "c");
-            totalPosEdit.Size = new Size(183, 28);
+            totalPosEdit.Size = new Size(124, 28);
             totalPosEdit.TabIndex = 6;
             // 
             // totalCashEdit
             // 
             totalCashEdit.Enabled = false;
-            totalCashEdit.Location = new Point(237, 89);
+            totalCashEdit.Location = new Point(244, 89);
             totalCashEdit.Margin = new Padding(4, 2, 4, 2);
             totalCashEdit.MenuManager = ribbon;
             totalCashEdit.Name = "totalCashEdit";
@@ -392,13 +551,13 @@
             totalCashEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalCashEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalCashEdit.Properties.MaskSettings.Set("mask", "c");
-            totalCashEdit.Size = new Size(183, 28);
+            totalCashEdit.Size = new Size(124, 28);
             totalCashEdit.TabIndex = 5;
             // 
             // totalGrossEdit
             // 
             totalGrossEdit.Enabled = false;
-            totalGrossEdit.Location = new Point(237, 21);
+            totalGrossEdit.Location = new Point(244, 21);
             totalGrossEdit.Margin = new Padding(4, 2, 4, 2);
             totalGrossEdit.MenuManager = ribbon;
             totalGrossEdit.Name = "totalGrossEdit";
@@ -408,7 +567,7 @@
             totalGrossEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             totalGrossEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             totalGrossEdit.Properties.MaskSettings.Set("mask", "c");
-            totalGrossEdit.Size = new Size(183, 28);
+            totalGrossEdit.Size = new Size(124, 28);
             totalGrossEdit.TabIndex = 4;
             // 
             // labelControl5
@@ -458,7 +617,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1304, 740);
+            ClientSize = new Size(1304, 951);
             Controls.Add(SummaryPanel);
             Controls.Add(orderSummaryGridControl);
             Controls.Add(panelControl1);
@@ -482,6 +641,10 @@
             ((System.ComponentModel.ISupportInitialize)SummaryPanel).EndInit();
             SummaryPanel.ResumeLayout(false);
             SummaryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsPOS.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PaymentsCostsCash.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShopingCostsPOS.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShoppingCostsCash.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cashNetEdit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)totalNetEdit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dailyCostsEdit.Properties).EndInit();
@@ -527,5 +690,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTotalPOS;
         private DevExpress.XtraGrid.Columns.GridColumn colCustomerFullName;
         private DevExpress.XtraEditors.SimpleButton CalculateDailySumbtn;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.TextEdit PaymentsCostsPOS;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TextEdit PaymentsCostsCash;
+        private DevExpress.XtraEditors.TextEdit ShopingCostsPOS;
+        private DevExpress.XtraEditors.TextEdit ShoppingCostsCash;
     }
 }
