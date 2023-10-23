@@ -78,7 +78,7 @@ namespace BSMS.Winforms.Forms
         {
             await Reload();
         }
-       
+
         private DataTable OrderSummaryToDataTable(IEnumerable<OrderSummary>? orders)
         {
             DataTable dtO = new();
@@ -421,6 +421,6 @@ namespace BSMS.Winforms.Forms
         }
 
         private void grvOrders_SelectionChanged_1(object sender, DevExpress.Data.SelectionChangedEventArgs e) { }
-        
+
     }
 }

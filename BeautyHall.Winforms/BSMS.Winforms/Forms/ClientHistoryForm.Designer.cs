@@ -190,13 +190,13 @@
             // grOrders
             // 
             grOrders.Dock = DockStyle.Fill;
-            grOrders.EmbeddedNavigator.Margin = new Padding(4, 4, 4, 4);
+            grOrders.EmbeddedNavigator.Margin = new Padding(4);
             gridLevelNode1.LevelTemplate = grvProducts;
             gridLevelNode1.RelationName = "Level1";
             grOrders.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode1 });
             grOrders.Location = new Point(2, 2);
             grOrders.MainView = grvOrders;
-            grOrders.Margin = new Padding(4, 4, 4, 4);
+            grOrders.Margin = new Padding(4);
             grOrders.MenuManager = ribbon;
             grOrders.Name = "grOrders";
             grOrders.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemCheckEdit1, repositoryItemCheckEdit2 });
@@ -451,6 +451,8 @@
             barItemSurname.EditWidth = 100;
             barItemSurname.Enabled = false;
             barItemSurname.Id = 10;
+            barItemSurname.ItemAppearance.Disabled.Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            barItemSurname.ItemAppearance.Disabled.Options.UseFont = true;
             barItemSurname.Name = "barItemSurname";
             // 
             // repositoryItemTextEdit3
@@ -692,7 +694,7 @@
             // textEdit1
             // 
             textEdit1.Location = new Point(262, 166);
-            textEdit1.Margin = new Padding(4, 4, 4, 4);
+            textEdit1.Margin = new Padding(4);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
             textEdit1.Properties.Appearance.Options.UseFont = true;

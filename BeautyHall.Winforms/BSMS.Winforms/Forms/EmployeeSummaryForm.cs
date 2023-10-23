@@ -39,17 +39,16 @@ namespace BSMS.Winforms.Forms
             { 9, new Dictionary<int, string> { { 1, "textEdit1" }, { 2, "textEdit2" }, { 3, "textEdit3" }, { 5, "textEdit5" }, { 6, "textEdit6" }, { 7, "textEdit7" }, { 8, "textEdit8" } } },
 
             // Mapping for Employee 10
-            { 10, new Dictionary<int, string> { { 13, "textEdit13" }, { 14, "textEdit14" }, { 15, "textEdit15" }, { 16, "textEdit16" }, { 17, "textEdit17" }, { 18, "textEdit18" }, { 19, "textEdit19" }, { 20, "textEdit20" }, { 21, "textEdit21" }, { 22, "textEdit22" }, { 23, "textEdit23" }, { 24, "textEdit24" }, { 27, "textEdit27" }, { 28, "textEdit28" } } }
+            { 10, new Dictionary<int, string> { { 13, "textEdit13" }, { 14, "textEdit14" }, { 15, "textEdit15" }, { 16, "textEdit19" }, { 17, "textEdit20" }, { 18, "textEdit21" }, { 19, "textEdit17" }, { 20, "textEdit22" }, { 21, "textEdit23" }, { 22, "textEdit28" }, { 23, "textEdit24" }, { 24, "textEdit27" }, { 27, "textEdit16" }, { 28, "textEdit18" } } }
 
             // Add more mappings as needed for other employees
         };
-
-
 
         public EmployeeSummaryForm()
         {
             InitializeComponent();
         }
+
         private async Task LoadAllOrders()
         {
             try
@@ -174,6 +173,7 @@ namespace BSMS.Winforms.Forms
             }
 
         }
+
         private void UpdateTextEditControls(int selectedEmployeeId, System.Data.DataTable dataTable)
         {
             // Initialize the total summary
@@ -273,6 +273,7 @@ namespace BSMS.Winforms.Forms
 
             return totalServiceCount;
         }
+
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();

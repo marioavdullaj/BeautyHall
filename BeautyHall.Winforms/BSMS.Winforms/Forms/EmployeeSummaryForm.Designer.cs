@@ -49,12 +49,13 @@
             panelControl3 = new DevExpress.XtraEditors.PanelControl();
             gcEmployee = new DevExpress.XtraGrid.GridControl();
             gvEmployee = new DevExpress.XtraGrid.Views.Grid.GridView();
+            OrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
             OrderId = new DevExpress.XtraGrid.Columns.GridColumn();
             SubjectLastName = new DevExpress.XtraGrid.Columns.GridColumn();
-            TotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             ServiceId = new DevExpress.XtraGrid.Columns.GridColumn();
             ServiceDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            OrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            EmployeeCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            TotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             panelControl4 = new DevExpress.XtraEditors.PanelControl();
             textEdit10 = new DevExpress.XtraEditors.TextEdit();
             txteEmployeeCode = new DevExpress.XtraEditors.TextEdit();
@@ -141,7 +142,6 @@
             txteName = new DevExpress.XtraEditors.TextEdit();
             labelControl15 = new DevExpress.XtraEditors.LabelControl();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            EmployeeCode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtServiceCount.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateTo.Properties).BeginInit();
@@ -381,6 +381,16 @@
             gvEmployee.Name = "gvEmployee";
             gvEmployee.OptionsView.ShowGroupPanel = false;
             // 
+            // OrderDate
+            // 
+            OrderDate.Caption = "Order Date";
+            OrderDate.FieldName = "OrderDate";
+            OrderDate.MinWidth = 24;
+            OrderDate.Name = "OrderDate";
+            OrderDate.Visible = true;
+            OrderDate.VisibleIndex = 0;
+            OrderDate.Width = 89;
+            // 
             // OrderId
             // 
             OrderId.Caption = "Order Id";
@@ -400,16 +410,6 @@
             SubjectLastName.Visible = true;
             SubjectLastName.VisibleIndex = 2;
             SubjectLastName.Width = 139;
-            // 
-            // TotalPrice
-            // 
-            TotalPrice.Caption = "Services Price";
-            TotalPrice.FieldName = "TotalPrice";
-            TotalPrice.MinWidth = 24;
-            TotalPrice.Name = "TotalPrice";
-            TotalPrice.Visible = true;
-            TotalPrice.VisibleIndex = 6;
-            TotalPrice.Width = 113;
             // 
             // ServiceId
             // 
@@ -431,15 +431,25 @@
             ServiceDescription.VisibleIndex = 5;
             ServiceDescription.Width = 327;
             // 
-            // OrderDate
+            // EmployeeCode
             // 
-            OrderDate.Caption = "Order Date";
-            OrderDate.FieldName = "OrderDate";
-            OrderDate.MinWidth = 24;
-            OrderDate.Name = "OrderDate";
-            OrderDate.Visible = true;
-            OrderDate.VisibleIndex = 0;
-            OrderDate.Width = 89;
+            EmployeeCode.Caption = "EmpCode";
+            EmployeeCode.FieldName = "EmployeeCode";
+            EmployeeCode.MinWidth = 25;
+            EmployeeCode.Name = "EmployeeCode";
+            EmployeeCode.Visible = true;
+            EmployeeCode.VisibleIndex = 4;
+            EmployeeCode.Width = 73;
+            // 
+            // TotalPrice
+            // 
+            TotalPrice.Caption = "Services Price";
+            TotalPrice.FieldName = "TotalPrice";
+            TotalPrice.MinWidth = 24;
+            TotalPrice.Name = "TotalPrice";
+            TotalPrice.Visible = true;
+            TotalPrice.VisibleIndex = 6;
+            TotalPrice.Width = 113;
             // 
             // panelControl4
             // 
@@ -1497,16 +1507,6 @@
             labelControl4.Size = new Size(172, 23);
             labelControl4.TabIndex = 2;
             labelControl4.Text = "Employee Details:";
-            // 
-            // EmployeeCode
-            // 
-            EmployeeCode.Caption = "EmpCode";
-            EmployeeCode.FieldName = "EmployeeCode";
-            EmployeeCode.MinWidth = 25;
-            EmployeeCode.Name = "EmployeeCode";
-            EmployeeCode.Visible = true;
-            EmployeeCode.VisibleIndex = 4;
-            EmployeeCode.Width = 73;
             // 
             // EmployeeSummaryForm
             // 
