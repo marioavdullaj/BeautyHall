@@ -43,6 +43,10 @@
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ClientHeaderPanel = new DevExpress.XtraEditors.PanelControl();
+            label1 = new Label();
+            txtTotalClients = new DevExpress.XtraEditors.TextEdit();
+            labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
             textEdit5 = new DevExpress.XtraEditors.TextEdit();
@@ -57,7 +61,6 @@
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
             dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             customerBindingSource = new BindingSource(components);
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -70,6 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).BeginInit();
             ClientHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTotalClients.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
             panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
@@ -81,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -185,6 +189,10 @@
             // 
             // ClientHeaderPanel
             // 
+            ClientHeaderPanel.Controls.Add(label1);
+            ClientHeaderPanel.Controls.Add(txtTotalClients);
+            ClientHeaderPanel.Controls.Add(labelControl7);
+            ClientHeaderPanel.Controls.Add(lookUpEdit1);
             ClientHeaderPanel.Controls.Add(labelControl5);
             ClientHeaderPanel.Controls.Add(panelControl2);
             ClientHeaderPanel.Controls.Add(panelControl3);
@@ -194,6 +202,51 @@
             ClientHeaderPanel.Name = "ClientHeaderPanel";
             ClientHeaderPanel.Size = new Size(1362, 132);
             ClientHeaderPanel.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(1072, 7);
+            label1.Name = "label1";
+            label1.Size = new Size(92, 16);
+            label1.TabIndex = 17;
+            label1.Text = "Search Client's";
+            // 
+            // txtTotalClients
+            // 
+            txtTotalClients.Enabled = false;
+            txtTotalClients.Location = new Point(1200, 84);
+            txtTotalClients.MenuManager = ribbon;
+            txtTotalClients.Name = "txtTotalClients";
+            txtTotalClients.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            txtTotalClients.Properties.Appearance.Options.UseFont = true;
+            txtTotalClients.Size = new Size(150, 24);
+            txtTotalClients.TabIndex = 16;
+            // 
+            // labelControl7
+            // 
+            labelControl7.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelControl7.Appearance.Options.UseFont = true;
+            labelControl7.Location = new Point(1072, 86);
+            labelControl7.Margin = new Padding(4, 2, 4, 2);
+            labelControl7.Name = "labelControl7";
+            labelControl7.Size = new Size(99, 21);
+            labelControl7.TabIndex = 15;
+            labelControl7.Text = "Total Clients:";
+            // 
+            // lookUpEdit1
+            // 
+            lookUpEdit1.Location = new Point(1072, 26);
+            lookUpEdit1.MenuManager = ribbon;
+            lookUpEdit1.Name = "lookUpEdit1";
+            lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEdit1.Properties.NullText = "";
+            lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lookUpEdit1.Size = new Size(278, 24);
+            lookUpEdit1.TabIndex = 4;
+            lookUpEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
             // 
             // labelControl5
             // 
@@ -219,7 +272,7 @@
             panelControl2.Location = new Point(310, 2);
             panelControl2.Margin = new Padding(4, 2, 4, 2);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(1046, 126);
+            panelControl2.Size = new Size(738, 126);
             panelControl2.TabIndex = 12;
             // 
             // textEdit5
@@ -359,20 +412,6 @@
             labelControl6.TabIndex = 10;
             labelControl6.Text = "ΗΜ/ΝΙΑ:";
             // 
-            // lookUpEdit1
-            // 
-            lookUpEdit1.Location = new Point(492, 129);
-            lookUpEdit1.MenuManager = ribbon;
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Appearance.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit1.Properties.NullText = "";
-            lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            lookUpEdit1.Size = new Size(278, 24);
-            lookUpEdit1.TabIndex = 4;
-            lookUpEdit1.EditValueChanged += lookUpEdit1_EditValueChanged;
-            // 
             // customerBindingSource
             // 
             customerBindingSource.DataSource = typeof(Models.Customer);
@@ -458,7 +497,6 @@
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1362, 796);
-            Controls.Add(lookUpEdit1);
             Controls.Add(gridControl1);
             Controls.Add(ClientHeaderPanel);
             Controls.Add(ribbonStatusBar);
@@ -473,6 +511,8 @@
             ((System.ComponentModel.ISupportInitialize)ClientHeaderPanel).EndInit();
             ClientHeaderPanel.ResumeLayout(false);
             ClientHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTotalClients.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
             panelControl2.ResumeLayout(false);
             panelControl2.PerformLayout();
@@ -486,7 +526,6 @@
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
@@ -534,5 +573,8 @@
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private BindingSource productsBindingSource;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.TextEdit txtTotalClients;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private Label label1;
     }
 }

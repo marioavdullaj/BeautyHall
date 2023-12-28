@@ -139,6 +139,7 @@ namespace BSMS.Winforms.Forms
         {
             AddedServicesFlowLayout.Controls.Clear();
             AddedProductsFlowLayout.Controls.Clear();
+            
             ServicesFlowPanel.Controls.Clear();
             servicesInOrderLabel.Text = "Σύνολο: 0 €";
             labelControl9.Text = "Σύνολο: 0 €";

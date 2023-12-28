@@ -28,7 +28,7 @@ namespace BSMS.Winforms.Forms
 
         private async void StockProduct_Load(object sender, EventArgs e)
         {
-            //await LoadStocks();
+            await LoadStocks();
             await LoadProducts();
         }
 
@@ -129,19 +129,42 @@ namespace BSMS.Winforms.Forms
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
+            // Safeguard: Check if 'EditValue' is not null before casting
+            if (lookUpEdit1.EditValue == null) return;
+
             selectedProductId = (int)lookUpEdit1.EditValue;
-            if (products != null)
+
+            // Safeguard: Make sure 'products' is not null before trying to access it
+            if (products == null)
             {
-                // Assuming grOrders is the name of your GridView control
-                gridControl1.DataSource = products;
-                var selectedProduct = products?.FirstOrDefault(x => x.ProductId == selectedProductId);
-                if (selectedProduct != null)
-                {
-                    Text = $"{selectedProduct.ProductDescription} {selectedProduct.ProductDescription} |";
-                    textEdit1.EditValue = selectedProduct.ProductId.ToString();
-                    textEdit3.EditValue = selectedProduct.ProductCode;
-                    txtStock.EditValue = selectedProduct.Stock.Quantity.ToString();
-                }
+                MessageBox.Show("No products loaded.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // You can also choose to handle this in a different way.
+            }
+
+            var selectedProduct = products.FirstOrDefault(x => x.ProductId == selectedProductId);
+
+            // Safeguard: Make sure 'selectedProduct' is not null before trying to access its properties
+            if (selectedProduct == null)
+            {
+                MessageBox.Show("Selected product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // You can also choose to handle this in a different way.
+            }
+
+            // Update UI with the details of the selected product
+            Text = $"{selectedProduct.ProductDescription} {selectedProduct.ProductDescription} |";
+            textEdit1.EditValue = selectedProduct.ProductId.ToString();
+            textEdit3.EditValue = selectedProduct.ProductCode;
+
+            // Safeguard: Check if 'Stock' is not null before accessing 'Quantity'
+            if (selectedProduct.Stock != null)
+            {
+                txtStock.EditValue = selectedProduct.Stock.Quantity.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Stock information for the selected product is missing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Optionally clear or set default value if the stock information is not available
+                txtStock.EditValue = "N/A"; // or whatever default you see fit
             }
         }
         private int GetSelectedProductId()
@@ -184,9 +207,6 @@ namespace BSMS.Winforms.Forms
             txtStock.EditValue = null;
             // Clear any other controls as needed
         }
-
-        // Implement method to load the updated list of products
-
 
     }
 }

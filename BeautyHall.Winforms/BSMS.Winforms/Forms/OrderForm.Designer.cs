@@ -520,6 +520,7 @@
             // 
             // xtraTabControl1
             // 
+            xtraTabControl1.Appearance.Options.UseFont = true;
             xtraTabControl1.Dock = DockStyle.Fill;
             xtraTabControl1.Location = new Point(2, 57);
             xtraTabControl1.Name = "xtraTabControl1";

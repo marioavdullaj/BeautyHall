@@ -22,12 +22,14 @@ namespace BSMS.Winforms.Forms
 
         private void EnableClientButtons(bool enable)
         {
-            ClientHeaderPanel.Enabled = enable;
+            ClientHeaderPanel.Enabled = true;
             SaveClientButton.Enabled = enable;
             CancelClientButton.Enabled = enable;
             EditClientButton.Enabled = enable;
             barButtonItem2.Enabled = enable;
-            
+            panelControl2.Enabled = enable;
+            panelControl3.Enabled = enable;
+
         }
         private async void InsertClient_Load(object sender, EventArgs e)
         {
@@ -62,14 +64,20 @@ namespace BSMS.Winforms.Forms
                     lookUpEdit1.Properties.DisplayMember = "Surname";
                     lookUpEdit1.Properties.ValueMember = "Id";
                     gridControl1.DataSource = clients;
-                }
 
+                    UpdateTotalCustomersDisplay(clients.Count());
+                }
 
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
             }
+        }
+
+        private void UpdateTotalCustomersDisplay(int total)
+        {
+            txtTotalClients.Text = total.ToString();
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -133,6 +141,9 @@ namespace BSMS.Winforms.Forms
             textEdit4.Text = "";
             textEdit5.Text = "";
             dateEdit1.DateTime = DateTime.Now;
+            
+            lookUpEdit1.Enabled = false;
+            
         }
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -163,15 +174,28 @@ namespace BSMS.Winforms.Forms
         private async void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            var selected = gridView1.GetSelectedRows();
-            if (selected != null && selected.Any())
+            var selectedRows = gridView1.GetSelectedRows();
+            if (selectedRows != null && selectedRows.Any())
             {
-                var selectedCustomer = subjects?.ElementAt(selected[0]);
-                if (await DeleteSubject(selectedCustomer))
+                // Assuming the first selected row's data is what you want to delete
+                var selectedCustomer = gridView1.GetRow(selectedRows[0]) as Customer;
+
+                if (selectedCustomer != null)
                 {
-                    Clear();
-                    EnableClientButtons(false);
-                    await LoadSubjects();
+                    var subjectToDelete = subjects?.FirstOrDefault(x => x.SubjectId == selectedCustomer.Id);
+                    if (subjectToDelete != null)
+                    {
+                        if (await DeleteSubject(subjectToDelete))
+                        {
+                            Clear();
+                            EnableClientButtons(false);
+                            await LoadSubjects();
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Error: Selected customer not found in subjects list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -180,28 +204,31 @@ namespace BSMS.Winforms.Forms
         {
             try
             {
-                if (subject != null)
+                if (subject == null)
                 {
-                    if (await Program.ApiSdk.DeleteSubject(subject.SubjectId))
-                    {
-                        XtraMessageBox.Show("Customer removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return true;
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("Error during cancellation.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    XtraMessageBox.Show("No customer selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                bool deletionResult = await Program.ApiSdk.DeleteSubject(subject.SubjectId);
+                if (deletionResult)
+                {
+                    XtraMessageBox.Show("Customer removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
                 }
                 else
                 {
-                    XtraMessageBox.Show("No customer selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Log additional details here if available
+                    XtraMessageBox.Show("Error during cancellation. The customer could not be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Provide more specific error messages based on the exception if possible
+                XtraMessageBox.Show($"An error occurred during deletion: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            return false;
         }
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e) => this.Close();

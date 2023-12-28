@@ -34,7 +34,7 @@
             barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            btnDeleteStockProduct = new DevExpress.XtraBars.BarButtonItem();
             barExitbtn = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -84,7 +84,7 @@
             // ribbon
             // 
             ribbon.ExpandCollapseItem.Id = 0;
-            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, barButtonItem3, barButtonItem4, barExitbtn });
+            ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, barButtonItem1, barButtonItem2, barButtonItem3, btnDeleteStockProduct, barExitbtn });
             ribbon.Location = new Point(0, 0);
             ribbon.MaxItemId = 6;
             ribbon.Name = "ribbon";
@@ -114,12 +114,13 @@
             barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
             barButtonItem3.Name = "barButtonItem3";
             // 
-            // barButtonItem4
+            // btnDeleteStockProduct
             // 
-            barButtonItem4.Caption = "Διαγραφή ";
-            barButtonItem4.Id = 4;
-            barButtonItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem4.ImageOptions.SvgImage");
-            barButtonItem4.Name = "barButtonItem4";
+            btnDeleteStockProduct.Caption = "Διαγραφή ";
+            btnDeleteStockProduct.Id = 4;
+            btnDeleteStockProduct.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
+            btnDeleteStockProduct.Name = "btnDeleteStockProduct";
+            
             // 
             // barExitbtn
             // 
@@ -140,7 +141,7 @@
             ribbonPageGroup1.ItemLinks.Add(barButtonItem1);
             ribbonPageGroup1.ItemLinks.Add(barButtonItem2);
             ribbonPageGroup1.ItemLinks.Add(barButtonItem3);
-            ribbonPageGroup1.ItemLinks.Add(barButtonItem4);
+            ribbonPageGroup1.ItemLinks.Add(btnDeleteStockProduct);
             ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // ribbonPageGroup2
@@ -392,7 +393,7 @@
             colStockRegistrationDate.VisibleIndex = 4;
             colStockRegistrationDate.Width = 94;
             // 
-            // StockProduct
+            // StockProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -402,7 +403,7 @@
             Controls.Add(panelControl1);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
-            Name = "StockProduct";
+            Name = "StockProductForm";
             Ribbon = ribbon;
             StatusBar = ribbonStatusBar;
             Text = "StockProduct";
@@ -438,7 +439,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnDeleteStockProduct;
         private DevExpress.XtraBars.BarButtonItem barExitbtn;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraEditors.PanelControl panelControl1;

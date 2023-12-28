@@ -635,6 +635,9 @@
             comboBoxEdit1.Location = new Point(408, 38);
             comboBoxEdit1.MenuManager = ribbon;
             comboBoxEdit1.Name = "comboBoxEdit1";
+            // 
+            // comboBoxEdit1
+            // 
             comboBoxEdit1.Properties.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
             comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });

@@ -392,6 +392,12 @@
             dateFrom.Edit = repositoryItemDateEdit1;
             dateFrom.EditWidth = 100;
             dateFrom.Id = 4;
+            dateFrom.ItemAppearance.Disabled.BackColor = Color.Black;
+            dateFrom.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dateFrom.ItemAppearance.Disabled.ForeColor = Color.Black;
+            dateFrom.ItemAppearance.Disabled.Options.UseBackColor = true;
+            dateFrom.ItemAppearance.Disabled.Options.UseFont = true;
+            dateFrom.ItemAppearance.Disabled.Options.UseForeColor = true;
             dateFrom.Name = "dateFrom";
             // 
             // repositoryItemDateEdit1
@@ -407,6 +413,12 @@
             dateTo.Edit = repositoryItemDateEdit2;
             dateTo.EditWidth = 100;
             dateTo.Id = 5;
+            dateTo.ItemAppearance.Disabled.BackColor = Color.Black;
+            dateTo.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dateTo.ItemAppearance.Disabled.ForeColor = Color.Black;
+            dateTo.ItemAppearance.Disabled.Options.UseBackColor = true;
+            dateTo.ItemAppearance.Disabled.Options.UseFont = true;
+            dateTo.ItemAppearance.Disabled.Options.UseForeColor = true;
             dateTo.Name = "dateTo";
             // 
             // repositoryItemDateEdit2
@@ -418,11 +430,17 @@
             // 
             // barItemName
             // 
-            barItemName.Caption = "Όνομα:   ";
+            barItemName.Caption = "Όνομα:    ";
             barItemName.Edit = repositoryItemTextEdit1;
             barItemName.EditWidth = 100;
             barItemName.Enabled = false;
             barItemName.Id = 8;
+            barItemName.ItemAppearance.Disabled.BackColor = Color.Black;
+            barItemName.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            barItemName.ItemAppearance.Disabled.ForeColor = Color.Black;
+            barItemName.ItemAppearance.Disabled.Options.UseBackColor = true;
+            barItemName.ItemAppearance.Disabled.Options.UseFont = true;
+            barItemName.ItemAppearance.Disabled.Options.UseForeColor = true;
             barItemName.Name = "barItemName";
             // 
             // repositoryItemTextEdit1
@@ -432,11 +450,17 @@
             // 
             // baritemPhone
             // 
-            baritemPhone.Caption = "Τηλ.:  ";
+            baritemPhone.Caption = "Τηλ.:   ";
             baritemPhone.Edit = repositoryItemTextEdit2;
             baritemPhone.EditWidth = 100;
             baritemPhone.Enabled = false;
             baritemPhone.Id = 9;
+            baritemPhone.ItemAppearance.Disabled.BackColor = Color.Black;
+            baritemPhone.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            baritemPhone.ItemAppearance.Disabled.ForeColor = Color.Black;
+            baritemPhone.ItemAppearance.Disabled.Options.UseBackColor = true;
+            baritemPhone.ItemAppearance.Disabled.Options.UseFont = true;
+            baritemPhone.ItemAppearance.Disabled.Options.UseForeColor = true;
             baritemPhone.Name = "baritemPhone";
             // 
             // repositoryItemTextEdit2
@@ -451,8 +475,18 @@
             barItemSurname.EditWidth = 100;
             barItemSurname.Enabled = false;
             barItemSurname.Id = 10;
-            barItemSurname.ItemAppearance.Disabled.Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            barItemSurname.ItemAppearance.Disabled.BackColor = Color.Black;
+            barItemSurname.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            barItemSurname.ItemAppearance.Disabled.ForeColor = Color.Black;
+            barItemSurname.ItemAppearance.Disabled.Options.UseBackColor = true;
             barItemSurname.ItemAppearance.Disabled.Options.UseFont = true;
+            barItemSurname.ItemAppearance.Disabled.Options.UseForeColor = true;
+            barItemSurname.ItemAppearance.Hovered.BackColor = Color.Black;
+            barItemSurname.ItemAppearance.Hovered.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            barItemSurname.ItemAppearance.Hovered.ForeColor = Color.Black;
+            barItemSurname.ItemAppearance.Hovered.Options.UseBackColor = true;
+            barItemSurname.ItemAppearance.Hovered.Options.UseFont = true;
+            barItemSurname.ItemAppearance.Hovered.Options.UseForeColor = true;
             barItemSurname.Name = "barItemSurname";
             // 
             // repositoryItemTextEdit3
@@ -467,6 +501,12 @@
             baritemEmail.EditWidth = 100;
             baritemEmail.Enabled = false;
             baritemEmail.Id = 11;
+            baritemEmail.ItemAppearance.Disabled.BackColor = Color.Black;
+            baritemEmail.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            baritemEmail.ItemAppearance.Disabled.ForeColor = Color.Black;
+            baritemEmail.ItemAppearance.Disabled.Options.UseBackColor = true;
+            baritemEmail.ItemAppearance.Disabled.Options.UseFont = true;
+            baritemEmail.ItemAppearance.Disabled.Options.UseForeColor = true;
             baritemEmail.Name = "baritemEmail";
             // 
             // repositoryItemTextEdit4
@@ -481,6 +521,12 @@
             baritemRegisterDate.EditWidth = 90;
             baritemRegisterDate.Enabled = false;
             baritemRegisterDate.Id = 12;
+            baritemRegisterDate.ItemAppearance.Disabled.BackColor = Color.Black;
+            baritemRegisterDate.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            baritemRegisterDate.ItemAppearance.Disabled.ForeColor = Color.Black;
+            baritemRegisterDate.ItemAppearance.Disabled.Options.UseBackColor = true;
+            baritemRegisterDate.ItemAppearance.Disabled.Options.UseFont = true;
+            baritemRegisterDate.ItemAppearance.Disabled.Options.UseForeColor = true;
             baritemRegisterDate.Name = "baritemRegisterDate";
             // 
             // repositoryItemTextEdit5
@@ -490,11 +536,17 @@
             // 
             // baritemId
             // 
-            baritemId.Caption = "ClientId:             ";
+            baritemId.Caption = "ClientId:                 ";
             baritemId.Edit = repositoryItemTextEdit6;
             baritemId.EditWidth = 90;
             baritemId.Enabled = false;
             baritemId.Id = 13;
+            baritemId.ItemAppearance.Disabled.BackColor = Color.Black;
+            baritemId.ItemAppearance.Disabled.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            baritemId.ItemAppearance.Disabled.ForeColor = Color.Black;
+            baritemId.ItemAppearance.Disabled.Options.UseBackColor = true;
+            baritemId.ItemAppearance.Disabled.Options.UseFont = true;
+            baritemId.ItemAppearance.Disabled.Options.UseForeColor = true;
             baritemId.Name = "baritemId";
             // 
             // repositoryItemTextEdit6

@@ -24,6 +24,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\BeautyHall.Api\BeautyHall.Api.SDK\BeautyHall.Api.SDK.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Compile Update="Assets\Reports\Order.cs">
 		  <DependentUpon>Order.repx</DependentUpon>
 		</Compile>

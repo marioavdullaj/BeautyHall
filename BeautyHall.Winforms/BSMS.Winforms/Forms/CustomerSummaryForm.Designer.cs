@@ -375,7 +375,7 @@
             // 
             // lueCustomer
             // 
-            lueCustomer.Location = new Point(416, 97);
+            lueCustomer.Location = new Point(466, 97);
             lueCustomer.Margin = new Padding(4);
             lueCustomer.MenuManager = ribbon;
             lueCustomer.Name = "lueCustomer";
@@ -393,9 +393,11 @@
             // 
             // labelControl17
             // 
+            labelControl17.Appearance.BackColor = Color.Gainsboro;
             labelControl17.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            labelControl17.Appearance.Options.UseBackColor = true;
             labelControl17.Appearance.Options.UseFont = true;
-            labelControl17.Location = new Point(254, 100);
+            labelControl17.Location = new Point(304, 100);
             labelControl17.Margin = new Padding(4);
             labelControl17.Name = "labelControl17";
             labelControl17.Size = new Size(154, 22);
@@ -418,7 +420,9 @@
             // 
             // labelControl2
             // 
+            labelControl2.Appearance.BackColor = Color.Gainsboro;
             labelControl2.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            labelControl2.Appearance.Options.UseBackColor = true;
             labelControl2.Appearance.Options.UseFont = true;
             labelControl2.Location = new Point(890, 150);
             labelControl2.Margin = new Padding(4);
@@ -443,8 +447,11 @@
             // 
             // labelControl1
             // 
+            labelControl1.Appearance.BackColor = Color.Gainsboro;
             labelControl1.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            labelControl1.Appearance.Options.UseBackColor = true;
             labelControl1.Appearance.Options.UseFont = true;
+            labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             labelControl1.Location = new Point(890, 100);
             labelControl1.Margin = new Padding(4);
             labelControl1.Name = "labelControl1";
@@ -671,9 +678,9 @@
             txteSurname.Margin = new Padding(4);
             txteSurname.MenuManager = ribbon;
             txteSurname.Name = "txteSurname";
-            txteSurname.Properties.Appearance.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txteSurname.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             txteSurname.Properties.Appearance.Options.UseFont = true;
-            txteSurname.Size = new Size(186, 30);
+            txteSurname.Size = new Size(217, 28);
             txteSurname.TabIndex = 8;
             // 
             // txteName
@@ -683,9 +690,9 @@
             txteName.Margin = new Padding(4);
             txteName.MenuManager = ribbon;
             txteName.Name = "txteName";
-            txteName.Properties.Appearance.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txteName.Properties.Appearance.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             txteName.Properties.Appearance.Options.UseFont = true;
-            txteName.Size = new Size(186, 30);
+            txteName.Size = new Size(186, 28);
             txteName.TabIndex = 7;
             // 
             // txtTotalSummary
@@ -770,9 +777,11 @@
             // 
             // labelControl21
             // 
+            labelControl21.Appearance.BackColor = Color.Gainsboro;
             labelControl21.Appearance.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            labelControl21.Appearance.Options.UseBackColor = true;
             labelControl21.Appearance.Options.UseFont = true;
-            labelControl21.Location = new Point(254, 152);
+            labelControl21.Location = new Point(304, 152);
             labelControl21.Margin = new Padding(4);
             labelControl21.Name = "labelControl21";
             labelControl21.Size = new Size(127, 22);
@@ -782,7 +791,7 @@
             // textEdit1
             // 
             textEdit1.Enabled = false;
-            textEdit1.Location = new Point(416, 150);
+            textEdit1.Location = new Point(466, 150);
             textEdit1.Margin = new Padding(4);
             textEdit1.MenuManager = ribbon;
             textEdit1.Name = "textEdit1";
