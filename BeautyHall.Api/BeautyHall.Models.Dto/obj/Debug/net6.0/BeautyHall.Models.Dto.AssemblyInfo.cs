@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeautyHall.Models.Dto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f065ccd6a3adb0e78e7e300463cbe18c0956475e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53bdd04cacb11f7490130375ad8dab1c9b4ffdb8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeautyHall.Models.Dto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeautyHall.Models.Dto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
